@@ -1,2 +1,2 @@
 SUBDIRS = src
-dist_doc_DATA = Readme.md
+dist_doc_DATA = README.md
