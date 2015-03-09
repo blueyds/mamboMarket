@@ -1,2 +1,2 @@
 bin_PROGRAMS = mambo
-mambo_SOURCES = stock.cpp csv.cpp 
+mambo_SOURCES = stock.cpp csv.cpp quotes.cpp stocks.cpp
