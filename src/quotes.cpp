@@ -86,6 +86,16 @@ void loadASIO()
     // Write the remaining data to output.
     std::cout << s.rdbuf();
   }
+  
+	std::ifstream fileStream ("File.txt"); 
+	short numbers[3];
+	char delim;
+
+fileStream >> numbers[0];
+for (int i = 1; i < 3; ++i){
+    fileStream >> delim;
+    fileStream >> numbers[i];
+}
 	
 }
 
