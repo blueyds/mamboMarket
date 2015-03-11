@@ -16,12 +16,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
-#include <boost/serialization/map.hpp>
+
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/string.hpp>
 #include <boost/serialization/version.hpp>
-#include <boost/date_time/gregorian/greg_serialize.hpp>
 #include <vector>
 #include <string>
 #include <map>
@@ -30,7 +29,6 @@
 
 class stock {
 private:
-	friend class boost::serialization::access;
 
 	
 	std::string file_name;
@@ -59,22 +57,6 @@ private:
 
 	
 
-	template<class Archive>
-    void serialize(Archive & ar, const unsigned int version)
-    {
-        ar & file_name;
-        ar & stock_name;
-        ar & long_name;
-		ar & description;
-	//	ar & current_day;
-	//	ar & oldest_day;
-		ar & prices;
-//		ar & dopen;
-//		ar & dclose;
-//		ar & dhigh;
-//		ar & dlow;
-//		ar & dvolume;
-    }
 
 
 public:
@@ -101,7 +83,7 @@ void loadASIO()
 {
 	boost::asio::ip::tcp::iostream s;
 	std::string host;
-	host << "www.google.com";
+	host << "ichart.yahoo.com";
 	std::string path;
 	path << "/";
 
