@@ -18,81 +18,28 @@
 #pragma once
 
 #include <boost/date_time/gregorian/gregorian.hpp>
-#include <boost/serialization/vector.hpp>
-#include <boost/serialization/string.hpp>
-#include <boost/serialization/version.hpp>
+
 #include <vector>
 #include <string>
 #include <map>
-#include "StockDetail.h"
-
-
-class stock {
-private:
-
-	
-	std::string file_name;
-	std::string stock_name;
-	std::string long_name;
-	std::string description;
-	//boost::gregorian::date current_day; //most recent day information was updated for
-	//boost::gregorian::date oldest_day; //oldest day information was updated for
-	typedef std::map<boost::gregorian::date,StockDetail> price_list;
-	typedef price_list::iterator price_iter;
-	typedef std::pair<boost::gregorian::date,StockDetail> price_pair;
-	price_list prices;
-	//index will work as such
-	// dopen[0] is most recent closed period day or week
-	//dopen[1] is current - 1 days
-//	std::vector<double> dopen; 
-//	std::vector<double> dclose;
-//	std::vector<double> dhigh;
-//	std::vector<double> dlow;
-//	std::vector<double> dvolume;
-	std::vector<double> opens;
-	std::vector<double> closes;
-	std::vector<double> highs;
-	std::vector<double> lows;
-	std::vector<double> volumes;
-
-	
-
-
-
-public:
-	stock(std::string sname);
-	stock(std::string sname,std::string name,std::string descr);
-	int GetStockIndex(boost::gregorian::date d1, StockDetail &st);
-	std::string getfilename(void);
-	void update(boost::gregorian::date day, 
-				double open, 
-				double close, 
-				double high,
-				double low,
-				double volume);
-	
-	void verify();
-
-};
-#include <fstream>
 #include <iostream>
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include "ta_libc.h"
 #include "stock.h"
-void loadASIO()
+void stock::loadASIO()
 {
-	boost::asio::ip::tcp::iostream s;
-	std::string host;
-	host << "ichart.yahoo.com";
-	std::string path;
-	path << "/";
+    boost::asio::ip::tcp::iostream s;
+    std::string host;
+    host << "ichart.yahoo.com";
+    std::string path;
+    path << "/table.csv?s=;" + stock_name;
 
-    // The entire sequence of I/O operations must complete within 60 seconds.
-    // If an expiry occurs, the socket is automatically closed and the stream
-    // becomes bad.
+    // The entire sequence of I/O operations must complete within 60 seconds.                                                                                                     
+    // If an expiry occurs, the socket is automatically closed and the stream                                                                                                     
+    // becomes bad.                                                                                                                                                               
     s.expires_from_now(boost::posix_time::seconds(60));
 
-    // Establish a connection to the server.
+    // Establish a connection to the server.                                                                                                                                      
     s.connect(host "http");
     if (!s)
     {
@@ -100,19 +47,20 @@ void loadASIO()
       return 1;
     }
 
-    // Send the request. We specify the "Connection: close" header so that the
-    // server will close the socket after transmitting the response. This will
-    // allow us to treat all data up until the EOF as the content.
+    // Send the request. We specify the "Connection: close" header so that the                                                                                                    
+    // server will close the socket after transmitting the response. This will                                                                                                    
+    // allow us to treat all data up until the EOF as the content.                                                                                                                
     s << "GET " << path << " HTTP/1.0\r\n";
     s << "Host: " << host << "\r\n";
-    s << "Accept: */*\r\n";
+
+	    s << "Accept: */*\r\n";
     s << "Connection: close\r\n\r\n";
 
-    // By default, the stream is tied with itself. This means that the stream
-    // automatically flush the buffered output before attempting a read. It is
-    // not necessary not explicitly flush the stream at this point.
+    // By default, the stream is tied with itself. This means that the stream                                                                                                     
+    // automatically flush the buffered output before attempting a read. It is                                                                                                    
+    // not necessary not explicitly flush the stream at this point.                                                                                                               
 
-    // Check that response is OK.
+    // Check that response is OK.                                                                                                                                                 
     std::string http_version;
     s >> http_version;
     unsigned int status_code;
@@ -130,40 +78,38 @@ void loadASIO()
       return 1;
     }
 
-    // Process the response headers, which are terminated by a blank line.
+    // Process the response headers, which are terminated by a blank line.                                                                                                        
     std::string header;
     while (std::getline(s, header) && header != "\r")
       std::cout << header << "\n";
     std::cout << "\n";
 
-    // Write the remaining data to output.
-    std::cout << s.rdbuf();
-  }
-  
-	std::ifstream fileStream ("File.txt"); 
-	short numbers[3];
-	char delim;
-
-fileStream >> numbers[0];
-for (int i = 1; i < 3; ++i){
-    fileStream >> delim;
-    fileStream >> numbers[i];
-}
+    // Write the remaining data to output.                                                                                                                                        
+    char delim;
+    while (!s.eof())
+    {
+        char delim;
+        StockDetail sd;
+        boost::gregorian::date d;
+        d << s;
+        delim << s;
+        sd.open << s;
+        delim << s;
+        sd.high << s;
+        delim << s;
+        sd.low << s;
+        delim << s;
+        sd.close << s;
+        delim << s;
+        sd.volume << s;
+		delim << s;
+		sd.adj << s;
+		update(d,sd);
+	}
+};
  
 
-stock::stock(std::string sname)
-{
-	using namespace std;
-	using namespace boost::gregorian;
-	string fname( "stocks\\" );
-	fname.append(sname);
-//	date d1(not_a_date_time);
-//	current_day=d1;
-//	oldest_day=d1;
 
-		file_name=fname;
-	
-};
 stock::stock(std::string sname,std::string name,std::string descr)
 {
 	using namespace std;
@@ -174,6 +120,7 @@ stock::stock(std::string sname,std::string name,std::string descr)
 	file_name=fname;
 	long_name=name;
 	description =descr;
+	loadASIO();
 //	date d1(not_a_date_time);
 //	current_day=d1;
 //	oldest_day=d1;
@@ -184,32 +131,9 @@ std::string stock::getfilename()
 	return file_name;
 };
 
-void stock::update(boost::gregorian::date day,
-					double open,
-					double close,
-					double high,
-					double low,
-					double volume)
+void stock::update(boost::gregorian::date day, StockDetail sd)
 {
-	using namespace std;
-	using namespace boost::gregorian;
-		StockDetail sd;
-		sd.close=close;
-		sd.open=open;
-		sd.high=high;
-		sd.low=low;
-		sd.volume=volume;
-		prices.insert(price_pair(day,sd));
-	
-/*	if (current_day.is_not_a_date()) 
-		current_day=day;
-	if (oldest_day.is_not_a_date()) 
-		oldest_day=day;
-
-	if (day > current_day) 
-		current_day = day;
-	if (day < oldest_day) 
-		oldest_day =day;*/
+	std::prices.insert(price_pair(day,sd));
 };
 
 
