@@ -19,7 +19,13 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <string>
 #include <map>
-#include "stock_detail.h"
+
+
+class stockDetail{
+public:
+    double open, close, high, low, volume;
+
+}
 
 class stock {
 private:
@@ -38,7 +44,7 @@ public:
 	stock(std::string sname,std::string name,std::string descr);
 	int GetStockIndex(boost::gregorian::date d1, StockDetail &st);
 	std::string getfilename(void);
-	void update (StockDetail &st);
+	void update (boost::gregorian::date day, StockDetail st);
 	void update(boost::gregorian::date day, 
 				double open, 
 				double close, 
