@@ -24,7 +24,7 @@
 #include <map>
 #include <iostream>
 #include <boost/date_time/gregorian/gregorian.hpp>
-#include "ta_libc.h"
+
 #include "stock.h"
 void stock::loadASIO()
 {
