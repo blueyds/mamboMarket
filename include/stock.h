@@ -23,8 +23,7 @@
 
 class stockDetail{
 public:
-    double open, close, high, low, volume;
-
+    double open, close, high, low, volume,adj;
 }
 
 class stock {
