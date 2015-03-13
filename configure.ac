@@ -13,7 +13,9 @@ AC_PROG_CXX
 AC_PROG_CC
 
 # Checks for libraries.
-AX_BOOST_BASE([1.34.1])
+AX_BOOST_BASE([1.34.1],
+  [AC_MSG_ERROR([Boost is installed])],
+  [AC_MSG_ERROR([sorry, Boost is not installed])])
 AX_BOOST_ASIO
 
 # Checks for header files.
