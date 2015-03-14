@@ -7,6 +7,10 @@ int main (int argc, char *argv[])
 		std::cout << "USage : "<< argv[0] << " <file_name>";
 	else
 	{
-		stock s (argv[1]);
+		std::cout << "Preparing to pull from internet still in main.cpp\n";
+		std::cout << argv[1]<<"\n";
+		std::cout << "calling the stock class now\n";
+	   	stock s (argv[1]);
+		
 	}
 }

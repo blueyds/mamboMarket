@@ -23,6 +23,7 @@
 #include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
 #include <boost/asio.hpp>
 #include "stock.h"
+
 int stock::loadASIO()
 {
     boost::asio::ip::tcp::iostream s;
@@ -32,8 +33,8 @@ int stock::loadASIO()
 	boost::asio::io_service io_service;
 
   	
-    // The entire sequence of I/O operations must complete within 60 seconds.                                                                                                     
-    // If an expiry occurs, the socket is automatically closed and the stream                                                                                                     
+    // The entire sequence of I/O operations must complete within 60 seconds.                                                                                                    
+    // If an expiry occurs, the socket is automatically closed and the stream                                                                                                    
     // becomes bad.                                                                                                                                                               
     s.expires_from_now(boost::posix_time::seconds(60));
 
@@ -44,7 +45,7 @@ int stock::loadASIO()
       std::cout << "Unable to connect: " << s.error().message() << "\n";
       return 1;
     }
-
+	std::cout << "THE stock class connected and it is now preparing to send a request" << "\n";
     // Send the request. We specify the "Connection: close" header so that the                                                                                                   
     // server will close the socket after transmitting the response. This will                                                                                                   
     // allow us to treat all data up until the EOF as the content.                                                                                                               
@@ -53,6 +54,7 @@ int stock::loadASIO()
 	s << "Accept: */*\r\n";
     s << "Connection: close\r\n\r\n";
 
+	std::cout << "The stock class sent a request" << "\n";
     // By default, the stream is tied with itself. This means that the stream                                                                                                    
     // automatically flush the buffered output before attempting a read. It is                                                                                                   
     // not necessary not explicitly flush the stream at this point.                                                                                                              
@@ -80,21 +82,18 @@ int stock::loadASIO()
     while (std::getline(s, header) && header != "\r")
       std::cout << header << "\n";
     std::cout << "\n";
+	std::cout<<"The above was the header output\n";
+    // Write the remaining data to output.
 
-    // Write the remaining data to output.                                                                                                                                        
-    char delim;
     while (!s.eof())
     {
-        char delim;
-        StockDetail sd;
-        boost::gregorian::date d;
-		s >> d;
-		s >> delim;
-		s >> sd.open;
-		s >> delim;
-		s >> sd.high;
-		update(d,sd);
-	}
+		std::string datum;
+		std::getline(s,datum,',');
+			std::cout << datum << "\n";
+	};
+   
+//	std::cout << s.rdbuf();
+//	std::cout << "\n";
 };
  
 stock::stock(std::string sname){
