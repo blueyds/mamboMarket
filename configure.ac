@@ -17,6 +17,7 @@ AC_PROG_CC
 AX_BOOST_BASE([1.34.1])
 AX_BOOST_SYSTEM
 AX_BOOST_ASIO
+AX_PTHREAD
 
 # Checks for header files.
 AC_CHECK_HEADER([stdio.h],
