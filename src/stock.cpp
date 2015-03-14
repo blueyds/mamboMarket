@@ -97,7 +97,10 @@ int stock::loadASIO()
 	}
 };
  
-
+stock::stock(std::string sname){
+	stock_name = sname;
+	loadASIO();
+}
 
 stock::stock(std::string sname,std::string name,std::string descr)
 {
