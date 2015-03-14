@@ -15,6 +15,7 @@ AC_PROG_CC
 
 # Checks for libraries.
 AX_BOOST_BASE([1.34.1])
+AX_BOOST_SYSTEM
 #AX_BOOST_ASIO
 
 # Checks for header files.
