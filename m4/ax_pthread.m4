@@ -328,5 +328,5 @@ else
         ax_pthread_ok=no
         $2
 fi
-AC_LANG_POP([])
-dnl AX_PTHREAD
+AC_LANG_POP
+])dnl AX_PTHREAD
