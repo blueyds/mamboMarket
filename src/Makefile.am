@@ -1,5 +1,5 @@
 bin_PROGRAMS = mambo
 mambo_SOURCES = stock.cpp main.cpp
-mambo_LDADD = $(BOOST_DATE_TIME_LIB) lboost_system 
+mambo_LDADD = $(BOOST_DATE_TIME_LIB) $(BOOST_SYTEM_LIB) 
 AM_CXXFLAGS = $(BOOST_CPPFLAGS)
 AM_LDFLAGS = $(BOOST_LDFLAGS)
