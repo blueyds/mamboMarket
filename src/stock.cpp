@@ -15,50 +15,47 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#pragma once
-
-#include <boost/date_time/gregorian/gregorian.hpp>
-
 #include <vector>
 #include <string>
 #include <map>
 #include <iostream>
 #include <boost/date_time/gregorian/gregorian.hpp>
-
+#include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
+#include <boost/asio.hpp>
 #include "stock.h"
-void stock::loadASIO()
+int stock::loadASIO()
 {
     boost::asio::ip::tcp::iostream s;
-    std::string host;
-    host << "ichart.yahoo.com";
-    std::string path;
-    path << "/table.csv?s=;" + stock_name;
+    std::string host( "ichart.yahoo.com");
+    std::string path("/table.csv?s=" + stock_name);
 
+	boost::asio::io_service io_service;
+
+  	
     // The entire sequence of I/O operations must complete within 60 seconds.                                                                                                     
     // If an expiry occurs, the socket is automatically closed and the stream                                                                                                     
     // becomes bad.                                                                                                                                                               
     s.expires_from_now(boost::posix_time::seconds(60));
 
     // Establish a connection to the server.                                                                                                                                      
-    s.connect(host "http");
+    s.connect(host, "http");
     if (!s)
     {
       std::cout << "Unable to connect: " << s.error().message() << "\n";
       return 1;
     }
 
-    // Send the request. We specify the "Connection: close" header so that the                                                                                                    
-    // server will close the socket after transmitting the response. This will                                                                                                    
-    // allow us to treat all data up until the EOF as the content.                                                                                                                
+    // Send the request. We specify the "Connection: close" header so that the                                                                                                   
+    // server will close the socket after transmitting the response. This will                                                                                                   
+    // allow us to treat all data up until the EOF as the content.                                                                                                               
     s << "GET " << path << " HTTP/1.0\r\n";
     s << "Host: " << host << "\r\n";
-
-	    s << "Accept: */*\r\n";
+	s << "Accept: */*\r\n";
     s << "Connection: close\r\n\r\n";
 
-    // By default, the stream is tied with itself. This means that the stream                                                                                                     
-    // automatically flush the buffered output before attempting a read. It is                                                                                                    
-    // not necessary not explicitly flush the stream at this point.                                                                                                               
+    // By default, the stream is tied with itself. This means that the stream                                                                                                    
+    // automatically flush the buffered output before attempting a read. It is                                                                                                   
+    // not necessary not explicitly flush the stream at this point.                                                                                                              
 
     // Check that response is OK.                                                                                                                                                 
     std::string http_version;
@@ -91,19 +88,11 @@ void stock::loadASIO()
         char delim;
         StockDetail sd;
         boost::gregorian::date d;
-        d << s;
-        delim << s;
-        sd.open << s;
-        delim << s;
-        sd.high << s;
-        delim << s;
-        sd.low << s;
-        delim << s;
-        sd.close << s;
-        delim << s;
-        sd.volume << s;
-		delim << s;
-		sd.adj << s;
+		s >> d;
+		s >> delim;
+		s >> sd.open;
+		s >> delim;
+		s >> sd.high;
 		update(d,sd);
 	}
 };
@@ -112,9 +101,7 @@ void stock::loadASIO()
 
 stock::stock(std::string sname,std::string name,std::string descr)
 {
-	using namespace std;
-	using namespace boost::gregorian;
-	string fname( "stocks\\" );
+	std::string fname( "stocks\\" );
 	stock_name = sname;
 	fname.append(sname);
 	file_name=fname;
@@ -133,7 +120,7 @@ std::string stock::getfilename()
 
 void stock::update(boost::gregorian::date day, StockDetail sd)
 {
-	std::prices.insert(price_pair(day,sd));
+	prices.insert(price_pair(day,sd));
 };
 
 
@@ -175,21 +162,16 @@ void stock::verify()
 
 };
 
-int stock::GetStockIndex(boost::gregorian::date d1, StockDetail &st)
+int stock::GetStockIndex(boost::gregorian::date d1, StockDetail& st)
 {
-	d1=d1-days(1);
+	d1 = d1 - boost::gregorian::days(1);
 	price_iter iter;
 	iter=prices.find(d1);
 	if(iter!=prices.end()){
 		StockDetail s1;
-		date d2;
+		boost::gregorian::date d2;
 		d2 = iter->first;
-		s1=iter->second;
-		st->open=s1.open;
-		st->close=s1.close;
-		st->high=s1.high;
-		st->low=s1.low;
-		st->volume=s1.volume;
+		st=iter->second;
 		return true;
 		}
 	else return false;

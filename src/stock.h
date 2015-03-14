@@ -15,16 +15,17 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#pragma once
+#ifndef _STOCK_H
+#define _STOCK_H
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <string>
 #include <map>
 
 
-class stockDetail{
+class StockDetail{
 public:
     double open, close, high, low, volume,adj;
-}
+};
 
 class stock {
 private:
@@ -36,12 +37,11 @@ private:
 	typedef price_list::iterator price_iter;
 	typedef std::pair<boost::gregorian::date,StockDetail> price_pair;
 	price_list prices;
-
-
+	int loadASIO();
 public:
 	stock(std::string sname);
 	stock(std::string sname,std::string name,std::string descr);
-	int GetStockIndex(boost::gregorian::date d1, StockDetail &st);
+	int GetStockIndex(boost::gregorian::date d1, StockDetail& st);
 	std::string getfilename(void);
 	void update (boost::gregorian::date day, StockDetail st);
 	void update(boost::gregorian::date day, 
@@ -54,3 +54,4 @@ public:
 	void verify();
 
 };
+#endif // !_STOCK_H
