@@ -15,6 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include <stdlib.h>
 #include <vector>
 #include <string>
 #include <map>
@@ -22,6 +23,7 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
 #include <boost/asio.hpp>
+#include "StockDetail.h"
 #include "stock.h"
 
 int stock::loadASIO()
@@ -83,18 +85,63 @@ int stock::loadASIO()
       std::cout << header << "\n";
     std::cout << "\n";
 	std::cout<<"The above was the header output\n";
-    // Write the remaining data to output.
 
-    while (!s.eof())
+    // Write the remaining data to output.
+	bool isFirstLine=true;
+	while (!s.eof())
     {
+		std::cout << "entering while loop and isFirstLIne= "<<isFirstLine <<"\n";
 		std::string datum;
+		std::string ds;
+		double open, high, low, close, volume, adj;
+		if (!isFirstLine)
+		{
+			std::getline(s,datum,'-');	    
+			ds=datum;
+			std::getline(s,datum,'-');
+			ds = ds + datum;
+			std::getline(s,datum,',');
+			ds = ds + datum;
+		}
+//		std::cout << "L101";
+		if(isFirstLine) ds="19900101";
+		std::cout << ds;
+		boost::gregorian::date _date(boost::gregorian::from_undelimited_string(ds));
 		std::getline(s,datum,',');
-			std::cout << datum << "\n";
-	};
-   
-//	std::cout << s.rdbuf();
-//	std::cout << "\n";
-};
+		if(!isFirstLine) open = strtod(datum.c_str(),NULL);
+		std::getline(s,datum,',');
+		if(!isFirstLine) high  = strtod(datum.c_str(),NULL);
+		std::getline(s,datum,',');
+		if(!isFirstLine) low = strtod(datum.c_str(),NULL);
+		std::getline(s,datum,',');
+		if(!isFirstLine) close = strtod(datum.c_str(),NULL);
+		std::getline(s,datum,',');
+		if(!isFirstLine) volume = strtod(datum.c_str(),NULL);
+		std::getline(s,datum,'\n');
+		if(!isFirstLine) adj = strtod(datum.c_str(),NULL);
+		if(isFirstLine)
+		{
+			std::cout << "Break routing in first line\n";
+			isFirstLine=false;
+		}
+		else
+		{
+			std::cout << boost::gregorian::to_simple_string(_date)<<open<< "\n";
+			StockDetail sd;
+			sd.open=open;
+			sd.high=high;
+			sd.low=low;
+			sd.close=close;
+			sd.volume=volume;
+			sd.adj=adj;
+			std::cout <<sd<<"\n";
+			update(_date,sd);
+			StockDetail stest;
+			GetStockIndex(_date,stest);
+			std::cout << stest<<"\n";
+		}
+	}
+}
  
 stock::stock(std::string sname){
 	stock_name = sname;
@@ -122,59 +169,39 @@ std::string stock::getfilename()
 
 void stock::update(boost::gregorian::date day, StockDetail sd)
 {
-	prices.insert(price_pair(day,sd));
+	daily.insert(price_pair(day,sd));
 };
 
 
 
 void stock::verify()
 {
-	using namespace std;
-	using namespace boost::gregorian;
 	
-	date d1;
-	d1=day_clock::local_day()+days(1);
-	cout<< to_simple_string(d1)<<endl;
-	cout << "DATE" <<"\t"
-		<<"OPEN"<<"\t"
-		<<"CLOSE"<<"\t"
-		<<"HIGH"<<"\t"
-		<<"LOW"<<"\t"
-		<<"VOLUME"<<endl;	
-	for (int i=0;i<300;i++){
-		d1=d1-days(1);
-		price_iter iter;
-		iter=prices.find(d1);
-		cout << to_simple_string(d1)<< "\t";
-		if(iter!=prices.end()){
-			StockDetail s1;
-			date d2;
-			d2 = iter->first;
-			s1=iter->second;
-			cout << to_simple_string(d2)<<"\t"
-				<< s1.open<< "\t"
-				<< s1.close<<"\t"
-				<< s1.high<<"\t"
-				<< s1.low<<"\t"
-				<< s1.volume;
-			}
-		cout <<endl;
-		}
+	boost::gregorian::date d1;
+	d1=boost::gregorian::day_clock::local_day() - boost::gregorian::days(4);
+	std::cout << "DATE\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\n";
+	StockDetail st;
+	if (GetStockIndex(d1,st)){
+		std::cout << to_simple_string(d1) << "\t"
+				  << st;;
+	}
+	else{
+		std::cout << "could not find date in index: \n";
+	};
 
 
 };
 
 int stock::GetStockIndex(boost::gregorian::date d1, StockDetail& st)
 {
-	d1 = d1 - boost::gregorian::days(1);
 	price_iter iter;
-	iter=prices.find(d1);
-	if(iter!=prices.end()){
-		StockDetail s1;
-		boost::gregorian::date d2;
-		d2 = iter->first;
+	iter= daily.find(d1);
+	if(iter !=daily.end()){
 		st=iter->second;
 		return true;
 		}
-	else return false;
+	else {
+		std::cout << "Could not find date in index: "<< boost::gregorian::to_simple_string(d1);
+		return false;
+	};
 }

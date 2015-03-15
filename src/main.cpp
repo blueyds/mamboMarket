@@ -1,4 +1,5 @@
 #include <iostream>
+#include "StockDetail.h"
 #include "stock.h"
 
 int main (int argc, char *argv[])
@@ -11,6 +12,6 @@ int main (int argc, char *argv[])
 		std::cout << argv[1]<<"\n";
 		std::cout << "calling the stock class now\n";
 	   	stock s (argv[1]);
-		
+		s.verify();
 	}
 }

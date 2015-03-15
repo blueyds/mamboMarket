@@ -21,12 +21,6 @@
 #include <string>
 #include <map>
 
-
-class StockDetail{
-public:
-    double open, close, high, low, volume,adj;
-};
-
 class stock {
 private:
 	std::string file_name;
@@ -36,21 +30,16 @@ private:
 	typedef std::map<boost::gregorian::date,StockDetail> price_list;
 	typedef price_list::iterator price_iter;
 	typedef std::pair<boost::gregorian::date,StockDetail> price_pair;
-	price_list prices;
+	price_list daily;
+	price_list weekly;
+	price_list monthly;
 	int loadASIO();
 public:
 	stock(std::string sname);
 	stock(std::string sname,std::string name,std::string descr);
 	int GetStockIndex(boost::gregorian::date d1, StockDetail& st);
 	std::string getfilename(void);
-	void update (boost::gregorian::date day, StockDetail st);
-	void update(boost::gregorian::date day, 
-				double open, 
-				double close, 
-				double high,
-				double low,
-				double volume);
-	
+	void update (boost::gregorian::date day, StockDetail st);	
 	void verify();
 
 };
