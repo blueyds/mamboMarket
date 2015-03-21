@@ -21,7 +21,7 @@ AX_BOOST_DATE_TIME
 AX_BOOST_ASIO
 AX_PTHREAD([])
 AX_CHECK_LIBRARY([LIBTALIB],[ta_func.h],[ta_lib],[],[AC_MSG_ERROR(could not find ta_lib)])
-AX_CHECK_LIBRARY([LIBPQ],[libpq-fe.h],[pq],[],[AC_MSG_WARNING(could not find libpq)])
+AX_CHECK_LIBRARY([LIBPQ],[libpq-fe.h],[pq],[],[AC_MSG_WARN(could not find libpq)])
 
 # Checks for header files.
 AC_CHECK_HEADER([stdio.h],
