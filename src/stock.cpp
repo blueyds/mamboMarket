@@ -106,6 +106,7 @@ int stock::loadASIO()
 //		std::cout << "L101";
 		if(isFirstLine) ds="19900101";
 		std::cout << ds;
+		if(ds=="")break;
 		boost::gregorian::date _date(boost::gregorian::from_undelimited_string(ds));
 		std::getline(s,datum,',');
 		if(!isFirstLine) open = strtod(datum.c_str(),NULL);
