@@ -34,7 +34,11 @@ AX_CHECK_PGSQL_DB([$pg_db],
                   [$pg_host], 
                   [$pg_password], 
                   [AC_MSG_ERROR([We need a database connection!])])
-
+AC_DEFINE([PG_HOST],
+           
+AC_DEFINE([PG_DB],
+           [$pg_db],
+           [name of the postgres database])
 # Checks for libraries.
 AX_BOOST_BASE([1.34.1])
 AX_BOOST_SYSTEM
