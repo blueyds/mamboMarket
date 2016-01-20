@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <stdlib.h>
+//#include <stdlib.h>
 #include <vector>
 #include <string>
 #include <map>
@@ -90,7 +90,7 @@ int stock::loadASIO()
 	bool isFirstLine=true;
 	while (!s.eof())
     {
-		std::cout << "entering while loop and isFirstLIne= "<<isFirstLine <<"\n";
+		//std::cout << "entering while loop and isFirstLIne= "<<isFirstLine <<"\n";
 		std::string datum;
 		std::string ds;
 		double open, high, low, close, volume, adj;
@@ -103,9 +103,9 @@ int stock::loadASIO()
 			std::getline(s,datum,',');
 			ds = ds + datum;
 		}
-//		std::cout << "L101";
+		//std::cout << "L106\t";
 		if(isFirstLine) ds="19900101";
-		std::cout << ds;
+		//std::cout << ds<<"\t";
 		if(ds=="")break;
 		boost::gregorian::date _date(boost::gregorian::from_undelimited_string(ds));
 		std::getline(s,datum,',');
@@ -122,12 +122,12 @@ int stock::loadASIO()
 		if(!isFirstLine) adj = strtod(datum.c_str(),NULL);
 		if(isFirstLine)
 		{
-			std::cout << "Break routing in first line\n";
+			//std::cout << "Break routing in first line\n";
 			isFirstLine=false;
 		}
 		else
 		{
-			std::cout << boost::gregorian::to_simple_string(_date)<<open<< "\n";
+			//std::cout << boost::gregorian::to_simple_string(_date)<<open<< "\n";
 			StockDetail sd;
 			sd.open=open;
 			sd.high=high;
@@ -135,11 +135,9 @@ int stock::loadASIO()
 			sd.close=close;
 			sd.volume=volume;
 			sd.adj=adj;
-			std::cout <<sd<<"\n";
+		  //std::cout <<sd<<"\n";
 			update(_date,sd);
-			StockDetail stest;
-			GetStockIndex(_date,stest);
-			std::cout << stest<<"\n";
+			//verify(_date);
 		}
 	}
 }
@@ -161,42 +159,68 @@ stock::stock(std::string sname,std::string name,std::string descr)
 //	date d1(not_a_date_time);
 //	current_day=d1;
 //	oldest_day=d1;
-};
+}
 
 std::string stock::getfilename()
 {
 	return file_name;
-};
+}
 
 void stock::update(boost::gregorian::date day, StockDetail sd)
 {
 	daily.insert(price_pair(day,sd));
-};
+}
 
-
+void stock::verify(boost::gregorian::date d1)
+{
+	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\n";
+	price_iter piter;
+	piter=GetStockDailyIndex(d1);
+	if (piter!=daily.end()){
+		std::cout << boost::gregorian::to_simple_string(piter->first) << "\t"<< piter->second;
+	}
+	else{
+		std::cout << boost::gregorian::to_simple_string(d1)<<"\tcould not find date in index: \n";
+	}
+}
 
 void stock::verify()
 {
-	
-	boost::gregorian::date d1;
-	d1=boost::gregorian::day_clock::local_day() - boost::gregorian::days(4);
-	std::cout << "DATE\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\n";
-	StockDetail st;
-	if (GetStockIndex(d1,st)){
-		std::cout << to_simple_string(d1) << "\t"
-				  << st;;
+	using namespace boost::gregorian;
+	first_day_of_the_week_before fdbf(Monday);
+	date d1=fdbf.get_date(day_clock::local_day());
+	verify(d1);
+}
+
+stock::price_iter stock::GetStockDailyIndex(boost::gregorian::date d1)
+{
+	return GetStockDailyIndex(d1,0);
+}
+
+
+stock::price_iter stock::GetStockDailyIndex(boost::gregorian::date d1, int error_offset)
+{
+	using namespace boost::gregorian;
+	day_iterator diter(d1,1);
+	stock::price_iter piter;
+	bool IterCheck(true);
+	while(IterCheck){
+		piter=daily.find(*diter);
+		if (piter!=daily.end()){break;}
+		else{
+			if (error_offset <0) ++diter;
+			if (error_offset >0) --diter;
+			if (error_offset == 0) {break;}
+		}
 	}
-	else{
-		std::cout << "could not find date in index: \n";
-	};
-
-
-};
+	return piter;
+}
 
 int stock::GetStockIndex(boost::gregorian::date d1, StockDetail& st)
 {
 	price_iter iter;
-	iter= daily.find(d1);
+	//std::cout<<"entering getstockindex\n";
+	iter= GetStockDailyIndex(d1);
 	if(iter !=daily.end()){
 		st=iter->second;
 		return true;

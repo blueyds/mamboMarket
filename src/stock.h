@@ -38,8 +38,11 @@ public:
 	stock(std::string sname);
 	stock(std::string sname,std::string name,std::string descr);
 	int GetStockIndex(boost::gregorian::date d1, StockDetail& st);
+	price_iter GetStockDailyIndex(boost::gregorian::date d1);
+	price_iter GetStockDailyIndex(boost::gregorian::date d1, int error_offset); //error_offset is used to either add or decrease if date is not found
 	std::string getfilename(void);
 	void update (boost::gregorian::date day, StockDetail st);	
+	void verify(boost::gregorian::date d1);
 	void verify();
 
 };
