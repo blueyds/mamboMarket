@@ -1,3 +1,9 @@
-ACLOCAL_AMFLAGS = -I m4 
-SUBDIRS = src
-dist_doc_DATA = README
+AUTOMAKE_OPTIONS = subdir-objects
+bin_PROGRAMS = 	mambo
+mambo_SOURCES = src/StockDetail.cpp\
+		src/stock.cpp\
+		src/main.cpp
+mambo_LDADD = 	$(BOOST_DATE_TIME_LIB)\
+		$(BOOST_SYSTEM_LIB) 
+AM_CXXFLAGS = 	$(BOOST_CPPFLAGS)
+AM_LDFLAGS = 	$(BOOST_LDFLAGS)
