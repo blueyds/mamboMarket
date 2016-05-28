@@ -15,7 +15,7 @@ public:
 	double low;
 	double volume;
 	double adj;
-	double 13EMAclose_D;
+	double EMA13close_D;
 	StockDetail ();
 	StockDetail (const StockDetail &);
 	~StockDetail(){};

@@ -9,7 +9,7 @@ StockDetail::StockDetail() //Constructor
 	low=0.0;
 	volume=0.0;
 	adj=0.0;
-	13EMAclose_D=0.0;
+	EMA13close_D=0.0;
 }
 
 StockDetail::StockDetail(const StockDetail &copyin) //Copy constructor to handle pass by value
@@ -20,7 +20,7 @@ StockDetail::StockDetail(const StockDetail &copyin) //Copy constructor to handle
 	low = copyin.low;
 	volume = copyin.volume;
 	adj = copyin.adj;
-	13EMAclose_D=copyin.13EMAclose_D;
+	EMA13close_D=copyin.EMA13close_D;
 }
 
 std::ostream &operator<<(std::ostream &output, const StockDetail &sd)
@@ -31,7 +31,7 @@ std::ostream &operator<<(std::ostream &output, const StockDetail &sd)
 		   <<sd.low << "\t" \
 		   << sd.volume <<"\t"\
 		   << sd.adj << "\t" \
-		<< sd.13EMAclose_D <<"\n";
+		<< sd.EMA13close_D <<"\n";
 	return output;
 }
 
@@ -43,5 +43,5 @@ StockDetail& StockDetail::operator=(const StockDetail &rhs)
 	this->low = rhs.low;
 	this->volume=rhs.volume;
 	this->adj=rhs.adj;
-	this->13EMAclose_D=rhs.13EMAclose_D;
+	this->EMA13close_D=rhs.EMA13close_D;
 }
