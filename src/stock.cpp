@@ -145,6 +145,15 @@ int stock::loadASIO()
 stock::stock(std::string sname){
 	stock_name = sname;
 	loadASIO();
+	update_OpenClose();
+}
+
+void stock::update_OpenClose()
+{
+	for (price_iter it=daily.begin(); it != daily.end();it++)
+	{
+		
+	}
 }
 
 stock::stock(std::string sname,std::string name,std::string descr)

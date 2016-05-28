@@ -20,6 +20,7 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <string>
 #include <map>
+#include <vector>
 
 class stock {
 private:
@@ -33,6 +34,9 @@ private:
 	price_list daily;
 	price_list weekly;
 	price_list monthly;
+	std::vector<double> opening_prices;
+	std::vector<double> closing_prices;
+	void update_OpenClose();
 	int loadASIO();
 public:
 	stock(std::string sname);
