@@ -153,11 +153,12 @@ stock::stock(std::string sname){
 void stock::updateTA(){
 	
 }
-void stock::update_OpenClose()
-{
-	for (price_iter it=daily.begin(); it != daily.end();it++)
-	{
-		
+void stock::update_OpenClose(){
+	opening_prices.resize(0);
+	closing_prices.resize(0);
+	for (price_iter it=daily.begin(); it != daily.end();it++){
+		opening_prices.push_back(it->second.open);
+		closing_prices.push_back(it->second.close);
 	}
 }
 
