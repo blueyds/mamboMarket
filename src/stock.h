@@ -37,6 +37,7 @@ private:
 	std::vector<double> opening_prices;
 	std::vector<double> closing_prices;
 	void update_OpenClose();
+	void updateTA();
 	int loadASIO();
 public:
 	stock(std::string sname);

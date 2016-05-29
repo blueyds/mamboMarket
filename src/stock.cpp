@@ -23,6 +23,7 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
 #include <boost/asio.hpp>
+#include "ta-lib/ta_libc.h"
 #include "StockDetail.h"
 #include "stock.h"
 
@@ -146,8 +147,12 @@ stock::stock(std::string sname){
 	stock_name = sname;
 	loadASIO();
 	update_OpenClose();
+	updateTA();
 }
 
+void stock::updateTA(){
+	
+}
 void stock::update_OpenClose()
 {
 	for (price_iter it=daily.begin(); it != daily.end();it++)
