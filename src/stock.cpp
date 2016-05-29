@@ -205,6 +205,20 @@ void stock::verify()
 	first_day_of_the_week_before fdbf(Monday);
 	date d1=fdbf.get_date(day_clock::local_day());
 	verify(d1);
+	day_iterator diter(d1,1);
+	++diter;
+	verify(*diter);
+	++diter;
+	verify(*diter);
+	++diter;
+	verify(*diter);
+	++diter;
+	verify(*diter);
+	++diter;
+	verify(*diter);
+	++diter;
+	verify(*diter);
+	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\n";
 }
 
 stock::price_iter stock::GetStockDailyIndex(boost::gregorian::date d1)
