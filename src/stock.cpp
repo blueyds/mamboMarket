@@ -149,9 +149,17 @@ stock::stock(std::string sname){
 	update_OpenClose();
 	updateTA();
 }
-
-void stock::updateTA(){
+void stock::updateEMA13_D(){
+	std::vector<double> EMA_v;
+	int size=opening_prices.size();
+	EMA_v.resize(size);
+	int outBegIdx;
+	int outNbrEl;
 	
+		
+}
+void stock::updateTA(){
+	updateEMA13_D();
 }
 void stock::update_OpenClose(){
 	opening_prices.resize(0);
