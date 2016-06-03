@@ -220,10 +220,10 @@ void stock::verify(boost::gregorian::date d1)
 	else{
 		std::cout << boost::gregorian::to_simple_string(d1)<<"\tcould not find date in index: \n";
 	}
-	int index = getIndex(d1)
+	int index = getIndex(d1);
 	std::cout << boost::gregorian::to_simple_string(dates[index]) << "\t";
 	std::cout << opening_prices[index] << "\t";
-	std::cout << closing_prices[index] << "\t" 
+	std::cout << closing_prices[index] << "\t"; 
 	std::cout << highs[index] << "\t";
 	std::cout << lows[index] << "\t";
 	std::cout << volumes[index] << "\t";
