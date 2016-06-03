@@ -20,6 +20,7 @@
 #include <string>
 #include <map>
 #include <iostream>
+#include <algorithm> //std::find
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
 #include <boost/asio.hpp>
@@ -136,6 +137,13 @@ int stock::loadASIO()
 			sd.close=close;
 			sd.volume=volume;
 			sd.adj=adj;
+			dates.push_back(_date)
+			opening_prices.push_back(open);
+			closing_prices.push_back(close)
+			highs.push_back(high);
+			lows.push_back(low);
+			volumes.push_back(volume);
+			adj_closes.push_back(adj);
 		  //std::cout <<sd<<"\n";
 			update(_date,sd);
 			//verify(_date);
@@ -146,15 +154,15 @@ int stock::loadASIO()
 stock::stock(std::string sname){
 	stock_name = sname;
 	loadASIO();
-	update_OpenClose();
-	updateTA();
+	//update_OpenClose();
+	//updateTA();
 }
 void stock::updateEMA13_D(){
-	std::vector<double> EMA_v;
-	int size=opening_prices.size();
-	EMA_v.resize(size);
-	int outBegIdx;
-	int outNbrEl;
+	//std::vector<double> EMA_v;
+	//int size=opening_prices.size();
+	//EMA_v.resize(size);
+	//int outBegIdx;
+	//int outNbrEl;
 	
 		
 }
@@ -162,12 +170,12 @@ void stock::updateTA(){
 	updateEMA13_D();
 }
 void stock::update_OpenClose(){
-	opening_prices.resize(0);
-	closing_prices.resize(0);
-	for (price_iter it=daily.begin(); it != daily.end();it++){
-		opening_prices.push_back(it->second.open);
-		closing_prices.push_back(it->second.close);
-	}
+	//opening_prices.resize(0);
+	//closing_prices.resize(0);
+	//for (price_iter it=daily.begin(); it != daily.end();it++){
+	//	opening_prices.push_back(it->second.open);
+	//	closing_prices.push_back(it->second.close);
+	//}
 }
 
 stock::stock(std::string sname,std::string name,std::string descr)
@@ -193,7 +201,14 @@ void stock::update(boost::gregorian::date day, StockDetail sd)
 {
 	daily.insert(price_pair(day,sd));
 }
-
+int stock::GetStockDailyIndex(boost::gregorian::date d1)
+{
+	std::vector<boost::gregorian::date>::iterator dit;
+	dit = std::find(dates.begin(), dates.end(), d1);
+	if (dit == dates.end()) {return 0;} 
+	else
+	{return std::distance(dates.begin(),dit);}
+}
 void stock::verify(boost::gregorian::date d1)
 {
 	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\n";
@@ -205,6 +220,9 @@ void stock::verify(boost::gregorian::date d1)
 	else{
 		std::cout << boost::gregorian::to_simple_string(d1)<<"\tcould not find date in index: \n";
 	}
+	int index = GetStockDailyIndex(d1)
+	std::cout <<boost::gregorian::to_simple_string(dates[index]) << "\t" << opening_prices[index] << "\t" << closing_prices[index] << "\t" << highs[index] << "\t" << lows[index] << "\t" << volumes[index] << "\t" << adj_closes[index] << "\n";
+	
 }
 
 void stock::verify()

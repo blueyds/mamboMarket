@@ -34,8 +34,13 @@ private:
 	price_list daily;
 	price_list weekly;
 	price_list monthly;
+	std::vector<boosts::gregorian::date> dates;
 	std::vector<double> opening_prices;
 	std::vector<double> closing_prices;
+	std::vector<double> highs;
+	std::vector<double> lows;
+	std::vector<double> volumes;
+	std::vector<double> adj_closes;
 	void update_OpenClose();
 	void updateEMA13_D();
 	void updateTA();
@@ -46,6 +51,7 @@ public:
 	int GetStockIndex(boost::gregorian::date d1, StockDetail& st);
 	price_iter GetStockDailyIndex(boost::gregorian::date d1);
 	price_iter GetStockDailyIndex(boost::gregorian::date d1, int error_offset); //error_offset is used to either add or decrease if date is not found
+	int GetStockDailyIndex(boost::gregorian::date d1);
 	std::string getfilename(void);
 	void update (boost::gregorian::date day, StockDetail st);	
 	void verify(boost::gregorian::date d1);
