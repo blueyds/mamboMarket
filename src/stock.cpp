@@ -137,9 +137,9 @@ int stock::loadASIO()
 			sd.close=close;
 			sd.volume=volume;
 			sd.adj=adj;
-			dates.push_back(_date)
+			dates.push_back(_date);
 			opening_prices.push_back(open);
-			closing_prices.push_back(close)
+			closing_prices.push_back(close);
 			highs.push_back(high);
 			lows.push_back(low);
 			volumes.push_back(volume);
@@ -221,7 +221,13 @@ void stock::verify(boost::gregorian::date d1)
 		std::cout << boost::gregorian::to_simple_string(d1)<<"\tcould not find date in index: \n";
 	}
 	int index = getIndex(d1)
-	std::cout <<boost::gregorian::to_simple_string(dates[index]) << "\t" << opening_prices[index] << "\t" << closing_prices[index] << "\t" << highs[index] << "\t" << lows[index] << "\t" << volumes[index] << "\t" << adj_closes[index] << "\n";
+	std::cout << boost::gregorian::to_simple_string(dates[index]) << "\t";
+	std::cout << opening_prices[index] << "\t";
+	std::cout << closing_prices[index] << "\t" 
+	std::cout << highs[index] << "\t";
+	std::cout << lows[index] << "\t";
+	std::cout << volumes[index] << "\t";
+	std::cout << adj_closes[index] << "\n";
 	
 }
 
