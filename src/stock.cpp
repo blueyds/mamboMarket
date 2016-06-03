@@ -201,7 +201,7 @@ void stock::update(boost::gregorian::date day, StockDetail sd)
 {
 	daily.insert(price_pair(day,sd));
 }
-int stock::GetStockDailyIndex(boost::gregorian::date d1)
+int stock::getIndex(boost::gregorian::date d1)
 {
 	std::vector<boost::gregorian::date>::iterator dit;
 	dit = std::find(dates.begin(), dates.end(), d1);
@@ -220,7 +220,7 @@ void stock::verify(boost::gregorian::date d1)
 	else{
 		std::cout << boost::gregorian::to_simple_string(d1)<<"\tcould not find date in index: \n";
 	}
-	int index = GetStockDailyIndex(d1)
+	int index = getIndex(d1)
 	std::cout <<boost::gregorian::to_simple_string(dates[index]) << "\t" << opening_prices[index] << "\t" << closing_prices[index] << "\t" << highs[index] << "\t" << lows[index] << "\t" << volumes[index] << "\t" << adj_closes[index] << "\n";
 	
 }
