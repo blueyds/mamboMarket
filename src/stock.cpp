@@ -170,6 +170,7 @@ void stock::updateEMA13_D(){
 void stock::updateTA()
 {
 	SMA<double> sma10(10);
+	SMAs10.reserve(adj_closes.size());
 	std::transform(adj_closes.begin(),adj_closes.end(),SMAs10.begin(),sma10);
 }
 void stock::update_OpenClose(){
