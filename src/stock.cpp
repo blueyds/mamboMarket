@@ -157,6 +157,7 @@ int stock::loadASIO()
 	{
 		std::reverse(dates.begin(),dates.end());
 		std::reverse(opening_prices.begin(),opening_prices.end());
+		std::reverse(closing_prices.begin(),closing_prices.end());
 		std::reverse(highs.begin(),highs.end());
 		std::reverse(lows.begin(),lows.end());
 		std::reverse(volumes.begin(),volumes.end());
