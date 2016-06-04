@@ -146,7 +146,7 @@ int stock::loadASIO()
 			volumes.push_back(volume);
 			adj_closes.push_back(adj);
 		  //std::cout <<sd<<"\n";
-			update(_date,sd);
+			//update(_date,sd);
 			//verify(_date);
 		}
 	}
@@ -226,6 +226,7 @@ int stock::getIndex(boost::gregorian::date d1)
 void stock::verify(boost::gregorian::date d1)
 {
 	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\tSMA10\n";
+	/*
 	price_iter piter;
 	piter=GetStockDailyIndex(d1);
 	if (piter!=daily.end()){
@@ -234,6 +235,7 @@ void stock::verify(boost::gregorian::date d1)
 	else{
 		std::cout << boost::gregorian::to_simple_string(d1)<<"\tcould not find date in index: \n";
 	}
+	*/
 	int index = getIndex(d1);
 	std::cout << boost::gregorian::to_simple_string(dates[index]) << "\t";
 	std::cout << opening_prices[index] << "\t";
