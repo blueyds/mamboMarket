@@ -10,7 +10,7 @@ public:
 	{
 		window_values.push_back(value);
 		T val = 0;
-		if window_values.size() > win 
+		if (window_values.size() > win) 
 		{
 			window_values.pop_front();
 			T new_value;

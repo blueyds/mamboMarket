@@ -168,7 +168,7 @@ void stock::updateEMA13_D(){
 		
 }
 void stock::updateTA(){
-	SMA sma;
+	SMA<double> sma;
 	std::for_each(adj_closes.begin(),adj_closes.end(),sma(10));
 	SMAs10=sma.sma_vector;
 	
