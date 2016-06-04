@@ -20,7 +20,7 @@
 #include <string>
 #include <map>
 #include <iostream>
-#include <algorithm> //std::find
+#include <algorithm> //std::find and std::reverse
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
 #include <boost/asio.hpp>
@@ -130,7 +130,7 @@ int stock::loadASIO()
 		}
 		else
 		{
-			std::cout << boost::gregorian::to_simple_string(_date)<<open<< "\n";
+			//std::cout << boost::gregorian::to_simple_string(_date)<<open<< "\n";
 			StockDetail sd;
 			sd.open=open;
 			sd.high=high;
@@ -149,6 +149,16 @@ int stock::loadASIO()
 			update(_date,sd);
 			//verify(_date);
 		}
+	}
+	//check if entries are reversed and if so fix them
+	if(*dates.end()<*dates.begin())
+	{
+		std::reverse(dates.begin(),dates.end());
+		std::reverse(opening_prices.begin(),opening_prices.end());
+		std::reverse(highs.begin(),highs.end());
+		std::reverse(lows.begin(),lows.end());
+		std::reverse(volumes.begin(),volumes.end());
+		std::reverse(adj_closes.begin(),adj_closes.end());
 	}
 }
  
