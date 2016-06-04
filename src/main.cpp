@@ -1,5 +1,4 @@
 #include <iostream>
-#include "StockDetail.h"
 #include "stock.h"
 
 int main (int argc, char *argv[])
@@ -8,8 +7,6 @@ int main (int argc, char *argv[])
 		std::cout << "Usage : "<< argv[0] << " <stock_symbol>\n";
 	else
 	{
-	//	std::cout << "What is your password for postgres? :>";
-		 
 		std::cout << "Preparing to pull from internet still in main.cpp\n";
 		std::cout << argv[1]<<"\n";
 		std::cout << "calling the stock class now\n";
