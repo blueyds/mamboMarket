@@ -14,9 +14,9 @@ public:
 		curSize=0;
 		window_values.reserve(window+1);
 	};
-	T operator()(T value)
+	T operator()(T& value)
 	{
-		window_values.push_back(value);
+		window_values.push_back(*value);
 		curSize = curSize +1;
 		T val = 0;
 		if (curSize > window) 
@@ -32,7 +32,7 @@ public:
 			sum_value = std::accumulate(window_values.begin(),window_values.end(),0);
 			val= sum_value / window;
 		}
-		//std::cout << "return curSize = " <<curSize << "\t window ="<< window << "\tclosing = "<< value << "\tSMA ="<< val <<"\n";
+		std::cout << "return curSize = " <<curSize << "\t window ="<< window << "\tclosing = "<< value << "\tSMA ="<< val <<"\n";
 		return val;
 	}
 };
