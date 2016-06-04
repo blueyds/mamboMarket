@@ -16,12 +16,9 @@ public:
 	};
 	T operator()(T value)
 	{
-		std::cout << "entering SMA operator in functions.h "<< curSize << "\t"<< window << "\t" << value << "\n";
 		window_values.push_back(value);
-		curSize = curSize++;
+		curSize = curSize +1;
 		T val = 0;
-		std::cout << "finished first push back going into if statement next\n";
-		
 		if (curSize > window) 
 		{
 			for (int i=0; i<curSize;i++)
@@ -29,13 +26,13 @@ public:
 				window_values[i]=window_values[i+1];
 			}
 			window_values.pop_back();
-			curSize=curSize--;
+			curSize=curSize -1;
 			T new_value;
 			T sum_value;
 			sum_value = std::accumulate(window_values.begin(),window_values.end(),0);
 			val= sum_value / window;
 		}
-		std::cout << "getting ready to return \t" << val <<"\n";
+		std::cout << "return curSize = " <<curSize << "\t window ="<< window<<"\tfinal value ="<< val <<"\n";
 		return val;
 	}
 };
