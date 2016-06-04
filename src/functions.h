@@ -5,11 +5,12 @@ class SMA
 {
 	std::vector<T> window_values;
 	int window;
-	int curSize =0;
+	int curSize;
 public:
 	SMA(int win)
 	{
 		window=win;
+		curSize=0;
 		window_values.reserve(window+1);
 	};
 	T operator()(T value)
