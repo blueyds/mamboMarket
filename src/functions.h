@@ -1,4 +1,5 @@
 #include <vector> //std::vector
+#include <iostream> //std::cout
 #include <numeric> //std::accumulate
 template <class T>
 class SMA 
@@ -15,6 +16,7 @@ public:
 	};
 	T operator()(T value)
 	{
+		std::cout << "entering SMA operator in functions.h "<< curSize<< "\n";
 		window_values.push_back(value);
 		curSize = curSize++;
 		T val = 0;
