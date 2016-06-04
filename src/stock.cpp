@@ -27,6 +27,7 @@
 #include "ta-lib/ta_libc.h"
 #include "StockDetail.h"
 #include "stock.h"
+#include "functions.h" //SMA functor
 
 int stock::loadASIO()
 {
@@ -155,7 +156,7 @@ stock::stock(std::string sname){
 	stock_name = sname;
 	loadASIO();
 	//update_OpenClose();
-	//updateTA();
+	updateTA();
 }
 void stock::updateEMA13_D(){
 	//std::vector<double> EMA_v;
@@ -167,7 +168,10 @@ void stock::updateEMA13_D(){
 		
 }
 void stock::updateTA(){
-	updateEMA13_D();
+	SMA sma;
+	std::for_each(adj_closes.begin(),adj_closes.end(),sma(10));
+	SMAs10=sma.sma_vector;
+	
 }
 void stock::update_OpenClose(){
 	//opening_prices.resize(0);
@@ -211,7 +215,7 @@ int stock::getIndex(boost::gregorian::date d1)
 }
 void stock::verify(boost::gregorian::date d1)
 {
-	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\n";
+	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\tSMA10\n";
 	price_iter piter;
 	piter=GetStockDailyIndex(d1);
 	if (piter!=daily.end()){
@@ -227,7 +231,8 @@ void stock::verify(boost::gregorian::date d1)
 	std::cout << highs[index] << "\t";
 	std::cout << lows[index] << "\t";
 	std::cout << volumes[index] << "\t";
-	std::cout << adj_closes[index] << "\n";
+	std::cout << adj_closes[index] << "\t";
+	std::cout << SMAs10[index] << "\n";
 	
 }
 

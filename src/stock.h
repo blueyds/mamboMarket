@@ -41,6 +41,7 @@ private:
 	std::vector<double> lows;
 	std::vector<double> volumes;
 	std::vector<double> adj_closes;
+	std::vector<double> SMAs10;
 	void update_OpenClose();
 	void updateEMA13_D();
 	void updateTA();
