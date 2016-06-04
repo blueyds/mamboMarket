@@ -56,7 +56,7 @@ int stock::loadASIO()
 	s << "Accept: */*\r\n";
     s << "Connection: close\r\n\r\n";
 
-	std::cout << "The stock class sent a request" << "\n";
+	//std::cout << "The stock class sent a request" << "\n";
     // By default, the stream is tied with itself. This means that the stream                                                                                                    
     // automatically flush the buffered output before attempting a read. It is                                                                                                   
     // not necessary not explicitly flush the stream at this point.                                                                                                              
