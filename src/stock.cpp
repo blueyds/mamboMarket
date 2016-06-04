@@ -130,7 +130,7 @@ int stock::loadASIO()
 		}
 		else
 		{
-			//std::cout << boost::gregorian::to_simple_string(_date)<<open<< "\n";
+			std::cout << boost::gregorian::to_simple_string(_date)<<open<< "\n";
 			StockDetail sd;
 			sd.open=open;
 			sd.high=high;
