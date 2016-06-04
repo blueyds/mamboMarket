@@ -18,16 +18,13 @@
 //#include <stdlib.h>
 #include <vector>
 #include <string>
-#include <map>
 #include <iostream>
 #include <algorithm> //std::find and std::reverse
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
 #include <boost/asio.hpp>
-#include "ta-lib/ta_libc.h"
-#include "StockDetail.h"
 #include "stock.h"
-#include "functions.h" //SMA functor
+#include "TA/functions.h" //
 
 int stock::loadASIO()
 {
@@ -205,6 +202,7 @@ stock::stock(std::string sname,std::string name,std::string descr)
 	long_name=name;
 	description =descr;
 	loadASIO();
+	updateTA();
 //	date d1(not_a_date_time);
 //	current_day=d1;
 //	oldest_day=d1;
@@ -215,10 +213,6 @@ std::string stock::getfilename()
 	return file_name;
 }
 
-void stock::update(boost::gregorian::date day, StockDetail sd)
-{
-	daily.insert(price_pair(day,sd));
-}
 int stock::getIndex(boost::gregorian::date d1)
 {
 	std::vector<boost::gregorian::date>::iterator dit;
@@ -230,16 +224,6 @@ int stock::getIndex(boost::gregorian::date d1)
 void stock::verify(boost::gregorian::date d1)
 {
 	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\tSMA10\n";
-	/*
-	price_iter piter;
-	piter=GetStockDailyIndex(d1);
-	if (piter!=daily.end()){
-		std::cout << boost::gregorian::to_simple_string(piter->first) << "\t"<< piter->second;
-	}
-	else{
-		std::cout << boost::gregorian::to_simple_string(d1)<<"\tcould not find date in index: \n";
-	}
-	*/
 	int index = getIndex(d1);
 	std::cout << boost::gregorian::to_simple_string(dates[index]) << "\t";
 	std::cout << opening_prices[index] << "\t";
@@ -272,43 +256,4 @@ void stock::verify()
 	++diter;
 	verify(*diter);
 	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\n";
-}
-
-stock::price_iter stock::GetStockDailyIndex(boost::gregorian::date d1)
-{
-	return GetStockDailyIndex(d1,0);
-}
-
-
-stock::price_iter stock::GetStockDailyIndex(boost::gregorian::date d1, int error_offset)
-{
-	using namespace boost::gregorian;
-	day_iterator diter(d1,1);
-	stock::price_iter piter;
-	bool IterCheck(true);
-	while(IterCheck){
-		piter=daily.find(*diter);
-		if (piter!=daily.end()){break;}
-		else{
-			if (error_offset <0) ++diter;
-			if (error_offset >0) --diter;
-			if (error_offset == 0) {break;}
-		}
-	}
-	return piter;
-}
-
-int stock::GetStockIndex(boost::gregorian::date d1, StockDetail& st)
-{
-	price_iter iter;
-	//std::cout<<"entering getstockindex\n";
-	iter= GetStockDailyIndex(d1);
-	if(iter !=daily.end()){
-		st=iter->second;
-		return true;
-		}
-	else {
-		std::cout << "Could not find date in index: "<< boost::gregorian::to_simple_string(d1);
-		return false;
-	};
 }

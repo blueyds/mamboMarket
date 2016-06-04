@@ -19,7 +19,6 @@
 #define _STOCK_H
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <string>
-#include <map>
 #include <vector>
 
 class stock {
@@ -28,12 +27,6 @@ private:
 	std::string stock_name;
 	std::string long_name;
 	std::string description;
-	typedef std::map<boost::gregorian::date,StockDetail> price_list;
-	typedef price_list::iterator price_iter;
-	typedef std::pair<boost::gregorian::date,StockDetail> price_pair;
-	price_list daily;
-	price_list weekly;
-	price_list monthly;
 	std::vector<boost::gregorian::date> dates;
 	std::vector<double> opening_prices;
 	std::vector<double> closing_prices;
@@ -42,19 +35,13 @@ private:
 	std::vector<double> volumes;
 	std::vector<double> adj_closes;
 	std::vector<double> SMAs10;
-	void update_OpenClose();
-	void updateEMA13_D();
 	void updateTA();
 	int loadASIO();
 public:
 	stock(std::string sname);
 	stock(std::string sname,std::string name,std::string descr);
-	int GetStockIndex(boost::gregorian::date d1, StockDetail& st);
-	price_iter GetStockDailyIndex(boost::gregorian::date d1);
-	price_iter GetStockDailyIndex(boost::gregorian::date d1, int error_offset); //error_offset is used to either add or decrease if date is not found
 	int getIndex(boost::gregorian::date d1);
-	std::string getfilename(void);
-	void update (boost::gregorian::date day, StockDetail st);	
+	std::string getfilename(void);	
 	void verify(boost::gregorian::date d1);
 	void verify();
 
