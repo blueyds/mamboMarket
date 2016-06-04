@@ -128,13 +128,6 @@ int stock::loadASIO()
 		else
 		{
 			//std::cout << boost::gregorian::to_simple_string(_date)<<open<< "\n";
-			StockDetail sd;
-			sd.open=open;
-			sd.high=high;
-			sd.low=low;
-			sd.close=close;
-			sd.volume=volume;
-			sd.adj=adj;
 			dates.push_back(_date);
 			opening_prices.push_back(open);
 			closing_prices.push_back(close);
@@ -169,28 +162,12 @@ stock::stock(std::string sname){
 	//update_OpenClose();
 	updateTA();
 }
-void stock::updateEMA13_D(){
-	//std::vector<double> EMA_v;
-	//int size=opening_prices.size();
-	//EMA_v.resize(size);
-	//int outBegIdx;
-	//int outNbrEl;
-	
-		
-}
+
 void stock::updateTA()
 {
 	SMA<double> sma10(10);
 	SMAs10.reserve(adj_closes.size());
 	std::transform(adj_closes.begin(),adj_closes.end(),SMAs10.begin(),sma10);
-}
-void stock::update_OpenClose(){
-	//opening_prices.resize(0);
-	//closing_prices.resize(0);
-	//for (price_iter it=daily.begin(); it != daily.end();it++){
-	//	opening_prices.push_back(it->second.open);
-	//	closing_prices.push_back(it->second.close);
-	//}
 }
 
 stock::stock(std::string sname,std::string name,std::string descr)
