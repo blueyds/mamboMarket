@@ -167,9 +167,9 @@ void stock::updateEMA13_D(){
 	
 		
 }
-void stock::updateTA(){
-	SMA<double> sma(10);
-	std::transform(adj_closes.begin(),adj_closes.end(),SMAs10.begin(),sma());
+void stock::updateTA()
+{
+	std::transform(adj_closes.begin(),adj_closes.end(),SMAs10.begin(),SMA<double>(10));
 }
 void stock::update_OpenClose(){
 	//opening_prices.resize(0);
