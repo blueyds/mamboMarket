@@ -20,4 +20,5 @@ public:
 			val= sum_value / window;
 		}
 		return val;
+	}
 };
