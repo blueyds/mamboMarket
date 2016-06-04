@@ -151,7 +151,9 @@ int stock::loadASIO()
 		}
 	}
 	//check if entries are reversed and if so fix them
-	if(*dates.end()<*dates.begin())
+	std::vector<boost::gregorian::date>::iterator it1;
+	it1 = dates.end()-1;
+	if(*it1 < *dates.begin())
 	{
 		std::reverse(dates.begin(),dates.end());
 		std::reverse(opening_prices.begin(),opening_prices.end());
@@ -159,6 +161,7 @@ int stock::loadASIO()
 		std::reverse(lows.begin(),lows.end());
 		std::reverse(volumes.begin(),volumes.end());
 		std::reverse(adj_closes.begin(),adj_closes.end());
+		std::cout << "Vectors were reversed\n";
 	}
 }
  
