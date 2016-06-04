@@ -32,7 +32,7 @@ public:
 			sum_value = std::accumulate(window_values.begin(),window_values.end(),0);
 			val= sum_value / window;
 		}
-		std::cout << "return curSize = " <<curSize << "\t window ="<< window<<"\tfinal value ="<< val <<"\n";
+		std::cout << "return curSize = " <<curSize << "\t window ="<< window << "\tclosing = "<< value << "\tSMA ="<< val <<"\n";
 		return val;
 	}
 };
