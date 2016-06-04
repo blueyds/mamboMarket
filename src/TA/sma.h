@@ -1,6 +1,11 @@
 #include <vector> //std::vector
 #include <iostream> //std::cout
 #include <numeric> //std::accumulate
+/* example usage adj_closes is a vector of double closing prices
+	SMA<double> sma10(10);
+	SMAs10.reserve(adj_closes.size());
+	std::transform( adj_closes.begin(), adj_closes.end(), SMAs10.begin(), sma10);
+*/
 template <class T>
 class SMA 
 {
@@ -8,7 +13,7 @@ class SMA
 	int window;
 	int curSize;
 public:
-	SMA(int win)
+	SMA(int win) //window is the size of SMA lookback
 	{
 		window=win;
 		curSize=0;
