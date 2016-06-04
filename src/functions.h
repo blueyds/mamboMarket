@@ -6,7 +6,11 @@ class SMA
 	std::list<T> window_values;
 	int window;
 public:
-	SMA(int win){window=win;};
+	SMA(int win)
+	{
+		window=win;
+		window_values.reserve(window+1);
+	};
 	T operator()(T value)
 	{
 		window_values.push_back(value);
