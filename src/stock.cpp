@@ -35,7 +35,7 @@ stock::stock(std::string sname){
 
 void stock::updateTA()
 {
-	SMA<double> sma10(10);
+	TA:functors::SMA<double> sma10(10);
 	SMAs10.reserve(adj_closes.size());
 	std::transform(adj_closes.begin(),adj_closes.end(),SMAs10.begin(),sma10);
 }
