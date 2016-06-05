@@ -1,6 +1,6 @@
 #include <istream>
 #include <ostream>
-#include <stringstream>
+#include <sstream>
 #include <string>
 #include "stock.h"
 
