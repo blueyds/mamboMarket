@@ -1,5 +1,4 @@
-#include <istream>
-#include <ostream>
+#include <iostream>
 #include <sstream>
 #include <string>
 #include "stock.h"
@@ -16,9 +15,10 @@ Heading options should be separated by comma and include:
 	ADJ
 	SMA10
 */
-int stock::save(std::string fname, std::string headings)
+void stock::save(std::string fname, std::string headings)
 {
 	
+	std::cout << "endtering save\n";
 	std::stringstream ss(headings);
 	std::istream_iterator<std::string> begin(ss);
 	std::istream_iterator<std::string> end;

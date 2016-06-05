@@ -31,7 +31,7 @@ stock::stock(std::string sname){
 	loadASIO();
 	//update_OpenClose();
 	updateTA();
-	if (!save(sname,"DATE OPEN CLOSE")){;}
+	save(sname,"DATE OPEN CLOSE")
 }
 
 void stock::updateTA()

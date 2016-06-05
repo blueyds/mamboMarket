@@ -40,7 +40,7 @@ private:
 public:
 	stock(std::string sname);
 	stock(std::string sname,std::string name,std::string descr);
-	int save(std::string fname, std::string headings);
+	void save(std::string fname, std::string headings);
 	int getIndex(boost::gregorian::date d1);
 	std::string getfilename(void);	
 	void verify(boost::gregorian::date d1);
