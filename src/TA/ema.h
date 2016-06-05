@@ -1,4 +1,4 @@
-#ifndef EMA_H;
+#ifndef EMA_H
 #define EMA_H
 
 #include <vector> //std::vector
