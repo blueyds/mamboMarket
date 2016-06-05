@@ -5,4 +5,7 @@
  * stock.cpp
     stock::verify : changed to call GetStockDailyIndex
     GetStockDailyIndex: added functions for both styles
-    
+
+ 2016-06-04 Craig NUnemaker (craig@nunemakerCPA.com)
+ --removed the mapping variables as the underlying data structure and replaced them with stl::vector
+ --adopted a customized header stl based technical analysis platform. each TA is a functor object. more complex 

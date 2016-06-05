@@ -1,11 +1,14 @@
+#ifndef SMA_H
+#define SMA_H
 #include <vector> //std::vector
-#include <iostream> //std::cout
 #include <numeric> //std::accumulate
 /* example usage adj_closes is a vector of double closing prices
 	SMA<double> sma10(10);
 	SMAs10.reserve(adj_closes.size());
 	std::transform( adj_closes.begin(), adj_closes.end(), SMAs10.begin(), sma10);
 */
+namespace TA{
+namespace functors{
 template <class T>
 class SMA 
 {
@@ -41,3 +44,6 @@ public:
 		return val;
 	}
 };
+}
+template
+}
