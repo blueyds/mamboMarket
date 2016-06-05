@@ -33,7 +33,7 @@ private:
 	std::vector<double> highs;//HIGH
 	std::vector<double> lows;//LOW
 	std::vector<double> volumes;//VOLUME
-	std::vector<double> adj_closes;?//ADJ
+	std::vector<double> adj_closes;//ADJ
 	std::vector<double> SMAs10;//SMA10
 	void updateTA();
 	int loadASIO();
