@@ -41,7 +41,7 @@ public:
 			window_values.pop_back();
 			T sum_value;
 			val = std::accumulate( window_values.begin(), window_values.end(), 0) / window;
-			prior_ma=val;
+			prior_ema=val;
 		}
 		else if (counter > window)
 		{
