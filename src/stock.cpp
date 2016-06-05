@@ -31,6 +31,7 @@ stock::stock(std::string sname){
 	loadASIO();
 	//update_OpenClose();
 	updateTA();
+	if (!save(sname,"DATE OPEN CLOSE"){;}
 }
 
 void stock::updateTA()
@@ -104,3 +105,5 @@ void stock::verify()
 	verify(*diter);
 	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\n";
 }
+
+

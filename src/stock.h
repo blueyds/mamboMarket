@@ -27,19 +27,20 @@ private:
 	std::string stock_name;
 	std::string long_name;
 	std::string description;
-	std::vector<boost::gregorian::date> dates;
-	std::vector<double> opening_prices;
-	std::vector<double> closing_prices;
-	std::vector<double> highs;
-	std::vector<double> lows;
-	std::vector<double> volumes;
-	std::vector<double> adj_closes;
-	std::vector<double> SMAs10;
+	std::vector<boost::gregorian::date> dates;//DATE
+	std::vector<double> opening_prices;//OPEN
+	std::vector<double> closing_prices;//CLOSE
+	std::vector<double> highs;//HIGH
+	std::vector<double> lows;//LOW
+	std::vector<double> volumes;//VOLUME
+	std::vector<double> adj_closes;?//ADJ
+	std::vector<double> SMAs10;//SMA10
 	void updateTA();
 	int loadASIO();
 public:
 	stock(std::string sname);
 	stock(std::string sname,std::string name,std::string descr);
+	int save(std::string fname, std::string headings);
 	int getIndex(boost::gregorian::date d1);
 	std::string getfilename(void);	
 	void verify(boost::gregorian::date d1);
