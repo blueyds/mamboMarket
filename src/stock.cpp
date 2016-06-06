@@ -31,6 +31,7 @@ stock::stock(std::string sname){
 	loadASIO();
 	//update_OpenClose();
 	updateTA();
+	last_update=*(dates.end()-1);
 	save(sname,"DATE OPEN CLOSE");
 }
 
