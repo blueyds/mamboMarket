@@ -32,7 +32,7 @@ void stock::save(std::string fname, std::string headings)
 	int count = vstrings.size();
 	int columns=0;
 	for (int i = 0; i < vstrings.size(); i++)
-	{
+	{ 
 		if (vstrings[i].compare("DATE"))
 			{hasDATE=true;columns=columns+1;};
 		if (vstrings[i].compare("OPEN"))
@@ -63,52 +63,52 @@ void stock::save(std::string fname, std::string headings)
 		if (hasDATE)
 		{
 			counter = counter +1;
-			temp << dates[i];
+			temp << std::to_string(dates[i]);
 			if (counter<columns){temp<<",";}
 		}
 		if (hasOPEN)
 		{
 			counter = counter +1;
-			temp << opening_prices[i];
+			temp << std::to_string(opening_prices[i]);
 			if (counter<columns){temp<<",";}
 		}
 		if (hasCLOSE)
 		{
 			counter = counter +1;
-			temp << closing_prices[i];
+			temp << std::to_string(closing_prices[i]);
 			if (counter<columns){temp<<",";}
 		}
 		if (hasHIGH)
 		{
 			counter = counter +1;
-			temp << highs[i];
+			temp << std::to_string(highs[i]);
 			if (counter<columns){temp<<",";}
 		}
 		if (hasLOW)
 		{
 			counter = counter +1;
-			temp << lows[i];
+			temp << std::string(lows[i]);
 			if (counter<columns){temp<<",";}
 		}
 		if (hasVOLUME)
 		{
 			counter = counter +1;
-			temp << volumns[i];
+			temp << std::to_string(volumns[i]);
 			if (counter<columns){temp<<",";}
 		}
 		if (hasADJ)
 		{
 			counter = counter +1;
-			temp << adj_closes[i];
+			temp << std::to_string(adj_closes[i]);
 			if (counter<columns){temp<<",";}
 		}
 		if (hasSMA10)
 		{
 			counter = counter +1;
-			temp << SMAs10[i];
+			temp << std::to_string(SMAs10[i]);
 			if (counter<columns){temp<<",";}
 		}
-		temp<<"\n"
+		temp << "\n"
 		ofs << temp;
 	}
 	ofs.close();
