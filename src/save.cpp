@@ -66,7 +66,7 @@ void stock::save(std::string fname, std::string headings)
 			temp.append(std::to_string(dates[i]));
 			if (counter<columns){temp.append(",");}
 		}
-		if (hasOPEN)
+		/*if (hasOPEN)
 		{
 			counter = counter +1;
 			temp.append(std::to_string(opening_prices[i]));
@@ -107,7 +107,7 @@ void stock::save(std::string fname, std::string headings)
 			counter = counter +1;
 			temp.append(std::to_string(SMAs10[i]));
 			if (counter<columns){temp.append(",");}
-		}
+		}*/
 		temp.append("\n");
 		ofs << temp;
 	}
