@@ -27,6 +27,7 @@ private:
 	std::string stock_name;
 	std::string long_name;
 	std::string description;
+	boost::gregorian::date last_update;
 	std::vector<boost::gregorian::date> dates;//DATE
 	std::vector<double> opening_prices;//OPEN
 	std::vector<double> closing_prices;//CLOSE
