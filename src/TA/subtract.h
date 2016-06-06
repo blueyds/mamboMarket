@@ -1,10 +1,12 @@
 #ifndef SUBTRACT_H
 #define SUBTRACT_H
 /*
-if you use this with transform it will subtract b from a
+if you use this with transform it will subtract each
+element of b from each element of a
 */
 
 namespace TA{
+namespace functors{
 template <class T>
 class subtract
 {
@@ -15,5 +17,6 @@ public:
         return a - b;    
     }  
 };
-}
+}//namespace TA::functors
+}//namespace TA
 #endif

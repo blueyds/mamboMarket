@@ -5,6 +5,7 @@
 #include <iostream> //std::cout
 #include <numeric> //std::accumulate
 namespace TA{
+namespace functors{
 template <class T>
 class EMA
 {
@@ -53,5 +54,6 @@ public:
 		return val;
 	}
 };
-}
+}//namespace TA::functors
+}//namespace TA
 #endif

@@ -44,6 +44,6 @@ public:
 		return val;
 	}
 };
-}//namespace functors
+}//namespace TA::functors
 }//namespace TA
 #endif
