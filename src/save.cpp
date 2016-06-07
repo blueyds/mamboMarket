@@ -37,19 +37,19 @@ void stock::save(std::string fname, std::string headings)
 	{ 
 		if (vstrings[i].find("DATE")!=std::string::npos)
 			{hasDATE=true;columns=columns+1;};
-		else if (vstrings[i].find("OPEN") !=std::string::npos)
+		if (vstrings[i].find("OPEN") !=std::string::npos)
 			{hasOPEN=true;columns=columns+1;};
-		else if (vstrings[i].find("CLOSE") != std::string::npos)
+		if (vstrings[i].find("CLOSE") != std::string::npos)
 			{hasCLOSE=true;columns=columns+1;};
-		else if (vstrings[i].find("HIGH") !=std::string::npos)
+		if (vstrings[i].find("HIGH") !=std::string::npos)
 			{hasHIGH=true;columns=columns+1;};
-		else if (vstrings[i].find("LOW") !=std::string::npos)
+		if (vstrings[i].find("LOW") !=std::string::npos)
 			{hasLOW=true;columns=columns+1;};
-		else if (vstrings[i].find("VOLUME") !=std::string::npos)
+		if (vstrings[i].find("VOLUME") !=std::string::npos)
 			{hasVOLUME=true;columns=columns+1;};
-		else if (vstrings[i].find("ADJ") != std::string::npos)
+		if (vstrings[i].find("ADJ") != std::string::npos)
 			{hasADJ=true;columns=columns+1;};
-		else if (vstrings[i].find("SMA10") !=std::string::npos)
+		if (vstrings[i].find("SMA10") !=std::string::npos)
 			{hasSMA10=true;columns=columns+1;};
 	}
 	std::cout << hasDATE<< "\t" << hasOPEN << "\t" << hasCLOSE << "\t" << hasHIGH<< "\t" << hasLOW<< "\t"<<columns<<"\n"; 
