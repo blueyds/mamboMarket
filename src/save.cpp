@@ -32,23 +32,24 @@ void stock::save(std::string fname, std::string headings)
 	std::vector<std::string> vstrings(begin, end);
 	int count = vstrings.size();
 	int columns=0;
+	std::cout << "vstrings size =" << count << "\n";
 	for (int i = 0; i < vstrings.size(); i++)
 	{ 
-		if (vstrings[i].compare("DATE"))
+		if (vstrings[i].find("DATE")!=std::string::npos)
 			{hasDATE=true;columns=columns+1;};
-		if (vstrings[i].compare("OPEN"))
+		else if (vstrings[i].find("OPEN") !=std::string::npos)
 			{hasOPEN=true;columns=columns+1;};
-		if (vstrings[i].compare("CLOSE"))
+		else if (vstrings[i].find("CLOSE") != std::string::npos)
 			{hasCLOSE=true;columns=columns+1;};
-		if (vstrings[i].compare("HIGH"))
+		else if (vstrings[i].find("HIGH") !=std::string::npos)
 			{hasHIGH=true;columns=columns+1;};
-		if (vstrings[i].compare("LOW"))
+		else if (vstrings[i].find("LOW") !=std::string::npos)
 			{hasLOW=true;columns=columns+1;};
-		if (vstrings[i].compare("VOLUME"))
+		else if (vstrings[i].find("VOLUME") !=std::string::npos)
 			{hasVOLUME=true;columns=columns+1;};
-		if (vstrings[i].compare("ADJ"))
+		else if (vstrings[i].find("ADJ") != std::string::npos)
 			{hasADJ=true;columns=columns+1;};
-		if (vstrings[i].compare("SMA10"))
+		else if (vstrings[i].find("SMA10") !=std::string::npos)
 			{hasSMA10=true;columns=columns+1;};
 	}
 	std::cout << hasDATE<< "\t" << hasOPEN << "\t" << hasCLOSE << "\t" << hasHIGH<< "\t" << hasLOW<< "\t"<<columns<<"\n"; 
