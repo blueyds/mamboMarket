@@ -54,7 +54,7 @@ void stock::save(std::string fname, std::string headings)
 	csvfound=fname.find(".csv");
 	if (csvfound==std::string::npos) //fname does not have csv suffix
 		{fname.append(".csv"); }
-	std::ofstream ofs(fname);
+	std::ofstream ofs(fname,std::ofstream::trunc);
 	count = dates.size();
 	for (int i = 0; i < count; i++)
 	{
@@ -92,7 +92,7 @@ void stock::save(std::string fname, std::string headings)
 		if (hasVOLUME)
 		{
 			counter = counter +1;
-			ofs << volumns[i]);
+			ofs << volumnes[i]);
 			if (counter<columns){ofs << ",";}
 		}
 		if (hasADJ)
@@ -107,7 +107,9 @@ void stock::save(std::string fname, std::string headings)
 			counter = counter +1;
 			ofs << SMAs10[i];
 			if (counter<columns){ofs << ",";}
+		}
 		ofs << "\n";
 	}
 	ofs.close();
+	
 }
