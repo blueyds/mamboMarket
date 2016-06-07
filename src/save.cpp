@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <fstream>
 #include "stock.h"
 
 
@@ -92,7 +93,7 @@ void stock::save(std::string fname, std::string headings)
 		if (hasVOLUME)
 		{
 			counter = counter +1;
-			ofs << volumnes[i]);
+			ofs << volumes[i]);
 			if (counter<columns){ofs << ",";}
 		}
 		if (hasADJ)
