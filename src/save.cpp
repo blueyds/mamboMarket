@@ -56,7 +56,7 @@ void stock::save(std::string fname, std::string headings)
 	if (csvfound==std::string::npos) //fname does not have csv suffix
 		{fname.append(".csv"); }
 	std::ofstream ofs(fname.c_str());
-	if (ofs.isopen()){
+	if (ofs.is_open()){
 		count = dates.size();
 		for (int i = 0; i < count; i++)
 		{
