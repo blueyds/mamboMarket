@@ -55,7 +55,7 @@ void stock::save(std::string fname, std::string headings)
 	csvfound=fname.find(".csv");
 	if (csvfound==std::string::npos) //fname does not have csv suffix
 		{fname.append(".csv"); }
-	std::ofstream ofs(fname);
+	std::ofstream ofs(fname.c_str());
 	if (ofs.isopen()){
 		count = dates.size();
 		for (int i = 0; i < count; i++)
@@ -76,7 +76,7 @@ void stock::save(std::string fname, std::string headings)
 			if (hasCLOSE)
 			{
 				counter = counter +1;
-				ofs << closing_prices[i]));
+				ofs << closing_prices[i];
 				if (counter<columns){ofs << ",";}
 			}
 			if (hasHIGH)
