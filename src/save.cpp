@@ -51,6 +51,7 @@ void stock::save(std::string fname, std::string headings)
 		if (vstrings[i].compare("SMA10"))
 			{hasSMA10=true;columns=columns+1;};
 	}
+	std::cout << hasDATE<< "\t" << hasOPEN << "\t" << hasCLOSE << "\t" << hasHIGH<< "\t" << hasLOW<< "\t"<<columns<<"\n"; 
 	std::size_t csvfound;
 	csvfound=fname.find(".csv");
 	if (csvfound==std::string::npos) //fname does not have csv suffix
