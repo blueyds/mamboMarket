@@ -55,62 +55,63 @@ void stock::save(std::string fname, std::string headings)
 	csvfound=fname.find(".csv");
 	if (csvfound==std::string::npos) //fname does not have csv suffix
 		{fname.append(".csv"); }
-	std::ofstream ofs(fname,std::ofstream::trunc);
-	count = dates.size();
-	for (int i = 0; i < count; i++)
-	{
-		int counter=0;
-		if (hasDATE)
+	std::ofstream ofs(fname);
+	if (ofs.isopen()){
+		count = dates.size();
+		for (int i = 0; i < count; i++)
 		{
-			counter = counter +1;
-			ofs << dates[i];
-			if (counter<columns){ofs << ",";};
+			int counter=0;
+			if (hasDATE)
+			{
+				counter = counter +1;
+				ofs << dates[i];
+				if (counter<columns){ofs << ",";};
+			}
+			if (hasOPEN)
+			{
+				counter = counter +1;
+				ofs << opening_prices[i];
+				if (counter<columns){ofs <<",";};
+			}
+			if (hasCLOSE)
+			{
+				counter = counter +1;
+				ofs << closing_prices[i]));
+				if (counter<columns){ofs << ",";}
+			}
+			if (hasHIGH)
+			{
+				counter = counter +1;
+				ofs << highs[i];
+				if (counter<columns){ofs << ",";}
+			}
+			if (hasLOW)
+			{
+				counter = counter +1;
+				ofs << lows[i];
+				if (counter<columns){ofs << ",";}
+			}
+			if (hasVOLUME)
+			{
+				counter = counter +1;
+				ofs << volumes[i];
+				if (counter<columns){ofs << ",";}
+			}
+			if (hasADJ)
+			
+			{
+				counter = counter +1;
+				ofs << adj_closes[i];
+				if (counter<columns){ofs << ",";}
+			}
+			if (hasSMA10)
+			{
+				counter = counter +1;
+				ofs << SMAs10[i];
+				if (counter<columns){ofs << ",";}
+			}
+			ofs << "\n";
 		}
-		if (hasOPEN)
-		{
-			counter = counter +1;
-			ofs << opening_prices[i];
-			if (counter<columns){ofs <<",";};
-		}
-		if (hasCLOSE)
-		{
-			counter = counter +1;
-			ofs << closing_prices[i]));
-			if (counter<columns){ofs << ",";}
-		}
-		if (hasHIGH)
-		{
-			counter = counter +1;
-			ofs << highs[i];
-			if (counter<columns){ofs << ",";}
-		}
-		if (hasLOW)
-		{
-			counter = counter +1;
-			ofs << lows[i];
-			if (counter<columns){ofs << ",";}
-		}
-		if (hasVOLUME)
-		{
-			counter = counter +1;
-			ofs << volumes[i]);
-			if (counter<columns){ofs << ",";}
-		}
-		if (hasADJ)
-		
-		{
-			counter = counter +1;
-			ofs << adj_closes[i];
-			if (counter<columns){ofs << ",";}
-		}
-		if (hasSMA10)
-		{
-			counter = counter +1;
-			ofs << SMAs10[i];
-			if (counter<columns){ofs << ",";}
-		}
-		ofs << "\n";
+		ofs.close();
 	}
-	ofs.close();
-	
 }
