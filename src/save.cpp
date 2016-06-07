@@ -58,58 +58,56 @@ void stock::save(std::string fname, std::string headings)
 	count = dates.size();
 	for (int i = 0; i < count; i++)
 	{
-		std::string temp;
 		int counter=0;
 		if (hasDATE)
 		{
 			counter = counter +1;
-			temp.append(std::to_string(dates[i]));
-			if (counter<columns){temp.append(",");}
+			ofs << dates[i];
+			if (counter<columns){ofs << ",";};
 		}
-		/*if (hasOPEN)
+		if (hasOPEN)
 		{
 			counter = counter +1;
-			temp.append(std::to_string(opening_prices[i]));
-			if (counter<columns){temp.append(",");}
+			ofs << opening_prices[i];
+			if (counter<columns){ofs <<",";};
 		}
 		if (hasCLOSE)
 		{
 			counter = counter +1;
-			temp.append(std::to_string(closing_prices[i]));
-			if (counter<columns){temp.append(",");}
+			ofs << closing_prices[i]));
+			if (counter<columns){ofs << ",";}
 		}
 		if (hasHIGH)
 		{
 			counter = counter +1;
-			temp.append(std::to_string(highs[i]));
-			if (counter<columns){temp.append(",");}
+			ofs << highs[i];
+			if (counter<columns){ofs << ",";}
 		}
 		if (hasLOW)
 		{
 			counter = counter +1;
-			temp.append(std::string(lows[i]));
-			if (counter<columns){temp.append(",");}
+			ofs << lows[i];
+			if (counter<columns){ofs << ",";}
 		}
 		if (hasVOLUME)
 		{
 			counter = counter +1;
-			temp.append(std::to_string(volumns[i]));
-			if (counter<columns){temp.append(",");}
+			ofs << volumns[i]);
+			if (counter<columns){ofs << ",";}
 		}
 		if (hasADJ)
+		
 		{
 			counter = counter +1;
-			temp.append(std::to_string(adj_closes[i]));
-			if (counter<columns){temp.append(",");}
+			ofs << adj_closes[i];
+			if (counter<columns){ofs << ",";}
 		}
 		if (hasSMA10)
 		{
 			counter = counter +1;
-			temp.append(std::to_string(SMAs10[i]));
-			if (counter<columns){temp.append(",");}
-		}*/
-		temp.append("\n");
-		ofs << temp;
+			ofs << SMAs10[i];
+			if (counter<columns){ofs << ",";}
+		ofs << "\n";
 	}
 	ofs.close();
 }
