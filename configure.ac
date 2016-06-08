@@ -11,6 +11,7 @@ AC_CONFIG_FILES([Makefile])
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
+AX_CXX_COMPILE_STDCXX_11([ext],[mandatoy])
 
 # Checks for libraries.
 AX_BOOST_BASE([])
