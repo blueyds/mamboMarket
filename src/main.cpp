@@ -14,7 +14,7 @@ int main (int argc, char *argv[])
 	  stock s (argv[1]);
 		s.verify();
 		arma::mat data;
-		mlpack::data::load("aapl.csv",data,true);
+		mlpack::data::Load("aapl.csv",data,true);
 		
 	}
 }
