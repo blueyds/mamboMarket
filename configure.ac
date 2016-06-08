@@ -19,8 +19,8 @@ AX_BOOST_THREAD
 AX_BOOST_DATE_TIME
 AX_BOOST_ASIO
 AX_PTHREAD([])
-AX_CHECK_LIBRARY([LIBMLPACK],
-                  [mlpack/core.hpp],
+AX_CHECK_LIBRARY([MLPACK],
+                  [/usr/include/mlpack/core.hpp],
                   [mlpack],
                   [],
                   [AC_MSG_ERROR([could not find MLPACK])])
