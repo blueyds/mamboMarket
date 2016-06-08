@@ -1,4 +1,5 @@
 #include <iostream>
+#include "mlpack/core.hpp?
 #include "stock.h"
 
 int main (int argc, char *argv[])
@@ -12,5 +13,8 @@ int main (int argc, char *argv[])
 		std::cout << "calling the stock class now\n";
 	  stock s (argv[1]);
 		s.verify();
+		arma::mat data;
+		mlpack::data::load("aapl.csv",data,true);
+		
 	}
 }

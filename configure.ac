@@ -19,11 +19,11 @@ AX_BOOST_THREAD
 AX_BOOST_DATE_TIME
 AX_BOOST_ASIO
 AX_PTHREAD([])
-AX_CHECK_LIBRARY([LIBTALIB],
-                  [ta-lib/ta_func.h],
-                  [ta_lib],
+AX_CHECK_LIBRARY([LIBMLPACK],
+                  [mlpack/core.hpp],
+                  [mlpack],
                   [],
-                  [AC_MSG_ERROR([could not find ta_lib])])
+                  [AC_MSG_ERROR([could not find MLPACK])])
 
 # Checks for header files.
 AC_CHECK_HEADER([stdio.h],
