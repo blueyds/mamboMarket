@@ -1,5 +1,5 @@
 #include <iostream>
-#include "mlpack/core.hpp?
+#include <mlpack/core.hpp>
 #include "stock.h"
 
 int main (int argc, char *argv[])
