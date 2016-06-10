@@ -45,5 +45,18 @@ public:
 	}
 };
 }//namespace TA::functors
+template<typename A>
+void SMA(int window,const std::vector<A> &input,std::vector<A> output)
+{
+	typename std::vector<A>::const_iterator begIt;
+	typename std::vector<A>::const_iterator endIt;
+	typename std::vector<A>::iterator destIt;
+	begIt=input.begin();
+	endIt=input.end();
+	destIt=output.begin();
+	functors::SMA<A> _sma(window);
+	output.reserve(input.size());
+	std::transform(begIt,endIt,destIt,_sma);
+} 
 }//namespace TA
 #endif
