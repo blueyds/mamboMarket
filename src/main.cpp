@@ -1,6 +1,5 @@
 #include <iostream>
 #include <mlpack/core.hpp>
-#include "ta-lib/ta_libc.h"
 #include "stock.h"
 
 int main (int argc, char *argv[])
@@ -9,8 +8,6 @@ int main (int argc, char *argv[])
 		std::cout << "Usage : "<< argv[0] << " <stock_symbol>\n";
 	else
 	{
-		TA_RetCode retCode;
-		retCode = TA_Initialize();
 		std::cout << "Preparing to pull from internet still in main.cpp\n";
 		std::cout << argv[1]<<"\n";
 		std::cout << "calling the stock class now\n";
