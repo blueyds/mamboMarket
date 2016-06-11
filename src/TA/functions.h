@@ -8,7 +8,7 @@
 namespace TA
 {
 
-void SMA(int window,std::vector<double> &input, std::vector::<double> &output);
+void SMA(int window,std::vector<double> &input, std::vector<double> &output);
 
 }//namespace TA
 
