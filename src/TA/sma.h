@@ -9,7 +9,7 @@
 */
 namespace TA{
 namespace functors{
-template <class T>
+template <typename T>
 class SMA 
 {
 	std::vector<T> window_values;
@@ -40,23 +40,10 @@ public:
 			sum_value = std::accumulate(window_values.begin(),window_values.end(),0);
 			val= sum_value / window;
 		}
-		//std::cout << "return curSize = " <<curSize << "\t window ="<< window << "\tclosing = "<< value << "\tSMA ="<< val <<"\n";
+//		std::cout << "return curSize = " <<curSize << "\t window ="<< window << "\tclosing = "<< value << "\tSMA ="<< val <<"\n";
 		return val;
 	}
 };
 }//namespace TA::functors
-template<typename A>
-void SMA(int window,const std::vector<A> &input,std::vector<A> output)
-{
-	typename std::vector<A>::const_iterator begIt;
-	typename std::vector<A>::const_iterator endIt;
-	typename std::vector<A>::iterator destIt;
-	begIt=input.begin();
-	endIt=input.end();
-	destIt=output.begin();
-	functors::SMA<A> _sma(window);
-	output.reserve(input.size());
-	std::transform(begIt,endIt,destIt,_sma);
-} 
 }//namespace TA
 #endif
