@@ -36,6 +36,10 @@ private:
 	std::vector<double> volumes;//VOLUME
 	std::vector<double> adj_closes;//ADJ
 	std::vector<double> SMAs10;//SMA10
+	std::vector<double> EMAs13;//EMA13
+	std::vector<double> macds;//MACD
+	std::vector<double> macd_signals;//MACDSIG
+	std::vector<double> macd_hists;//MACDHIST
 	void updateTA();
 	int loadASIO();
 public:

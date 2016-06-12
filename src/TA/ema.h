@@ -35,14 +35,10 @@ public:
 		else if (counter==window) 
 		// the only time the counter should exactly equal the window is the first time it reaches that magic number, for this we will calculate a SMA 
 		{	
-			for (int i=0; i<counter;i++)
-			{
-				window_values[i]=window_values[i+1];
-			}
-			window_values.pop_back();
 			T sum_value;
 			val = std::accumulate( window_values.begin(), window_values.end(), 0) / window;
 			prior_ema=val;
+			window_values.erase(window_values.begin());
 		}
 		else if (counter > window)
 		{

@@ -8,7 +8,7 @@ element of b from each element of a
 namespace TA{
 namespace functors{
 template <class T>
-class subtract
+class SUBTRACT
 {
 public:
 	subtract () {;};

@@ -39,6 +39,8 @@ stock::stock(std::string sname){
 void stock::updateTA()
 {
 	TA::SMA(10,adj_closes,SMAs10);
+	TA::EMA(10,adj_closes,EMAs10);
+	TA::MACD(12,26,9,adj_closes,macds,macd_signals,macd_hists);
 	/*
 	TA::functors::SMA<double> sma10(10);
 	SMAs10.reserve(adj_closes.size());
