@@ -47,7 +47,7 @@ void MOMENTUM(int window,TA::dvector &input,TA::dvector &output)
 
 void ROC(int window,TA::dvector &input,TA::dvector &output)
 {
-	TA::functors::ROC<double> -_roc(window);
+	TA::functors::ROC<double> _roc(window);
 	output.reserve(input.size());
 	std::transform( input.begin(), input.end(), output.begin(), _roc);
 }
