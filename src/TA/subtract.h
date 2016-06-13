@@ -11,7 +11,7 @@ template <class T>
 class SUBTRACT
 {
 public:
-	subtract () {;};
+	SUBTRACT () {;};
 	T operator()( T a, T b ) const    
     {    
         return a - b;    

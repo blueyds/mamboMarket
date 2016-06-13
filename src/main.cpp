@@ -1,6 +1,7 @@
 #include <iostream>
 #include <mlpack/core.hpp>
 #include "stock.h"
+#include "functions.h"
 
 int main (int argc, char *argv[])
 {
@@ -15,6 +16,6 @@ int main (int argc, char *argv[])
 		s.verify();
 		arma::mat data;
 		mlpack::data::Load("aapl.csv",data,true);
-		
+		TA::TEST();
 	}
 }

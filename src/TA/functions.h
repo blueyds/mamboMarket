@@ -11,16 +11,16 @@
 
 namespace TA
 {
-
-void SMA(int window,std::vector<double> &input, &output);
-void EMA(int window,std::vector<double> &input, &output);
-void SUBTRACT(std::vector<double> &input1, &input2, &output);
-void MACD(int short_window, long_window, smooth_window, std::vector<double> &input, &macd, &macd_signal, &macd_hist);
-void MIN(int window,std::vector<double> &input, &output);
-void MAX(int window,std::vector<double> &input, &output);
-void MOMENTUM(int window,std::vector<double> &input, &output);
-void ROC(int window,std::vector<double> &input, &output);
-void TEST(
+typedef std::vector<double> dvector;
+void SMA(int window,dvector &input, dvector &output);
+void EMA(int window,dvector &input, dvector &output);
+void SUBTRACT(dvector &input1, dvector &input2, dvector &output);
+void MACD(int short_window, int long_window, int smooth_window, dvector &input, dvector &macd, dvector &macd_signal, dvector &macd_hist);
+void MIN(int window, dvector &input, dvector &output);
+void MAX(int window,dvector &input, dvector &output);
+void MOMENTUM(int window,dvector &input,dvector &output);
+void ROC(int window,dvector &input,dvector &output);
+void TEST();
 }//namespace TA
 
 #endif
