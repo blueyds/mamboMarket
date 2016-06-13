@@ -3,49 +3,49 @@
 #include <iostream>
 #include "functions.h"
 
-void TA::SMA(int window,std::vector<double> &input, &output)
+void TA::SMA(int window,TA::dvector &input, TA::dvector &output)
 {
 	TA::functors::SMA<double> _sma(window);
 	output.reserve(input.size());
 	std::transform( input.begin(), input.end(), output.begin(), _sma);
 }
 
-void TA::EMA(int window,std::vector<double> &input, &output)
+void TA::EMA(int window,TA::dvector &input, TA::dvector &output)
 {
 	TA::functors::EMA<double> _ema(window);
 	output.reserve(input.size());
 	std::transform( input.begin(), input.end(), output.begin(), _ema);
 }
 
-void TA::SUBTRACT(std::vector<double> &input1, &input2, &output)
+void TA::SUBTRACT(TA::dvector &input1, TA::devector &input2, TA::dvector &output)
 {//1 - 2
 	TA::functors::SUBTRACT<double> _subtract;
 	output.reserve(input1.size());
 	std::transform(input1.begin(), input1.end(),input2.begin(),output.begin(), _subtract);
 }
 
-void MIN(int window,std::vector<double> &input, &output)
+void MIN(int window,TA::dvector &input, TA::dvector &output)
 {
 	TA::functors::MIN<double> _min(window);
 	output.reserve(input.size());
 	std::transform( input.begin(), input.end(), output.begin(), _min);
 }
 
-void MAX(int window,std::vector<double> &input, &output)
+void MAX(int window,TA::dvector &input, TA::dvector &output)
 {
 	TA::functors::MAX<double> _max(window);
 	output.reserve(input.size());
 	std::transform( input.begin(), input.end(), output.begin(), _max);
 }
 
-void MOMENTUM(int window,std::vector<double> &input, &output)
+void MOMENTUM(int window,TA::dvector &input,TA::dvector &output)
 {
 	TA::functors::MOMENTUM<double> _momentum(window);
 	output.reserve(input.size());
 	std::transform( input.begin(), input.end(), output.begin(), _momentum);
 }
 
-void ROC(int window,std::vector<double> &input, &output)
+void ROC(int window,TA::dvector &input,TA::dvector &output)
 {
 	TA::functors::EMA<double> (window);
 	output.reserve(input.size());
@@ -53,7 +53,7 @@ void ROC(int window,std::vector<double> &input, &output)
 }
 
 
-void TA::MACD(int short_window, long_window, smooth_window, std::vector<double> &input, &macd, &macd_signal, &macd_hist)
+void TA::MACD(int short_window, int long_window, int smooth_win, TA::dvecctor &input, TA::dvector &macd, TA::dvector &macd_signal, TA::dvector &macd_hist)
 {
 	std::vector<double> short_emas;
 	std::vector<double> long_emas;
