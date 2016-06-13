@@ -17,7 +17,7 @@ void TA::EMA(int window,TA::dvector &input, TA::dvector &output)
 	std::transform( input.begin(), input.end(), output.begin(), _ema);
 }
 
-void TA::SUBTRACT(TA::dvector &input1, TA::devector &input2, TA::dvector &output)
+void TA::SUBTRACT(TA::dvector &input1, TA::dvector &input2, TA::dvector &output)
 {//1 - 2
 	TA::functors::SUBTRACT<double> _subtract;
 	output.reserve(input1.size());
@@ -47,13 +47,13 @@ void MOMENTUM(int window,TA::dvector &input,TA::dvector &output)
 
 void ROC(int window,TA::dvector &input,TA::dvector &output)
 {
-	TA::functors::EMA<double> (window);
+	TA::functors::ROC<double> -_roc(window);
 	output.reserve(input.size());
 	std::transform( input.begin(), input.end(), output.begin(), _roc);
 }
 
 
-void TA::MACD(int short_window, int long_window, int smooth_win, TA::dvecctor &input, TA::dvector &macd, TA::dvector &macd_signal, TA::dvector &macd_hist)
+void TA::MACD(int short_window, int long_window, int smooth_win, TA::dvector &input, TA::dvector &macd, TA::dvector &macd_signal, TA::dvector &macd_hist)
 {
 	std::vector<double> short_emas;
 	std::vector<double> long_emas;
