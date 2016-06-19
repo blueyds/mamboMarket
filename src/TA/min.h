@@ -21,13 +21,13 @@ public:
 	T operator()(T& value)
 	{
 		window_values.push_back(value);
-		curSize = curSize +1;
+		curSize++;
 		T val = 0;
-		if (curSize > window) 
+		if (curSize == window) 
 		{
-			curSize=curSize -1;
+			curSize--;
 			//T new_value;
-			val = std::min_element(window_values.begin(),window_values.end());
+			val = std::min_element( window_values.begin(), window_values.end() );
 			window_values.erase(window_values.begin());
 		}
 //		std::cout << "return curSize = " <<curSize << "\t window ="<< window << "\tclosing = "<< value << "\tSMA ="<< val <<"\n";
