@@ -28,24 +28,22 @@ public:
 		window_values.push_back(value);
 		counter = counter +1;
 		T val = 0;
-		if (counter < window) 
-		{
-			return val;
-		}
-		else if (counter==window) 
-		// the only time the counter should exactly equal the window is the first time it reaches that magic number, for this we will calculate a SMA 
+		if (counter==window)  
 		{	
-			T sum_value;
-			val = std::accumulate( window_values.begin(), window_values.end(), 0) / window;
-			prior_ema=val;
-			window_values.erase(window_values.begin());
-		}
-		else if (counter > window)
-		{
-			T closingK = value * K;
-			T priorK = prior_ema * (1-K);
-			val = closingK + prior_ema;
-			prior_ema = val;
+			if (prior_ema=0)
+			{
+				T sum_value;
+				val = std::accumulate( window_values.begin(), window_values.end(), 0) / window;
+				prior_ema=val;
+				window_values.erase(window_values.begin());
+			}
+			else
+			{
+				T closingK = value * K;
+				T priorK = prior_ema * (1-K);
+				val = closingK + prior_ema;
+				prior_ema = val;
+			}
 		}
 		return val;
 	}

@@ -24,7 +24,7 @@ public:
 		window_values.push_back(value);
 		curSize = curSize +1;
 		T val = 0;
-		if (curSize > window) 
+		if (curSize == window) 
 		{
 			curSize=curSize -1;
 			val= value - window_values.begin();
