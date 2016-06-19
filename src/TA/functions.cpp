@@ -53,7 +53,7 @@ void ROC(int window,TA::dvector &input,TA::dvector &output)
 }
 
 
-void TA::MACD(int short_window, int long_window, int smooth_win, TA::dvector &input, TA::dvector &macd, TA::dvector &macd_signal, TA::dvector &macd_hist)
+void TA::MACD(int short_window, int long_window, int smooth_window, TA::dvector &input, TA::dvector &macd, TA::dvector &macd_signal, TA::dvector &macd_hist)
 {
 	std::vector<double> short_emas;
 	std::vector<double> long_emas;
@@ -65,7 +65,7 @@ void TA::MACD(int short_window, int long_window, int smooth_win, TA::dvector &in
 	TA::EMA(short_window,input,short_emas);
 	TA::EMA(long_window,input,long_emas);
 	TA::SUBTRACT(short_emas,long_emas,macd);
-	TA::EMA(smooth_window,fast_macd,macd_signal);
+	TA::EMA(smooth_window,macd,macd_signal);
 	TA::SUBTRACT(macd,macd_signal,macd_hist);
 }
 
