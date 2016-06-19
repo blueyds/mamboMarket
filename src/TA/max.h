@@ -28,7 +28,7 @@ public:
 		{
 			curSize=curSize -1;
 			//T new_value;
-			val = std::max_element(window_values.begin(),window_values.end());
+			val = *( std::max_element( window_values.begin(), window_values.end()) );
 			window_values.erase(window_values.begin());
 		}
 //		std::cout << "return curSize = " <<curSize << "\t window ="<< window << "\tclosing = "<< value << "\tSMA ="<< val <<"\n";
