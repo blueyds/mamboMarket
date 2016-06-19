@@ -27,7 +27,7 @@ public:
 		if (curSize == window) 
 		{
 			curSize=curSize -1;
-			val= value - window_values.begin();
+			val= value - *(window_values.begin());
 			window_values.erase(window_values.begin());
 		}
 //		std::cout << "return curSize = " <<curSize << "\t window ="<< window << "\tclosing = "<< value << "\tSMA ="<< val <<"\n";
