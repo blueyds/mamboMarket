@@ -30,7 +30,7 @@ stock::stock(std::string sname){
 	stock_name = sname;
 	loadASIO();
 	//update_OpenClose();
-	SMAs10.reserve(dates.size());
+	
 	updateTA();
 	last_update=*(dates.end()-1);
 	save(sname,"OPEN CLOSE");
@@ -41,6 +41,9 @@ void stock::updateTA()
 	TA::SMA(10,adj_closes,SMAs10);
 	TA::EMA(13,adj_closes,EMAs13);
 	TA::MACD(12,26,9,adj_closes,macds,macd_signals,macd_hists);
+	TA::MAX(100,adj_closes,max_closing);
+	TA::MAX(100,macd_hists,max_hist);
+	
 	/*
 	TA::functors::SMA<double> sma10(10);
 	SMAs10.reserve(adj_closes.size());

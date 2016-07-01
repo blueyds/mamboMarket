@@ -40,6 +40,10 @@ private:
 	std::vector<double> macds;//MACD
 	std::vector<double> macd_signals;//MACDSIG
 	std::vector<double> macd_hists;//MACDHIST
+	std::vector<double> max_closing;//MAXCLOSE
+	std::vector<double> max_hist; //MAXHIST
+	std::vector<bool> isHist_divergence;//HISTDIV
+	std::vector<double> futureROC; //FUTUREROC
 	void updateTA();
 	int loadASIO();
 public:
