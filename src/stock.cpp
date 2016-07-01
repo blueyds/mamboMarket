@@ -23,7 +23,7 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
 #include "stock.h"
-#include "TA/functions.h" //
+#include "stl_ta/functions.h" //
 
 
 stock::stock(std::string sname){
