@@ -18,24 +18,13 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 AX_BOOST_BASE([])
 AX_BOOST_SYSTEM
-AX_BOOST_THREAD
 AX_BOOST_DATE_TIME
 AX_BOOST_ASIO
-AX_PTHREAD([])
-AX_CHECK_LIBRARY([STLTA],
-                  [stl_ta/functions.h],
-                  [stlta],
-                  [],
-                  [AC_MSG_ERROR([could not find STL_TA])])
+
 
 # Checks for header files.
-AC_CHECK_HEADER([stdio.h],
-                     [AC_DEFINE([HAVE_STDIO_H], [1],
-                        [define to 1 if you have <stdio.h>.])],
-                     [AC_MSG_ERROR([sorry, can't do anything for you])])
 
 # Checks for typedefs, structures, and compiler characteristics.
-AC_CHECK_HEADER_STDBOOL
 
 # Checks for library functions.
 
