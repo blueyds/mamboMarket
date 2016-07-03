@@ -16,6 +16,7 @@ AX_CXX_COMPILE_STDCXX_11([ext],[mandatory])
 # Checks for libraries.
 LDFLAGS="$LDFLAGS -L/usr/local/lib"
 export LDFLAGS
+LD_RUN_PATH="$LD_RUN_PATH:/usr/local/lib"
 AX_BOOST_BASE([])
 AX_BOOST_THREAD
 AX_BOOST_SYSTEM
