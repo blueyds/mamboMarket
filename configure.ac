@@ -1,9 +1,9 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
+AC_INIT([FULL-MAMBO], [0.2], [BUG-REPORT-ADDRESS])
+AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_PREREQ([2.69])
-AC_INIT([FULL-MAMBO], [0.2], [BUG-REPORT-ADDRESS])
-AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile])
