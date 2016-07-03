@@ -5,7 +5,8 @@ mamboMarket
 Installation instructions
 ========================
 
-	autoreconf --install
+	git clone https://github.com/nunemaker73/STL_TA.git
+	autoreconf --install -force 
 	./configure
 	make
 	

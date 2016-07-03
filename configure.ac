@@ -7,6 +7,7 @@ AC_PREREQ([2.69])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile])
+AC_CONFIG_SUBDIRS([STL_TA])
  
 # Checks for programs.
 AC_PROG_CXX
