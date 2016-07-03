@@ -6,6 +6,6 @@ mambo_SOURCES = src/stock.cpp\
 		src/save.cpp\
 		src/main.cpp
 mambo_LDADD = 	$(BOOST_DATE_TIME_LIB)\
-		$(BOOST_SYSTEM_LIB) -lmlpack STL_TA/.libs/libstlta.a
-AM_CXXFLAGS = 	$(BOOST_CPPFLAGS) 
+		$(BOOST_SYSTEM_LIB) -lmlpack STL_TA/libstlta.a
+AM_CXXFLAGS = 	$(BOOST_CPPFLAGS)
 AM_LDFLAGS = 	$(BOOST_LDFLAGS)

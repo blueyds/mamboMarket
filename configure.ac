@@ -2,7 +2,6 @@
 # Process this file with autoconf to produce a configure script.
 AC_INIT([FULL-MAMBO], [0.2], [BUG-REPORT-ADDRESS])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
-AM_PROG_AR
 AC_CONFIG_MACRO_DIRS([m4])
 AC_PREREQ([2.69])
 AC_CONFIG_SRCDIR([src/main.cpp])
@@ -13,12 +12,8 @@ AC_CONFIG_SUBDIRS([STL_TA])
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
-AX_CXX_COMPILE_STDCXX_11([ext],[mandatory])
 
 # Checks for libraries.
-#LDFLAGS="$LDFLAGS -L/usr/local/lib"
-#export LDFLAGS
-#LD_RUN_PATH="$LD_RUN_PATH:/usr/local/lib"
 AX_BOOST_BASE([])
 AX_BOOST_THREAD
 AX_BOOST_SYSTEM
@@ -29,6 +24,8 @@ AX_BOOST_ASIO
 # Checks for header files.
 
 # Checks for typedefs, structures, and compiler characteristics.
+AX_CXX_COMPILE_STDCXX_11([ext],[mandatory])
+
 
 # Checks for library functions.
 
