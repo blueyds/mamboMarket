@@ -41,14 +41,8 @@ void stock::updateTA()
 	TA::SMA(10,adj_closes,SMAs10);
 	TA::EMA(13,adj_closes,EMAs13);
 	TA::MACD(12,26,9,adj_closes,macds,macd_signals,macd_hists);
-	//TA::MAX(100,adj_closes,max_closing);
-	//TA::MAX(100,macd_hists,max_hist);
-	
-	/*
-	TA::functors::SMA<double> sma10(10);
-	SMAs10.reserve(adj_closes.size());
-	std::transform(adj_closes.begin(),adj_closes.end(),SMAs10.begin(),sma10);
-	*/
+	TA::MAX(100,adj_closes,max_closing);
+	TA::MAX(100,macd_hists,max_hist);
 }
 
 stock::stock(std::string sname,std::string name,std::string descr)
