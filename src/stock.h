@@ -21,6 +21,7 @@
 #include <string>
 #include <vector>
 
+
 class stock {
 private:
 	std::string file_name;
