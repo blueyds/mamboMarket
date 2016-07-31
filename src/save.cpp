@@ -26,6 +26,14 @@ void stock::save(std::string fname, std::string headings)
 	bool hasVOLUME(false);
 	bool hasADJ(false);
 	bool hasSMA10(false);
+	bool hasEMA13(false);
+	bool hasMACD(false);
+	bool hasMACDSIG(false);
+	bool hasMACDHIST(false);
+	bool hasMAXCLOSE(false);
+	bool hasMAXHIST(false);
+	bool hasHISTDIV(false);
+	bool hasFUTUREROC(false);                                                                                           
 	std::stringstream ss(headings);
 	std::istream_iterator<std::string> begin(ss);
 	std::istream_iterator<std::string> end;
@@ -51,6 +59,22 @@ void stock::save(std::string fname, std::string headings)
 			{hasADJ=true;columns=columns+1;};
 		if (vstrings[i].find("SMA10") !=std::string::npos)
 			{hasSMA10=true;columns=columns+1;};
+		if (vstrings[i].find("EMA13") !=std::string::npos)
+			{hasEMA13=true;columns=columns+1;};
+		if (vstrings[i].find("MACD") !=std::string::npos)
+			{hasMACD=true;columns=columns+1;};
+		if (vstrings[i].find("MACDSIG") !=std::string::npos)
+			{hasMACDSIG=true;columns=columns+1;};
+		if (vstrings[i].find("MACDHIST") !=std::string::npos)
+			{hasMACDHIST=true;columns=columns+1;};
+		if (vstrings[i].find("MAXCLOSE") !=std::string::npos)
+			{hasMAXCLOSE=true;columns=columns+1;};
+		if (vstrings[i].find("MAXHIST") !=std::string::npos)
+			{hasMAXHIST=true;columns=columns+1;};
+		if (vstrings[i].find("HISTDIV") !=std::string::npos)
+			{hasHISTDIV=true;columns=columns+1;};
+		if (vstrings[i].find("FUTUREROC") !=std::string::npos)
+			{hasFUTUREROC=true;columns=columns+1;};
 	}
 	std::cout << hasDATE<< "\t" << hasOPEN << "\t" << hasCLOSE << "\t" << hasHIGH<< "\t" << hasLOW<< "\t"<<columns<<"\n"; 
 	std::size_t csvfound;
@@ -110,6 +134,12 @@ void stock::save(std::string fname, std::string headings)
 			{
 				counter = counter +1;
 				ofs << SMAs10[i];
+				if (counter<columns){ofs << ",";}
+			}
+			if (hasEMA13)
+			{
+				counter = counter +1;
+				ofs << EMAs10[i];
 				if (counter<columns){ofs << ",";}
 			}
 			ofs << "\n";
