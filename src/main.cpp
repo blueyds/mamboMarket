@@ -1,7 +1,7 @@
 #include <iostream>
 #include <mlpack/core.hpp>
 #include "stock.h"
-#include "STL_TA/include/functions.h"
+#include "stlta/functions.h"
 
 int main (int argc, char *argv[])
 {

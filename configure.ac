@@ -1,6 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 AC_INIT([FULL-MAMBO], [0.2], [BUG-REPORT-ADDRESS])
+AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_PREREQ([2.69])
@@ -13,8 +14,7 @@ AC_PROG_CXX
 AC_PROG_CC
 
 # Checks for libraries.
-PKG_CHECK_MODULES([LIBXMLXX], [libxml++-3.0])
-PKG_CHECK_MODULES([LIBSTLTA], [STL_TA])
+PKG_CHECK_MODULES([FOO], [libxml++-3.0 stlta])
 AX_BOOST_BASE([])
 AX_BOOST_THREAD
 AX_BOOST_SYSTEM
