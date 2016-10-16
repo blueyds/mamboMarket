@@ -6,8 +6,6 @@ AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_PREREQ([2.69])
 AC_CONFIG_SRCDIR([src/main.cpp])
-AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_FILES([Makefile])
  
 # Checks for programs.
 AC_PROG_CXX
@@ -19,7 +17,7 @@ AC_SUBST(TA_CFLAGS)
 AC_SUBST(TA_LIBS)
 
 AX_BOOST_BASE([])
-AX_BOOST_THREAD
+#AX_BOOST_THREAD
 AX_BOOST_SYSTEM
 AX_BOOST_DATE_TIME
 AX_BOOST_ASIO
@@ -32,5 +30,9 @@ AX_CXX_COMPILE_STDCXX_11([ext],[mandatory])
 
 
 # Checks for library functions.
+
+# Output
+AC_CONFIG_HEADERS([config.h])
+AC_CONFIG_FILES([Makefile])
 
 AC_OUTPUT
