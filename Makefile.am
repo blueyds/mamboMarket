@@ -9,5 +9,4 @@ mambo_CPPFLAGS = $(BOOST_CPPFLAGS)\
 mambo_LDFLAGS=$(BOOST_LDFLAGS)
 mambo_LDADD =  $(BOOST_DATE_TIME_LIB)\
 		$(BOOST_SYSTEM_LIB) \
-		$(TA_LIBS)\
-		-lmlpack
+		$(TA_LIBS)
