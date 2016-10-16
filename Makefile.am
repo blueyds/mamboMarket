@@ -6,7 +6,7 @@ mambo_CPPFLAGS = $(BOOST_CPPFLAGS)\
 mambo_LDFLAGS=$(BOOST_LDFLAGS)
 mambo_LDADD =  $(BOOST_SYSTEM_LIB) \
 		$(BOOST_DATE_TIME_LIB) \
-		$(BOOST_THREAD) \
+		$(BOOST_THREAD_LIB) \
 		$(TA_LIBS)
 mambo_SOURCES = src/stock.cpp\
 		src/loadASIO.cpp\
