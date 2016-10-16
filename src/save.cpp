@@ -139,7 +139,7 @@ void stock::save(std::string fname, std::string headings)
 			if (hasEMA13)
 			{
 				counter = counter +1;
-				ofs << EMAs10[i];
+				ofs << EMAs13[i];
 				if (counter<columns){ofs << ",";}
 			}
 			ofs << "\n";
