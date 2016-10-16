@@ -1,5 +1,4 @@
 AUTOMAKE_OPTIONS = subdir-objects
-SUBDIRS = STL_TA
 bin_PROGRAMS = 	mambo
 mambo_SOURCES = src/stock.cpp\
 		src/loadASIO.cpp\

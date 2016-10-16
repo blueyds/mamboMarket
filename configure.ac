@@ -7,7 +7,6 @@ AC_PREREQ([2.69])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile])
-AC_CONFIG_SUBDIRS([STL_TA])
  
 # Checks for programs.
 AC_PROG_CXX
@@ -15,6 +14,7 @@ AC_PROG_CC
 
 # Checks for libraries.
 PKG_CHECK_MODULES([LIBXMLXX], [libxml++-3.0])
+PKG_CHECK_MODULES([LIBSTLTA], [STL_TA])
 AX_BOOST_BASE([])
 AX_BOOST_THREAD
 AX_BOOST_SYSTEM
