@@ -5,9 +5,9 @@ mambo_SOURCES = src/stock.cpp\
 		src/save.cpp\
 		src/main.cpp
 mambo_CPPFLAGS = $(BOOST_CPPFLAGS)\
-		$(FOO_CPPFLAGS)
+		$(XML_CPPFLAGS)
 mambo_LDFLAGS=$(BOOST_LDFLAGS)
 mambo_LDADD =  $(BOOST_DATE_TIME_LIB)\
 		$(BOOST_SYSTEM_LIB) \
-		$(FOO_LIBS)\
+		$(XML_LIBS)\
 		-lmlpack
