@@ -13,6 +13,9 @@ Prerequisites
 
 ### pkg-config
 	sudo apt-get install pkg-config
+	
+### autoconf-archive
+	sudo apt-get install autoconf-archive
 
 ### STL-TA
 install stlta
