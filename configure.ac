@@ -17,7 +17,7 @@ PKG_CHECK_MODULES([TA],[stlta])
 AX_BOOST_BASE([])
 AX_BOOST_DATE_TIME
 AX_BOOST_ASIO
-#AX_PTHREAD
+AX_PTHREAD
 
 # Checks for header files.
 
