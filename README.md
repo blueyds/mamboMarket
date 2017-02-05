@@ -5,6 +5,14 @@ mamboMarket
 Installation instructions
 ========================
 
+Prerequisites
+
+BOOST
+	UBUNTU- libboost-all-dev
+
+GIT
+	UBUNTU- git
+
 install stlta
 
 	autoreconf --install -force 
