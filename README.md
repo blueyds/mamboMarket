@@ -11,6 +11,9 @@ Prerequisites
 ### GIT
 	UBUNTU git
 
+### pkg-config
+	sudo apt-get install pkg-config
+
 ### STL-TA
 install stlta
 
