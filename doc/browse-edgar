@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="/include/design2.xsl" ?>
+  <companyFilings>
+    <companyInfo>
+      <CIK>0000320193</CIK>
+      <CIKHREF>http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000320193&amp;owner=include&amp;count=10</CIKHREF>
+      <Location>CA</Location>
+      <SIC>3571</SIC>
+      <SICDescription>ELECTRONIC COMPUTERS</SICDescription>
+      <SICHREF>http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;SIC=3571&amp;owner=include&amp;count=10</SICHREF>
+      <businessAddress>
+        <city>CUPERTINO</city>
+        <phoneNumber>(408) 996-1010</phoneNumber>
+        <state>CA</state>
+        <street>ONE INFINITE LOOP</street>
+        <zipCode>95014</zipCode>
+      </businessAddress>
+      <fiscalYearEnd>0930</fiscalYearEnd>
+      <formerNames>
+        <formerName>
+          <date>2007-01-04</date>
+          <name>APPLE COMPUTER INC</name>
+        </formerName>
+        <formerName>
+          <date>1997-07-28</date>
+          <name>APPLE COMPUTER INC/ FA</name>
+        </formerName>
+      </formerNames>
+      <mailingAddress>
+        <city>CUPERTINO</city>
+        <state>CA</state>
+        <street>ONE INFINITE LOOP</street>
+        <zipCode>95014</zipCode>
+      </mailingAddress>
+      <name>APPLE INC</name>
+      <stateOfIncorporation>CA</stateOfIncorporation>
+    </companyInfo>
+    <results>
+      <filing>
+        <dateFiled>2017-02-24</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828017001737/0001628280-17-001737-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-22</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828017001593/0001628280-17-001593-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828017001484/0001628280-17-001484-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828017001483/0001628280-17-001483-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-15</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517044564/0001193125-17-044564-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-14</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517042083/0001193125-17-042083-index.htm</filingHREF>
+        <formName>Filing under Securities Act Rules 163/433 of free writing prospectuses</formName>
+        <type>FWP</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-14</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517041233/0001193125-17-041233-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517036283/0001193125-17-036283-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000093247117000777/0000932471-17-000777-index.htm</filingHREF>
+        <formName>Statement of acquisition of beneficial ownership by individuals</formName>
+        <type>SC 13G/A</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-07</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828017000963/0001628280-17-000963-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+    </results>
+  </companyFilings>
