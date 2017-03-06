@@ -10,17 +10,20 @@ AC_CONFIG_SRCDIR([src/main.cpp])
 #define some macro variables
 m4_define([boost_e1],[cannot locate boost developer libraries[,] do you need to install libboost-all-dev?])
 m4_define([pthread_e1],[cannot locate pthread libraries[,] do you need to install libpthread-stubs0-dev])
+m4_define([ssl_e1],[cannot locate openssl libraries])
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
 
 # Checks for libraries.
 PKG_CHECK_MODULES([TA],[stlta])
-
+AX_CHECK_OPENSSL([],[AC_MSG_ERROR([ssl_e1])])
 AX_BOOST_BASE([],[],[AC_MSG_ERROR([boost_e1])])
 AX_BOOST_SYSTEM([],[],[AC_MSG_ERROR([boost_e1])])
 AX_BOOST_DATE_TIME([],[],[AC_MSG_ERROR([boost_e1])])
 AX_BOOST_ASIO([],[],[AC_MSG_ERROR([boost_e1])])
+AX_LIB_XERCES()
+
 AX_PTHREAD
 
 # Checks for header files.
