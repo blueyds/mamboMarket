@@ -33,7 +33,7 @@ private:
 public:
 	report(std::string stock_name);
 	void init(Url u);
-	void virtual fillFacts(std::string f_name)=0;
+	void virtual fillFacts(std::string f_name){};
 };
 
 class sec : public report {
