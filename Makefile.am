@@ -7,7 +7,6 @@ xbrl_LDADD = $(BOOST_DATE_TIME_LIB) $(BOOST_SYSTEM_LIB) -lxerces $(OPENSSL_LIBS)
 xbrl_SOURCES = \
 	src/xbrl/url.cpp \
 	src/xbrl/reports.cpp\
-	src/xbrl/url.cpp\
 	src/xbrl/XmlDomDocument.cpp\
 	src/xbrl/main.cpp
 
@@ -15,7 +14,6 @@ mambo_LDADD = $(BOOST_DATE_TIME_LIB) $(BOOST_SYSTEM_LIB) -lxerces $(OPENSSL_LIBS
 mambo_SOURCES = \
 	src/xbrl/url.cpp \
 	src/xbrl/reports.cpp\
-	src/xbrl/url.cpp\
 	src/xbrl/XmlDomDocument.cpp\
 	src/stock.cpp\
 	src/loadASIO.cpp\
