@@ -64,8 +64,5 @@ void sec::report::init(Url u)
 	of << data;
 	of.close();
 	
-    this->fillFacts("data.xml");//https_client c(u.host(),u.path_queries());
-    //std::string s;
-	//s=c.getContent();
-	//boost::property_tree::xml_parser::read_xml(s, pt);	
+    this->fillFacts("data.xml");
 }
