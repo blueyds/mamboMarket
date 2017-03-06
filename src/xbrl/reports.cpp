@@ -29,8 +29,7 @@
 sec::report::report(std::string stock_symbol)
 {
 	std::string s="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK="+stock_symbol+"&count=10&output=xml";
-	Url u = s;
-	init(u);
+	url_ = s;
 }
 
 void sec::sec::fillFacts(std::string f_name)
@@ -49,13 +48,13 @@ void sec::sec::fillFacts(std::string f_name)
     }
 }
 
-void sec::report::init(Url u)
+void sec::report::connect()
 {
 	using SimpleWeb::HTTPS;
-	SimpleWeb::Client<HTTPS> c(u.host());
+	SimpleWeb::Client<HTTPS> c(url_.host());
     std::shared_ptr<SimpleWeb::Client<HTTPS>::Response> response_p;
-    std::cout << u.path_queries()<<"\n";
-    response_p = c.request("GET",u.path_queries());
+    std::cout << url_.path_queries()<<"\n";
+    response_p = c.request("GET",url_.path_queries());
 	std::cout  << response_p->http_version <<"\t" << response_p->status_code<<"\n";
 	//std::cout << response_p->content.rdbuf();
 

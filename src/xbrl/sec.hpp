@@ -31,8 +31,9 @@ class report
 {
 private:
 public:
+	Url url_;
 	report(std::string stock_name);
-	void init(Url u);
+	void connect();
 	void virtual fillFacts(std::string f_name)=0;
 };
 

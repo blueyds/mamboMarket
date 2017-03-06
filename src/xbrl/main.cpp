@@ -5,6 +5,7 @@ int main (int argc, char *argv[])
 {
 
 	sec::sec s(argv[1]);
-	std::cout << "CIK:/t" << s.CIK;
+	s.connect();
+	std::cout << "CIK:\t" << s.CIK <<"\n";
 return 0;
 }
