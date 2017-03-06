@@ -28,23 +28,9 @@
 
 sec::report::report(std::string stock_symbol)
 {
-	using SimpleWeb::HTTPS;
-	std::string urlstring;
-	urlstring = "/cgi-bin/browse-edgar?action=getcompany&CIK="+stock_symbol+"&count=10&output=xml";
-    SimpleWeb::Client<HTTPS> c("www.sec.gov");
-    std::shared_ptr<SimpleWeb::Client<HTTPS>::Response> response_p;
-    std::cout << urlstring<<"\n";
-    response_p = c.request("GET",urlstring);
-	std::cout  << response_p->http_version <<"\t" << response_p->status_code<<"\n";
-	//std::cout << response_p->content.rdbuf();
-
-	std::string data(std::istream_iterator<char>(response_p->content),std::istream_iterator<char>());
-	std::ofstream of("data.xml");
-	of << data;
-	of.close();
-	
-    fillFacts("data.xml");
-	
+	std::string s="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK="+stock_symbol+"&count=10&output=xml";
+	Url u = s;
+	init(u);
 }
 
 void sec::sec::fillFacts(std::string f_name)
@@ -62,9 +48,22 @@ void sec::sec::fillFacts(std::string f_name)
     }
 }
 
-sec::report::report(Url u)
+sec::report::init(Url u)
 {
-	//https_client c(u.host(),u.path_queries());
+	using SimpleWeb::HTTPS;
+	SimpleWeb::Client<HTTPS> c(u.host());
+    std::shared_ptr<SimpleWeb::Client<HTTPS>::Response> response_p;
+    std::cout << u.path_queries()<<"\n";
+    response_p = c.request("GET",u.path_queries());
+	std::cout  << response_p->http_version <<"\t" << response_p->status_code<<"\n";
+	//std::cout << response_p->content.rdbuf();
+
+	std::string data(std::istream_iterator<char>(response_p->content),std::istream_iterator<char>());
+	std::ofstream of("data.xml");
+	of << data;
+	of.close();
+	
+    this->fillFacts("data.xml");//https_client c(u.host(),u.path_queries());
     //std::string s;
 	//s=c.getContent();
 	//boost::property_tree::xml_parser::read_xml(s, pt);	
