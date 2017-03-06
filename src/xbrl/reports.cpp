@@ -48,7 +48,7 @@ void sec::sec::fillFacts(std::string f_name)
     }
 }
 
-sec::report::init(Url u)
+void sec::report::init(Url u)
 {
 	using SimpleWeb::HTTPS;
 	SimpleWeb::Client<HTTPS> c(u.host());
