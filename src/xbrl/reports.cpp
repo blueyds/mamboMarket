@@ -37,6 +37,7 @@ void sec::sec::fillFacts(std::string f_name)
 {
 	
 	XmlDomDocument* doc = new XmlDomDocument(f_name.c_str());
+	std::cout << "fillFacts called/n";
     if (doc) {
         for (int i = 0; i < doc->getChildCount("companyFilings", 0, "companyInfo"); i++) {
             CIK= doc->getChildValue("companyInfo", i, "CIK", 0);
