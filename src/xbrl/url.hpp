@@ -165,7 +165,7 @@ public:
 	std::string path_queries()const{
 		lazy_parse();
 		std::string s1(m_path);
-		s1+=queries();
+		s1+="?"+queries();
 		return s1; 	}
 
     // Get a reference to the query vector for read only access
