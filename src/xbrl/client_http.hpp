@@ -220,7 +220,7 @@ namespace SimpleWeb {
             response->content.get();
             response->content.get();
             std::stringstream el("\n");
-            content.write(el.rdbuf(),el.size());		//this lines adds one newline charcter
+            content.write(el.rdbuf(),2);		//this lines adds one newline charcter
           } while (length>0);
 
           std::ostream response_content_output_stream(&response->content_buffer);
