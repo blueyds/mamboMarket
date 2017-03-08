@@ -8,6 +8,7 @@
 
 #include <unordered_map>
 #include <map>
+#include <string>
 #include <random>
 
 namespace SimpleWeb {
@@ -217,8 +218,8 @@ namespace SimpleWeb {
             //Remove "\r\n"
             response->content.get();
             response->content.get();
-            std::string el("\n");
-            content.write(el.c_str());		//this lines adds one newline charcter
+            std::strings el("\n");
+            content.write(el);		//this lines adds one newline charcter
           } while (length>0);
 
           std::ostream response_content_output_stream(&response->content_buffer);
