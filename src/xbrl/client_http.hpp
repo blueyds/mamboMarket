@@ -217,6 +217,7 @@ namespace SimpleWeb {
             //Remove "\r\n"
             response->content.get();
             response->content.get();
+            response->content <<std::endl;		//this lines adds one newline charcter
           } while (length>0);
 
           std::ostream response_content_output_stream(&response->content_buffer);

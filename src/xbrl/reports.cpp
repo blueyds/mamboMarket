@@ -59,7 +59,7 @@ void sec::report::connect()
 	//std::cout << response_p->content.rdbuf();
 
 	std::string data(std::istream_iterator<char>(response_p->content),std::istream_iterator<char>());
-	std::ofstream of("data.xml");
+	std::ofstream of("data.xml",ios::out,ios::text);
 	of << data;
 	of.close();
 	
