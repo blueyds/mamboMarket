@@ -219,7 +219,7 @@ namespace SimpleWeb {
             response->content.get();
             response->content.get();
             std::string el("\n");
-            content.write(el,2);		//this lines adds one newline charcter
+            content.write(el,el.size());		//this lines adds one newline charcter
           } while (length>0);
 
           std::ostream response_content_output_stream(&response->content_buffer);
