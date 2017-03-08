@@ -217,10 +217,10 @@ namespace SimpleWeb {
             content.write(&buffer[0], length);
 
             //Remove "\r\n"
-            response->content.get();
-            response->content.get();
-            std::stringstream el("\n");
-            content.write(el.rdbuf(),2);		//this lines adds one newline charcter
+            response->content.read(&buffer[0], 4);
+            content.write(&buffer[0], 4);
+            //std::stringstream el("\n");
+            //content.write(el.rdbuf(),2);		//this lines adds one newline charcter
           } while (length>0);
 
           std::ostream response_content_output_stream(&response->content_buffer);
