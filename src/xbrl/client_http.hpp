@@ -218,7 +218,7 @@ namespace SimpleWeb {
             //Remove "\r\n"
             response->content.get();
             response->content.get();
-            std::strings el("\n");
+            std::string el("\n");
             content.write(el);		//this lines adds one newline charcter
           } while (length>0);
 
