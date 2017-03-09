@@ -217,8 +217,8 @@ namespace SimpleWeb {
             content.write(&buffer[0], length);
 
             //Remove "\r\n"
-            response->content.read(&buffer[0], 4);
-            content.write(&buffer[0], 4);
+            response->content.read(&buffer[0], 2);
+            content.write(&buffer[0], 2);
             //std::stringstream el("\n");
             //content.write(el.rdbuf(),2);		//this lines adds one newline charcter
           } while (length>0);
