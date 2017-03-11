@@ -9,6 +9,7 @@
 #include <unordered_map>
 #include <map>
 #include <string>
+#include <iostream>
 #include <sstream>
 #include <random>
 
@@ -210,8 +211,6 @@ namespace SimpleWeb {
             if ((2 + length)>num_additional_bytes) {
               boost::asio::read(*socket, response->content_buffer,
                 boost::asio::transfer_exactly(2 + length - num_additional_bytes));
-              length += num_additional_bytes;
-              length -=2;
             }
 
             buffer.resize(static_cast<size_t>(length));
@@ -219,10 +218,8 @@ namespace SimpleWeb {
             content.write(&buffer[0], length);
 
             //Remove "\r\n"
-            //response->content.read(&buffer[0], 2);
-            //content.write(&buffer[0], 2);
-            //std::stringstream el("\n");
-            //content.write(el.rdbuf(),2);		//this lines adds one newline charcter
+            response->content.get();
+            response->content.get();
           } while (length>0);
 
           std::ostream response_content_output_stream(&response->content_buffer);

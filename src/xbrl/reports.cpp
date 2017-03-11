@@ -19,12 +19,13 @@
 #include <iostream>
 #include <fstream>
 #include <iterator>
-#include <boost/property_tree/xml_parser.hpp>
+#include <algorithm>
 #include "XmlDomDocument.h"
 #include "sec.hpp"
 #include "client_https.hpp"
 
 
+  
 
 sec::report::report(std::string stock_symbol)
 {
@@ -59,9 +60,30 @@ void sec::report::connect()
 	//std::cout << response_p->content.rdbuf();
 
 	std::string data(std::istream_iterator<char>(response_p->content),std::istream_iterator<char>());
-	std::ofstream of("data.xml");
-	of << data;
-	of.close();
-	
+	{std::ofstream of("temp.xml");
+		of << data; of.close();}
+	{ std::ifstream inputfile("temp.xml");
+		std::istream_iterator<char> begin(inputfile);
+		std::istream_iterator<char> end;
+		std::ofstream of("data.xml");
+		std::ostream_iterator<char> out_it(of);
+		for (std::istream_iterator<char> it=begin;it!=end;it++)
+		{	
+			out_it=*it;
+			out_it++;
+			if (*it='>')
+			{
+				std::istream_iterator<char> tit=it;
+				tit++;
+				if (*tit='<')
+				{
+					out_it='\n';
+					out_it++;
+				}
+			}
+		}
+		inputfile.close();
+		of.close();
+	}	
     this->fillFacts("data.xml");
 }
