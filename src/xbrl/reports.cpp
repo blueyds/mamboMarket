@@ -71,11 +71,11 @@ void sec::report::connect()
 		{	
 			out_it=*it;
 			out_it++;
-			if (*it='>')
+			if (*it=='>')
 			{
 				std::istream_iterator<char> tit=it;
 				tit++;
-				if (*tit='<')
+				if (*tit=='<')
 				{
 					out_it='\n';
 					out_it++;
