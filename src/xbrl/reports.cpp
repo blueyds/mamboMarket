@@ -69,18 +69,12 @@ void sec::report::connect()
 		std::ostream_iterator<char> out_it(of);
 		for (std::istream_iterator<char> it=begin;it!=end;it++)
 		{	
-			out_it=*it;
-			out_it++;
 			if (*it=='>')
 			{
-				std::istream_iterator<char> tit=it;
-				tit++;
-				if (*tit=='<')
-				{
-					out_it='\n';
-					//out_it++;
-				}
+				it++;
+				if (*it=='<'){out_it=">\n<";}else{out_it=*it;}
 			}
+			else {out_it=*it;}
 		}
 		inputfile.close();
 		of.close();
