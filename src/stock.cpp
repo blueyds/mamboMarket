@@ -86,7 +86,6 @@ void stock::verify(boost::gregorian::date d1)
 	std::cout << volumes[index] << "\t";
 	std::cout << adj_closes[index] << "\t";
 	std::cout << SMAs10[index] << "\n";
-	std::cout << sec_info.CIK<<"\n";
 }
 
 void stock::verify()
@@ -109,6 +108,7 @@ void stock::verify()
 	++diter;
 	verify(*diter);
 	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\n";
+	std::cout << "CIK:\t" << sec_info.CIK << "\n";
 }
 
 
