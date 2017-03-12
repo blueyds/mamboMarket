@@ -110,8 +110,7 @@ void stock::verify()
 	verify(*diter);
 	++diter;
 	verify(*diter);
-	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\n";
-	std::cout << "CIK:\t" << sec_info.CIK << "\n";
+	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\nCIK=" << sec_info.CIK << "\n";
 }
 
 

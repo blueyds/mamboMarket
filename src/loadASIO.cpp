@@ -28,7 +28,7 @@ int stock::loadASIO()
       std::cout << "Unable to connect: " << s.error().message() << "\n";
       return 1;
     }
-	std::cout << "THE stock class connected and it is now preparing to send a request" << "\n";
+	//std::cout << "THE stock class connected and it is now preparing to send a request" << "\n";
     // Send the request. We specify the "Connection: close" header so that the                                                                                                   
     // server will close the socket after transmitting the response. This will                                                                                                   
     // allow us to treat all data up until the EOF as the content.                                                                                                               
@@ -56,16 +56,16 @@ int stock::loadASIO()
     }
     if (status_code != 200)
     {
-      std::cout << "Response returned with status code " << status_code << "\n";
+      //std::cout << "Response returned with status code " << status_code << "\n";
       return 1;
     }
 
     // Process the response headers, which are terminated by a blank line.                                                                                                        
     std::string header;
-    while (std::getline(s, header) && header != "\r")
-      std::cout << header << "\n";
-    std::cout << "\n";
-	std::cout<<"The above was the header output\n";
+    //while (std::getline(s, header) && header != "\r")
+    //  std::cout << header << "\n";
+    //std::cout << "\n";
+	//std::cout<<"The above was the header output\n";
 
     // Write the remaining data to output.
 	bool isFirstLine=true;
@@ -133,6 +133,6 @@ int stock::loadASIO()
 		std::reverse(lows.begin(),lows.end());
 		std::reverse(volumes.begin(),volumes.end());
 		std::reverse(adj_closes.begin(),adj_closes.end());
-		std::cout << "Vectors were reversed\n";
+		//std::cout << "Vectors were reversed\n";
 	}
 }
