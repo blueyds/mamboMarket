@@ -79,7 +79,7 @@ void sec::report::connect()
 				{	
 					out_it='\n';
 					out_it++;
-					out_it='\n';
+					out_it='<';
 					out_it++;	
 				}
 				else {
