@@ -72,9 +72,16 @@ void sec::report::connect()
 			if (*it=='>')
 			{
 				it++;
-				if (*it=='<'){out_it=">\n<";}else{out_it=*it;}
+				if (it==end){break;}
+				else if (*it=='<')
+				{	out_it='>';
+					out_it++;
+					out_it='\n';	
+				}
+				else {out_it=it*;}
 			}
 			else {out_it=*it;}
+			out_it++;
 		}
 		inputfile.close();
 		of.close();
