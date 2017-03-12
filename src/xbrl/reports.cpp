@@ -40,14 +40,10 @@ void sec::sec::fillFacts(std::string f_name)
     if (doc) {
         for (int i = 0; i < doc->getChildCount("companyFilings", 0, "companyInfo"); i++) {
             CIK= doc->getChildValue("companyInfo", i, "CIK", 0);
-            SIC = doc->getChildValue("companyInfo", i, "SIC", 0);
-        }
-    if (doc) {
-    	for (int i=0;i<doc->getChildCount("results",0,"filing");i++)
-    		{
-    			std::string type=doc->getChildValue("filing",i,"type",0);
-    			if (type=="10-K")
-    		}  
+            SIC = doc->getChildValue("companyInfo", i, "SIC", 0);}
+    	for (int i=0;i<doc->getChildCount("results",0,"filing");i++){
+    		std::string type=doc->getChildValue("filing",i,"type",0);
+    		if (type=="10-K"){;}	}  
         delete doc;
     }
 }
