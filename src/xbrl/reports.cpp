@@ -101,11 +101,13 @@ void sec::report::connect()
 		for (std::istream_iterator<char> it=begin;it!=end;it++)
 		{
 			if (lines>1){
-				out_it=it*it;
+				out_it=*it;
 				out_it++;
 			}
 			if (*it='>'){lines++;}
 		}
+		inputfile.close();
+		of.close();
 	}
 	
     this->fillFacts("data.xml");
