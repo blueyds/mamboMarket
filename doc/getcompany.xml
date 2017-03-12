@@ -1,0 +1,284 @@
+
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="/include/design2.xsl" ?>
+  <companyFilings>
+    <companyInfo>
+      <CIK>0000320193</CIK>
+      <CIKHREF>http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000320193&amp;owner=exclude&amp;count=40</CIKHREF>
+      <Location>CA</Location>
+      <SIC>3571</SIC>
+      <SICDescription>ELECTRONIC COMPUTERS</SICDescription>
+      <SICHREF>http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;SIC=3571&amp;owner=exclude&amp;count=40</SICHREF>
+      <businessAddress>
+        <city>CUPERTINO</city>
+        <phoneNumber>(408) 996-1010</phoneNumber>
+        <state>CA</state>
+        <street>ONE INFINITE LOOP</street>
+        <zipCode>95014</zipCode>
+      </businessAddress>
+      <fiscalYearEnd>0930</fiscalYearEnd>
+      <formerNames>
+        <formerName>
+          <date>2007-01-04</date>
+          <name>APPLE COMPUTER INC</name>
+        </formerName>
+        <formerName>
+          <date>1997-07-28</date>
+          <name>APPLE COMPUTER INC/ FA</name>
+        </formerName>
+      </formerNames>
+      <mailingAddress>
+        <city>CUPERTINO</city>
+        <state>CA</state>
+        <street>ONE INFINITE LOOP</street>
+        <zipCode>95014</zipCode>
+      </mailingAddress>
+      <name>APPLE INC</name>
+      <stateOfIncorporation>CA</stateOfIncorporation>
+    </companyInfo>
+    <results>
+      <filing>
+        <dateFiled>2017-03-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517069853/0001193125-17-069853-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-03-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517064019/0001193125-17-064019-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-15</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517044564/0001193125-17-044564-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-14</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517042083/0001193125-17-042083-index.htm</filingHREF>
+        <formName>Filing under Securities Act Rules 163/433 of free writing prospectuses</formName>
+        <type>FWP</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-14</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517041233/0001193125-17-041233-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517036283/0001193125-17-036283-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000093247117000777/0000932471-17-000777-index.htm</filingHREF>
+        <formName>Statement of acquisition of beneficial ownership by individuals</formName>
+        <type>SC 13G/A</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517030832/0001193125-17-030832-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517029548/0001193125-17-029548-index.htm</filingHREF>
+        <formName>Filing under Securities Act Rules 163/433 of free writing prospectuses</formName>
+        <type>FWP</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-02-02</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517028315/0001193125-17-028315-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <XBRLREF>http://www.sec.gov/cgi-bin/viewer?action=view&amp;cik=320193&amp;accession_number=0001628280-17-000717&amp;xbrl_type=v</XBRLREF>
+        <dateFiled>2017-02-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828017000717/0001628280-17-000717-index.htm</filingHREF>
+        <formName>Quarterly report [Sections 13 or 15(d)]</formName>
+        <type>10-Q</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-01-31</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828017000663/0001628280-17-000663-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-01-31</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000121465917000547/0001214659-17-000547-index.htm</filingHREF>
+        <formName>Notice of exempt solicitation</formName>
+        <type>PX14A6G</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-01-19</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000021545717001275/0000215457-17-001275-index.htm</filingHREF>
+        <formName>Statement of acquisition of beneficial ownership by individuals</formName>
+        <type>SC 13G/A</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-01-06</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517003764/0001193125-17-003764-index.htm</filingHREF>
+        <formName>Additional definitive proxy soliciting materials and Rule 14(a)(12) material</formName>
+        <type>DEFA14A</type>
+      </filing>
+      <filing>
+        <dateFiled>2017-01-06</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312517003753/0001193125-17-003753-index.htm</filingHREF>
+        <formName>Other definitive proxy statements</formName>
+        <type>DEF 14A</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-12-15</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828016022047/0001628280-16-022047-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-12-05</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/999999999717000002/9999999997-17-000002-index.htm</filingHREF>
+        <formName>No Action Letter</formName>
+        <type>NO ACT</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-10-27</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/999999999717000809/9999999997-17-000809-index.htm</filingHREF>
+        <formName>No Action Letter</formName>
+        <type>NO ACT</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-10-26</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/999999999716026607/9999999997-16-026607-index.htm</filingHREF>
+        <formName>No Action Letter</formName>
+        <type>NO ACT</type>
+      </filing>
+      <filing>
+        <XBRLREF>http://www.sec.gov/cgi-bin/viewer?action=view&amp;cik=320193&amp;accession_number=0001628280-16-020309&amp;xbrl_type=v</XBRLREF>
+        <dateFiled>2016-10-26</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828016020309/0001628280-16-020309-index.htm</filingHREF>
+        <formName>Annual report [Section 13 and 15(d), not S-K Item 405]</formName>
+        <type>10-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-10-25</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828016020258/0001628280-16-020258-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-08-04</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516672044/0001193125-16-672044-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-07-29</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516664603/0001193125-16-664603-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-07-29</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516662761/0001193125-16-662761-index.htm</filingHREF>
+        <formName>Filing under Securities Act Rules 163/433 of free writing prospectuses</formName>
+        <type>FWP</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-07-28</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516661201/0001193125-16-661201-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <XBRLREF>http://www.sec.gov/cgi-bin/viewer?action=view&amp;cik=320193&amp;accession_number=0001628280-16-017809&amp;xbrl_type=v</XBRLREF>
+        <dateFiled>2016-07-27</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828016017809/0001628280-16-017809-index.htm</filingHREF>
+        <formName>Quarterly report [Sections 13 or 15(d)]</formName>
+        <type>10-Q</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-07-26</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000162828016017762/0001628280-16-017762-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-06-22</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516628957/0001193125-16-628957-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-06-08</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516616649/0001193125-16-616649-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-06-07</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516615362/0001193125-16-615362-index.htm</filingHREF>
+        <formName>Filing under Securities Act Rules 163/433 of free writing prospectuses</formName>
+        <type>FWP</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-06-07</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516614374/0001193125-16-614374-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-04-28</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516564177/0001193125-16-564177-index.htm</filingHREF>
+        <formName>Automatic shelf registration statement of securities of well-known seasoned issuers</formName>
+        <type>S-3ASR</type>
+      </filing>
+      <filing>
+        <XBRLREF>http://www.sec.gov/cgi-bin/viewer?action=view&amp;cik=320193&amp;accession_number=0001193125-16-559625&amp;xbrl_type=v</XBRLREF>
+        <dateFiled>2016-04-27</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516559625/0001193125-16-559625-index.htm</filingHREF>
+        <formName>Quarterly report [Sections 13 or 15(d)]</formName>
+        <type>10-Q</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-04-26</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516556520/0001193125-16-556520-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-03-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516523320/0001193125-16-523320-index.htm</filingHREF>
+        <type>SD</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-03-24</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516516891/0001193125-16-516891-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-03-18</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516510499/0001193125-16-510499-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-03-18</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516509001/0001193125-16-509001-index.htm</filingHREF>
+        <formName>Filing under Securities Act Rules 163/433 of free writing prospectuses</formName>
+        <type>FWP</type>
+      </filing>
+      <filing>
+        <dateFiled>2016-03-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/320193/000119312516507590/0001193125-16-507590-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(2)]</formName>
+        <type>424B2</type>
+      </filing>
+    </results>
+  </companyFilings>
