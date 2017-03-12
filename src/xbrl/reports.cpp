@@ -37,7 +37,7 @@ void sec::sec::fillFacts(std::string f_name)
 {
 	
 	XmlDomDocument* doc = new XmlDomDocument(f_name.c_str());
-	std::cout << "fillFacts called/n";
+	std::cout << "fillFacts called\n";
     if (doc) {
         for (int i = 0; i < doc->getChildCount("companyFilings", 0, "companyInfo"); i++) {
             CIK= doc->getChildValue("companyInfo", i, "CIK", 0);
@@ -62,7 +62,7 @@ void sec::report::connect()
 	std::string data(std::istream_iterator<char>(response_p->content),std::istream_iterator<char>());
 	{std::ofstream of("temp.xml");
 		of << data; of.close();}
-	{ std::ifstream inputfile("temp.xml");
+	/*{ std::ifstream inputfile("temp.xml");
 		std::istream_iterator<char> begin(inputfile);
 		std::istream_iterator<char> end;
 		std::ofstream of("temp2.xml");
@@ -92,7 +92,8 @@ void sec::report::connect()
 		inputfile.close();
 		of.close();
 	}
-	{std::ifstream inputfile("temp2.xml");
+	*/
+	{std::ifstream inputfile("temp.xml");
 		std::istream_iterator<char> begin(inputfile);
 		std::istream_iterator<char> end;
 		std::ofstream of("data.xml");
