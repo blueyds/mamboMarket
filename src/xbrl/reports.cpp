@@ -78,7 +78,7 @@ void sec::report::connect()
 					out_it++;
 					out_it='\n';	
 				}
-				else {out_it=it*;}
+				else {out_it=*it;}
 			}
 			else {out_it=*it;}
 			out_it++;
