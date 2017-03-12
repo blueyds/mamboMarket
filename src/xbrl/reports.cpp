@@ -71,14 +71,20 @@ void sec::report::connect()
 		{	
 			if (*it=='>')
 			{
+				out_it='>';
+				out_it++;
 				it++;
 				if (it==end){break;}
 				else if (*it=='<')
-				{	out_it='>';
-					out_it++;
-					out_it='\n';	
+				{	
+					out_it='\n';
+					outit++;
+					out_it='\n';
+					out_it++;	
 				}
-				else {out_it=*it;}
+				else {
+					out_it=*it;
+					out_it++;}
 			}
 			else {out_it=*it;}
 			out_it++;
