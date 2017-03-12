@@ -78,7 +78,7 @@ void sec::report::connect()
 				else if (*it=='<')
 				{	
 					out_it='\n';
-					outit++;
+					out_it++;
 					out_it='\n';
 					out_it++;	
 				}
