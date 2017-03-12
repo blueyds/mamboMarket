@@ -20,10 +20,12 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <string>
 #include <vector>
+#include "xbrl/sec.hpp"
 
 
 class stock {
 private:
+	sec::sec::report sec_info;
 	std::string file_name;
 	std::string stock_name;
 	std::string long_name;

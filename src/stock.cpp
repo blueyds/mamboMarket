@@ -26,7 +26,7 @@
 #include "stlta/functions.h" //
 
 
-stock::stock(std::string sname){
+stock::stock(std::string sname):sec_info(sname){
 	stock_name = sname;
 	loadASIO();
 	//update_OpenClose();
@@ -45,7 +45,8 @@ void stock::updateTA()
 	TA::MAX(100,macd_hists,max_hist);
 }
 
-stock::stock(std::string sname,std::string name,std::string descr)
+stock::stock(std::string sname,std::string name,std::string descr):
+	sec_info(sname)
 {
 	std::string fname( "stocks\\" );
 	stock_name = sname;
@@ -85,7 +86,7 @@ void stock::verify(boost::gregorian::date d1)
 	std::cout << volumes[index] << "\t";
 	std::cout << adj_closes[index] << "\t";
 	std::cout << SMAs10[index] << "\n";
-	
+	std::cout << sec_info.CIK<<"\n";
 }
 
 void stock::verify()
