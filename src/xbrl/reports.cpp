@@ -65,7 +65,7 @@ void sec::report::connect()
 	{ std::ifstream inputfile("temp.xml");
 		std::istream_iterator<char> begin(inputfile);
 		std::istream_iterator<char> end;
-		std::ofstream of("data.xml");
+		std::ofstream of("temp2.xml");
 		std::ostream_iterator<char> out_it(of);
 		for (std::istream_iterator<char> it=begin;it!=end;it++)
 		{	
@@ -91,6 +91,22 @@ void sec::report::connect()
 		}
 		inputfile.close();
 		of.close();
-	}	
+	}
+	{std::ifstream inputfile("temp2.xml");
+		std::istream_iterator<char> begin(inputfile);
+		std::istream_iterator<char> end;
+		std::ofstream of("data.xml");
+		std::ostream_iterator<char> out_it(of);
+		int lines=0;
+		for (std::istream_iterator<char> it=begin;it!=end;it++)
+		{
+			if (lines>1){
+				out_it=it*it;
+				out_it++;
+			}
+			if (*it='>'){lines++;}
+		}
+	}
+	
     this->fillFacts("data.xml");
 }
