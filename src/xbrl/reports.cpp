@@ -104,7 +104,7 @@ void sec::report::connect()
 				out_it=*it;
 				out_it++;
 			}
-			if (*it='>'){lines++;}
+			if (*it=='>'){lines++;}
 		}
 		inputfile.close();
 		of.close();
