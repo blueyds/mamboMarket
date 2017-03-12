@@ -29,7 +29,7 @@
 
 sec::report::report(std::string stock_symbol)
 {
-	std::string s="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK="+stock_symbol+"&count=10&output=xml";
+	std::string s="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK="+stock_symbol+"&count=100&output=xml";
 	url_ = s;
 }
 
@@ -37,14 +37,17 @@ void sec::sec::fillFacts(std::string f_name)
 {
 	
 	XmlDomDocument* doc = new XmlDomDocument(f_name.c_str());
-	std::cout << "fillFacts called\n";
     if (doc) {
         for (int i = 0; i < doc->getChildCount("companyFilings", 0, "companyInfo"); i++) {
             CIK= doc->getChildValue("companyInfo", i, "CIK", 0);
-            printf("CIK      - %s\n", CIK.c_str());
             SIC = doc->getChildValue("companyInfo", i, "SIC", 0);
-            printf("SIC      - %s\n", SIC.c_str());
-        }   
+        }
+    if (doc) {
+    	for (int i=0;i<doc->getChildCount("results",0,"filing");i++)
+    		{
+    			std::string type=doc->getChildValue("filing",i,"type",0);
+    			if (type=="10-K")
+    		}  
         delete doc;
     }
 }
@@ -62,37 +65,6 @@ void sec::report::connect()
 	std::string data(std::istream_iterator<char>(response_p->content),std::istream_iterator<char>());
 	{std::ofstream of("temp.xml");
 		of << data; of.close();}
-	/*{ std::ifstream inputfile("temp.xml");
-		std::istream_iterator<char> begin(inputfile);
-		std::istream_iterator<char> end;
-		std::ofstream of("temp2.xml");
-		std::ostream_iterator<char> out_it(of);
-		for (std::istream_iterator<char> it=begin;it!=end;it++)
-		{	
-			if (*it=='>')
-			{
-				out_it='>';
-				out_it++;
-				it++;
-				if (it==end){break;}
-				else if (*it=='<')
-				{	
-					out_it='\n';
-					out_it++;
-					out_it='<';
-					out_it++;	
-				}
-				else {
-					out_it=*it;
-					out_it++;}
-			}
-			else {out_it=*it;}
-			out_it++;
-		}
-		inputfile.close();
-		of.close();
-	}
-	*/
 	{std::ifstream inputfile("temp.xml");
 		std::istream_iterator<char> begin(inputfile);
 		std::istream_iterator<char> end;

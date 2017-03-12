@@ -23,6 +23,7 @@
 */
 
 #include <string>
+#include <vector>
 #include "url.hpp"
 
 namespace sec{
@@ -36,6 +37,7 @@ public:
 	void connect();
 	void virtual fillFacts(std::string f_name)=0;
 };
+
 
 class sec : public report {
 private:
