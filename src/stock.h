@@ -25,7 +25,7 @@
 
 class stock {
 private:
-	sec::sec::report sec_info;
+	sec::sec sec_info;
 	std::string file_name;
 	std::string stock_name;
 	std::string long_name;
