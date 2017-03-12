@@ -28,6 +28,8 @@
 
 stock::stock(std::string sname):sec_info(sname){
 	stock_name = sname;
+	sec_info.connect();
+	
 	loadASIO();
 	//update_OpenClose();
 	
@@ -49,6 +51,7 @@ stock::stock(std::string sname,std::string name,std::string descr):
 	sec_info(sname)
 {
 	std::string fname( "stocks\\" );
+	sec_info.connect();
 	stock_name = sname;
 	fname.append(sname);
 	file_name=fname;

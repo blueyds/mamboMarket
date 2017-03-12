@@ -16,6 +16,6 @@ int main (int argc, char *argv[])
 		s.verify();
 //		arma::mat data;
 //		mlpack::data::Load("aapl.csv",data,true);
-		TA::TEST();
+		//TA::TEST();
 	}
 }
