@@ -48,6 +48,47 @@ void sec::sec::fillFacts(std::string f_name)
     }
 }
 
+sec::archive::archive(std::string a_CIK, a_form, int a_year, a_month)
+{
+	year_=std::to_string(a_year);
+	temp_month=std::to_string(a_month);
+	if (temp_month.length()==1)
+		{month_="0"+temp_month;}
+		else {month_=temp_month;}
+	std::string s="https://www.sec.gov/Archives/edgar/monthly/xbrlrss-"+year_+"-"+month_+".xml";
+	url_=s;
+	form_=a_form;
+	CIK_=a_CIK;
+}
+
+sec::archive::archive(std::string a_CIK, a_form, a_year, a_month)
+{
+	year_=a_year;
+	month_=a_month;
+	std::string s = "https://www.sec.gov/Archives/edgar/monthly/xbrlrss-" + year_ + "-" + month_ + ".xml";
+	url_=s;
+	form_=a_form;
+	CIK_=a_CIK;
+}
+
+sec::archive::fillFacts(std::string f_name)
+{
+	XmlDomDocument* doc = new XmlDomDocument(f_name.c_str());
+	if (doc) {
+		for (int i = 0; i < doc->getChildCount("channel",0,"item"); i++) {
+			if ((doc->getChildValue( "item", i, "edgar::formType", 0) == form_) && (doc_>getChildValue( "item",  i, "edgar::cikNumber", 0) == CIK_)){
+				item_t t;
+				t.CIK_= doc->getChildValue( "item" , i, "edgar::cikNumber", 0);
+				t.form_= doc->getChildValue( "item" , i, "edgar::formType", 0);
+				t.accession_ = doc->getChildValue( "item" , i, "edgar::accessionNumber", 0);
+				t.date_ = doc->getChildValue( "item" , i, "edgar::filingDate", 0);
+				items_.push_back(t);
+			}
+		}
+		delete doc;
+	}
+}
+
 void sec::report::connect()
 {
 	using SimpleWeb::HTTPS;
@@ -59,12 +100,12 @@ void sec::report::connect()
 	//std::cout << response_p->content.rdbuf();
 
 	std::string data(std::istream_iterator<char>(response_p->content),std::istream_iterator<char>());
-	{std::ofstream of("temp.xml");
+	{std::ofstream of("temp1.xml");
 		of << data; of.close();}
-	{std::ifstream inputfile("temp.xml");
+	{std::ifstream inputfile("temp1.xml");
 		std::istream_iterator<char> begin(inputfile);
 		std::istream_iterator<char> end;
-		std::ofstream of("data.xml");
+		std::ofstream of("temp2.xml");
 		std::ostream_iterator<char> out_it(of);
 		int lines=0;
 		for (std::istream_iterator<char> it=begin;it!=end;it++)
@@ -79,5 +120,5 @@ void sec::report::connect()
 		of.close();
 	}
 	
-    this->fillFacts("data.xml");
+    this->fillFacts("temp2.xml");
 }

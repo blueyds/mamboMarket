@@ -59,6 +59,28 @@ stock::stock(std::string sname,std::string name,std::string descr):
 	description =descr;
 	loadASIO();
 	updateTA();
+	for (int y=2005; y<2018; y++) {
+		for (int m=1;m<13;m++) {
+			sec::archive a( sec_info.CIK_, "10-K", y, m);
+			a.connect();
+			for (int i=0;i<a.items_.size();i++){
+				
+					using SimpleWeb::HTTPS;
+					SimpleWeb::Client<HTTPS> c(url_.host());
+				    std::shared_ptr<SimpleWeb::Client<HTTPS>::Response> response_p;
+				    std::cout << url_.path_queries()<<"\n";
+				    response_p = c.request("GET",url_.path_queries());
+					std::cout  << response_p->http_version <<"\t" << response_p->status_code<<"\n";
+					//std::cout << response_p->content.rdbuf()
+					std::string data(std::istream_iterator<char>(response_p->content),std::istream_iterator<char>());
+					{std::ofstream of("temp.zip");
+						of << data; of.close();}
+				
+				
+			}
+		}
+	}
+	
 //	date d1(not_a_date_time);
 //	current_day=d1;
 //	oldest_day=d1;

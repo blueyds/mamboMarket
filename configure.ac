@@ -11,9 +11,14 @@ AC_CONFIG_SRCDIR([src/main.cpp])
 m4_define([boost_e1],[cannot locate boost developer libraries[,] do you need to install libboost-all-dev?])
 m4_define([pthread_e1],[cannot locate pthread libraries[,] do you need to install libpthread-stubs0-dev])
 m4_define([ssl_e1],[cannot locate openssl libraries])
+
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
+AC_CHECK_PROGS([UNZIP],[unzip],[0])
+if test "x$UNZIP" = "x0"; then
+	AC_MSG_ERROR([We need unzip])
+	fi
 
 # Checks for libraries.
 PKG_CHECK_MODULES([TA],[stlta])

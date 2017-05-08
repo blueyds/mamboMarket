@@ -33,6 +33,7 @@ class report
 private:
 public:
 	Url url_;
+	report(){};
 	report(std::string stock_name);
 	void connect();
 	void virtual fillFacts(std::string f_name)=0;
@@ -51,6 +52,28 @@ public:
 	sec(std::string stock_symbol) : report(stock_symbol),symbol(stock_symbol){}; 	// Constructor
 	void fillFacts(std::string f_name);
 }; // class sec
+
+class report_item_t {
+	public:
+		std::string CIK_;
+		std::string form_;
+		std::string accession_;
+		std::string date_;
+		Url zip_reference;
+	};
+	
+// a single monthly archive report
+class archive: public report{
+public:
+	std::vector<sec::report_item_t> items_;
+	std::string year_;
+	std::string month_;
+	std::string form_;
+	std::string CIK_;
+	archive(std::string a_CIK, a_form, int a_year, a_month)
+	archive(std::string a_CIK, a_form, a_year, a_month);
+	void fillFacts(std::string f_name);
+};//class archive
 } // namespace sec
 #endif //!_SEC_H
 
