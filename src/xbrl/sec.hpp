@@ -70,8 +70,8 @@ public:
 	std::string month_;
 	std::string form_;
 	std::string CIK_;
-	archive(std::string a_CIK, a_form, int a_year, a_month)
-	archive(std::string a_CIK, a_form, a_year, a_month);
+	archive(std::string a_CIK, std::string a_form, int a_year, std::string a_month)
+	archive(std::string a_CIK, std::string a_form, std::string a_year, std::string a_month);
 	void fillFacts(std::string f_name);
 };//class archive
 } // namespace sec
