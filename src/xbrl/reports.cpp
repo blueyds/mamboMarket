@@ -48,7 +48,7 @@ void sec::sec::fillFacts(std::string f_name)
     }
 }
 
-sec::archive::archive(std::string a_CIK, a_form, int a_year, a_month)
+sec::archive::archive(std::string a_CIK, std::string a_form, int a_year, std::string a_month)
 {
 	year_=std::to_string(a_year);
 	temp_month=std::to_string(a_month);
@@ -61,7 +61,7 @@ sec::archive::archive(std::string a_CIK, a_form, int a_year, a_month)
 	CIK_=a_CIK;
 }
 
-sec::archive::archive(std::string a_CIK, a_form, a_year, a_month)
+sec::archive::archive(std::string a_CIK, std::string a_form, std::string a_year, std::string a_month)
 {
 	year_=a_year;
 	month_=a_month;
