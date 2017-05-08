@@ -65,7 +65,7 @@ class report_item_t {
 // a single monthly archive report
 class archive: public report{
 public:
-	std::vector<sec::report_item_t> items_;
+	std::vector<report_item_t> items_;
 	std::string year_;
 	std::string month_;
 	std::string form_;
