@@ -48,7 +48,7 @@ void sec::sec::fillFacts(std::string f_name)
     }
 }
 
-sec::archive::archive(std::string a_CIK, std::string a_form, int a_year, std::string a_month)
+sec::archive::archive(std::string a_CIK, std::string a_form, int a_year, int a_month)
 {
 	year_=std::to_string(a_year);
 	std::string temp_month;
@@ -56,6 +56,7 @@ sec::archive::archive(std::string a_CIK, std::string a_form, int a_year, std::st
 	if (temp_month.length()==1)
 		{month_="0"+temp_month;}
 		else {month_=temp_month;}
+	if (year_.length()==2) {year_="20"+year_;}
 	std::string s="https://www.sec.gov/Archives/edgar/monthly/xbrlrss-"+year_+"-"+month_+".xml";
 	url_=s;
 	form_=a_form;
