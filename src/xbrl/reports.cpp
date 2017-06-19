@@ -51,6 +51,7 @@ void sec::sec::fillFacts(std::string f_name)
 sec::archive::archive(std::string a_CIK, std::string a_form, int a_year, std::string a_month)
 {
 	year_=std::to_string(a_year);
+	std::string temp_month;
 	temp_month=std::to_string(a_month);
 	if (temp_month.length()==1)
 		{month_="0"+temp_month;}
