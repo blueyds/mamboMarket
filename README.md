@@ -6,19 +6,25 @@ Prerequisites
 =============
 
 ### BOOST
-	UBUNTU libboost-all-dev
+	UBUNTU 16.04 libboost-all-dev
 
 ### GIT
-	UBUNTU git
+	UBUNTU 16.04 git
 
 ### pkg-config
-	sudo apt-get install pkg-config
-	
+	UBUNTU 16.04 pkg-config
+
 ### autoconf-archive
-	sudo apt-get install autoconf-archive
+	UBUNTU 16.04 autoconf-archive
+
+### openssl
+	UBUNTU 16.04 libssl-dev
+
+### xerces
+	UBUNTU 16.04 libxerces-c-dev
 
 ### STL-TA
-install stlta
+	git clone https://github.org/nunemaker73/stlta.git
 
 Installation instructions
 ========================
