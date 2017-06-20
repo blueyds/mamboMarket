@@ -73,7 +73,7 @@ sec::archive::archive(std::string a_CIK, std::string a_form, std::string a_year,
 	CIK_=a_CIK;
 }
 
-sec::archive::fillFacts(std::string f_name)
+void sec::archive::fillFacts(std::string f_name)
 {
 	XmlDomDocument* doc = new XmlDomDocument(f_name.c_str());
 	if (doc) {
