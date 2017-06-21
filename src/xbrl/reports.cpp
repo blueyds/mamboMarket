@@ -33,7 +33,7 @@ sec::report::report(std::string stock_symbol)
 	url_ = s;
 }
 
-void sec::sec::fillFacts(std::string f_name)
+void sec::report::fillFacts(std::string f_name)
 {
 	
 	XmlDomDocument* doc = new XmlDomDocument(f_name.c_str());
