@@ -33,7 +33,7 @@ sec::report::report(std::string stock_symbol)
 	url_ = s;
 }
 
-void sec::report::fillFacts(std::string f_name)
+void sec::sec::fillFacts(std::string f_name)
 {
 	
 	XmlDomDocument* doc = new XmlDomDocument(f_name.c_str());
@@ -78,8 +78,8 @@ void sec::archive::fillFacts(std::string f_name)
 	XmlDomDocument* doc = new XmlDomDocument(f_name.c_str());
 	if (doc) {
 		for (int i = 0; i < doc->getChildCount("channel",0,"item"); i++) {
-			if ((doc->getChildValue( "item", i, "edgar::formType", 0) == form_) && (doc_>getChildValue( "item",  i, "edgar::cikNumber", 0) == CIK_)){
-				item_t t;
+			if ((doc->getChildValue( "item", i, "edgar::formType", 0) == form_) && (doc>getChildValue( "item",  i, "edgar::cikNumber", 0) == CIK_)){
+				report_item_t t;
 				t.CIK_= doc->getChildValue( "item" , i, "edgar::cikNumber", 0);
 				t.form_= doc->getChildValue( "item" , i, "edgar::formType", 0);
 				t.accession_ = doc->getChildValue( "item" , i, "edgar::accessionNumber", 0);
