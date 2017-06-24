@@ -78,7 +78,7 @@ void sec::archive::fillFacts(std::string f_name)
 	XmlDomDocument* doc = new XmlDomDocument(f_name.c_str());
 	if (doc) {
 		for (int i = 0; i < doc->getChildCount("channel",0,"item"); i++) {
-			if ((doc->getChildValue( "item", i, "edgar::formType", 0) == form_) && (doc>getChildValue( "item",  i, "edgar::cikNumber", 0) == CIK_)){
+			if ((doc->getChildValue( "item", i, "edgar::formType", 0) == form_) && (doc->getChildValue( "item",  i, "edgar::cikNumber", 0) == CIK_)){
 				report_item_t t;
 				t.CIK_= doc->getChildValue( "item" , i, "edgar::cikNumber", 0);
 				t.form_= doc->getChildValue( "item" , i, "edgar::formType", 0);
