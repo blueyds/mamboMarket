@@ -29,7 +29,7 @@ Prerequisites
 Installation instructions
 ========================
 
-	git clone https://scrappy73@bitbucket.org/scrappy73/mamboMarket.git
+	git clone https://scrappy73@bitbucket. iorg/scrappy73/mamboMarket.git
 	cd mamboMarket
 	autoreconf --install -force 
 	./configure

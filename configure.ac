@@ -27,7 +27,7 @@ AX_BOOST_BASE([],[],[AC_MSG_ERROR([boost_e1])])
 AX_BOOST_SYSTEM([],[],[AC_MSG_ERROR([boost_e1])])
 AX_BOOST_DATE_TIME([],[],[AC_MSG_ERROR([boost_e1])])
 AX_BOOST_ASIO([],[],[AC_MSG_ERROR([boost_e1])])
-AX_LIB_XERCES()
+AX_XERCESC()
 
 AX_PTHREAD
 
