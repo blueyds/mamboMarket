@@ -19,9 +19,3 @@ mambo_SOURCES = \
 	src/loadASIO.cpp\
 	src/save.cpp\
 	src/main.cpp
-
-SUBDIRS = intl po
-
-ACLOCAL_AMFLAGS = -I m4
-
-EXTRA_DIST = config.rpath m4/ChangeLog
