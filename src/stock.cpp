@@ -18,6 +18,7 @@
 //#include <stdlib.h>
 #include <vector>
 #include <string>
+#include <fstream>
 #include <iostream>
 #include <algorithm> //std::find and std::reverse
 #include <boost/date_time/gregorian/gregorian.hpp>
@@ -67,10 +68,10 @@ stock::stock(std::string sname,std::string name,std::string descr):
 			for (int i=0;i<a.items_.size();i++){
 				
 					using SimpleWeb::HTTPS;
-					SimpleWeb::Client<HTTPS> c(url_.host());
+					SimpleWeb::Client<HTTPS> c(a.items[i].url_.host());
 				    std::shared_ptr<SimpleWeb::Client<HTTPS>::Response> response_p;
-				    std::cout << url_.path_queries()<<"\n";
-				    response_p = c.request("GET",url_.path_queries());
+				    std::cout << a.items[i].url_.path_queries()<<"\n";
+				    response_p = c.request("GET",a.items[i].url_.path_queries());
 					std::cout  << response_p->http_version <<"\t" << response_p->status_code<<"\n";
 					//std::cout << response_p->content.rdbuf()
 					std::string data(std::istream_iterator<char>(response_p->content),std::istream_iterator<char>());
