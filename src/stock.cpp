@@ -22,6 +22,7 @@
 #include <algorithm> //std::find and std::reverse
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
+#include "xbrl/client_https.hpp"
 #include "stock.h"
 #include "stlta/functions.h" //
 
@@ -61,7 +62,7 @@ stock::stock(std::string sname,std::string name,std::string descr):
 	updateTA();
 	for (int y=2005; y<2018; y++) {
 		for (int m=1;m<13;m++) {
-			sec::archive a( sec_info.CIK_, "10-K", y, m);
+			sec::archive a( sec_info.CIK, "10-K", y, m);
 			a.connect();
 			for (int i=0;i<a.items_.size();i++){
 				
