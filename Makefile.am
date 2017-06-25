@@ -24,4 +24,4 @@ SUBDIRS = intl po
 
 ACLOCAL_AMFLAGS = -I m4
 
-EXTRA_DIST = config.rpath m4/ChangeLog
+EXTRA_DIST = build-aux/config.rpath m4/ChangeLog
