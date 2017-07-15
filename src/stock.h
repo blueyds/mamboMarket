@@ -22,8 +22,8 @@
 #include <vector>
 #include "xbrl/sec.hpp"
 
-
-class stock {
+namespace sec {
+class stock : public report{
 private:
 	sec::sec sec_info;
 	std::string file_name;
@@ -52,6 +52,7 @@ private:
 public:
 	stock(std::string sname);
 	stock(std::string sname,std::string name,std::string descr);
+	void fillFacts(std::string f_name);
 	void save(std::string fname, std::string headings);
 	int getIndex(boost::gregorian::date d1);
 	std::string getfilename(void);	
