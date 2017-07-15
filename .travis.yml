@@ -24,7 +24,7 @@ install:
   - "sudo apt-get -y install pkg-config"
   - "sudo apt-get -y install libssl-dev"
   - "sudo apt-get -y install libxerces-c-dev"
-  - "git clone https://github.org/nunemaker73/stlta.git"
+  - "git clone https://github.com/nunemaker73/stlta.git"
   - cd stlta
   - "autoreconf --install --force"
   - "./configure"
