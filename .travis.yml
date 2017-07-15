@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: cpp
 compiler:
-- gcc
+- gcc-5
 addons:
   sources:
     - ubuntu-toolchain-r-test
@@ -17,9 +17,6 @@ notifications:
     on_failure: always
 install:
   - "sudo apt-get -qq update"
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
-  - CC --version
-  - CXX --version
   - "sudo apt-get -y install autoconf-archive"
   - "sudo apt-get -y install autoconf"
   - "sudo apt-get -y install autotools-dev"
