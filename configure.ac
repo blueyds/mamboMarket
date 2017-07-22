@@ -41,6 +41,6 @@ AX_CXX_COMPILE_STDCXX_11([ext],[mandatory])
 
 # Output
 AC_CONFIG_HEADERS([config.h])
-AC_CONFIG_FILES([Makefile intl/Makefile po/Makefile.in])
+AC_CONFIG_FILES([Makefile intl/Makefile.in po/Makefile.in])
 
 AC_OUTPUT
