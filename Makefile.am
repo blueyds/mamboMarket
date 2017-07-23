@@ -14,7 +14,7 @@ mambo_SOURCES = \
 	src/save.cpp\
 	src/main.cpp
 
-SUBDIRS = intl po
+
 
 ACLOCAL_AMFLAGS = -I m4
 
