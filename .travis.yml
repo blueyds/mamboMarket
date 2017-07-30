@@ -28,7 +28,7 @@ install:
   - "sudo apt-get install libblas-dev"
   - "sudo apt-get install liblapack-dev"
   - "sudo apt-get install libarmadillo-dev"
-  - "sudo apt-get install libarmadillo7"
+  - "sudo apt-get install libarmadillo4"
   - "sudo apt-get install mlpack"
   - "wget https://github.com/nunemaker73/stlta/releases/download/v0.6.1/stlta-0.6-amd64.deb"
   - "sudo dpkg -i ./stlta-0.6-amd64.deb"
