@@ -36,5 +36,5 @@ install:
 script:
   - mkdir build
   - cd build
-  - "../configure --prefix=/usr
+  - "../configure --prefix=/usr"
   - make
