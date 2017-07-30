@@ -24,27 +24,17 @@ install:
   - "sudo apt-get -y install libboost-all-dev"
   - "sudo apt-get -y install pkg-config"
   - "sudo apt-get -y install libssl-dev"
-  - "sudo apt-get -y install libxerces-c-dev"
-  - "git clone https://github.com/nunemaker73/stlta.git"
-  - cd stlta
-  - "autoreconf --install --force"
-  - "./configure"
-  - make
-  - sudo make install
-  - cd ..
+  - "sudo apt-get -y install cmake"
+  - "sudo apt-get -y install libblas-dev"
+  - "sudo apt-get -y install liblapack-dev"
+  - "sudo apt-get -y install libarpack-dev"
+  - "sudo apt-get -y install mlpack"
+  - "wget https://github.com/nunemaker73/stlta/releases/download/v0.6.1/stlta-0.6-amd64.deb"
+  - "sudo dpkg -i ./stlta-0.6-amd64.deb"
+  - "sudo apt-get -y -f install"
   - "autoreconf --install --force"
 script:
   - mkdir build
   - cd build
-  - "../configure"
+  - "../configure --prefix=/usr
   - make
-
-deploy:
-  provider: releases
-  api_key:
-    secure: i6DRPhiJGP4l4LqalygsuyBWkqTohSMN2Q2Lybv209nSec2h81GwguCNIGNyJEeruoVSKiPLaldHm8hW672oB9sWF7WTYgw0bPIDFnaZ9dwBNVcxRHP2PH7anCIRw0tl1YFZer+Y/M1dC70vr8pOnLzuVcWTqF/toqojd8LKRkw9iZRDHhsCaSLAag9u7lUdpzgeKfH+CMCFygZqA9SXeVZdisYtAFL8QghwpdYbZC2sTw82fRrqTcLp+5OdrR1YN0rsJgGTaOTfDNbk01Zt2vQPWxd+pZeZ0GTwEGMMwUFQDyQz4SqT+9okyjIjqEPVfJud5KoowjIEoSc8rna99PZf1AqHtRW0EpyGUo5YUXeLrdvuDdecGOYwI46DOt1SfdpoGU2Lxk7YjUlBlD0+g0m7oBr6oz1h0py3z0u4IQ+4KeVbeaD+vg2WnKJ0Nb2yt65nSu2xNjAYseorH8Czj5KXl9xQTmSpqJe3ZwjHpT9BXJDxqq1D5SY+dpr/Fh579Xq4Toc1PE2f83boQlq1MvlPxJ22DouL09aOUcWO3XUtV+hnl6cOO60uKFtveCo7XY2en0Y0/a5P67aSim4RJW/7c5/HDrGqNBnWF68fAzDtJByY2sOgEBXjXcrdoIa+Yny5Jf9g6AHYhzw9yGW5lVPp7nKrmybiRNvvtKWh7VI=
-  file: "mambo-0.2.tar.gz"
-  skip_cleanup: true
-  on:
-    repo: nunemaker73/mamboMarket
-    tags: true
