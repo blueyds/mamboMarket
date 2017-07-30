@@ -27,15 +27,13 @@ install:
   - "sudo apt-get install cmake"
   - "sudo apt-get install libblas-dev"
   - "sudo apt-get install liblapack-dev"
-  - "wget http://sourceforge.net/projects/arma/files/armadillo-7.950.1.tar.xz"
-  - "tar xvzf armadillo-7.950.1.tar.xz"
-  - "cd armadillo-7.950.1"
+  - "git clone --depth=50 --branch=7.950.x https://github.com/conradsnicta/armadillo-code.git"
+  - "cd armadillo-code"
   - "cmake ."
   - make
   - sudo make install
-  - "git clone https://github.com/mlpack/mlpack.git"
+  - "git clone --depth=50 --branch=mlpack-2.2.x https://github.com/mlpack/mlpack.git"
   - "cd mlpack"
-  - "git checkout mlpack-2.2.x"
   - "cmake -D DEBUG=ON -D PROFILE=ON ."
   - make
   - sudo make install
