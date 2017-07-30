@@ -20,10 +20,10 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <string>
 #include <vector>
-#include "xbrl/sec.hpp"
+#include "sec.hpp"
 
 namespace sec {
-class stock : public report{
+class stock : public csv_report{
 private:
 	sec::sec sec_info;
 	std::string file_name;
