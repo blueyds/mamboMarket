@@ -24,9 +24,9 @@
 
 #include <string>
 #include <sstream>
-#include "../config.h"
-#include ABSOLUTE_SRC_REPORT_HPP
-#include ABSOLUTE_SRC_XML_RAPIDXML_NS_HPP
+#include "config.h"
+#include "report.hpp"
+#include "xml/rapidxml_ns.hpp"
 
 
 namespace sec{
