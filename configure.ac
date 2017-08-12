@@ -22,7 +22,7 @@ AX_WITH_PROG([RM],[rm])
 
 # Checks for libraries.
 AX_BOOST_BASE([],[],[AC_MSG_ERROR([boost_e1])])
-AX_BOOST_DATE_TIME([],[],[AC_MSG_ERROR([boost_e1])])
+#AX_BOOST_DATE_TIME([],[],[AC_MSG_ERROR([boost_e1])])
 
 
 # Checks for header files.
