@@ -21,7 +21,7 @@
 #include <iterator>
 #include <algorithm>
 
-#include "xm/rapidxml_ns.hpp"
+#include "xml/rapidxml_ns.hpp"
 #include "xml/xml_report.hpp"
 
 void sec::xml_report::xml_report(std::string url)

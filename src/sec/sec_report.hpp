@@ -25,7 +25,6 @@
 #include <string>
 #include <vector>
 #include "xml/xml_report.hpp"
-#include "url.hpp"
 
 namespace sec{
 
