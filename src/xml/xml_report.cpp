@@ -20,9 +20,9 @@
 #include <fstream>
 #include <iterator>
 #include <algorithm>
-
-#include "xml/rapidxml_ns.hpp"
-#include "xml/xml_report.hpp"
+#include "../config.h"
+#include ABSOLUTE_SRC_XML_RAPIDXML_NS_HPP
+#include ABSOLUTE_SRC_XML_XML_REPORT_HPP
 
 void sec::xml_report::xml_report(std::string url)
 {

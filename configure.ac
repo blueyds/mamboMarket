@@ -26,6 +26,10 @@ AX_BOOST_BASE([],[],[AC_MSG_ERROR([boost_e1])])
 
 
 # Checks for header files.
+AX_ABSOLUTE_HEADER([src/report.hpp])
+AX_ABSOLUTE_HEADER([src/xml/xml_report.hpp])
+AX_ABSOLUTE_HEADER([src/sec/sec_report.hpp])
+AX_ABSOLUTE_HEADER([src/xml/rapidxml_ns.hpp]) 
 
 # Checks for typedefs, structures, and compiler characteristics.
 #AX_CXX_COMPILE_STDCXX_11([ext],[mandatory])

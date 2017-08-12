@@ -24,8 +24,11 @@
 
 #include <string>
 #include <sstream>
-#include "reports.hpp"
-#include "xml/rapidxml_ns.hpp"
+#include "../config.h"
+#include ABSOLUTE_SRC_REPORT_HPP
+#include ABSOLUTE_SRC_XML_RAPIDXML_NS_HPP
+
+
 namespace sec{
 
 class xml_report : public report

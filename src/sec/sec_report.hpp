@@ -24,7 +24,9 @@
 
 #include <string>
 #include <vector>
-#include "xml/xml_report.hpp"
+#include "../config.h"
+#include ABSOLUTE_SRC_XML_XML_REPORT_HPP
+
 
 namespace sec{
 

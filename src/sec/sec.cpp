@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
-#include "sec/sec_report.hpp"
+#include "../config.h"
+#include ABSOLUTE_SRC_SEC_SEC_REPORT_HPP
 
 std::string sec::GenerateSECUrl(std::string stock_symbol)
 {
