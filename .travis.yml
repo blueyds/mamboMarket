@@ -27,8 +27,9 @@ install:
   - "sudo apt-get install autotools-dev"
   - "sudo apt-get install libboost-all-dev"
   - "autoreconf --install --force"
+  - "gcc --version"
+  - "g++ --version"
 script:
-  - mkdir build
-  - cd build
-  - "../configure --prefix=/usr"
+  - "./configure --prefix=/usr"
+  - "ls ./"
   - make
