@@ -16,33 +16,36 @@
 */
 
 #include <string>
-#include <iostream>
 #include <sstream>
 #include <fstream>
 #include <iterator>
 #include <algorithm>
 
-#include "rapidxml_ns.hpp"
-#include "sec.hpp"
+#include "xm/rapidxml_ns.hpp"
+#include "xml/xml_report.hpp"
 
-void sec::xml_report::xml_report()
+void sec::xml_report::xml_report(std::string url)
 {
-	
-	std::ifstream fin("temp342");
-	copy(istreambuf_iterator<char>(fin), istreambuf_iterator<char>(), ostreambuf_iterator<char>(ss_));
+	load_xmlfile();
+	fillFacts();
 }
 
 void sec::xml_report::load_xmlfile()
 { //may need to run an error check in case url is not defined
-	connect;
-	std::ifstream fin(getFileName());
-	copy(istreambuf_iterator<char>(fin), istreambuf_iterator<char>(), ostreambuf_iterator<char>(ss_));
-	disconnect();
-	doc_.parse<0>(ss_.cstr());
+	if(!isOpen()){connect();};
+	if(!parsed())
+	{
+		std::ifstream fin(getFileName());
+		std::copy(istreambuf_iterator<char>(fin), istreambuf_iterator<char>(), ostreambuf_iterator<char>(ss_));
+		disconnect();
+		doc_.parse<0>(ss_.cstr());
+		parsed=true;
+	}
 }
 
 int sec::xml_report::getChildCount(std::string parentTag, int parentIndex, std::string childTag)
 {//add logic in case parent is not inside the first level
+	load_xmlfile();
 	rapidxml_ns::xml_node<rapidxml::Ch> *parent_node;
 	rapidxml_ns::xml_node<rapidxml::Ch> *child_node;
 	bool working=true;
@@ -61,6 +64,7 @@ int sec::xml_report::getChildCount(std::string parentTag, int parentIndex, std::
 
 std::string sec::xml_report::getChildValue(std::string parentTag, int parentIndex, std::string childTag, int childIndex)
 {
+	load_xmlfile();
 	rapidxml_ns::xml_node<rapidxml::Ch> *parent_node;
 	rapidxml_ns::xml_node<rapidxml::Ch> *child_node;
 	bool working=true;
@@ -79,18 +83,3 @@ std::string sec::xml_report::getChildValue(std::string parentTag, int parentInde
 	return "";
 }
 
-
-
-void sec::sec::fillFacts(std::string f_name="")
-{ 
-	for (int i = 0; i < doc->getChildCount("companyFilings", 0, "companyInfo"); i++) 
-	{
-		CIK= doc->getChildValue("companyInfo", i, "CIK", 0);
-		SIC = doc->getChildValue("companyInfo", i, "SIC", 0);
-	}
-	for (int i=0;i<doc->getChildCount("results",0,"filing");i++)
-	{
-		std::string type=doc->getChildValue("filing",i,"type",0);
-		if (type=="10-K"){;}
-	}
-}

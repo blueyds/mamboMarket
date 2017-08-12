@@ -26,7 +26,7 @@
 #include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
 #include "xbrl/client_https.hpp"
 #include "stock.h"
-#include "stlta/functions.h" //
+#include "stlta/stlta.hpp" //
 
 
 stock::stock(std::string sname):sec_info(sname){

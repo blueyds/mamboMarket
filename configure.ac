@@ -14,17 +14,14 @@ m4_define([ssl_e1],[cannot locate openssl libraries])
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
+AX_WITH_PROG([WGET],[wget],[Please install wget])
+AX_WITH_PROG([RM],[rm])
 
 
 # Checks for libraries.
-PKG_CHECK_MODULES([TA],[stlta])
-AX_CHECK_OPENSSL([],[AC_MSG_ERROR([ssl_e1])])
 AX_BOOST_BASE([],[],[AC_MSG_ERROR([boost_e1])])
-AX_BOOST_SYSTEM([],[],[AC_MSG_ERROR([boost_e1])])
 AX_BOOST_DATE_TIME([],[],[AC_MSG_ERROR([boost_e1])])
-#AX_BOOST_ASIO([],[],[AC_MSG_ERROR([boost_e1])])
 
-#AX_PTHREAD
 
 # Checks for header files.
 

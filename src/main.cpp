@@ -1,7 +1,6 @@
 #include <iostream>
 //#include <mlpack/core.hpp>
-#include "stock.h"
-#include "stlta/functions.h"
+#include "sec/sec_report.hpp"
 
 int main (int argc, char *argv[])
 {
@@ -12,11 +11,7 @@ int main (int argc, char *argv[])
 		std::cout << "Preparing to pull from internet still in main.cpp\n";
 		std::cout << argv[1]<<"\n";
 		std::cout << "calling the stock class now\n";
-	  stock s (argv[1]);
-	  s.connect();
-		s.verify();
-//		arma::mat data;
-//		mlpack::data::Load("aapl.csv",data,true);
-		//TA::TEST();
+	  sec::sec_info s (argv[1]);
+	  
 	}
 }

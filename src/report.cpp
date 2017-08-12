@@ -17,8 +17,8 @@
 
 #include <string>
 #include <csystem> //for std::system
-#include <fstream>
-#include <cstdlib>
+#include <boost/random/random_device.hpp>
+#include <boost/random/uniform_int_distribution.hpp>
 #include "reports.hpp"
 
 
@@ -30,39 +30,36 @@ std::string sec::report::setUrl(std::string url)
 }
 sec::report::~report()
 {
-	if(open){disconnect();};
+	if(open_){disconnect();};
 }
 void sec::report::connect()
 {
-	std::strin alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	int size=alpha.length();
-	std::string fname="";
-	
-	for (int i=1;i<20;i++)
-	{
-		int x=rand() % size;
-		fname=fname + alpha[x];
-	}
-	connect(fname);
+	if(open_){disconnect():};
+	std::string alpha = "abcdefghijklmnopqrstuvwxyz";
+	boost::random::random_device rng;
+    boost::random::uniform_int_distribution<> index_dist(0, alpha.size() - 1);
+    for(int i = 0; i < 20; ++i) {
+        fname_ << alpha[index_dist(rng)];
+    }
+    connect(fname_);
 }
 void sec::report::connect(std::string file_name)
 {
 	//add an exception ii fstream cannot open the file
+	if(open_){disconnect();};
 	fname_=file_name;
 	std::string command="wget -O "+fname_+" '"+url_+"'";
 	std::system(command.c_str());
-	open=true;
-	std::fstream f(fname_);
-	f.close();
+	open_=true;
 }
 
 void sec::report::disconnect()
 {
 	//add an exceptioni since we are going to the system command
-	if (open)
+	if (open_)
 	{
 		std::string command = "rm "+fname;
 		std::system(command.c_str());
-		open=false;
+		open_=false;
 	}
 }

@@ -16,7 +16,7 @@
 */
 
 
-#include "reports.hpp"
+#include "sec/sec_report.hpp"
 
 std::string sec::GenerateSECUrl(std::string stock_symbol)
 {
@@ -24,14 +24,15 @@ std::string sec::GenerateSECUrl(std::string stock_symbol)
 	return s;
 }
 
-sec::sec::sec(std::string stock_symbol)
+sec::sec_info::sec(std::string stock_symbol)
 {
+//member initialization alrwady set the url
 	load_xmlfile();
 	fillFacts();
 		
 }
 
-void sec::sec::fillFacts(std::string f_name="")
+void sec::sec_info::fillFacts(std::string f_name="")
 { 
 	for (int i = 0; i < getChildCount("companyFilings", 0, "companyInfo"); i++) 
 	{
