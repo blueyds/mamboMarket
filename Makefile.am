@@ -9,7 +9,7 @@ mambo_LDADD = $(BOOST_DATE_TIME_LIB)
 mambo_SOURCES = \
    src/xml/xml_report.cpp \
    src/report.cpp \
-   src/sec.cpp
+   src/sec/sec.cpp
 
 TESTS = sec_test
 check_PROGRAMS = sec_test
