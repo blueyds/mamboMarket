@@ -25,7 +25,7 @@ std::string sec::GenerateSECUrl(std::string stock_symbol)
 }
 
 
-void sec::info::fillFacts(std::string f_name="")
+void sec::info::fillFacts()
 { 
 	for (int i = 0; i < getChildCount("companyFilings", 0, "companyInfo"); i++) 
 	{
