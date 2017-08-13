@@ -23,7 +23,6 @@
 */
 
 #include <string>
-#include <sstream>
 #include "config.h"
 #include "report.hpp"
 #include "xml/rapidxml_ns.hpp"
@@ -34,8 +33,8 @@ namespace sec{
 class xml_report : public report
 {
 private:
-	rapidxml_ns::xml_document<> doc_;
-	std::sstream ss_;
+	rapidxml_ns::xml_document<char> doc_;
+	std::string xml_;
 	bool parsed_;
 public:
 /* inherited from report
@@ -43,10 +42,13 @@ public:
 	void connect(file_name);
 	void disconnect();
 */
+	void fillFacts(){;};
 	xml_report():parsed_(false){;};
-	xml_report(std::string url):report(url);
+	xml_report(std::string url):report(url){
+		load_xmlfile();
+		fillFacts();};
 	
-	isParsed();{return parsed_;};
+	bool isParsed(){return parsed_;};
 	void load_xmlfile();
 	//this will connect to the url and load file into ss_ then uses rapidxml to parse in doc_. all derived classes should call this in constructor.
 	
@@ -54,7 +56,6 @@ public:
 	
 	std::string getChildValue(std::string parentTag, int parentIndex, std::string childTag, int childIndex);
 	
-	void fillFacts(){;};
 	
 }
 } // namespace sec

@@ -33,8 +33,8 @@ private:
 	bool open_;
 	std::string url_;
 public:
-	report():open_(false);{};
-	report(std::string url):url_(url),open_(false);{};
+	report():open_(false){;};
+	report(std::string url):url_(url),open_(false){;};
 	~report();
 	std::string getUrl(){return url_;};
 	std::string setUrl(std::string url);
