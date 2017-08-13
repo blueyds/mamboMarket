@@ -16,7 +16,7 @@
 */
 
 #include <string>
-#include <csystem> //for std::system
+#include <cstdlib> //for std::system
 #include <boost/random/random_device.hpp>
 #include <boost/random/uniform_int_distribution.hpp>
 #include "reports.hpp"
