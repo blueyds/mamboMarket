@@ -31,7 +31,7 @@ void sec::info::fillFacts()
 	{
 		CIK= getChildValue("companyInfo", i, "CIK", 0);
 		SIC = getChildValue("companyInfo", i, "SIC", 0);}
-		for (int i=0getChildCount("results",0,"filing");i++)
+		for (int i=getChildCount("results",0,"filing");i++)
 		{
 			std::string type=getChildValue("filing",i,"type",0);
     		if (type=="10-K"){;}
