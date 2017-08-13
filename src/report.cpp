@@ -17,8 +17,7 @@
 
 #include <string>
 #include <cstdlib> //for std::system
-#include <boost/random/random_device.hpp>
-#include <boost/random/uniform_int_distribution.hpp>
+#include <random>
 #include "report.hpp"
 
 
@@ -36,8 +35,8 @@ void sec::report::connect()
 {
 	if(open_){disconnect();};
 	std::string alpha = "abcdefghijklmnopqrstuvwxyz";
-	boost::random::random_device rng;
-    boost::random::uniform_int_distribution<> index_dist(0, alpha.size() - 1);
+	std::random::random_device rng;
+    std::random::uniform_int_distribution<> index_dist(0, alpha.size() - 1);
     for(int i = 0; i < 20; ++i) {
         fname_.push_back(alpha[index_dist(rng)]);}
     connect(fname_);
