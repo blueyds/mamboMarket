@@ -33,7 +33,7 @@ namespace sec{
 std::string GenerateSECUrl(std::string stock_symbol);
 std::string GenerateArchiveUrl(int a_year, int a_month);
 
-class sec_info : public xml_report {
+class info : public xml_report {
 private:
 /* inherited from xml_report
 	void load_xmlfile();
@@ -51,7 +51,7 @@ private:
 	std::string SIC_desc;
 	std::string company_name;
 public:
-	sec(std::string stock_symbol):report(SEC::GenerateSECUrl(stock_symbol)); 	// Constructor
+	info(std::string stock_symbol):xml_report(GenerateSECUrl(stock_symbol)); 	// Constructor
 	std::string getCIK(){return CIK;};
 	std::string getSIC(){return SIC;};
 	std::string getSIC_desc(){return SIC_desc;};
@@ -76,7 +76,7 @@ public:
 	std::string month_;
 	std::string form_;
 	std::string CIK_;
-	archive(std::string a_CIK, std::string a_form, int a_year, int a_month):CIK_(a_CIK),form_(a_form),report(sec::GenerateArchiveUrl(a_year,a_month)); // 1= january 12=december
+	archive(std::string a_CIK, std::string a_form, int a_year, int a_month):CIK_(a_CIK),form_(a_form),xml_report(sec::GenerateArchiveUrl(a_year,a_month)); // 1= january 12=december
 	void fillFacts();
 };//class archive
 } // namespace sec

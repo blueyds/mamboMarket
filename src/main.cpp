@@ -11,7 +11,7 @@ int main (int argc, char *argv[])
 		std::cout << "Preparing to pull from internet still in main.cpp\n";
 		std::cout << argv[1]<<"\n";
 		std::cout << "calling the stock class now\n";
-	  sec::sec_info s (argv[1]);
+	  sec::info s (argv[1]);
 	  
 	}
 }

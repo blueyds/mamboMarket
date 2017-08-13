@@ -7,7 +7,7 @@
 
 BOOST_AUTO_TEST_CASE(xml_test)
 {
-	sec::sec_info s("AAPL");
+	sec::info s("AAPL");
 	std::string cik;
 	std::string sic;
 	cik=s.getCIK();
