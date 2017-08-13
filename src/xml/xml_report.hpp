@@ -34,7 +34,7 @@ class xml_report : public report
 {
 private:
 	rapidxml_ns::xml_document<char> doc_;
-	std::string xml_;
+	char* xml_;
 	bool parsed_;
 public:
 /* inherited from report
@@ -47,6 +47,7 @@ public:
 	xml_report(std::string url):report(url){
 		load_xmlfile();
 		fillFacts();};
+	~xml_report();
 	
 	bool isParsed(){return parsed_;};
 	void load_xmlfile();
@@ -57,7 +58,7 @@ public:
 	std::string getChildValue(std::string parentTag, int parentIndex, std::string childTag, int childIndex);
 	
 	
-}
+};
 } // namespace sec
 #endif //!_REPORT_H
 

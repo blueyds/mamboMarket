@@ -24,6 +24,10 @@
 #include "xml/xml_report.hpp"
 #include "xml/rapidxml_ns.hpp"
 
+~sec::xml_report()
+{
+	delete xml_;
+}
 
 void sec::xml_report::load_xmlfile()
 { //may need to run an error check in case url is not defined
@@ -34,8 +38,9 @@ void sec::xml_report::load_xmlfile()
 		std::ifstream fin(getFileName().c_str());
 		std::copy(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>(), std::ostreambuf_iterator<char>(ss));
 		disconnect();
-		xml_=ss.str();
-		doc_.parse<0>(xml_.c_str());
+		xml_ = new char[ss.str().c_str()];
+		strcpy(xml_,ss.str().c_str());
+		doc_.parse(xml_);
 		parsed_=true;
 	}
 }
@@ -48,9 +53,9 @@ int sec::xml_report::getChildCount(std::string parentTag, int parentIndex, std::
 	bool working=true;
 	int count=0;
 	parent_node=doc_.first_node(parentTag.c_str());
-	if !(parent_node){return 0;};
+	if (!parent_node){return 0;};
 	child_node=parent_node->first_node(childTag.c_str());
-	if !(child_node){return 0;};
+	if (!child_node){return 0;};
 	do {
 		child_node=parent_node->next_sibling(childTag.c_str());
 		if (child_node){count++;}
