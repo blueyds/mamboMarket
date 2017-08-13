@@ -22,4 +22,4 @@ script:
   - "./configure --prefix=/usr" 
   - make
   - "make check"
-  - "less ./test-suite.log"
+  - "cat ./test-suite.log"

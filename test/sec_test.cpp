@@ -7,7 +7,6 @@
 
 BOOST_AUTO_TEST_CASE(xml_test)
 {
-	boost::unit_test::unit_test_log.set_stream( std::cout );
 	sec::info s("AAPL");
 	std::string cik;
 	std::string sic;
@@ -15,4 +14,6 @@ BOOST_AUTO_TEST_CASE(xml_test)
 	sic=s.getSIC();
 	BOOST_CHECK(sic=="3571");
 	BOOST_CHECK(cik=="0000320193");
+	BOOST_TEST_MESSAGE("CIK: "<<cik);
+	BOOST_TEST_MESSAGE("SIC: "<<sic);
 }
