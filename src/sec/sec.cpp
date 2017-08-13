@@ -24,12 +24,6 @@ std::string sec::GenerateSECUrl(std::string stock_symbol)
 	return s;
 }
 
-sec::info::info(std::string stock_symbol)
-{
-//member initialization alrwady set the url
-	load_xmlfile();
-	fillFacts();
-}
 
 void sec::info::fillFacts(std::string f_name="")
 { 
