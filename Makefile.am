@@ -5,7 +5,7 @@ bin_PROGRAMS = 	 mambo
 AM_CPPFLAGS = $(BOOST_CPPFLAGS) -I $(TRAVIS_BUILD_DIR)/src
 AM_LDFLAGS=$(BOOST_LDFLAGS)
 
-mambo_LDADD = $(BOOST_DATE_TIME_LIB)
+
 mambo_SOURCES = \
    src/xml/xml_report.cpp \
    src/report.cpp \

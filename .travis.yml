@@ -11,7 +11,7 @@ addons:
 install:
   - "sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test"
   - "sudo apt-get -qq update"
-  - "sudo apt-get install gcc-5 g++-5 autoconf-archive autoconf autotools-dev libboost-all-dev"
+  - "sudo apt-get install gcc-5 g++-5 autoconf-archive autoconf autotools-dev libboost1.54-dev"
   - "sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1 --slave /usr/bin/g++ g++ /usr/bin/g++-5"
   - export "CXX=g++-5"
   - export "CC=gcc-5"
