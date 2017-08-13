@@ -7,6 +7,7 @@
 
 BOOST_AUTO_TEST_CASE(xml_test)
 {
+	boost::unit_test::unit_test_log.set_stream( std::cout );
 	sec::info s("AAPL");
 	std::string cik;
 	std::string sic;
