@@ -17,6 +17,7 @@
 
 #include <string>
 #include <sstream>
+#include <cstring>
 #include <fstream>
 #include <iterator>
 #include <algorithm>
@@ -24,7 +25,7 @@
 #include "xml/xml_report.hpp"
 #include "xml/rapidxml_ns.hpp"
 
-~sec::xml_report()
+sec::~xml_report()
 {
 	delete xml_;
 }
@@ -38,8 +39,8 @@ void sec::xml_report::load_xmlfile()
 		std::ifstream fin(getFileName().c_str());
 		std::copy(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>(), std::ostreambuf_iterator<char>(ss));
 		disconnect();
-		xml_ = new char[ss.str().c_str()];
-		strcpy(xml_,ss.str().c_str());
+		xml_ = new char[ss.str().length()+1];
+		std::strcpy(xml_,ss.str().c_str());
 		doc_.parse(xml_);
 		parsed_=true;
 	}
