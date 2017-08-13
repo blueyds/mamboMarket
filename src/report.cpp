@@ -34,13 +34,12 @@ sec::report::~report()
 }
 void sec::report::connect()
 {
-	if(open_){disconnect():};
+	if(open_){disconnect();};
 	std::string alpha = "abcdefghijklmnopqrstuvwxyz";
 	boost::random::random_device rng;
     boost::random::uniform_int_distribution<> index_dist(0, alpha.size() - 1);
     for(int i = 0; i < 20; ++i) {
-        fname_ << alpha[index_dist(rng)];
-    }
+        fname_.push_back(alpha[index_dist(rng)]);}
     connect(fname_);
 }
 void sec::report::connect(std::string file_name)
@@ -58,7 +57,7 @@ void sec::report::disconnect()
 	//add an exceptioni since we are going to the system command
 	if (open_)
 	{
-		std::string command = "rm "+fname;
+		std::string command = "rm "+fname_;
 		std::system(command.c_str());
 		open_=false;
 	}
