@@ -35,8 +35,8 @@ void sec::report::connect()
 {
 	if(open_){disconnect();};
 	std::string alpha = "abcdefghijklmnopqrstuvwxyz";
-	std::random::random_device rng;
-    std::random::uniform_int_distribution<> index_dist(0, alpha.size() - 1);
+	std::random_device rng;
+    std::uniform_int_distribution<int> index_dist(0, alpha.size() - 1);
     for(int i = 0; i < 20; ++i) {
         fname_.push_back(alpha[index_dist(rng)]);}
     connect(fname_);
