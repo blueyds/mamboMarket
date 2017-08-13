@@ -21,4 +21,5 @@ install:
 script:
   - "./configure --prefix=/usr" 
   - make
-  - "make check && less ./test-suite.log"
+  - "make check"
+  - "less ./test-suite.log"
