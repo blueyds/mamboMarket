@@ -54,8 +54,7 @@ public:
 	
 	void load_xmlfile();
 	//this will connect to the url and load file into ss_ then uses rapidxml to parse in doc_. all derived classes should call this in constructor.
-	typedef std::iterator<std::forward_iterator_tag,int> intIter;
-	typedef std::iterator<std::forward_iterator_tag,std::string> strIter;
+	
 	/* numbers will be used to find index of corresponding tag
 	tags are strings or char*.
 	first number will be used for first tag.
@@ -63,7 +62,7 @@ public:
 	*/
 	int getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags);
 		
-	std::string getChildValue(jstd::initializer_list<int> indices, std::initializer_list<std::string> tags);
+	std::string getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags);
 	
 	
 };
