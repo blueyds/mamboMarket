@@ -14,8 +14,8 @@ BOOST_AUTO_TEST_CASE(xml_test)
 	std::string sic;
 	cik=s.getCIK();
 	sic=s.getSIC();
-	BOOST_CHECK(sic=="3571");
-	BOOST_CHECK(cik=="0000320193");
+	BOOST_CHECK_MESSAGE(sic=="3571",sic);
+	BOOST_CHECK_MESSAGE(cik=="0000320193",cik);
 	BOOST_TEST_MESSAGE("CIK: "<<cik);
 	BOOST_TEST_MESSAGE("SIC: "<<sic);
 }
