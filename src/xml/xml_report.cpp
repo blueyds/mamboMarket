@@ -46,39 +46,56 @@ void sec::xml_report::load_xmlfile()
 	}
 }
 
-int sec::xml_report::getChildCount(std::string parentTag, int parentIndex, std::string childTag)
-{//add logic in case parent is not inside the first level
-	load_xmlfile();
+int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags)
+{
+	strIter tagIt;
+	tagIt=tags.begin();
 	rapidxml_ns::xml_node<char> *parent_node;
 	rapidxml_ns::xml_node<char> *child_node;
-	bool working=true;
 	int count=0;
-	parent_node=doc_.first_node(parentTag.c_str());
-	if (!parent_node){return 0;};
-	child_node=parent_node->first_node(childTag.c_str());
-	if (!child_node){return 0;};
-	do {
-		child_node=parent_node->next_sibling(childTag.c_str());
-		if (child_node){count++;}
-		else {working=false;};
-	} while (working);
+	parent_node=doc_;
+	for (int i : indices)
+	{
+		child_node=parent_node->first_node((*tagIt).c_str());
+		if (i>0)
+		{	for(count=1;x=<i;i++)
+			{child_node=parent_node->next_sibling((*tagIt).c_str());}
+		}
+		tagIt++;
+		parent_node=child_node; //for next iteration
+	}
+	//logic there should be one less index than tags. otherwise you would not be asking for a count
+	child_node=parent_node->first_node((*tagIt).c_str());
+	if(!child_node){count=0;}
+	else
+	{
+		count=0;
+		while (parent_node->next_sibling((*tagIt).c_str()))
+		{count++;};
+	}
+	
 	return count;
 }
 
-std::string sec::xml_report::getChildValue(std::string parentTag, int parentIndex, std::string childTag, int childIndex)
+std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags)
 {
-	load_xmlfile();
+	strIter tagIt;
+	tagIt=tags.begin();
 	rapidxml_ns::xml_node<char> *parent_node;
 	rapidxml_ns::xml_node<char> *child_node;
-	bool working=true;
 	int count=0;
-	parent_node=doc_.first_node(parentTag.c_str());
-	for(int i=0; i !=parentIndex;i++)
-		{parent_node=doc_.next_sibling(parentTag.c_str());};
-	child_node=parent_node->first_node(childTag.c_str());
-	for(int i=0;i != childIndex;i++)
-		{child_node=parent_node->next_sibling(childTag.c_str());};
-	std::string value(child_node->value());
-	return value;
+	parent_node=doc_;
+	for (int i : indices)
+	{
+		child_node=parent_node->first_node((*tagIt).c_str());
+		if (i>0)
+		{	for(count=1;x=<i;i++)
+			{child_node=parent_node->next_sibling((*tagIt).c_str());}
+		}
+		tagIt++;
+		parent_node=child_node; //for next iteration
+	}
+	
+	return child_node=>value();
 }
 

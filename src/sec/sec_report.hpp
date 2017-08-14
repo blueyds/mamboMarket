@@ -45,19 +45,21 @@ private:
 	void connect(file_name);
 	void disconnect();
 */
-	std::string symbol;
-	std::string CIK;
-	std::string SIC;
-	std::string SIC_desc;
-	std::string company_name;
+	std::string symbol_;
+	std::string CIK_;
+	std::string SIC_;
+	std::string SIC_desc_;
+	std::string company_name_;
+	std::string year_end_;
+	std::string state_
 public:
 	info(std::string stock_symbol):xml_report(GenerateSECUrl(stock_symbol)){
 		load_xmlfile();
 		fillFacts();};	// Constructor
-	std::string getCIK(){return CIK;};
-	std::string getSIC(){return SIC;};
-	std::string getSIC_desc(){return SIC_desc;};
-	std::string getName(){return company_name;};
+	std::string getCIK(){return CIK_;};
+	std::string getSIC(){return SIC_;};
+	std::string getSIC_desc(){return SIC_desc_;};
+	std::string getName(){return company_name_;};
 	void fillFacts();
 }; // class sec
 

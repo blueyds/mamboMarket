@@ -27,11 +27,11 @@ std::string sec::GenerateSECUrl(std::string stock_symbol)
 
 void sec::info::fillFacts()
 { 
-	int childCount;
-	childCount= getChildCount("companyFilings", 0, "companyInfo");
-	if (childCount>0)
-	{
-		CIK= getChildValue("companyInfo", 1, "CIK", 0);
-		SIC = getChildValue("companyInfo", 1, "SIC", 0);
-    };
+
+	CIK_= getChildValue({0,0,0},{"companyFilings","companyInfo","CIK"});
+	SIC_ = getChildValue({0,0,0},{"companyFilings","companyInfo","SIC"});
+	company_name_ = getChildValue({0,0,0},{"companyFilings","companyInfo","name"});
+	SIC_desc_ = getChildValue({0,0,0},{"companyFilings","companyInfo","SICDescription"});
+	year_end_ = getChildValue({0,0,0},{"companyFilings","companyInfo","fiscalYearEnd"});
+	state_ = getChildValue({0,0,0},{"companyFilings","companyInfo","stateOfIncorporation"});
 }
