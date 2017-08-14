@@ -19,6 +19,7 @@
 #include <sstream>
 #include <cstring>
 #include <fstream>
+#include <iostream>
 #include <iterator>
 #include <algorithm>
 #include "config.h"
@@ -92,6 +93,7 @@ std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, s
 		{	for(count=1;count<=i;i++)
 			{child_node=parent_node->next_sibling((*tagIt).c_str());}
 		}
+		std::cout << (*tagIt)<<"/t"<<child_node->value()<<"/n":
 		tagIt++;
 		parent_node=child_node; //for next iteration
 	}
