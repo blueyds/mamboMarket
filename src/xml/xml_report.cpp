@@ -33,11 +33,11 @@ sec::xml_report::~xml_report()
 
 void sec::xml_report::load_xmlfile()
 { //may need to run an error check in case url is not defined
-	std::cout<<"running laod xmlfile/n";
+	std::cout<<"running laod xmlfile\n";
 	if(!isOpen()){connect();};
 	if(!isParsed())
 	{
-	std::cout<<"preparing to parse/";
+	std::cout<<"preparing to parse\n";
 		std::stringstream ss;
 		std::ifstream fin(getFileName().c_str());
 		std::copy(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>(), std::ostreambuf_iterator<char>(ss));
@@ -46,6 +46,7 @@ void sec::xml_report::load_xmlfile()
 		std::strcpy(xml_,ss.str().c_str());
 		doc_.parse<0>(xml_);
 		parsed_=true;
+		std::cout<<"complete parsing\n";
 	}
 }
 
