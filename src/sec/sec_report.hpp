@@ -51,7 +51,7 @@ private:
 	std::string SIC_desc_;
 	std::string company_name_;
 	std::string year_end_;
-	std::string state_
+	std::string state_;
 public:
 	info(std::string stock_symbol):xml_report(GenerateSECUrl(stock_symbol)){
 		load_xmlfile();
