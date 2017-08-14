@@ -4,9 +4,10 @@
 
 #define BOOST_TEST_MODULE XMLtest
 #include <boost/test/included/unit_test.hpp>
-
+using namespace boost::unit_test;
 BOOST_AUTO_TEST_CASE(xml_test)
 {
+	unit_test_log.set_threshold_level(log_messages);
 	sec::info s("AAPL");
 	std::string cik;
 	std::string sic;
