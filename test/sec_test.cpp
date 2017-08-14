@@ -1,5 +1,6 @@
 //add source header includes here
 #include <string>
+#include <iostream>
 #include "sec/sec_report.hpp"
 
 #define BOOST_TEST_MODULE XMLtest
@@ -7,7 +8,7 @@
 using namespace boost::unit_test;
 BOOST_AUTO_TEST_CASE(xml_test)
 {
-	unit_test_log.set_threshold_level(log_all);
+	unit_test_log.set_threshold_level(log_messages);
 	sec::info s("AAPL");
 	std::string cik;
 	std::string sic;
