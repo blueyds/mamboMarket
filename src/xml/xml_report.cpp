@@ -44,8 +44,11 @@ void sec::xml_report::load_xmlfile()
 		MY_TEST_MESSAGE("ran copy on line 43")
 		disconnect();
 		xml_ = new char[ss.str().length()+1];
+		MY_TEST_MESSAGE("allocated xml_");
 		std::strcpy(xml_,ss.str().c_str());
+		MY_TEST_MESSAGE("ran second copy to xml_. parse next");
 		doc_.parse<0>(xml_);
+		MY_TEST_MESSAGE("done parsing");
 		parsed_=true;
 	}
 }

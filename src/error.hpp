@@ -6,9 +6,16 @@
 
 #ifdef TESTING
 #include <boost/test/included/unit_test.hpp>
-#define MY_TEST_MESSAGE(msg) BOOST_TEST_MESSAGE(msg)
+#include <iostream>
+inline void MY_TEST_MESSAGE(std::string msg)
+{
+	BOOST_TEST_MESSAGE(msg);
+	std::cout << msg <<"\n";
+};
 #else
-#define MY_TEST_MESSAGE(msg)  //
+inline void MY_TEST_MESSAGE(std::string msg)
+{
+};
 #endif
 
 struct basic_error: public std::exception 
