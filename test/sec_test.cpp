@@ -6,6 +6,7 @@
 
 int main()
 {
+	MY_TEST_MESSAGE("begiinnign or craig nunemaker");
 	sec::info s("AAPL");
 	std::string cik;
 	std::string sic;
