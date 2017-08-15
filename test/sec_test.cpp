@@ -11,6 +11,5 @@ int main()
 	std::string sic;
 	cik=s.getCIK();
 	sic=s.getSIC();
-	MY_TEST_MESSAGE("CIK: "<<cik);
-	MY_TEST_MESSAGE("SIC: "<<sic);
+	
 }
