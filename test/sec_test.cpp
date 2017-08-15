@@ -1,5 +1,4 @@
 //add source header includes here
-#define TESTING
 #include <string>
 #include "error.hpp"
 #include "sec/sec_report.hpp"

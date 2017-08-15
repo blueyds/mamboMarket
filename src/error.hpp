@@ -1,6 +1,6 @@
 #ifndef ERROR_H
 #define ERROR_H
-
+#define TESTING
 #include <exception>
 #include <string>
 
