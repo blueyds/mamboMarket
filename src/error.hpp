@@ -3,6 +3,7 @@
 
 #include <exception>
 #include <string>
+
 #ifdef TESTING
 #include <boost/test/included/unit_test.hpp>
 #define MY_TEST_MESSAGE(msg) BOOST_TEST_MESSAGE(msg)
@@ -19,6 +20,6 @@ struct basic_error: public std::exception
 	{
 		return message_.data();
 	}
-}
+};
 
 #endif
