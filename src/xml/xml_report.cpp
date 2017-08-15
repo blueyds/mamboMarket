@@ -19,12 +19,13 @@
 #include <sstream>
 #include <cstring>
 #include <fstream>
-#include <iostream>
 #include <iterator>
 #include <algorithm>
+#include "error.hpp"
 #include "config.h"
 #include "xml/xml_report.hpp"
 #include "xml/rapidxml_ns.hpp"
+
 
 sec::xml_report::~xml_report()
 {
@@ -33,20 +34,19 @@ sec::xml_report::~xml_report()
 
 void sec::xml_report::load_xmlfile()
 { //may need to run an error check in case url is not defined
-	std::cout<<"running laod xmlfile\n";
+	MY_TEST_MESSAGE("running load xmlfile\n");
 	if(!isOpen()){connect();};
 	if(!isParsed())
 	{
-	std::cout<<"preparing to parse\n";
 		std::stringstream ss;
 		std::ifstream fin(getFileName().c_str());
 		std::copy(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>(), std::ostreambuf_iterator<char>(ss));
+		MY_TEST_MESSAGE("ran copy on line 43")
 		disconnect();
 		xml_ = new char[ss.str().length()+1];
 		std::strcpy(xml_,ss.str().c_str());
 		doc_.parse<0>(xml_);
 		parsed_=true;
-		std::cout<<"complete parsing\n";
 	}
 }
 

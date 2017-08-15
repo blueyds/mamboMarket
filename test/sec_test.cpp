@@ -5,6 +5,7 @@
 
 #define BOOST_TEST_MODULE XMLtest
 #include <boost/test/included/unit_test.hpp>
+#define TESTING
 using namespace boost::unit_test;
 BOOST_AUTO_TEST_CASE(xml_test)
 {
