@@ -20,7 +20,7 @@
 
 std::string sec::GenerateSECUrl(std::string stock_symbol)
 {
-	std::string s="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK="+stock_symbol;
+	std::string s="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK="+stock_symbol+"&output=xml";
 	return s;
 }
 

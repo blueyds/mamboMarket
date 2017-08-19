@@ -44,7 +44,7 @@ void sec::xml_report::load_xmlfile()
 		xml_ = new char[ss.str().length()+1];
 		std::strcpy(xml_,ss.str().c_str());
 		MY_TEST_MESSAGE("ran second copy to xml_. parse next");
-		MY_TEST_MESSAGE(xml_);
+		//MY_TEST_MESSAGE(xml_);
 		doc_.parse<0>(xml_);
 		MY_TEST_MESSAGE("done parsing");
 		parsed_=true;
