@@ -34,12 +34,13 @@ sec::xml_report::~xml_report()
 
 void sec::xml_report::load_xmlfile()
 { //may need to run an error check in case url is not defined
-	MY_TEST_MESSAGE("running load xmlfile\n");
+	MY_TEST_MESSAGE("running load xmlfile");
 	if(!isOpen()){connect();};
+	MY_TEST_MESSAGE("Connected by opening the file: "+getFileName());
 	if(!isParsed())
 	{
 		std::stringstream ss;
-		std::ifstream fin(getFileName().c_str());
+		std::ifstream fin(getFileName());
 		MY_TEST_MESSAGE("opened file inside");
 		std::copy(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>(), std::ostreambuf_iterator<char>(ss));
 		MY_TEST_MESSAGE("ran copy on line 44");
