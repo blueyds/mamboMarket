@@ -3,19 +3,18 @@
 #define TESTING
 #include <exception>
 #include <string>
-
-#ifdef TESTING
 #include <iostream>
+
 inline void MY_TEST_MESSAGE(std::string msg)
 {
 	std::cout << msg <<"\n";
 };
-#else
+
+/*
 inline void MY_TEST_MESSAGE(std::string msg)
 {
 };
-#endif
-
+*/
 struct basic_error: public std::exception 
 {
 	std::string message_;
