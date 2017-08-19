@@ -7,7 +7,7 @@
 
 inline void MY_TEST_MESSAGE(std::string msg)
 {
-	std::cout << msg <<"\n";
+	std::clog << msg <<"\n";
 };
 
 /*
