@@ -40,7 +40,7 @@ void sec::xml_report::load_xmlfile()
 	{
 		std::stringstream ss;
 		std::ifstream fin(getFileName().c_str());
-		MY_TEST_MESSAGE("opened file inside")
+		MY_TEST_MESSAGE("opened file inside");
 		std::copy(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>(), std::ostreambuf_iterator<char>(ss));
 		MY_TEST_MESSAGE("ran copy on line 44");
 		disconnect();
