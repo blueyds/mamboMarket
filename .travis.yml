@@ -1,20 +1,31 @@
-sudo: required
 language: cpp
 compiler:
-- gcc
-addons:
-  sources:
-    - ubuntu-toolchain-r-test
-  packages:
-    - g++-5
-    - gcc-5
+-gcc
+matrix:
+  include:
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+      env:
+         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+    # works on Precise and Trusty
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+before_install:
+    - eval "${MATRIX_EVAL}"
 install:
-  - "sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test"
-  - "sudo apt-get -qq update"
-  - "sudo apt-get install gcc-5 g++-5 autoconf-archive autoconf autotools-dev libboost1.54-dev"
-  - "sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1 --slave /usr/bin/g++ g++ /usr/bin/g++-5"
-  - export "CXX=g++-5"
-  - export "CC=gcc-5"
   - "autoreconf --install --force"
   - "gcc --version"
   - "g++ --version"

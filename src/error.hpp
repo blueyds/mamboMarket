@@ -1,6 +1,8 @@
 #ifndef ERROR_H
 #define ERROR_H
-#define TESTING
+//uncomment following line if we go into production it will disable assert macros
+//#define NDEBUG
+#include <cassert>
 #include <exception>
 #include <string>
 #include <iostream>
@@ -9,7 +11,8 @@ inline void MY_TEST_MESSAGE(std::string msg)
 {
 	std::clog << msg <<"\n";
 };
-
+inline void MY_ASSERT(int expression)
+{assert(expression);};
 /*
 inline void MY_TEST_MESSAGE(std::string msg)
 {

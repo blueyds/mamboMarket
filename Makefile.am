@@ -2,8 +2,7 @@ AUTOMAKE_OPTIONS = subdir-objects
 ACLOCAL_AMFLAGS = -I m4
 
 bin_PROGRAMS = 	 mambo
-AM_CPPFLAGS = $(BOOST_CPPFLAGS) -I $(TRAVIS_BUILD_DIR)/src
-AM_LDFLAGS=$(BOOST_LDFLAGS)
+AM_CPPFLAGS = -I $(TRAVIS_BUILD_DIR)/src
 
 
 mambo_SOURCES = \
@@ -12,9 +11,9 @@ mambo_SOURCES = \
    src/sec/sec.cpp \
    src/main.cpp
 
-TESTS = sec_test
-check_PROGRAMS = sec_test
-sec_test_SOURCES = \
+TESTS = mambo_test
+check_PROGRAMS = mambo_test
+mambo_test_SOURCES = \
    test/sec_test.cpp \
    src/report.cpp \
    src/sec/sec.cpp \

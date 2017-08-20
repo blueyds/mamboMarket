@@ -60,6 +60,9 @@ public:
 	std::string getSIC(){return SIC_;};
 	std::string getSIC_desc(){return SIC_desc_;};
 	std::string getName(){return company_name_;};
+	std::string getYearEnd(){return year_end_;};
+	std::string getState(){return state_;};
+	std::string getSymbol(){return symbol_;};
 	void fillFacts();
 }; // class sec
 
