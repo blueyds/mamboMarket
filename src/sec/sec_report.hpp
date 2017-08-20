@@ -53,7 +53,7 @@ private:
 	std::string year_end_;
 	std::string state_;
 public:
-	info(std::string stock_symbol): xml_report(GenerateSECUrl(stock_symbol)), symbol(stock_symbol){
+	info(std::string stock_symbol): xml_report(GenerateSECUrl(stock_symbol)), symbol_(stock_symbol){
 		load_xmlfile();
 		fillFacts();};	// Constructor
 	std::string getCIK(){return CIK_;};
