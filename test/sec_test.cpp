@@ -16,7 +16,7 @@ int main()
 	MY_ASSERT(s.getCIK()=="0000320193");
 	MY_ASSERT(s.getSIC()=="3571");
 	MY_ASSERT(s.getName()=="APPLE INC");
-	MY_ASSERT(s.getState()=="CA");
+	MY_ASSERT(s.getState()=="CcA");
 	MY_ASSERT(s.getSymbol()=="AAPL");
 	MY_ASSERT(s.getYearEnd()=="0930");
 }
