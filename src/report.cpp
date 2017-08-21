@@ -46,7 +46,7 @@ void sec::report::connect(std::string file_name)
 	//add an exception ii fstream cannot open the file
 	if(open_){disconnect();};
 	fname_=file_name;
-	std::string command="wget -O "+fname_+" '"+url_+"'";
+	std::string command="wget -q -O "+fname_+" '"+url_+"'";
 	std::system(command.c_str());
 	open_=true;
 }
