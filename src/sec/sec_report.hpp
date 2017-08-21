@@ -83,6 +83,7 @@ public:
 	std::string month_;
 	std::string form_;
 	std::string CIK_;
+	std::string lang_;
 	archive(std::string a_CIK, std::string a_form, int a_year, int a_month):CIK_(a_CIK),form_(a_form),xml_report(sec::GenerateArchiveUrl(a_year,a_month)){;}; // 1= january 12=december
 	void fillFacts();
 };//class archive

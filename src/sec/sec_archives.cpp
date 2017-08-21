@@ -16,14 +16,9 @@
 */
 
 #include <string>
-#include <iostream>
-#include <sstream>
-#include <fstream>
-#include <iterator>
-#include <algorithm>
+#include "error.hpp"
 #include "rapidxml_ns.hpp"
 #include "sec.hpp"
-
 
 std::string sec::GenerateArchiveUrl(int a_year, int a_month)
 {
@@ -44,30 +39,7 @@ sec::archive::archive(std::string a_CIK, std::string a_form, int a_year, int a_m
 }
 
 
-void sec::archive::fillFacts(std::string f_name)
+void sec::archive::fillFacts()
 {
-	for (int i = 0; i < getChildCount("channel",0,"item"); i++) {
-			if ((getChildValue( "item", i, "edgar::formType", 0) == form_) && (getChildValue( "item",  i, "edgar::cikNumber", 0) == CIK_)){
-				report_item_t t;
-				t.CIK_= getChildValue( "item" , i, "edgar::cikNumber", 0);
-				t.form_= getChildValue( "item" , i, "edgar::formType", 0);
-				t.accession_ = getChildValue( "item" , i, "edgar::accessionNumber", 0);
-				t.date_ = getChildValue( "item" , i, "edgar::filingDate", 0);
-				items_.push_back(t);
-			}
-		}
+	lang_=getChildValue({0,0,0},{"rss","channel","lang"}
 }
-
-
-
-sec::archive::archive(std::string a_CIK, std::string a_form, std::string a_year, std::string a_month)
-{
-	year_=a_year;
-	month_=a_month;
-	std::string s = "https://www.sec.gov/Archives/edgar/monthly/xbrlrss-" + year_ + "-" + month_ + ".xml";
-	setUrl(s);
-	form_=a_form;
-	CIK_=a_CIK;
-	load_xmlfile();
-}
-
