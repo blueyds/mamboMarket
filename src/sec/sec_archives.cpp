@@ -17,7 +17,7 @@
 
 #include <string>
 #include "error.hpp"
-#include "sec.hpp"
+#include "sec/sec_report.hpp"
 
 std::string sec::GenerateArchiveUrl(int a_year, int a_month)
 {
