@@ -37,5 +37,5 @@ std::string sec::GenerateArchiveUrl(int a_year, int a_month)
 void sec::archive::fillFacts()
 {
 	MY_TEST_MESSAGE("just entered arcchive fillfacts");
-	lang_=getChildValue({0,0},{"channel","language"});
+	lang_=getChildValue({0,0,0},{"rss","channel","language"});
 }
