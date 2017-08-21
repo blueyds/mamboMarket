@@ -17,7 +17,6 @@
 
 #include <string>
 #include "error.hpp"
-#include "rapidxml_ns.hpp"
 #include "sec.hpp"
 
 std::string sec::GenerateArchiveUrl(int a_year, int a_month)
