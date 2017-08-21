@@ -31,14 +31,10 @@ std::string sec::GenerateArchiveUrl(int a_year, int a_month)
 	std::string s="https://www.sec.gov/Archives/edgar/monthly/xbrlrss-"+year_s+"-"+month_s+".xml";
 	return s;
 }
-sec::archive::archive(std::string a_CIK, std::string a_form, int a_year, int a_month)
-{
-	load_xmlfile();
-	fillFacts();
-}
+
 
 
 void sec::archive::fillFacts()
 {
-	lang_=getChildValue({0,0,0},{"rss","channel","lang"}
+	lang_=getChildValue({0,0,0},{"rss","channel","lang");
 }
