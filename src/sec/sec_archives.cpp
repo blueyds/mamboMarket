@@ -36,5 +36,5 @@ std::string sec::GenerateArchiveUrl(int a_year, int a_month)
 
 void sec::archive::fillFacts()
 {
-	lang_=getChildValue({0,0,0},{"rss","channel","lang");
+	lang_=getChildValue({0,0,0},{"rss","channel","lang"});
 }
