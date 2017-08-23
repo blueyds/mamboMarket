@@ -47,7 +47,7 @@ void sec::archive::fillFacts()
 		if(type!=getForm()) continue;
 		MY_TEST_MESSAGE("archive form:   "+type);
 		int files_count;
-		files_count=getChildCount({0,0,x,0},{"rss","channel","item","edgar:xbrlFiles","edgar:xbrlFile"})
+		files_count=getChildCount({0,0,x,0},{"rss","channel","item","edgar:xbrlFiles","edgar:xbrlFile"});
 		for (int y=0;y<files_count;y++)
 		{
 			std::string attr;
