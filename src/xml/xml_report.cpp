@@ -103,7 +103,7 @@ std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, s
 }
 
 //return empty string if find nothing
-std::string sec::xml_report::getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::string attribute);
+std::string sec::xml_report::getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::string attribute)
 {
 	std::initializer_list<std::string>::iterator tagIt;
 	tagIt=tags.begin();
