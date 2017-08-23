@@ -64,6 +64,7 @@ public:
 		
 	std::string getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags);
 	
+	std::string getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::string attribute);
 	
 };
 } // namespace sec

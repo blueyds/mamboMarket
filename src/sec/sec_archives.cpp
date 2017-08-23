@@ -38,4 +38,24 @@ void sec::archive::fillFacts()
 {
 	MY_TEST_MESSAGE("just entered arcchive fillfacts");
 	lang_=getChildValue({0,0,0},{"rss","channel","language"});
+	int item_count;
+	item_count=getChildCount({0,0},{"rss","channel","item"});
+	for (int x=0;x<item_count;x++)
+	{
+		std::string type;
+		type=getChildValue({0,0,x,0},{"rss","channel","item","edgar:formType"});
+		if(type!=getForm()) continue;
+		MY_TEST_MESSAGE("archive form:   "+type);
+		int files_count;
+		files_count-==getChildCount({0,0,x,0},{"rss","channel","item","edgar:xbrlFiles","edgar:xbrlFile"})
+		for (int y=0;y<files_count;y++)
+		{
+			std::string attr;
+			attr=getAttribute({0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFiles", "edgar:xbrlFile"},"edgar:desription");
+			if(attr!="XBRL INSTANCE DOCUMENT") continue;
+			// we found the node we are looking for.
+			//createt a report item and add to vector
+			break;
+		}
+	}
 }

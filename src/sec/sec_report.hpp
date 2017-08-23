@@ -72,7 +72,7 @@ class report_item_t {
 		std::string form_;
 		std::string accession_;
 		std::string date_;
-		std::string zip_reference;
+		std::string url_;
 	};
 	
 // a single monthly archive report
@@ -84,7 +84,8 @@ public:
 	std::string form_;
 	std::string CIK_;
 	std::string lang_;
-	archive(std::string a_CIK, std::string a_form, int a_year, int a_month):CIK_(a_CIK),form_(a_form),xml_report(sec::GenerateArchiveUrl(a_year,a_month)){load_xmlfile();fillFacts();}; // 1= january 12=december
+	archive(std::string a_CIK, std::string a_form, int a_year, int a_month): CIK_(a_CIK), form_(a_form), xml_report(sec::GenerateArchiveUrl(a_year,a_month)){load_xmlfile();fillFacts();}; // 1= january 12=december
+	std::string getForm(){return form_;};
 	void fillFacts();
 };//class archive
 } // namespace sec

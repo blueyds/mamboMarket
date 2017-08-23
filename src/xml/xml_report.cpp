@@ -102,3 +102,29 @@ std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, s
 	return child_node->value();
 }
 
+//return empty string if find nothing
+std::string sec::xml_report::getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::string attribute);
+{
+	std::initializer_list<std::string>::iterator tagIt;
+	tagIt=tags.begin();
+	rapidxml_ns::xml_node<char> *parent_node;
+	rapidxml_ns::xml_node<char> *child_node;
+	int count=0;
+	parent_node=&doc_;
+	for (int i : indices)
+	{
+		child_node=parent_node->first_node((*tagIt).c_str());
+		if (i>0)
+		{	for(count=1;count<=i;i++)
+			{child_node=parent_node->next_sibling((*tagIt).c_str());}
+		}
+		
+		tagIt++;
+		parent_node=child_node; //for next iteration
+	}
+	//now access rapidxml attribute on the child_node
+	rapidxml_ns::xml_attribute<char> *child_attr;
+	child_attr=child_node->first_attribute(attribute.c_str());
+	if(child_attr){return child_attr->value();}
+	else return "";
+}
