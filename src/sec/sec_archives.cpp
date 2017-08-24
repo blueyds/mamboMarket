@@ -40,7 +40,7 @@ void sec::archive::fillFacts()
 	lang_=getChildValue({0,0,0},{"rss","channel","language"});
 	int item_count;
 	item_count=getChildCount({0,0},{"rss","channel","item"});
-	MY_TEST_MESSAGE("item Count:      "+item_count);
+	MY_TEST_MESSAGE("item Count:      "+std::to_string(item_count));
 	for (int x=0;x<item_count;x++)
 	{
 		std::string type;
