@@ -20,6 +20,7 @@ int main()
 	MY_ASSERT(s.getSymbol()=="AAPL");
 	MY_ASSERT(s.getYearEnd()=="0930");
 	sec::archive a(s.getCIK(),"10-Q",2017,8);
+	MY_TEST_MESSAGE("form:      "+s.getForm());
 	MY_TEST_MESSAGE("lang:      "+a.lang_);
 	MY_ASSERT(a.items_[0].CIK_ == "000320193");
 	

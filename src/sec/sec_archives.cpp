@@ -40,10 +40,12 @@ void sec::archive::fillFacts()
 	lang_=getChildValue({0,0,0},{"rss","channel","language"});
 	int item_count;
 	item_count=getChildCount({0,0},{"rss","channel","item"});
+	MY_TEST_MESSAGE("item Count:      "+item_count;
 	for (int x=0;x<item_count;x++)
 	{
 		std::string type;
 		type=getChildValue({0,0,x,0},{"rss","channel","item","edgar:formType"});
+		MY_TEST_MESSAGE("det form:   "+type);
 		if(type!=getForm()) continue;
 		MY_TEST_MESSAGE("archive form:   "+type);
 		int files_count;
