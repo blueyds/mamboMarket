@@ -62,7 +62,7 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 		MY_TEST_MESSAGE("index:    "+std::to_string(i));
 		
 		if (i>0)
-		{	for(count=1;count<=i;i++)
+		{	for(count=1;count<=i;count++)
 			{child_node=parent_node->next_sibling((*tagIt).c_str());}
 		}
 		tagIt++;
@@ -97,7 +97,7 @@ std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, s
 	{
 		child_node=parent_node->first_node((*tagIt).c_str());
 		if (i>0)
-		{	for(count=1;count<=i;i++)
+		{	for(count=1;count<=i;count++)
 			{child_node=parent_node->next_sibling((*tagIt).c_str());}
 		}
 		
@@ -121,7 +121,7 @@ std::string sec::xml_report::getAttribute(std::initializer_list<int> indices, st
 	{
 		child_node=parent_node->first_node((*tagIt).c_str());
 		if (i>0)
-		{	for(count=1;count<=i;i++)
+		{	for(count=1;count<=i;count++)
 			{child_node=parent_node->next_sibling((*tagIt).c_str());}
 		}
 		
