@@ -73,7 +73,7 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	MY_TEST_MESSAGE("final tag:    "+(*tagIt));
 	if(!child_node){return 0;}
 	count=1;
-	bool working(true);
+	bool working(false);
 	do {
 		child_node=parent_node->next_sibling((*tagIt).c_str());
 		if(!child_node)
