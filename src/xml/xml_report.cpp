@@ -65,7 +65,7 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 		{	for(count=1;count<=i;count++)
 			{
 				if(count>50){
-					MY_TEST_MESSAGE("WE REACHED 100 count L68");break:}
+					MY_TEST_MESSAGE("WE REACHED 100 count L68");break;}
 				child_node = parent_node->next_sibling( (*tagIt).c_str());
 					
 			}
