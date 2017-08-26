@@ -44,6 +44,7 @@ void sec::archive::fillFacts()
 	for (int x=0;x<item_count;x++)
 	{
 		std::string type;
+		MY_TEST_MESSAGE("enter for loop");
 		type=getChildValue({0,0,x,0},{"rss","channel","item","edgar:formType"});
 		MY_TEST_MESSAGE("det form:   "+type);
 		if(type!=getForm()) continue;
