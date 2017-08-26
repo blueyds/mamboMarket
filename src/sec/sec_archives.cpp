@@ -36,19 +36,14 @@ std::string sec::GenerateArchiveUrl(int a_year, int a_month)
 
 void sec::archive::fillFacts()
 {
-	MSG("just entered arcchive fillfacts");
 	lang_=getChildValue({0,0,0},{"rss","channel","language"});
 	int item_count;
 	item_count=getChildCount({0,0},{"rss","channel","item"});
-	MSG("item Count:",item_count);
 	for (int x=0;x<item_count;x++)
 	{
 		std::string type;
-		MSG("enter for loop");
 		type=getChildValue({0,0,x,0},{"rss","channel","item","edgar:formType"});
-		MSG("det form",type);
 		if(type!=getForm()) continue;
-		MSG("archive form",type);
 		int files_count;
 		files_count=getChildCount({0,0,x,0},{"rss","channel","item","edgar:xbrlFiles","edgar:xbrlFile"});
 		for (int y=0;y<files_count;y++)

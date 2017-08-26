@@ -58,17 +58,11 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	parent_node=&doc_;
 	for (int i : indices)
 	{
-		child_node=parent_node->first_node((*tagIt).c_str());MSG("xml-L61-index",i);
-		
-		if (i>0)
-		{	for(count=1;count<=i;count++)
-			{
-				if(count>50){
-					MSG("xml-L67-WE REACHED 50");break;}
-				child_node = parent_node->next_sibling( (*tagIt).c_str());
-					
-			}
-		}
+		MSG("index:",i);
+		MSG("tag:",(*tagIt));
+		child_node = parent_node->first_node((*tagIt).c_str());
+		for(count=1;count<=i;count++)
+			{child_node = parent_node->next_sibling( (*tagIt).c_str());};
 		tagIt++;
 		parent_node=child_node; //for next iteration
 	}
@@ -82,7 +76,7 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	do {
 		child_node=parent_node->next_sibling((*tagIt).c_str());
 		if(!child_node)
-		{working==false;MSG("xml-L85-count" ,count);}
+		{working==false;MSG("xml-L85-count" ,count);MSG("xml-L85-tag",(*tagIt));}
 		else 
 		{++count;};
 		if(count>100)
