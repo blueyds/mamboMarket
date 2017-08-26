@@ -1,6 +1,6 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
-AC_INIT([mambo], [0.3], [BUG-REPORT-ADDRESS])
+AC_INIT([mambo], [0.3.1], [BUG-REPORT-ADDRESS])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([foreign -Wall -Werror])
 AC_CONFIG_HEADERS([src/config.h])
@@ -8,9 +8,8 @@ AC_CONFIG_FILES([Makefile])
 AC_CONFIG_MACRO_DIRS([m4])
 
 #define some macro variables
-m4_define([boost_e1],[cannot locate boost developer libraries[,] do you need to install libboost-all-dev?])
-m4_define([pthread_e1],[cannot locate pthread libraries[,] do you need to install libpthread-stubs0-dev])
-m4_define([ssl_e1],[cannot locate openssl libraries])
+AX_IS_RELEASE([micro-version])
+AX_CHECK_ENABLE_DEBUG()
 
 # Checks for programs.
 AC_PROG_CXX

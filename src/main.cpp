@@ -8,10 +8,15 @@ int main (int argc, char *argv[])
 		std::cout << "Usage : "<< argv[0] << " <stock_symbol>\n";
 	else
 	{
-		std::cout << "Preparing to pull from internet still in main.cpp\n";
-		std::cout << argv[1]<<"\n";
-		std::cout << "calling the stock class now\n";
-	  sec::info s (argv[1]);
-	  
+	sec::info s(argv[1]);
+	MSG("CIK",s.getCIK());
+	MSG("SIC",s.getSIC());
+	MSG("NAME",s.getName());
+	MSG("STATE",s.getState());
+	MSG("SYMBOL",s.getSymbol());
+	MSG("YEAR END",s.getYearEnd());
+	sec::archive a(s.getCIK(),"10-Q",2017,8);
+	MSG("form",a.getForm());
+	MSG("lang:",a.lang_);
 	}
 }

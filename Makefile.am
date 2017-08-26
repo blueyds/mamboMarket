@@ -2,7 +2,7 @@ AUTOMAKE_OPTIONS = subdir-objects
 ACLOCAL_AMFLAGS = -I m4
 
 bin_PROGRAMS = 	 mambo
-AM_CPPFLAGS = -I $(TRAVIS_BUILD_DIR)/src
+AM_CPPFLAGS = -I$(top_srcdir)/src
 
 
 mambo_SOURCES = \

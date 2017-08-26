@@ -7,9 +7,17 @@
 #include <string>
 #include <iostream>
 
-inline void MY_TEST_MESSAGE(std::string msg)
+inline void MSG(std::string msg)
 {
 	std::clog << msg <<"\n";
+};
+inline void MSG(std::string msg,std::string msg2)
+{
+	std::clog << msg <<":\t"<<msg2<<"\n";
+};
+inline void MSG(std::string msg,int i)
+{
+	std::clog << msg <<":\t"<<std::to_string(i)<<"\n";
 };
 inline void MY_ASSERT(int expression)
 {assert(expression);};

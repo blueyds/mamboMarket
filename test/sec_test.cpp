@@ -7,12 +7,12 @@
 int main()
 {
 	sec::info s("AAPL");
-	MY_TEST_MESSAGE("CIK:     "+s.getCIK());
-	MY_TEST_MESSAGE("SIC:     "+s.getSIC());
-	MY_TEST_MESSAGE("NAME:    "+s.getName());
-	MY_TEST_MESSAGE("STATE:   "+s.getState());
-	MY_TEST_MESSAGE("SYMBOL:  "+s.getSymbol());
-	MY_TEST_MESSAGE("YEAR END:"+s.getYearEnd());
+	MSG("CIK",s.getCIK());
+	MSG("SIC",s.getSIC());
+	MSG("NAME",s.getName());
+	MSG("STATE",s.getState());
+	MSG("SYMBOL",s.getSymbol());
+	MSG("YEAR END",s.getYearEnd());
 	MY_ASSERT(s.getCIK()=="0000320193");
 	MY_ASSERT(s.getSIC()=="3571");
 	MY_ASSERT(s.getName()=="APPLE INC");
@@ -20,8 +20,8 @@ int main()
 	MY_ASSERT(s.getSymbol()=="AAPL");
 	MY_ASSERT(s.getYearEnd()=="0930");
 	sec::archive a(s.getCIK(),"10-Q",2017,8);
-	MY_TEST_MESSAGE("form:      "+a.getForm());
-	MY_TEST_MESSAGE("lang:      "+a.lang_);
+	MSG("form",a.getForm());
+	MSG("lang:",a.lang_);
 	MY_ASSERT(a.items_[0].CIK_ == "000320193");
 	
 }

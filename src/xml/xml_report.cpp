@@ -58,14 +58,13 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	parent_node=&doc_;
 	for (int i : indices)
 	{
-		child_node=parent_node->first_node((*tagIt).c_str());
-		MY_TEST_MESSAGE("index:    "+std::to_string(i));
+		child_node=parent_node->first_node((*tagIt).c_str());MSG("xml-L61-index",i);
 		
 		if (i>0)
 		{	for(count=1;count<=i;count++)
 			{
 				if(count>50){
-					MY_TEST_MESSAGE("WE REACHED 100 count L68");break;}
+					MSG("xml-L67-WE REACHED 50");break;}
 				child_node = parent_node->next_sibling( (*tagIt).c_str());
 					
 			}
@@ -75,20 +74,20 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	}
 	//logic there should be one less index than tags. otherwise you would not be asking for a count
 	child_node=parent_node->first_node((*tagIt).c_str());
-	MY_TEST_MESSAGE("final tag:    "+(*tagIt));
+	MSG("final tag:    "+(*tagIt));
 	if(!child_node){return 0;}
 	count=1;
-	MY_TEST_MESSAGE("we have a valid tag GCV L81");
+	MSG("xml-L80-we have a valid tag GCV L81");
 	bool working(true);
 	do {
 		child_node=parent_node->next_sibling((*tagIt).c_str());
 		if(!child_node)
-		{working==false;MY_TEST_MESSAGE("GCVcount:   " +   std::string(count));}
+		{working==false;MSG("xml-L85-count" ,count);}
 		else 
-		{count++;};
+		{++count;};
 		if(count>100)
 		{
-			MY_TEST_MESSAGE("WE REACHED 100 count L90:");
+			MSG("WE REACHED 100 count L90:");
 			break;};
 	} while (working);
 	
