@@ -9,7 +9,7 @@ AC_CONFIG_MACRO_DIRS([m4])
 
 #define some macro variables
 AX_IS_RELEASE([git-directory])
-AX_CHECK_ENABLE_DEBUG()
+AX_CHECK_ENABLE_DEBUG([yes])
 
 # Checks for programs.
 AC_PROG_CXX
