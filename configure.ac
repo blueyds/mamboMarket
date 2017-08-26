@@ -8,7 +8,7 @@ AC_CONFIG_FILES([Makefile])
 AC_CONFIG_MACRO_DIRS([m4])
 
 #define some macro variables
-AX_IS_RELEASE([micro-version])
+AX_IS_RELEASE([git-directory])
 AX_CHECK_ENABLE_DEBUG()
 
 # Checks for programs.
