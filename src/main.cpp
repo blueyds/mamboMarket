@@ -1,6 +1,7 @@
 #include <iostream>
 //#include <mlpack/core.hpp>
 #include "sec/sec_report.hpp"
+#include "error.hpp"
 
 int main (int argc, char *argv[])
 {
