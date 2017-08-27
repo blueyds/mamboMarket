@@ -59,16 +59,16 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	for (int i : indices)
 	{
 		count=0;
-		for (child_node= parent_node->first_node(tagIt->c_str()); child; child = child->next_sibling()){
+		for (child_node= parent_node->first_node(tagIt->c_str()); child_node; child_node = child_node->next_sibling()){
     		if (count==i) {break;}
-    		else (count++;};
+    		else {count++;};
 		}
 		tagIt++;
 		parent_node=child_node; //for next iteration
 	}
 	//logic there should be one less index than tags. otherwise you would not be asking for a count
 	count=0;
-	for (child_node= parent_node->first_node(tagIt->c_str()); child; child = child->next_sibling()){
+	for (child_node= parent_node->first_node(tagIt->c_str()); child_node; child_node = child_node->next_sibling()){
     	count++;
 	}
 	return count;
