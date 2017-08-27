@@ -58,33 +58,76 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	parent_node=&doc_;
 	for (int i : indices)
 	{
-		MSG("index:",i);
-		MSG("tag:",(*tagIt));
-		child_node = parent_node->first_node((*tagIt).c_str());
+		child_node = parent_node->first_node(tagIt->c_str());
 		for(count=1;count<=i;count++)
-			{child_node = parent_node->next_sibling( (*tagIt).c_str());};
+			{child_node = parent_node->next_sibling( tagIt->c_str());};
 		tagIt++;
 		parent_node=child_node; //for next iteration
 	}
 	//logic there should be one less index than tags. otherwise you would not be asking for a count
-	child_node=parent_node->first_node((*tagIt).c_str());
-	MSG("final tag:    "+(*tagIt));
+	child_node=parent_node->first_node(tagIt->c_str());
 	if(!child_node){return 0;}
 	count=1;
-	MSG("xml-L80-we have a valid tag GCV L81");
 	bool working(true);
 	do {
-		child_node=parent_node->next_sibling((*tagIt).c_str());
+		child_node=parent_node->next_sibling(tagIt->c_str());
 		if(!child_node)
-		{working==false;MSG("xml-L85-count" ,count);MSG("xml-L85-tag",(*tagIt));}
+		{working==false;}
 		else 
 		{++count;};
-		if(count>100)
-		{
-			MSG("WE REACHED 100 count L90:");
-			break;};
-	} while (working);
-	
+	} while (working);	
+	return count;
+}
+int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns)
+{
+	std::initializer_list<std::string>::iterator tagIt;
+	std::initializer_list<std::string>::iterator nsIt;
+	tagIt=tags.begin();
+	nsIt=ns.begin();
+	rapidxml_ns::xml_node<char> *parent_node;
+	rapidxml_ns::xml_node<char> *child_node;
+	int count=0;
+	parent_node=&doc_;
+	for (int i : indices)
+	{
+		if(nsIt->size()==0) {
+			child_node = parent_node->first_node(tagIt->c_str());
+			for(count=1;count<=i;count++) {
+				child_node = parent_node->next_sibling(tagIt->c_str());
+			}
+		}
+		else {
+			child_node = parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str());
+			for(count=1;count<=i;count++) {
+				child_node = parent_node->next_sibling_ns(nsIt->c_str(),tagIt->c_str());
+			}
+		}
+		tagIt++;
+		nsIt++;
+		parent_node=child_node; //for next iteration
+	}
+	//logic there should be one less index than tags. otherwise you would not be asking for a count
+	if(nsIt->size()==0){
+		child_node=parent_node->first_node(tagIt->c_str());
+		count =1;
+		bool working(true);
+		do {
+			child_node=parent_node->next_sibling(tagIt->c_str());
+			if(!child_node)
+				{working==false;}
+			else {count++;};
+		} while (working);	
+	} else {
+		child_node = parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str());
+		count =1;
+		bool working(true);
+		do {
+			child_node=parent_node->next_sibling_ns(nsIt->c_str(),tagIt->c_str());
+			if(!child_node)
+				{working==false;}
+			else {count++;};
+		} while (working);
+	}	
 	return count;
 }
 
@@ -98,12 +141,9 @@ std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, s
 	parent_node=&doc_;
 	for (int i : indices)
 	{
-		child_node=parent_node->first_node((*tagIt).c_str());
-		if (i>0)
-		{	for(count=1;count<=i;count++)
-			{child_node=parent_node->next_sibling((*tagIt).c_str());}
-		}
-		
+		child_node=parent_node->first_node(tagIt->c_str());
+		for(count=1;count<=i;count++)
+			{child_node=parent_node->next_sibling(tagIt->c_str());}
 		tagIt++;
 		parent_node=child_node; //for next iteration
 	}
@@ -122,12 +162,9 @@ std::string sec::xml_report::getAttribute(std::initializer_list<int> indices, st
 	parent_node=&doc_;
 	for (int i : indices)
 	{
-		child_node=parent_node->first_node((*tagIt).c_str());
-		if (i>0)
-		{	for(count=1;count<=i;count++)
-			{child_node=parent_node->next_sibling((*tagIt).c_str());}
-		}
-		
+		child_node=parent_node->first_node(tagIt->c_str());
+		for(count=1;count<=i;count++)
+			{child_node=parent_node->next_sibling(tagIt->c_str());}
 		tagIt++;
 		parent_node=child_node; //for next iteration
 	}

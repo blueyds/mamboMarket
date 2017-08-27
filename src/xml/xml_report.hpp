@@ -66,6 +66,11 @@ public:
 	
 	std::string getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::string attribute);
 	
+	int getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns);
+		
+//	std::string getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns);
+	
+//	std::string getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns, std::string attribute);
 };
 } // namespace sec
 #endif //!_REPORT_H
