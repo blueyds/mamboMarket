@@ -58,7 +58,7 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	parent_node=&doc_;
 	for (int i : indices)
 	{
-		child_node = parent_node->first_node(tagIt->c_str(,0,false));
+		child_node = parent_node->first_node(tagIt->c_str(),0,false);
 		for(count=1;count<=i;count++){
 			child_node = parent_node->next_sibling(tagIt->c_str(),0,false);
 		};
