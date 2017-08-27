@@ -54,25 +54,23 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	tagIt=tags.begin();
 	rapidxml_ns::xml_node<char> *parent_node;
 	rapidxml_ns::xml_node<char> *child_node;
-	int count=0;
+	int count;
 	parent_node=&doc_;
 	for (int i : indices)
 	{
-		child_node = parent_node->first_node(tagIt->c_str(),0,false);
-		for(count=1;count<=i;count++){
-			child_node = parent_node->next_sibling(tagIt->c_str(),0,false);
-		};
+		count=0;
+		for (child_node= parent_node->first_node(tagIt->c_str()); child; child = child->next_sibling()){
+    		if (count==i) {break;}
+    		else (count++;};
+		}
 		tagIt++;
 		parent_node=child_node; //for next iteration
 	}
 	//logic there should be one less index than tags. otherwise you would not be asking for a count
-	child_node=parent_node->first_node(tagIt->c_str(),0,false);
-	if(child_node==0){return 0;}
-	count=1;
-	child_node=parent_node->next_sibling(tagIt->c_str(),0,false);
-	for(;child_node!=0;count++){
-		child_node->next_sibling(tagIt->c_str(),0,false);
-	};
+	count=0;
+	for (child_node= parent_node->first_node(tagIt->c_str()); child; child = child->next_sibling()){
+    	count++;
+	}
 	return count;
 }
 int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns)
@@ -140,7 +138,7 @@ std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, s
 	{
 		child_node=parent_node->first_node(tagIt->c_str());
 		for(count=1;count<=i;count++)
-			{child_node=parent_node->next_sibling(tagIt->c_str());}
+			{child_node=child_node->next_sibling(tagIt->c_str());}
 		tagIt++;
 		parent_node=child_node; //for next iteration
 	}

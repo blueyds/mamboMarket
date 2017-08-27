@@ -50,14 +50,14 @@ void sec::archive::fillFacts()
 		{
 			
 			std::string attr;
-			attr=getAttribute({0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFiles", "edgar:xbrlFile"},"edgar:desription");
+			attr=getAttribute({0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFile"}, "edgar:desription");
 			if(attr!="XBRL INSTANCE DOCUMENT") continue;
 			// we found the node we are looking for.
 			//createt a report item and add to vector
 			std::string d;
 			d=getChildValue({0,0,x,0},{"rss","channel","item","edgar:filingDate"});
 			std::string url;
-			url=getAttribute({0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFiles", "edgar:xbrlFile"},"edgar:url");
+			url=getAttribute({0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFile"}, "edgar:url");
 			report_item_t it(getCIK(),getForm(),d,url);
 			items_.push_back(it);
 			break;
