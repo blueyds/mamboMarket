@@ -69,9 +69,9 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	child_node=parent_node->first_node(tagIt->c_str());
 	if(child_node==0){return 0;}
 	count=1;
-	child_node=parent_node->next_sibling(tagIt->c_str();
+	child_node=parent_node->next_sibling(tagIt->c_str());
 	for(;child_node!=0;count++){
-		child_node->next_sibling(tagIt->c_str();
+		child_node->next_sibling(tagIt->c_str());
 	};
 	return count;
 }
