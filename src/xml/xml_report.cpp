@@ -47,7 +47,7 @@ void sec::xml_report::load_xmlfile()
 		parsed_=true;
 	}
 }
-
+/*
 int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags)
 {
 	std::initializer_list<std::string>::iterator tagIt;
@@ -59,7 +59,7 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	for (int i : indices)
 	{
 		count=0;
-		for (child_node= parent_node->first_node(tagIt->c_str()); child_node; child_node = child_node->next_sibling()){
+		for (child_node= parent_node->first_node(tagIt->c_str()); child_node; child_node = child_node->next_sibling(tagIt->c_str())){
     		if (count==i) {break;}
     		else {count++;};
 		}
@@ -68,84 +68,84 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	}
 	//logic there should be one less index than tags. otherwise you would not be asking for a count
 	count=0;
-	for (child_node= parent_node->first_node(tagIt->c_str()); child_node; child_node = child_node->next_sibling()){
+	for (child_node= parent_node->first_node(tagIt->c_str()); child_node; child_node = child_node->next_sibling(tagIt->c_str())){
     	count++;
 	}
 	return count;
-}
-int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns)
+}*/
+int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""})
 {
 	std::initializer_list<std::string>::iterator tagIt;
-	std::initializer_list<std::string>::iterator nsIt;
 	tagIt=tags.begin();
+	std::initializer_list<std::string>::iterator nsIt;
 	nsIt=ns.begin();
 	rapidxml_ns::xml_node<char> *parent_node;
 	rapidxml_ns::xml_node<char> *child_node;
-	int count=0;
+	int count;
 	parent_node=&doc_;
 	for (int i : indices)
 	{
-		if(nsIt->size()==0) {
-			child_node = parent_node->first_node(tagIt->c_str());
-			for(count=1;count<=i;count++) {
-				child_node = parent_node->next_sibling(tagIt->c_str());
-			}
-		}
-		else {
-			child_node = parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str());
-			for(count=1;count<=i;count++) {
-				child_node = parent_node->next_sibling_ns(nsIt->c_str(),tagIt->c_str());
-			}
+		count=0;
+		for (child_node= parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str()); child_node; child_node = child_node->next_sibling_ns(nsIt->)){
+    		if (count==i) {break;}
+    		else {count++;};
 		}
 		tagIt++;
 		nsIt++;
 		parent_node=child_node; //for next iteration
 	}
 	//logic there should be one less index than tags. otherwise you would not be asking for a count
-	if(nsIt->size()==0){
-		child_node=parent_node->first_node(tagIt->c_str());
-		count =1;
-		bool working(true);
-		do {
-			child_node=parent_node->next_sibling(tagIt->c_str());
-			if(!child_node)
-				{working==false;}
-			else {count++;};
-		} while (working);	
-	} else {
-		child_node = parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str());
-		count =1;
-		bool working(true);
-		do {
-			child_node=parent_node->next_sibling_ns(nsIt->c_str(),tagIt->c_str());
-			if(!child_node)
-				{working==false;}
-			else {count++;};
-		} while (working);
-	}	
+	count=0;
+	for (child_node= parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str()); child_node; child_node = child_node->next_sibling_ns()){
+    	count++;
+	}
 	return count;
 }
-
+/*
 std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags)
 {
 	std::initializer_list<std::string>::iterator tagIt;
 	tagIt=tags.begin();
 	rapidxml_ns::xml_node<char> *parent_node;
 	rapidxml_ns::xml_node<char> *child_node;
-	int count=0;
+	int count;
 	parent_node=&doc_;
-	for (int i : indices)
-	{
-		child_node=parent_node->first_node(tagIt->c_str());
-		for(count=1;count<=i;count++)
-			{child_node=child_node->next_sibling(tagIt->c_str());}
+	for (int i : indices){
+		count=0;
+		for (child_node= parent_node->first_node(tagIt->c_str()); child_node; child_node = child_node->next_sibling(tagIt->c_str())){
+    		if (count==i) {break;}
+    		else {count++;};
+		}
 		tagIt++;
 		parent_node=child_node; //for next iteration
 	}
-	
+	return child_node->value();
+}
+*/
+std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns = {"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""})
+{
+	std::initializer_list<std::string>::iterator tagIt;
+	tagIt=tags.begin();
+	std::initializer_list<std::string>::iterator nsIt;
+	nsIt=ns.begin();
+	rapidxml_ns::xml_node<char> *parent_node;
+	rapidxml_ns::xml_node<char> *child_node;
+	int count;
+	parent_node=&doc_;
+	for (int i : indices){
+		count=0;
+		for (child_node= parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str()); child_node; child_node = child_node->next_sibling_ns(nsIt->c_str(),tagIt->c_str())){
+    		if (count==i) {break;}
+    		else {count++;};
+		}
+		tagIt++;
+		nsIt++;
+		parent_node=child_node; //for next iteration
+	}
 	return child_node->value();
 }
 
+/*
 //return empty string if find nothing
 std::string sec::xml_report::getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::string attribute)
 {
@@ -166,6 +166,33 @@ std::string sec::xml_report::getAttribute(std::initializer_list<int> indices, st
 	//now access rapidxml attribute on the child_node
 	rapidxml_ns::xml_attribute<char> *child_attr;
 	child_attr=child_node->first_attribute(attribute.c_str());
+	if(child_attr){return child_attr->value();}
+	else return "";
+}
+*/
+std::string sec::xml_report::getAttribute(std::string attribute, std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""})
+{
+	std::initializer_list<std::string>::iterator tagIt;
+	tagIt=tags.begin();
+	std::initializer_list<std::string>::iterator nsIt;
+	nsIt=ns.begin();
+	rapidxml_ns::xml_node<char> *parent_node;
+	rapidxml_ns::xml_node<char> *child_node;
+	int count;
+	parent_node=&doc_;
+	for (int i : indices){
+		count=0;
+		for (child_node= parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str()); child_node; child_node = child_node->next_sibling_ns(nsIt->c_str(),tagIt->c_str())){
+    		if (count==i) {break;}
+    		else {count++;};
+		}
+		tagIt++;
+		nsIt++;
+		parent_node=child_node; //for next iteration
+	}
+	//now access rapidxml attribute on the child_node
+	rapidxml_ns::xml_attribute<char> *child_attr;
+	child_attr=child_node->first_attribute_ns(nsIt->c_str(),attribute.c_str());
 	if(child_attr){return child_attr->value();}
 	else return "";
 }

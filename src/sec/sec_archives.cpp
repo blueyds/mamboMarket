@@ -42,22 +42,25 @@ void sec::archive::fillFacts()
 	for (int x=0;x<item_count;x++)
 	{
 		std::string type;
-		type=getChildValue({0,0,x,0},{"rss","channel","item","edgar:formType"});
+		std::string cik;
+		cik=getChildValue({0,0,x,0},{"rss","channel","item","cikNumber"},{"","","","edgar"});
+		if(cik!=getCIK()) continue;
+		type=getChildValue({0,0,x,0},{"rss","channel","item","formType"},{"","","","edgar"});
 		if(type!=getForm()) continue;
+		cik=getChildValue({0,0,x,0},{"rss","channel","item","cikNumber"},{"","","","edgar"});
+		if(cik!=getCIK()) continue;
 		int files_count;
-		files_count=getChildCount({0,0,x,0},{"rss","channel","item","edgar:xbrlFiles","edgar:xbrlFile"});
-		for (int y=0;y<files_count;y++)
-		{
-			
+		files_count=getChildCount({0,0,x,0},{"rss","channel","item","xbrlFiles","xbrlFile"}, {"","","","edgar","edgar"});
+		for (int y=0;y<files_count;y++){
 			std::string attr;
-			attr=getAttribute({0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFile"}, "edgar:desription");
+			attr=getAttribute("description",{0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFile"},{"","","","edgar","edgar","edgar"};
 			if(attr!="XBRL INSTANCE DOCUMENT") continue;
 			// we found the node we are looking for.
 			//createt a report item and add to vector
 			std::string d;
-			d=getChildValue({0,0,x,0},{"rss","channel","item","edgar:filingDate"});
+			d=getChildValue({0,0,x,0},{"rss","channel","item","edgar:filingDate"},{"","","","edgar"});
 			std::string url;
-			url=getAttribute({0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFile"}, "edgar:url");
+			url=getAttribute("url",{0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFile"},{"","","","edgar","edgar","edgar"});
 			report_item_t it(getCIK(),getForm(),d,url);
 			items_.push_back(it);
 			break;

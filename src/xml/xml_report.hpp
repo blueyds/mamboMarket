@@ -60,17 +60,17 @@ public:
 	first number will be used for first tag.
 	Tags should be in order parent first then child then child.
 	*/
-	int getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags);
+	/*int getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags);
 		
 	std::string getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags);
 	
 	std::string getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::string attribute);
-	
-	int getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns);
+	*/
+	int getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""});
 		
-//	std::string getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns);
-	
-//	std::string getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns, std::string attribute);
+	std::string getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""});
+	//ns list should also include the attribute namespace oro ""
+	std::string getAttribute( std::string attribute,std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""});
 };
 } // namespace sec
 #endif //!_REPORT_H
