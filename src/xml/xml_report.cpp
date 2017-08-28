@@ -73,7 +73,7 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	}
 	return count;
 }*/
-int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""})
+int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns)
 {
 	std::initializer_list<std::string>::iterator tagIt;
 	tagIt=tags.begin();
@@ -86,7 +86,7 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	for (int i : indices)
 	{
 		count=0;
-		for (child_node= parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str()); child_node; child_node = child_node->next_sibling_ns(nsIt->)){
+		for (child_node=parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str()); child_node; child_node = child_node->next_sibling_ns(nsIt->c_str(),tagIt->c_str())){
     		if (count==i) {break;}
     		else {count++;};
 		}
@@ -96,7 +96,7 @@ int sec::xml_report::getChildCount(std::initializer_list<int> indices, std::init
 	}
 	//logic there should be one less index than tags. otherwise you would not be asking for a count
 	count=0;
-	for (child_node= parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str()); child_node; child_node = child_node->next_sibling_ns()){
+	for (child_node= parent_node->first_node_ns(nsIt->c_str(),tagIt->c_str()); child_node; child_node = child_node->next_sibling_ns(nsIt->c_str(),tagIt->c_str())){
     	count++;
 	}
 	return count;
@@ -122,7 +122,7 @@ std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, s
 	return child_node->value();
 }
 */
-std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns = {"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""})
+std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns)
 {
 	std::initializer_list<std::string>::iterator tagIt;
 	tagIt=tags.begin();
@@ -170,7 +170,7 @@ std::string sec::xml_report::getAttribute(std::initializer_list<int> indices, st
 	else return "";
 }
 */
-std::string sec::xml_report::getAttribute(std::string attribute, std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""})
+std::string sec::xml_report::getAttribute(std::string attribute, std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns)
 {
 	std::initializer_list<std::string>::iterator tagIt;
 	tagIt=tags.begin();
