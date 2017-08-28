@@ -32,9 +32,15 @@ void sec::xml_report::load_xmlfile()
 	if(!isOpen()){connect();};
 	if(!isParsed())
 	{
-		std::stringstream ss;
-		std::ifstream fin(getFileName());
-		std::copy(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>(), std::ostreambuf_iterator<char>(xml_));
+	
+		std::ifstream file(getFileName());
+		if (!file.eof() && !file.fail()){
+			file.seekg(0, std::ios_base::end);
+			std::streampos fileSize = file.tellg();
+			xml_.resize(fileSize);
+			file.seekg(0, std::ios_base::beg);
+			file.read(&xml_[0], fileSize);
+		}
 		xml_.push_back('\0');
 		disconnect();
 		doc_.parse<0>(&xml_[0]);
