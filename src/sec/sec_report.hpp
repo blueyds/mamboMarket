@@ -82,10 +82,11 @@ private:
 	std::string CIK_;
 	std::string month_;
 	std::string year;
+	std::string edgarns_;
 public:
 	std::vector<report_item_t> items_;
 	std::string lang_;
-	archive(std::string a_CIK, std::string a_form, int a_year, int a_month): CIK_(a_CIK), form_(a_form), xml_report(sec::GenerateArchiveUrl(a_year,a_month)){load_xmlfile();fillFacts();}; // 1= january 12=december
+	archive(std::string a_CIK, std::string a_form, int a_year, int a_month): CIK_(a_CIK), form_(a_form),edgarns_("http://www.sec.gov/Archives/edgar"), xml_report(sec::GenerateArchiveUrl(a_year,a_month)){load_xmlfile();fillFacts();}; // 1= january 12=december
 	std::string getForm(){return form_;};
 	std::string getCIK(){return CIK_;};
 	void fillFacts();

@@ -24,6 +24,7 @@
 
 #include <string>
 #include <iterator>
+#include <vector>
 #include "config.h"
 #include "report.hpp"
 #include "xml/rapidxml_ns.hpp"
@@ -35,7 +36,7 @@ class xml_report : public report
 {
 private:
 	rapidxml_ns::xml_document<char> doc_;
-	char* xml_;
+	std::vector<char> xml_;
 	bool parsed_;
 public:
 /* inherited from report
@@ -48,7 +49,7 @@ public:
 	xml_report(std::string url):report(url),parsed_(false){
 		load_xmlfile();
 		fillFacts();};
-	~xml_report();
+	~xml_report(){;};
 	
 	bool isParsed(){return parsed_;};
 	

@@ -16,7 +16,6 @@
 */
 
 #include <string>
-#include <sstream>
 #include <cstring>
 #include <fstream>
 #include <iterator>
@@ -27,10 +26,6 @@
 #include "xml/rapidxml_ns.hpp"
 
 
-sec::xml_report::~xml_report()
-{
-	delete xml_;
-}
 
 void sec::xml_report::load_xmlfile()
 { //may need to run an error check in case url is not defined
@@ -39,11 +34,10 @@ void sec::xml_report::load_xmlfile()
 	{
 		std::stringstream ss;
 		std::ifstream fin(getFileName());
-		std::copy(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>(), std::ostreambuf_iterator<char>(ss));
+		std::copy(std::istreambuf_iterator<char>(fin), std::istreambuf_iterator<char>(), std::ostreambuf_iterator<char>(xml_));
+		xml_.push_back('\0');
 		disconnect();
-		xml_ = new char[ss.str().length()+1];
-		std::strcpy(xml_,ss.str().c_str());
-		doc_.parse<0>(xml_);
+		doc_.parse<0>(&xml_[0]);
 		parsed_=true;
 	}
 }
@@ -142,7 +136,9 @@ std::string sec::xml_report::getChildValue(std::initializer_list<int> indices, s
 		nsIt++;
 		parent_node=child_node; //for next iteration
 	}
-	return child_node->value();
+	if (child_node)
+	{return child_node->value();}
+	else return "";
 }
 
 /*
@@ -190,6 +186,7 @@ std::string sec::xml_report::getAttribute(std::string attribute, std::initialize
 		nsIt++;
 		parent_node=child_node; //for next iteration
 	}
+	if (!child_node)return "";
 	//now access rapidxml attribute on the child_node
 	rapidxml_ns::xml_attribute<char> *child_attr;
 	child_attr=child_node->first_attribute_ns(nsIt->c_str(),attribute.c_str());
