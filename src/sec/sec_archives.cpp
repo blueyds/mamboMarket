@@ -53,14 +53,14 @@ void sec::archive::fillFacts()
 		files_count=getChildCount({0,0,x,0},{"rss","channel","item","xbrlFiles","xbrlFile"}, {"","","","edgar","edgar"});
 		for (int y=0;y<files_count;y++){
 			std::string attr;
-			attr=getAttribute("description",{0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFile"},{"","","","edgar","edgar","edgar"};
+			attr=getAttribute("description",{0, 0,  x, 0, y},{"rss", "channel", "item", "xbrlFiles", "xbrlFile"},{"","","","edgar","edgar","edgar"});
 			if(attr!="XBRL INSTANCE DOCUMENT") continue;
 			// we found the node we are looking for.
 			//createt a report item and add to vector
 			std::string d;
-			d=getChildValue({0,0,x,0},{"rss","channel","item","edgar:filingDate"},{"","","","edgar"});
+			d=getChildValue({0,0,x,0},{"rss","channel","item","filingDate"},{"","","","edgar"});
 			std::string url;
-			url=getAttribute("url",{0, 0,  x, 0, y},{"rss", "channel", "item", "edgar:xbrlFiles", "edgar:xbrlFile"},{"","","","edgar","edgar","edgar"});
+			url=getAttribute("url",{0, 0,  x, 0, y},{"rss", "channel", "item", "xbrlFiles", "xbrlFile"},{"","","","edgar","edgar","edgar"});
 			report_item_t it(getCIK(),getForm(),d,url);
 			items_.push_back(it);
 			break;
