@@ -43,9 +43,9 @@ void sec::archive::fillFacts()
 	{
 		std::string type;
 		std::string cik;
-		cik=getChildValue({0,0,x,0,0},{"rss","channel","item","xbrlFiling","cikNumber"},{"","","",.edgarns_,edgarns_});
+		cik=getChildValue({0,0,x,0,0},{"rss","channel","item","xbrlFiling","cikNumber"},{"","","",edgarns_,edgarns_});
 		if(cik!=getCIK()) continue;
-		type=getChildValue({0,0,x,0,0},{"rss","channel","item","xbrlFiling","formType"},{"","","",edgar_ns,edgarns_});
+		type=getChildValue({0,0,x,0,0},{"rss","channel","item","xbrlFiling","formType"},{"","","",edgarns_,edgarns_});
 		if(type!=getForm()) continue;
 		int files_count;
 		files_count=getChildCount({0,0,x,0,0},{"rss","channel","item","xbrlFiling","xbrlFiles","xbrlFile"}, {"","","",edgarns_,edgarns_,edgarns_});
