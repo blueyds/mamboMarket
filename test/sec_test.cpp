@@ -22,6 +22,6 @@ int main()
 	sec::archive a(s.getCIK(),"10-Q",2017,8);
 	MSG("form",a.getForm());
 	MSG("lang:",a.lang_);
-	MY_ASSERT(a.items_[0].CIK_ == "000320193");
+	MY_ASSERT(a.items_[0].CIK_ == "0000320193");
 	
 }
