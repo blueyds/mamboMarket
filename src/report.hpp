@@ -31,10 +31,11 @@ class report
 private:
 	std::string fname_;
 	bool open_;
+	bool local_;
 	std::string url_;
 public:
 	report():open_(false){;};
-	report(std::string url):url_(url),open_(false){;};
+	report(std::string url, bool isLocal=false);
 	~report();
 	std::string getUrl(){return url_;};
 	std::string setUrl(std::string url);

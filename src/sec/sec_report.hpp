@@ -33,6 +33,15 @@ namespace sec{
 std::string GenerateSECUrl(std::string stock_symbol);
 std::string GenerateArchiveUrl(int a_year, int a_month);
 
+class report_item_t {
+public:
+	std::string CIK_;
+	std::string form_;
+	std::string date_;
+	std::string url_;
+	report_item_t(std::string CIK,std::string form,std::string date, std::string url):CIK_(CIK),form_(form),date_(date),url_(url){;};
+};
+
 class info : public xml_report {
 private:
 /* inherited from xml_report
@@ -52,6 +61,7 @@ private:
 	std::string company_name_;
 	std::string year_end_;
 	std::string state_;
+	std::vector<report_item_t> reports_;
 public:
 	info(std::string stock_symbol): xml_report(GenerateSECUrl(stock_symbol)), symbol_(stock_symbol){
 		load_xmlfile();
@@ -66,15 +76,6 @@ public:
 	void fillFacts();
 }; // class sec
 
-class report_item_t {
-public:
-	std::string CIK_;
-	std::string form_;
-	std::string date_;
-	std::string url_;
-	report_item_t(std::string CIK,std::string form,std::string date, std::string url):CIK_(CIK),form_(form),date_(date),url_(url){;};
-	};
-	
 // a single monthly archive report
 class archive: public xml_report{
 private:

@@ -25,7 +25,13 @@ std::string sec::report::setUrl(std::string url)
 {
 	disconnect();
 	url_=url;
-	
+}
+
+sec::report::report(std::string url,bool isLocal)
+{
+	setUrl(url);
+	local_=isLocal;
+	open=false;
 }
 sec::report::~report()
 {
@@ -46,7 +52,9 @@ void sec::report::connect(std::string file_name)
 	//add an exception ii fstream cannot open the file
 	if(open_){disconnect();};
 	fname_=file_name;
-	std::string command="wget -q -O "+fname_+" '"+url_+"'";
+	std::string commang;
+	if(local_){command="cp '"+url_+"' "+fname_;}
+	else {command="wget -q -O "+fname_+" '"+url_+"'";};
 	std::system(command.c_str());
 	open_=true;
 }
