@@ -56,7 +56,7 @@ void sec::archive::fillFacts()
 			// we found the node we are looking for.
 			//createt a report item and add to vector
 			std::string d;
-			d=getChildValue({0,0,x,0},{"rss","channel","item","xbrlFiling","filingDate"},{"","","",edgarns_,edgarns_});
+			d=getChildValue({0,0,x,0,0},{"rss","channel","item","xbrlFiling","filingDate"},{"","","",edgarns_,edgarns_});
 			std::string url;
 			url=getAttribute("url",{0, 0,  x, 0, 0, y},{"rss", "channel", "item", "xbrlFiling", "xbrlFiles", "xbrlFile"}, { "", "", "", edgarns_, edgarns_, edgarns_, edgarns_});
 			report_item_t it(getCIK(),getForm(),d,url);
