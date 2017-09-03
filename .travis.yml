@@ -3,28 +3,18 @@ language: cpp
 compiler: gcc
 git:
   depth: 3
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ['ubuntu-toolchain-r-test']
-          packages:
-            - ['g++-5']
-            - ['gcc-5']
-      env:
-        - MATRIX_EVAL='CC=gcc-5 && CXX=g++-5'
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ['ubuntu-toolchain-r-test']
-          packages:
-            - ['g++-6']
-            - ['gcc-6']
-      env:
-        - MATRIX_EVAL='CC=gcc-6 && CXX=g++-6'
+os: linux
+addons:
+  apt:
+    sources:
+      - ['ubuntu-toolchain-r-test']
+      - ['boost-latest']
+    packages:
+      - ['g++-6']
+      - ['gcc-6']
+      - ['libboost-all-dev']
+env:
+  - MATRIX_EVAL='CC=gcc-6 && CXX=g++-6'
 before_install:
   - eval "${MATRIX_EVAL}"
   - "autoreconf --install --force"
