@@ -24,23 +24,35 @@
 
 #include <string>
 #include <vector>
-#include <sstream>
-
 #include "reports.hpp"
 
 namespace sec{
 
-class csv_report : public report
+template<class Th,class Td> class csv_report : public report
 {
-private:
-	
 public:
+	typedef Th headerType;
+	typedef Td dataType;
+	typedef std::vector<Th> headerVectorType;
+	typedef std::vector<Td> dataVectorType;
+private:
+	headerVectorType headers_;
+	dataVectorType data_;
+	bool hasHeader;
 /* inherited from report
 
 	void connect(file_name);
 	void disconnect();
 */
-	csv_report();
+public:
+	csv_report(std::string url,bool hasHeader=true,bool isLocal=false):  report(url,isLocal){
+		load_csvfile();};
+	~xml_report(){;};
+	
+	bool isParsed(){return parsed_;};
+	
+	void load_csvfile(){;};
+	
 }
 
 } // namespace sec

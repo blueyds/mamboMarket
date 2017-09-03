@@ -46,9 +46,7 @@ public:
 */
 	void fillFacts(){;};
 	xml_report():parsed_(false){;};
-	xml_report(std::string url):report(url),parsed_(false){
-		load_xmlfile();
-		fillFacts();};
+	xml_report(std::string url):report(url),parsed_(false){;};
 	~xml_report(){;};
 	
 	bool isParsed(){return parsed_;};

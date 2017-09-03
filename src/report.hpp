@@ -32,6 +32,7 @@ private:
 	std::string fname_;
 	bool open_;
 	bool local_;
+	bool bad_;
 	std::string url_;
 public:
 	report():open_(false){;};
@@ -42,6 +43,7 @@ public:
 	std::string getFileName(){return fname_;};
 	//open is true if the file exists on filesystem temp
 	bool isOpen(){return open_;};
+	bool isBad(){return bad_;}; //something bad happened like a bad filename url path
 	void connect();
 	void connect(std::string file_name);
 	void disconnect();
