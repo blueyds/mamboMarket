@@ -31,8 +31,8 @@ sec::report::report(std::string url,bool isLocal)
 {
 	setUrl(url);
 	local_=isLocal;
-	bad=false;
-	open=false;
+	bad_=false;
+	open_=false;
 }
 sec::report::~report()
 {
@@ -53,7 +53,7 @@ void sec::report::connect(std::string file_name)
 	//add an exception ii fstream cannot open the file
 	if(open_){disconnect();};
 	fname_=file_name;
-	std::string commang;
+	std::string command;
 	if(local_){command="cp '"+url_+"' "+fname_;}
 	else {command="wget -q -O "+fname_+" '"+url_+"'";};
 	if(!std::system(command.c_str())){bad_=true;};
