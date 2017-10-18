@@ -1,50 +1,25 @@
-sudo: required
+sudo: false
 language: cpp
-compiler:
-- gcc
+compiler: gcc
+git:
+  depth: 3
+os: linux
 addons:
-  sources:
-    - ubuntu-toolchain-r-test
-  packages:
-    - g++-5
-    - gcc-5
-notifications:
-  email:
-    recipients:
-      - craig@nunemakerllc.com
-    on_success: never
-    on_failure: always
-install:
-  - "sudo apt-get -qq update"
-  - export "CXX=g++-5"
-  - export "CC=gcc-5"
-  - "sudo apt-get -y install autoconf-archive"
-  - "sudo apt-get -y install autoconf"
-  - "sudo apt-get -y install autotools-dev"
-  - "sudo apt-get -y install libboost-all-dev"
-  - "sudo apt-get -y install pkg-config"
-  - "sudo apt-get -y install libssl-dev"
-  - "sudo apt-get -y install libxerces-c-dev"
-  - "git clone https://github.com/nunemaker73/stlta.git"
-  - cd stlta
-  - "autoreconf --install --force"
-  - "./configure"
-  - make
-  - sudo make install
-  - cd ..
+  apt:
+    sources:
+      - ['ubuntu-toolchain-r-test']
+      - ['boost-latest']
+    packages:
+      - ['g++-6']
+      - ['gcc-6']
+      - ['libboost-all-dev']
+env:
+  - MATRIX_EVAL='CC=gcc-6 && CXX=g++-6'
+before_install:
+  - eval "${MATRIX_EVAL}"
   - "autoreconf --install --force"
 script:
-  - mkdir build
-  - cd build
-  - "../configure"
+  - "./configure --prefix=/usr" 
   - make
-
-deploy:
-  provider: releases
-  api_key:
-    secure: i6DRPhiJGP4l4LqalygsuyBWkqTohSMN2Q2Lybv209nSec2h81GwguCNIGNyJEeruoVSKiPLaldHm8hW672oB9sWF7WTYgw0bPIDFnaZ9dwBNVcxRHP2PH7anCIRw0tl1YFZer+Y/M1dC70vr8pOnLzuVcWTqF/toqojd8LKRkw9iZRDHhsCaSLAag9u7lUdpzgeKfH+CMCFygZqA9SXeVZdisYtAFL8QghwpdYbZC2sTw82fRrqTcLp+5OdrR1YN0rsJgGTaOTfDNbk01Zt2vQPWxd+pZeZ0GTwEGMMwUFQDyQz4SqT+9okyjIjqEPVfJud5KoowjIEoSc8rna99PZf1AqHtRW0EpyGUo5YUXeLrdvuDdecGOYwI46DOt1SfdpoGU2Lxk7YjUlBlD0+g0m7oBr6oz1h0py3z0u4IQ+4KeVbeaD+vg2WnKJ0Nb2yt65nSu2xNjAYseorH8Czj5KXl9xQTmSpqJe3ZwjHpT9BXJDxqq1D5SY+dpr/Fh579Xq4Toc1PE2f83boQlq1MvlPxJ22DouL09aOUcWO3XUtV+hnl6cOO60uKFtveCo7XY2en0Y0/a5P67aSim4RJW/7c5/HDrGqNBnWF68fAzDtJByY2sOgEBXjXcrdoIa+Yny5Jf9g6AHYhzw9yGW5lVPp7nKrmybiRNvvtKWh7VI=
-  file: "mambo-0.2.tar.gz"
-  skip_cleanup: true
-  on:
-    repo: nunemaker73/mamboMarket
-    tags: true
+  - "make check"
+  - "cat ./test-suite.log"

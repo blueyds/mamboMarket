@@ -1,21 +1,22 @@
 AUTOMAKE_OPTIONS = subdir-objects
-bin_PROGRAMS = 	 mambo
-AM_CPPFLAGS = $(BOOST_CPPFLAGS) $(TA_CFLAGS) $(OPENSSL_INCLUDES) $(PTHREAD_CFLAGS)
-AM_LDFLAGS=$(BOOST_LDFLAGS) $(OPENSSL_LDFLAGS) $(PTHREAD_CFLAGS)
-
-
-mambo_LDADD = $(TA_LIBS) $(BOOST_DATE_TIME_LIB) $(BOOST_SYSTEM_LIB) $(OPENSSL_LIBS) $(LIBXERCES_C) $(PTHREAD_CFLAGS)
-mambo_SOURCES = \
-	src/xbrl/url.cpp \
-	src/xbrl/reports.cpp\
-	src/xbrl/XmlDomDocument.cpp\
-	src/stock.cpp\
-	src/loadASIO.cpp\
-	src/save.cpp\
-	src/main.cpp
-
-SUBDIRS = intl po
-
 ACLOCAL_AMFLAGS = -I m4
 
-EXTRA_DIST = build-aux/config.rpath m4/ChangeLog
+bin_PROGRAMS = 	 mambo
+AM_CPPFLAGS = -I$(top_srcdir)/src
+
+
+mambo_SOURCES = \
+   src/xml/xml_report.cpp \
+   src/report.cpp \
+   src/sec/sec.cpp \
+   src/sec/sec_archives.cpp \
+   src/main.cpp
+
+TESTS = mambo_test
+check_PROGRAMS = mambo_test
+mambo_test_SOURCES = \
+   test/sec_test.cpp \
+   src/report.cpp \
+   src/sec/sec.cpp \
+   src/sec/sec_archives.cpp \
+   src/xml/xml_report.cpp

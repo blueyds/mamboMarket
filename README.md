@@ -20,9 +20,6 @@ Prerequisites
 ### openssl
 	UBUNTU 16.04 libssl-dev
 
-### xerces
-	UBUNTU 16.04 libxerces-c-dev
-
 ### STL-TA
 	git clone https://github.org/nunemaker73/stlta.git
 
