@@ -30,16 +30,47 @@ class report
 {
 private:
 	std::string fname_;
+	std::string old_fname_;
+	std::string command_;
 	bool open_;
 	bool local_;
 	bool bad_;
 	std::string url_;
+	void randomize_fName();
+#ifdef _MSVC_VER//windows
+	void setUpDeleteCmd()
+	{
+		command_ = "del";
+	};
+	void setUpCopyCmd()
+	{
+		command_ = "copy";
+	};
+	void setUpDownloadCmd()
+	{
+		command_ = "wget";
+	};
+#else//linux
+	void setUpDeleteCmd()
+	{
+		command_ = "rm";
+
+	};
+	void setUpCopyCmd()
+	{
+		command_ = "cp";
+	};
+	void setUpDownloadCmd()
+	{
+		command_ = "wget";
+	};
+#endif
 public:
-	report():open_(false){;};
+	report():open_(false),command_(""){;};
 	report(std::string url, bool isLocal=false);
 	~report();
 	std::string getUrl(){return url_;};
-	std::string setUrl(std::string url);
+	void setUrl(std::string url);
 	std::string getFileName(){return fname_;};
 	//open is true if the file exists on filesystem temp
 	bool isOpen(){return open_;};

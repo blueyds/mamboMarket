@@ -25,7 +25,7 @@
 #include <string>
 #include <iterator>
 #include <vector>
-#include "config.h"
+//#include "config.h"
 #include "report.hpp"
 #include "xml/rapidxml_ns.hpp"
 

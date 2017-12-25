@@ -20,11 +20,22 @@
 #include <random>
 #include "report.hpp"
 
+#ifdef _MSVS_VER //windows
+std::string rm_cmd("del");
+std::string cp_cmd("copy")
+#else //linux gmu
+std::string rm_cmd("del");
+std::string cp_cmd("cp")
+#endif
 
-std::string sec::report::setUrl(std::string url)
+void sec::report::setUrl(std::string url)
 {
 	disconnect();
 	url_=url;
+	std::string loc;
+	loc=url_.substr(0, 4);
+	local_ = false;
+	if (loc == "loca")  {local_ = true; };
 }
 
 sec::report::report(std::string url,bool isLocal)
@@ -38,23 +49,28 @@ sec::report::~report()
 {
 	if(open_){disconnect();};
 }
+
+sec::report::randomize_fName()
+{
+	std::string alpha = "abcdefghijklmnopqrstuvwxyz";
+	std::random_device rng;
+	std::uniform_int_distribution<int> index_dist(0, alpha.size() - 1);
+	for (int i = 0; i < 20; ++i) {
+		fname_.push_back(alpha[index_dist(rng)]);
+	}
+}
 void sec::report::connect()
 {
 	if(open_){disconnect();};
-	std::string alpha = "abcdefghijklmnopqrstuvwxyz";
-	std::random_device rng;
-    std::uniform_int_distribution<int> index_dist(0, alpha.size() - 1);
-    for(int i = 0; i < 20; ++i) {
-        fname_.push_back(alpha[index_dist(rng)]);}
+	ramdomize_fName();
     connect(fname_);
 }
 void sec::report::connect(std::string file_name)
 {
 	//add an exception ii fstream cannot open the file
 	if(open_){disconnect();};
-	fname_=file_name;
-	std::string command;
-	if(local_){command="cp '"+url_+"' "+fname_;}
+	randomize_fName();
+	if(local_){setup}
 	else {command="wget -q -O "+fname_+" '"+url_+"'";};
 	if(!std::system(command.c_str())){bad_=true;};
 	open_=true;

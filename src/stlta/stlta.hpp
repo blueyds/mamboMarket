@@ -236,7 +236,7 @@ public:
 }//namespace TA::functors
 
 // header based definitions
-inline void SMA(int window, dvector &input, dvector &output)
+inline void SMA(int window,dvector &input, dvector &output)
 {
 	functors::SMA<double> _sma(window);
 	output.reserve(input.size());

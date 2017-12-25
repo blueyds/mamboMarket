@@ -20,44 +20,44 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <string>
 #include <vector>
-#include "sec.hpp"
+#include "csv/csv_report.hpp"
+#include "sec/sec_report.hpp"
 
 namespace sec {
-class stock : public csv_report{
-private:
-	sec::sec sec_info;
-	std::string file_name;
-	std::string stock_name;
-	std::string long_name;
-	std::string description;
-	boost::gregorian::date last_update;
-	std::vector<boost::gregorian::date> dates;//DATE
-	std::vector<double> opening_prices;//OPEN
-	std::vector<double> closing_prices;//CLOSE
-	std::vector<double> highs;//HIGH
-	std::vector<double> lows;//LOW
-	std::vector<double> volumes;//VOLUME
-	std::vector<double> adj_closes;//ADJ
-	std::vector<double> SMAs10;//SMA10
-	std::vector<double> EMAs13;//EMA13
-	std::vector<double> macds;//MACD
-	std::vector<double> macd_signals;//MACDSIG
-	std::vector<double> macd_hists;//MACDHIST
-	std::vector<double> max_closing;//MAXCLOSE
-	std::vector<double> max_hist; //MAXHIST
-	std::vector<bool> isHist_divergence;//HISTDIV
-	std::vector<double> futureROC; //FUTUREROC
-	void updateTA();
-	int loadASIO();
-public:
-	stock(std::string sname);
-	stock(std::string sname,std::string name,std::string descr);
-	void fillFacts(std::string f_name);
-	void save(std::string fname, std::string headings);
-	int getIndex(boost::gregorian::date d1);
-	std::string getfilename(void);	
-	void verify(boost::gregorian::date d1);
-	void verify();
+	class stock : public sec::csv_report<double> {
+	private:
+		sec::info sec_info;
+		std::string file_name;
+		std::string stock_name;
+		std::string long_name;
+		std::string description;
+		boost::gregorian::date last_update;
+		//all vectors contain most recent data at the front
+		std::vector<boost::gregorian::date> dates;//DATE
+		std::vector<double> opening_prices;//OPEN
+		std::vector<double> closing_prices;//CLOSE
+		std::vector<double> highs;//HIGH
+		std::vector<double> lows;//LOW
+		std::vector<double> volumes;//VOLUME
+		std::vector<double> adj_closes;//ADJ
+		std::vector<double> SMAs10;//SMA10
+		std::vector<double> EMAs13;//EMA13
+		std::vector<double> macds;//MACD
+		std::vector<double> macd_signals;//MACDSIG
+		std::vector<double> macd_hists;//MACDHIST
+		std::vector<double> max_closing;//MAXCLOSE
+		std::vector<double> max_hist; //MAXHIST
+		std::vector<bool> isHist_divergence;//HISTDIV
+		std::vector<double> futureROC; //FUTUREROC
+		void updateTA();
+	public:
+		stock(std::string sname);
+		void fillFacts();
+		int getIndex(boost::gregorian::date d1);
+		std::string getfilename(void);
+		void verify(boost::gregorian::date d1);
+		void verify();
 
-};
+	};
 #endif // !_STOCK_H
+}

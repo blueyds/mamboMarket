@@ -21,7 +21,7 @@
 #include <iterator>
 #include <algorithm>
 #include "error.hpp"
-#include "config.h"
+//#include "config.h"
 #include "xml/xml_report.hpp"
 #include "xml/rapidxml_ns.hpp"
 

@@ -16,29 +16,25 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-/*
-	The following code was derived from sec-xbrl python code available on github at
-	https://github.com/altova/sec-xbrl which was released under the apache 2,.0 license.
-	the apache 2.0 license is compatible with GPL 3.
-*/
+
 
 #include <string>
 #include <vector>
-#include "reports.hpp"
+#include "report.hpp"
 
 namespace sec{
 
-template<class Th,class Td> class csv_report : public report
+template<class Td> class csv_report : public report
 {
 public:
-	typedef Th headerType;
 	typedef Td dataType;
-	typedef std::vector<Th> headerVectorType;
+	typedef std::vector<std::string> headerVectorType;
 	typedef std::vector<Td> dataVectorType;
 private:
 	headerVectorType headers_;
 	dataVectorType data_;
 	bool hasHeader;
+	int num_cols_;
 /* inherited from report
 
 	void connect(file_name);
@@ -47,13 +43,15 @@ private:
 public:
 	csv_report(std::string url,bool hasHeader=true,bool isLocal=false):  report(url,isLocal){
 		load_csvfile();};
-	~xml_report(){;};
+	~csv_report(){;};
 	
 	bool isParsed(){return parsed_;};
 	
 	void load_csvfile(){;};
+
+
 	
-}
+};
 
 } // namespace sec
 #endif //!_REPORT_H
