@@ -25,7 +25,7 @@ std::string rm_cmd("del");
 std::string cp_cmd("copy")
 #else //linux gmu
 std::string rm_cmd("del");
-std::string cp_cmd("cp")
+std::string cp_cmd("cp");
 #endif
 
 void sec::report::setUrl(std::string url)
