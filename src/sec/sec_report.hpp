@@ -16,11 +16,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-/*
-	The following code was derived from sec-xbrl python code available on github at
-	https://github.com/altova/sec-xbrl which was released under the apache 2,.0 license.
-	the apache 2.0 license is compatible with GPL 3.
-*/
 
 #include <string>
 #include <vector>

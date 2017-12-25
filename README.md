@@ -8,20 +8,13 @@ Prerequisites
 ### BOOST
 	UBUNTU 16.04 libboost-all-dev
 
-### GIT
-	UBUNTU 16.04 git
-
-### pkg-config
-	UBUNTU 16.04 pkg-config
+### gcc  ≥5 
+requires C++11 support 4.8 may or may not work.
 
 ### autoconf-archive
 	UBUNTU 16.04 autoconf-archive
 
-### openssl
-	UBUNTU 16.04 libssl-dev
 
-### STL-TA
-	git clone https://github.org/nunemaker73/stlta.git
 
 Installation instructions
 ========================
@@ -40,3 +33,8 @@ Currently the program is run as follows
 	./mambo aapl
 
 aapl is a stock symbol
+
+Attribution
+===========
+Portions of this program were derived from sec-xbrl == a python programo designed to connect to sec.gov and download zip archives and access ratios from 10-Q reports.
+
