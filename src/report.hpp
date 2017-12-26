@@ -38,31 +38,31 @@ private:
 	std::string url_;
 	void randomize_fName();
 #ifdef _MSVC_VER//windows
-	void setUpDeleteCmd()
+	void setupDeleteCmd()
 	{
 		command_ = "del";
 	};
-	void setUpCopyCmd()
+	void setupCopyCmd()
 	{
 		command_ = "copy";
 	};
-	void setUpDownloadCmd()
+	void setupDownloadCmd()
 	{
 		command_ = "wget";
 	};
 #else//linux
-	void setUpDeleteCmd()
+	void setupDeleteCmd()
 	{
-		command_ = "rm";
+		command_ = "rm "+ fname_;
 
 	};
-	void setUpCopyCmd()
+	void setupCopyCmd()
 	{
-		command_ = "cp";
+		command_ = "cp" + url_ +" " + fname_;//add options like below
 	};
-	void setUpDownloadCmd()
+	void setupDownloadCmd()
 	{
-		command_ = "wget";
+		command_ = "wget -q -O "+fname_+" '"+url_+"'";
 	};
 #endif
 public:
@@ -70,13 +70,12 @@ public:
 	report(std::string url, bool isLocal=false);
 	~report();
 	std::string getUrl(){return url_;};
-	void setUrl(std::string url);
+	void setUrl(std::string url, bool isLocal=false);
 	std::string getFileName(){return fname_;};
 	//open is true if the file exists on filesystem temp
 	bool isOpen(){return open_;};
 	bool isBad(){return bad_;}; //something bad happened like a bad filename url path
 	void connect();
-	void connect(std::string file_name);
 	void disconnect();
 	void virtual fillFacts()=0;
 	// derivatives of report will be responsible for connecting and disconnecting with fillFacts. Also, the derivatives must ensure that url is properly defined before calling connect. This cannot be assumed with normal construction inheritance because the base constructor is called first. And there is no reason to leave the temp file laying around outside of fillFacts.
