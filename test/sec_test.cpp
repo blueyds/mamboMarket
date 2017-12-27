@@ -24,7 +24,7 @@ int main()
 	MSG("form",a.getForm());
 	MSG("lang:",a.lang_);
 	MY_ASSERT(a.items_[0].CIK_ == "0000320193");
-	sec::10Q s10(a.items_[0].url_);
+	sec::ten_q s10(a.items_[0].url_);
 	
 	
 }

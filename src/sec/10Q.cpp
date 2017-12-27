@@ -1,6 +1,6 @@
 #include "sec/10Q.hpp"
 
-bool sec::10Q::isContextSegment(std::string context)
+bool sec::ten_q::isContextSegment(std::string context)
 {
 	for (int i=0;;i++)
 	{
@@ -14,7 +14,7 @@ bool sec::10Q::isContextSegment(std::string context)
 	}
 }
 
-std::string sec::10Q::getValue(std::string name,ns)
+std::string sec::ten_q::getValue(std::string name,ns)
 {
 	//shortcut for getting a quick value from the main xbrl instance file. returns empty if none found
 	std::string ret("");
@@ -28,7 +28,7 @@ std::string sec::10Q::getValue(std::string name,ns)
 	ret = getChildValue({0,index},{"xbrl",name},{xbrli_,ns});
 }
 
-void sec::10Q::fillFacts()
+void sec::ten_q::fillFacts()
 {
 	xbrli_="http://www.xbrl.org/2003/instance"
 	sec_=getAttribute("dei",{0},{"xbrl"},{xbrli_,"xmlns"});

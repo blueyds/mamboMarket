@@ -1,5 +1,5 @@
-#ifndef 10Q_hpp
-#define 10Q_hpp
+#ifndef ten_q_hpp
+#define ten_q_hpp
 /*
     Copyright (C) {2016}  {Craig Nunemaker}
 
@@ -22,7 +22,7 @@
 
 namespace sec{
 
-class 10Q : public xml_report{
+class ten_q : public xml_report{
 private:
     std::string sec_;
     std::string fasb_;
@@ -39,7 +39,7 @@ private:
     double quickRatio_;
     double cashRatio_;
 public:
-    10Q(std::string url):xml_report(url){;};
+    ten_q(std::string url):xml_report(url){;};
     std::string getValue(std::string name, ns="");
     void fillFacts();
     double getCurrentRatio(){return currentRatio_;};
@@ -55,4 +55,4 @@ public:
 
 }//namepsace sec
 
-#endif //ifndef 10Q_hpp
+#endif //ifndef ten_q_hpp
