@@ -28,7 +28,7 @@ std::string rm_cmd("del");
 std::string cp_cmd("cp");
 #endif
 
-void sec::report::setUrl(std::string url, bool isLocal=false)
+void sec::report::setUrl(std::string url, bool isLocal)
 {
 	disconnect();
 	url_=url;
