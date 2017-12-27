@@ -58,7 +58,7 @@ void sec::report::randomize_fName()
 void sec::report::connect()
 {
 	disconnect();
-	ramdomize_fName();
+	randomize_fName();
     if(local_){setupCopyCmd();}
 	else {setupDownloadCmd();};
 	if(!std::system(command_.c_str())){bad_=true;open_=false;}
