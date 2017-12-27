@@ -35,18 +35,18 @@ private:
     double cash_;
     double marketableSecurities_;
     double currentAR_;
-    double currentRatio_
+    double currentRatio_;
     double quickRatio_;
     double cashRatio_;
 public:
     ten_q(std::string url):xml_report(url){;};
-    std::string getValue(std::string name, ns="");
+    std::string getValue(std::string name, std::string ns="");
     void fillFacts();
     double getCurrentRatio(){return currentRatio_;};
     double getQuickRatio(){return quickRatio_;};
     double getCashRatio(){return cashRatio_;};
     double getCurrentAssets(){return currentAssets_;};
-    double getCurrentLiabilities()){return currentLiabilities_;};
+    double getCurrentLiabilities(){return currentLiabilities_;};
     std::string getSecNS(){return sec_;};
     std::string getFasbNS(){return fasb_;};
 };

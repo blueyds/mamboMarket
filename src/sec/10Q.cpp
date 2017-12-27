@@ -14,7 +14,7 @@ bool sec::ten_q::isContextSegment(std::string context)
 	}
 }
 
-std::string sec::ten_q::getValue(std::string name,ns)
+std::string sec::ten_q::getValue(std::string name, std::string ns)
 {
 	//shortcut for getting a quick value from the main xbrl instance file. returns empty if none found
 	std::string ret("");
