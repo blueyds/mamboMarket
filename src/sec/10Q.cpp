@@ -9,7 +9,7 @@ bool sec::ten_q::isContextSegment(std::string context)
 		if(s=!"")//we found the right instance
 		{
 			std::string segment="";
-			segment=getChildValue({0,i,0},{"xbrl","context","segment"},{xbrli_,xbrli_,xbrli_);
+			segment=getChildValue({0,i,0},{"xbrl","context","segment"},{xbrli_,xbrli_,xbrli_});
 		}
 	}
 }
