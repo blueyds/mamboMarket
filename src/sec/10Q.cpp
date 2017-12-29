@@ -1,5 +1,14 @@
 #include "sec/10Q.hpp"
 
+sec::ten_q::ten_q(std::string url)
+{
+	xbrli_="http://www.xbrl.org/2003/instance";
+	load_xmlfile();
+	fillFacts();
+	
+}
+
+
 bool sec::ten_q::isContextSegment(std::string context)
 {
 	for (int i=0;;i++)
@@ -30,7 +39,5 @@ std::string sec::ten_q::getValue(std::string name, std::string ns)
 
 void sec::ten_q::fillFacts()
 {
-	xbrli_="http://www.xbrl.org/2003/instance"
 	sec_=getAttribute("dei",{0},{"xbrl"},{xbrli_,"xmlns"});
-	
 }
