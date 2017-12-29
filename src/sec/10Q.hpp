@@ -39,7 +39,14 @@ private:
     double quickRatio_;
     double cashRatio_;
 public:
-    ten_q(std::string url):xml_report(url);
+    ten_q(std::string url):
+    	xml_report(url),
+    	xbrli_("http://www.xbrl.org/2003/instance")
+    		{
+    		load_xmlfile();
+    		fillFacts();
+    		};
+    	
     std::string getValue(std::string name, std::string ns="");
     void fillFacts();
     double getCurrentRatio(){return currentRatio_;};
