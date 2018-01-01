@@ -5,3 +5,6 @@
 /.vs/mambo-MSVC2017/v15/ipch/AutoPCH
 /.vs
 /Debug
+/x64/Debug
+/mambo-MSVC2017.vcxproj.user
+/CppProperties.json
