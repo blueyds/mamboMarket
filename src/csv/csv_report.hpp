@@ -34,6 +34,7 @@ private:
 	headerVectorType headers_;
 	dataVectorType data_;
 	bool hasHeader;
+	bool parsed_;
 	int num_cols_;
 /* inherited from report
 
@@ -41,7 +42,7 @@ private:
 	void disconnect();
 */
 public:
-	csv_report(std::string url,bool hasHeader=true,bool isLocal=false):  report(url,isLocal){
+	csv_report(std::string url,bool hasHeader=true,bool isLocal=false):  report(url,isLocal),parsed_(false){
 		load_csvfile();};
 	~csv_report(){;};
 	
