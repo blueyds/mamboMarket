@@ -2,6 +2,7 @@
 #include <string>
 #include "error.hpp"
 #include "sec/sec_report.hpp"
+#include "csv/csv_report.hpp"
 #include "sec/10Q.hpp"
 
 void test()
