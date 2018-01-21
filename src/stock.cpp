@@ -28,16 +28,18 @@
 #include "stlta/stlta.hpp"
 
 
-sec::stock::stock(std::string sname)
+sec::stock::stock(std::string sname):
+	sec::csv_report<double>("bad url")
+	,sec_info(sname)
 {
 	stock_name = sname;
 	sec_info.connect();
 	for (int y = 2005; y<2018; y++) {
 		for (int m = 1; m<13; m++) {
-			sec::archive a(sec_info.CIK, "10-K", y, m);
+			sec::archive a(sec_info.getCIK(), "10-K", y, m);
 			a.connect();
 
-			a.disconnet();
+			a.disconnect();
 		}
 	}
 	//loadASIO();
@@ -45,7 +47,7 @@ sec::stock::stock(std::string sname)
 	
 	updateTA();
 	last_update=*(dates.end()-1);
-	save(sname,"OPEN CLOSE");
+//	save(sname,"OPEN CLOSE");
 }
 
 void sec::stock::updateTA()
@@ -109,7 +111,7 @@ void sec::stock::verify()
 	verify(*diter);
 	++diter;
 	verify(*diter);
-	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\nCIK=" << sec_info.CIK << "\n";
+	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\nCIK=" << sec_info.getCIK() << "\n";
 }
 
 
@@ -124,6 +126,7 @@ Heading options should be separated by comma and include:
 	ADJ
 	SMA10
 */
+/*
 void sec::stock::save(std::string fname, std::string headings)
 {
 	bool hasDATE(false);
@@ -255,4 +258,4 @@ void sec::stock::save(std::string fname, std::string headings)
 		ofs.close();
 	}
 }
-
+*/

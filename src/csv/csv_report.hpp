@@ -36,14 +36,19 @@ private:
 	bool hasHeader;
 	bool parsed_;
 	int num_cols_;
+	bool parsed_;
 /* inherited from report
 
 	void connect(file_name);
 	void disconnect();
 */
 public:
-	csv_report(std::string url,bool hasHeader=true,bool isLocal=false):  report(url,isLocal),parsed_(false){
-		load_csvfile();};
+	csv_report(std::string url,bool hasHeader=true,bool isLocal=false):
+		report(url,isLocal),
+		parsed_(false)
+	{
+		load_csvfile();
+	};
 	~csv_report(){;};
 	
 	bool isParsed(){return parsed_;};

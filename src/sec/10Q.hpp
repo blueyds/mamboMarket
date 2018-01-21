@@ -38,14 +38,9 @@ private:
     double currentRatio_;
     double quickRatio_;
     double cashRatio_;
+	bool isContextSegment(std::string context);
 public:
-    ten_q(std::string url):
-    	xml_report(url),
-    	xbrli_("http://www.xbrl.org/2003/instance")
-    		{
-    		load_xmlfile();
-    		fillFacts();
-    		};
+	ten_q(std::string url);
     	
     std::string getValue(std::string name, std::string ns="");
     void fillFacts();
