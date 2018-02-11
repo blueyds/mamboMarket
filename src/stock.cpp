@@ -23,7 +23,7 @@
 #include <sstream>
 #include <algorithm> //std::find and std::reverse
 #include "stock.hpp"
-#include "date/date.hpp"
+#include "date/date.h"
 #include "stlta/stlta.hpp"
 
 std::string sec::GenerateStockUrl(std::string stock_symbol,char interval)
