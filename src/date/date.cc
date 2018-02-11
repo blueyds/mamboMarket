@@ -104,17 +104,17 @@ inline date next_date(const date& d)
 
 inline date previous_date(const date& d){ date ndat;
 	if (!d.valid()) { return ndat; }; // return zero
-	ndat = date((d.day()−1),d.month(),d.year()); 
+	ndat = date((d.day()-1),d.month(),d.year()); 
 	if (ndat.valid()) return ndat; 
-	ndat = date(31,(d.month()−1),d.year()); 
+	ndat = date(31,(d.month()-1),d.year()); 
 	if (ndat.valid()) return ndat; 
-	ndat = date(30,(d.month()−1),d.year()); 
+	ndat = date(30,(d.month()-1),d.year()); 
 	if (ndat.valid()) return ndat; 
-	ndat = date(29,(d.month()−1),d.year()); 
+	ndat = date(29,(d.month()-1),d.year()); 
 	if (ndat.valid()) return ndat; 
-	ndat = date(28,(d.month()−1),d.year()); 
+	ndat = date(28,(d.month()-1),d.year()); 
 	if (ndat.valid()) return ndat; 
-	ndat = date(31,12,(d.year()−1)); 
+	ndat = date(31,12,(d.year()-1)); 
 	return ndat;
 };
 
@@ -129,13 +129,13 @@ date date::operator ++()
 	return *this;
 };
 
-date date::operator −−(int)
+date date::operator --(int)
 { // postfix operator, return current value date d = *this;
 	*this = previous_date(*this);
 	return d;
 };
 
-date date::operator −−()
+date date::operator --()
 { // prefix operator, return new value *this = previous date(*this);
 	return *this;
 };
@@ -144,7 +144,7 @@ inline long long_date(const date& d)
 {
 	if (d.valid())
 		{ return d.year() * 10000 + d.month() * 100 + d.day(); }; 
-	return −1;
+	return -1;
 };
 std::ostream & operator << (std::ostream& os, const date& d)
 {
