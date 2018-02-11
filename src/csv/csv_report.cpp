@@ -1,3 +1,6 @@
+#include <fstream>
+#include <string>
+#include <vector>
 #include "csv/csv_report.hpp"
 
 void sec::csv_report::load_csvfile()
