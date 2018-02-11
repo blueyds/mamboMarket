@@ -39,6 +39,6 @@ bool operator >  (const date&, const date&);
 bool operator <= (const date&, const date&); 
 bool operator >= (const date&, const date&); 
 
-ostream& operator << ( std::ostream& os, const date& d);  // output operator
+std::ostream& operator << ( std::ostream& os, const date& d);  // output operator
 
 #endif

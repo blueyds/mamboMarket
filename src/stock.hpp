@@ -23,6 +23,9 @@
 #include "csv/csv_report.hpp"
 
 namespace sec {
+std::string GenerateStockUrl(std::string stock_symbol,char interval);
+
+
 	class stock : public sec::csv_report {
 	private:
 		std::string stock_name;
@@ -46,8 +49,8 @@ namespace sec {
 	public:
 		stock(std::string sname,char interval='d');//'d','w','m'
 		void fillFacts();
-		int getIndex(int d1);
-		void verify(int d1);
+		int getIndex(date d1);
+		void verify(date d1);
 		void verify();
 
 	};

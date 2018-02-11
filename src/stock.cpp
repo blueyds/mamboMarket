@@ -23,29 +23,30 @@
 #include <sstream>
 #include <algorithm> //std::find and std::reverse
 #include "stock.hpp"
+#include "date/date.hpp"
 #include "stlta/stlta.hpp"
 
 std::string sec::GenerateStockUrl(std::string stock_symbol,char interval)
 {
+	std::string s;
 	if (interval == 'm')
 	{
-		std::string s="https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol="+stock_symbol+"&apikey=14XP400VOKHHDV93&datatype=csv";
+		s="https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol="+stock_symbol+"&apikey=14XP400VOKHHDV93&datatype=csv";
 	}
 	else if (interval =='w')
 	{
-		std::string s="https://www.alphavantage.co/query?function=TIME_SERIES_YEARLY_ADJUSTED&symbol="+stock_symbol+"&apikey=14XP400VOKHHDV93&datatype=csv";
+		s="https://www.alphavantage.co/query?function=TIME_SERIES_YEARLY_ADJUSTED&symbol="+stock_symbol+"&apikey=14XP400VOKHHDV93&datatype=csv";
 	}
 	else 
 	{
-		std::string s="https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol="+stock_symbol+"&apikey=14XP400VOKHHDV93&datatype=csv";
+		s="https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol="+stock_symbol+"&apikey=14XP400VOKHHDV93&datatype=csv";
 	}
 
 	return s;
 }
 
 sec::stock::stock(std::string sname, char interval):
-	sec::report(sec::GenerateStockUrl(sname,interval))
-	,sec_info(sname)
+	report(sec::GenerateStockUrl(sname,interval))
 {
 	stock_name = sname;
 	load_csvfile();
@@ -59,17 +60,17 @@ sec::stock::stock(std::string sname, char interval):
 
 void sec::stock::updateTA()
 {
-	TA::SMA(10,adj_closes,SMAs10);
-	TA::EMA(13,adj_closes,EMAs13);
-	TA::MACD(12,26,9,adj_closes,macds,macd_signals,macd_hists);
-	TA::MAX(100,adj_closes,max_closing);
+	TA::SMA(10,closing_prices,SMAs10);
+	TA::EMA(13,closing_prices,EMAs13);
+	TA::MACD(12,26,9,closing_prices,macds,macd_signals,macd_hists);
+	TA::MAX(100,closing_prices,max_closing);
 	TA::MAX(100,macd_hists,max_hist);
 }
 
 
-int sec::stock::getIndex(int d1)
+int sec::stock::getIndex(date d1)
 {
-	std::vector<int>::iterator dit;
+	std::vector<date>::iterator dit;
 	dit = std::find(dates.begin(), dates.end(), d1);
 	if (dit == dates.end()) {return 0;} 
 	else
@@ -80,7 +81,7 @@ void sec::stock::fillFacts()
 {
 	int col=1;
 	std::vector<std::string>::const_iterator it;
-	for (it=cbegin();it<>cend();it++)
+	for (it=cbegin();it != cend();it++)
 	{
 		switch(col)
 		{
@@ -101,7 +102,7 @@ void sec::stock::fillFacts()
 			case 4://low
 				col++;
 			case 5://close
-				closing_prices.push_back(std::stod(it*));
+				closing_prices.push_back(std::stod(*it));
 				col++;
 			case 6://volume
 				col=1;
@@ -110,7 +111,7 @@ void sec::stock::fillFacts()
 	updateTA();
 }
 
-void sec::stock::verify(int d1)
+void sec::stock::verify(date d1)
 {
 	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\tSMA10\n";
 	int index = getIndex(d1);
@@ -120,7 +121,7 @@ void sec::stock::verify(int d1)
 
 void sec::stock::verify()
 {
-	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\nCIK=" << sec_info.getCIK() << "\n";
+	std::cout << "verify close vector\nClose=" <<closing_prices.back() << "\n";
 }
 
 
