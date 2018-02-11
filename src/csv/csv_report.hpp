@@ -24,15 +24,11 @@
 
 namespace sec{
 
-template<class Td> class csv_report : public report
+class csv_report : public report
 {
-public:
-	typedef Td dataType;
-	typedef std::vector<std::string> headerVectorType;
-	typedef std::vector<Td> dataVectorType;
 private:
-	headerVectorType headers_;
-	dataVectorType data_;
+	std::vector<std::string> headers_; //headers are not implemented yet
+	std::vector<std::string> data_;
 	bool header_;
 	bool parsed_;
 	int num_cols_;
@@ -45,16 +41,16 @@ public:
 	csv_report(std::string url,bool hasHeader=true,bool isLocal=false):
 		report(url,isLocal),
 		header_(hasHeader),
-		parsed_(false)
-	{
-		load_csvfile();
-	};
+		parsed_(false){;};
 	~csv_report(){;};
-	
+	void fillFacts(){;};
+	std::vector<std::string>::const_iterator cbegin(){return data_.cbegin();};
+	std::vector<std::string>::const_iterator cend(){return data_.cend();};
 	bool isParsed(){return parsed_;};
 	
-	void load_csvfile(){;};
-
+	void load_csvfile();
+	std::string getValue(int row, int col);
+	
 
 	
 };

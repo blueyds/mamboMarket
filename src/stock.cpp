@@ -22,30 +22,37 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm> //std::find and std::reverse
-#include <boost/date_time/gregorian/gregorian.hpp>
-#include <boost/date_time/posix_time/posix_time.hpp> //include all types plus i/o
 #include "stock.hpp"
 #include "stlta/stlta.hpp"
 
+std::string sec::GenerateStockUrl(std::string stock_symbol,char interval)
+{
+	if (interval == 'm')
+	{
+		std::string s="https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol="+stock_symbol+"&apikey=14XP400VOKHHDV93&datatype=csv";
+	}
+	else if (interval =='w')
+	{
+		std::string s="https://www.alphavantage.co/query?function=TIME_SERIES_YEARLY_ADJUSTED&symbol="+stock_symbol+"&apikey=14XP400VOKHHDV93&datatype=csv";
+	}
+	else 
+	{
+		std::string s="https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol="+stock_symbol+"&apikey=14XP400VOKHHDV93&datatype=csv";
+	}
 
-sec::stock::stock(std::string sname):
-	sec::csv_report<double>("bad url")
+	return s;
+}
+
+sec::stock::stock(std::string sname, char interval):
+	sec::report(sec::GenerateStockUrl(sname,interval))
 	,sec_info(sname)
 {
 	stock_name = sname;
-	sec_info.connect();
-	for (int y = 2005; y<2018; y++) {
-		for (int m = 1; m<13; m++) {
-			sec::archive a(sec_info.getCIK(), "10-K", y, m);
-			a.connect();
-
-			a.disconnect();
-		}
-	}
+	load_csvfile();
+	fillFacts();
 	//loadASIO();
 	//update_OpenClose();
 	
-	updateTA();
 	last_update=*(dates.end()-1);
 //	save(sname,"OPEN CLOSE");
 }
@@ -59,14 +66,10 @@ void sec::stock::updateTA()
 	TA::MAX(100,macd_hists,max_hist);
 }
 
-std::string sec::stock::getfilename()
-{
-	return file_name;
-}
 
-int sec::stock::getIndex(boost::gregorian::date d1)
+int sec::stock::getIndex(int d1)
 {
-	std::vector<boost::gregorian::date>::iterator dit;
+	std::vector<int>::iterator dit;
 	dit = std::find(dates.begin(), dates.end(), d1);
 	if (dit == dates.end()) {return 0;} 
 	else
@@ -75,187 +78,49 @@ int sec::stock::getIndex(boost::gregorian::date d1)
 
 void sec::stock::fillFacts()
 {
-
+	int col=1;
+	std::vector<std::string>::const_iterator it;
+	for (it=cbegin();it<>cend();it++)
+	{
+		switch(col)
+		{
+			case 1://date
+			{
+				int year;
+				int month;
+				int day;
+				year=std::stoi(it->substr(0,4));
+				month=std::stoi(it->substr(5,2));
+				day=std::stoi(it->substr(8,2));
+				col++;
+			}
+			case 2://open
+				col++;
+			case 3://high
+				col++;
+			case 4://low
+				col++;
+			case 5://close
+				closing_prices.push_back(std::stod(it*));
+				col++;
+			case 6://volume
+				col=1;
+		}
+	}
+	updateTA();
 }
 
-void sec::stock::verify(boost::gregorian::date d1)
+void sec::stock::verify(int d1)
 {
 	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\tSMA10\n";
 	int index = getIndex(d1);
-	std::cout << boost::gregorian::to_simple_string(dates[index]) << "\t";
-	std::cout << opening_prices[index] << "\t";
 	std::cout << closing_prices[index] << "\t"; 
-	std::cout << highs[index] << "\t";
-	std::cout << lows[index] << "\t";
-	std::cout << volumes[index] << "\t";
-	std::cout << adj_closes[index] << "\t";
 	std::cout << SMAs10[index] << "\n";
 }
 
 void sec::stock::verify()
 {
-	using namespace boost::gregorian;
-	first_day_of_the_week_before fdbf(Monday);
-	date d1=fdbf.get_date(day_clock::local_day());
-	verify(d1);
-	day_iterator diter(d1,1);
-	++diter;
-	verify(*diter);
-	++diter;
-	verify(*diter);
-	++diter;
-	verify(*diter);
-	++diter;
-	verify(*diter);
-	++diter;
-	verify(*diter);
-	++diter;
-	verify(*diter);
 	std::cout << "verify open close vector\nOpen=" << opening_prices.back() << "\nClose=" <<closing_prices.back() <<"\nCIK=" << sec_info.getCIK() << "\n";
 }
 
 
-/*
-Heading options should be separated by comma and include:
-	DATE
-	OPEN
-	CLOSE
-	HIGH
-	LOW
-	VOLUME
-	ADJ
-	SMA10
-*/
-/*
-void sec::stock::save(std::string fname, std::string headings)
-{
-	bool hasDATE(false);
-	bool hasOPEN(false);
-	bool hasCLOSE(false);
-	bool hasHIGH(false);
-	bool hasLOW(false);
-	bool hasVOLUME(false);
-	bool hasADJ(false);
-	bool hasSMA10(false);
-	bool hasEMA13(false);
-	bool hasMACD(false);
-	bool hasMACDSIG(false);
-	bool hasMACDHIST(false);
-	bool hasMAXCLOSE(false);
-	bool hasMAXHIST(false);
-	bool hasHISTDIV(false);
-	bool hasFUTUREROC(false);                                                                                           
-	std::stringstream ss(headings);
-	std::istream_iterator<std::string> begin(ss);
-	std::istream_iterator<std::string> end;
-	std::vector<std::string> vstrings(begin, end);
-	int count = vstrings.size();
-	int columns=0;
-	std::cout << "vstrings size =" << count << "\n";
-	for (int i = 0; i < vstrings.size(); i++)
-	{ 
-		if (vstrings[i].find("DATE")!=std::string::npos)
-			{hasDATE=true;columns=columns+1;};
-		if (vstrings[i].find("OPEN") !=std::string::npos)
-			{hasOPEN=true;columns=columns+1;};
-		if (vstrings[i].find("CLOSE") != std::string::npos)
-			{hasCLOSE=true;columns=columns+1;};
-		if (vstrings[i].find("HIGH") !=std::string::npos)
-			{hasHIGH=true;columns=columns+1;};
-		if (vstrings[i].find("LOW") !=std::string::npos)
-			{hasLOW=true;columns=columns+1;};
-		if (vstrings[i].find("VOLUME") !=std::string::npos)
-			{hasVOLUME=true;columns=columns+1;};
-		if (vstrings[i].find("ADJ") != std::string::npos)
-			{hasADJ=true;columns=columns+1;};
-		if (vstrings[i].find("SMA10") !=std::string::npos)
-			{hasSMA10=true;columns=columns+1;};
-		if (vstrings[i].find("EMA13") !=std::string::npos)
-			{hasEMA13=true;columns=columns+1;};
-		if (vstrings[i].find("MACD") !=std::string::npos)
-			{hasMACD=true;columns=columns+1;};
-		if (vstrings[i].find("MACDSIG") !=std::string::npos)
-			{hasMACDSIG=true;columns=columns+1;};
-		if (vstrings[i].find("MACDHIST") !=std::string::npos)
-			{hasMACDHIST=true;columns=columns+1;};
-		if (vstrings[i].find("MAXCLOSE") !=std::string::npos)
-			{hasMAXCLOSE=true;columns=columns+1;};
-		if (vstrings[i].find("MAXHIST") !=std::string::npos)
-			{hasMAXHIST=true;columns=columns+1;};
-		if (vstrings[i].find("HISTDIV") !=std::string::npos)
-			{hasHISTDIV=true;columns=columns+1;};
-		if (vstrings[i].find("FUTUREROC") !=std::string::npos)
-			{hasFUTUREROC=true;columns=columns+1;};
-	}
-	std::cout << hasDATE<< "\t" << hasOPEN << "\t" << hasCLOSE << "\t" << hasHIGH<< "\t" << hasLOW<< "\t"<<columns<<"\n"; 
-	std::size_t csvfound;
-	csvfound=fname.find(".csv");
-	if (csvfound==std::string::npos) //fname does not have csv suffix
-		{fname.append(".csv"); }
-	std::ofstream ofs(fname.c_str());
-	if (ofs.is_open()){
-		count = dates.size();
-		for (int i = 0; i < count; i++)
-		{
-			int counter=0;
-			if (hasDATE)
-			{
-				counter = counter +1;
-				ofs << dates_[i];
-				if (counter<columns){ofs << ",";};
-			}
-			if (hasOPEN)
-			{
-				counter = counter +1;
-				ofs << opening_prices_[i];
-				if (counter<columns){ofs <<",";};
-			}
-			if (hasCLOSE)
-			{
-				counter = counter +1;
-				ofs << closing_prices_[i];
-				if (counter<columns){ofs << ",";}
-			}
-			if (hasHIGH)
-			{
-				counter = counter +1;
-				ofs << highs_[i];
-				if (counter<columns){ofs << ",";}
-			}
-			if (hasLOW)
-			{
-				counter = counter +1;
-				ofs << lows_[i];
-				if (counter<columns){ofs << ",";}
-			}
-			if (hasVOLUME)
-			{
-				counter = counter +1;
-				ofs << volumes_[i];
-				if (counter<columns){ofs << ",";}
-			}
-			if (hasADJ)
-			
-			{
-				counter = counter +1;
-				ofs << adj_closes[i];
-				if (counter<columns){ofs << ",";}
-			}
-			if (hasSMA10)
-			{
-				counter = counter +1;
-				ofs << SMAs10[i];
-				if (counter<columns){ofs << ",";}
-			}
-			if (hasEMA13)
-			{
-				counter = counter +1;
-				ofs << EMAs13[i];
-				if (counter<columns){ofs << ",";}
-			}
-			ofs << "\n";
-		}
-		ofs.close();
-	}
-}
-*/

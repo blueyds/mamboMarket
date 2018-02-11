@@ -4,6 +4,7 @@
 #include "sec/sec_report.hpp"
 #include "csv/csv_report.hpp"
 #include "sec/10Q.hpp"
+#include "stock.hpp"
 
 void test()
 {
@@ -25,6 +26,8 @@ void test()
 	MSG("lang:", a.lang_);
 	MY_ASSERT(a.items_[0].CIK_ == "0000320193");
 	sec::ten_q s10(a.items_[0].url_);
+	sec::stock st("AAPL");
+	
 }
 
 

@@ -19,7 +19,6 @@ AX_WITH_PROG([RM],[rm])
 
 
 # Checks for libraries.
-AX_BOOST_BASE
 
 # Checks for header files.
 

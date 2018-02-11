@@ -17,29 +17,21 @@
 */
 #ifndef _STOCK_H
 #define _STOCK_H
-#include <boost/date_time/gregorian/gregorian.hpp>
 #include <string>
 #include <vector>
+#include "date/date.h"
 #include "csv/csv_report.hpp"
-#include "sec/sec_report.hpp"
 
 namespace sec {
-	class stock : public sec::csv_report<double> {
+	class stock : public sec::csv_report {
 	private:
-		sec::info sec_info;
-		std::string file_name;
 		std::string stock_name;
 		std::string long_name;
 		std::string description;
-		boost::gregorian::date last_update;
+		date last_update;
 		//all vectors contain most recent data at the front
-		std::vector<boost::gregorian::date> dates;//DATE
-		std::vector<double> opening_prices;//OPEN
-		std::vector<double> closing_prices;//CLOSE
-		std::vector<double> highs;//HIGH
-		std::vector<double> lows;//LOW
-		std::vector<double> volumes;//VOLUME
-		std::vector<double> adj_closes;//ADJ
+		std::vector<date> dates;//DATE
+		std::vector<double> closing_prices;//OPEN
 		std::vector<double> SMAs10;//SMA10
 		std::vector<double> EMAs13;//EMA13
 		std::vector<double> macds;//MACD
@@ -50,12 +42,12 @@ namespace sec {
 		std::vector<bool> isHist_divergence;//HISTDIV
 		std::vector<double> futureROC; //FUTUREROC
 		void updateTA();
+		void load_stocks();
 	public:
-		stock(std::string sname);
+		stock(std::string sname,char interval='d');//'d','w','m'
 		void fillFacts();
-		int getIndex(boost::gregorian::date d1);
-		std::string getfilename(void);
-		void verify(boost::gregorian::date d1);
+		int getIndex(int d1);
+		void verify(int d1);
 		void verify();
 
 	};
