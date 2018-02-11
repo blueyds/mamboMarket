@@ -1,3 +1,6 @@
+#ifndef _STOCK_H
+#define _STOCK_H
+
 /*
     mamboMarket 
     Copyright (C) {2015}  {Craig Nunemaker}
@@ -15,8 +18,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef _STOCK_H
-#define _STOCK_H
 #include <string>
 #include <vector>
 #include "date/date.h"
@@ -26,7 +27,7 @@ namespace sec {
 std::string GenerateStockUrl(std::string stock_symbol,char interval);
 
 
-	class stock : public sec::csv_report {
+	class stock : public csv_report {
 	private:
 		std::string stock_name;
 		std::string long_name;

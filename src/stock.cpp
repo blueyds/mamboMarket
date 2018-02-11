@@ -46,16 +46,11 @@ std::string sec::GenerateStockUrl(std::string stock_symbol,char interval)
 }
 
 sec::stock::stock(std::string sname, char interval):
-	report(sec::GenerateStockUrl(sname,interval))
+	csv_report(sec::GenerateStockUrl(sname,interval)),
+	stock_name(sname)
 {
-	stock_name = sname;
 	load_csvfile();
 	fillFacts();
-	//loadASIO();
-	//update_OpenClose();
-	
-	last_update=*(dates.end()-1);
-//	save(sname,"OPEN CLOSE");
 }
 
 void sec::stock::updateTA()
