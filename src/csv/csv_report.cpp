@@ -1,6 +1,6 @@
 #include "csv/csv_report.hpp"
 
-void csv_report::load_csvfile()
+void sec::csv_report::load_csvfile()
 {
 	if(!isOpen()){connect();};
 	if(!isParsed())
