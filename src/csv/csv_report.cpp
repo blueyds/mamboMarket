@@ -5,8 +5,9 @@ void sec::csv_report::load_csvfile()
 	if(!isOpen()){connect();};
 	if(!isParsed())
 	{
-	
-		std::ifstream file(getFileName());
+		std::string fname;
+		fname=getFileName();
+		std::ifstream file(fname);
 		while ( file.good() )
 		{
 			std::string data;
