@@ -128,7 +128,7 @@ date date::operator ++(int)
 
 date date::operator ++()
 { // prefix operator 
-	*this = next date(*this);
+	*this = next_date(*this);
 	return *this;
 };
 
@@ -141,7 +141,7 @@ date date::operator --(int)
 
 date date::operator --()
 { // prefix operator, return new value 
-	*this = previous date(*this);
+	*this = previous_date(*this);
 	return *this;
 };
 
