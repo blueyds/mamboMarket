@@ -58,7 +58,7 @@ bool operator < (const date& d1, const date& d2)
 {
 	if (!d1.valid()) { return false; }; // not meaningful, return anything
 	if (!d2.valid()) { return false; }; // should really be an exception, but ? if (d1.year()<d2.year()) { return true;}
-	else if (d1.year()>d2.year()) { return false;}
+	if (d1.year()>d2.year()) { return false;}
 	else 
 	{ // same year
 		if (d1.month()<d2.month()) { return true;}
@@ -74,7 +74,8 @@ bool operator < (const date& d1, const date& d2)
 
 bool operator > (const date& d1, const date& d2) 
 {
-	if (d1==d2) { return false;}; // this is strict inequality if (d1<d2) { return false; };
+	if (d1==d2) { return false;}; // this is strict inequality 
+	if (d1<d2) { return false; };
 	return true;
 };
 
@@ -119,24 +120,28 @@ inline date previous_date(const date& d){ date ndat;
 };
 
 date date::operator ++(int)
-{ // postfix operator date d = *this;
+{ // postfix operator 
+	date d = *this;
 	*this = next_date(d);
 	return d;
 };
 
 date date::operator ++()
-{ // prefix operator *this = next date(*this);
+{ // prefix operator 
+	*this = next date(*this);
 	return *this;
 };
 
 date date::operator --(int)
-{ // postfix operator, return current value date d = *this;
+{ // postfix operator, return current value 
+	date d = *this;
 	*this = previous_date(*this);
 	return d;
 };
 
 date date::operator --()
-{ // prefix operator, return new value *this = previous date(*this);
+{ // prefix operator, return new value 
+	*this = previous date(*this);
 	return *this;
 };
 
