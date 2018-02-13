@@ -9,15 +9,15 @@
 
 inline void MSG(std::string msg)
 {
-	std::cout << msg <<"\n";
+	std::clog << msg <<"\n";
 };
 inline void MSG(std::string msg,std::string msg2)
 {
-	std::cout << msg <<":\t"<<msg2<<"\n";
+	std::clog << msg <<":\t"<<msg2<<"\n";
 };
 inline void MSG(std::string msg,int i)
 {
-	std::cout << msg <<":\t"<<std::to_string(i)<<"\n";
+	std::clog << msg <<":\t"<<std::to_string(i)<<"\n";
 };
 inline void MY_ASSERT(int expression)
 {assert(expression);};
