@@ -46,5 +46,7 @@ int main (int argc, char *argv[])
 	sec::archive a(s.getCIK(),"10-Q",2017,8);
 	MSG("form",a.getForm());
 	MSG("lang:",a.lang_);
+	sec::stock st(argv[1],'d');
+	
 	}
 }

@@ -88,6 +88,8 @@ void sec::stock::fillFacts()
 				year=std::stoi(it->substr(0,4));
 				month=std::stoi(it->substr(5,2));
 				day=std::stoi(it->substr(8,2));
+				date d(day,month,year);
+				dates.push_back(d);
 				col++;
 			}
 			case 2://open
@@ -110,13 +112,19 @@ void sec::stock::verify(date d1)
 {
 	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\tSMA10\n";
 	int index = getIndex(d1);
+	std::cout << dates[index] << "\t";
 	std::cout << closing_prices[index] << "\t"; 
 	std::cout << SMAs10[index] << "\n";
 }
 
 void sec::stock::verify()
 {
-	std::cout << "verify close vector\nClose=" <<closing_prices.back() << "\n";
+	for (int i = 0;i<10;i++)
+	{
+		std::cout << dates[index] << "\t";
+		std::cout << closing_prices[index] << "\t"; 
+		std::cout << SMAs10[index] << "\n";
+	}
 }
 
 
