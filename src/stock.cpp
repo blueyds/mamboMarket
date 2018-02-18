@@ -49,7 +49,9 @@ sec::stock::stock(std::string sname, char interval):
 	csv_report(sec::GenerateStockUrl(sname,interval)),
 	stock_name(sname)
 {
+	std::cout<<"preparing to enter load_csvfile\n"
 	load_csvfile();
+	std::cout<<"preparing to load fillfacts\n";
 	fillFacts();
 }
 
@@ -76,7 +78,10 @@ void sec::stock::fillFacts()
 {
 	int col=1;
 	std::vector<std::string>::const_iterator it;
-	for (it=cbegin()+1;it != cend();it++)
+	std::cout << "inside fillFacts Stock\n";
+	it=cbegin();
+	it++;
+	for (it;it != cend();it++)
 	{
 		switch(col)
 		{
