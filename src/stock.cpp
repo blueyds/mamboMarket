@@ -49,7 +49,7 @@ sec::stock::stock(std::string sname, char interval):
 	csv_report(sec::GenerateStockUrl(sname,interval)),
 	stock_name(sname)
 {
-	std::cout<<"preparing to enter load_csvfile\n"
+	std::cout<<"preparing to enter load_csvfile\n";
 	load_csvfile();
 	std::cout<<"preparing to load fillfacts\n";
 	fillFacts();
