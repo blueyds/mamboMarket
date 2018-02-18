@@ -81,6 +81,7 @@ void sec::stock::fillFacts()
 	std::cout << "inside fillFacts Stock\n";
 	it=cbegin();
 	it++;
+	std::cout << "entering for loop\n";
 	for (it;it != cend();it++)
 	{
 		switch(col)
@@ -90,6 +91,7 @@ void sec::stock::fillFacts()
 				int year;
 				int month;
 				int day;
+				std::cout<< "inside first case col\n";
 				std::cout<<*it;
 				std::cout<<it->substr(0,4)<<"\t";
 				std::cout<<it->substr(5,2)<<"\t";
