@@ -85,6 +85,7 @@ void sec::stock::fillFacts()
 				int year;
 				int month;
 				int day;
+				std::cout<<*it;
 				std::cout<<it->substr(0,4)<<"\t";
 				std::cout<<it->substr(5,2)<<"\t";
 				std::cout<<it->substr(8,2)<<"\n";
