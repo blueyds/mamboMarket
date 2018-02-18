@@ -121,9 +121,9 @@ void sec::stock::verify()
 {
 	for (int i = 0;i<10;i++)
 	{
-		std::cout << dates[index] << "\t";
-		std::cout << closing_prices[index] << "\t"; 
-		std::cout << SMAs10[index] << "\n";
+		std::cout << dates[i] << "\t";
+		std::cout << closing_prices[i] << "\t"; 
+		std::cout << SMAs10[i] << "\n";
 	}
 }
 
