@@ -92,7 +92,7 @@ void sec::stock::fillFacts()
 				int month;
 				int day;
 				std::cout<< "inside first case col\n";
-				std::cout<<*it;
+				std::cout << it->c_str() << "\n";
 				std::cout<<it->substr(0,4)<<"\t";
 				std::cout<<it->substr(5,2)<<"\t";
 				std::cout<<it->substr(8,2)<<"\n";
