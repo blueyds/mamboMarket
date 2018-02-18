@@ -76,7 +76,7 @@ void sec::stock::fillFacts()
 {
 	int col=1;
 	std::vector<std::string>::const_iterator it;
-	for (it=cbegin();it != cend();it++)
+	for (it=cbegin()+1;it != cend();it++)
 	{
 		switch(col)
 		{
