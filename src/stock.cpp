@@ -90,6 +90,7 @@ void sec::stock::fillFacts()
 				int day;
 				int month;
 				int year;
+				std::cout << s;
 				//year=std::stoi(it->substr(0,4));
 				std::cout << s.substr(0,4) <<"\t";
 				//month=std::stoi(it->substr(6,2));
