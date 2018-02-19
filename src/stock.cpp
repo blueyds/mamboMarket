@@ -77,18 +77,34 @@ int sec::stock::getIndex(date d1)
 void sec::stock::fillFacts()
 {
 	int col=1;
+	int row=1;
 	std::vector<std::string>::const_iterator it;
 	for (it=cbegin();it != cend();it++)
 	{
 		std::cout << *it;
-		if(col==1){
+		if(col==1){//date
 			std::cout<<"D\t";
+			if(row>1){
+				int day;
+				int month;
+				int year;
+				year=std::stoi(it->substr(0,4));
+				std::cout << year<<"\t";
+				month=std::stoi(it->substr(6,2));
+				std::cout << month<<"\t";
+				day=std::stoi(it->substr(9,2));
+				std::cout<< day << "\t";
+			}
 			col++;
-		}else if(col==6){
+		}else if(col==6){//adjusted close
 			std::cout<<"C\t";
+			if(row>1){
+				
+			}
 			col++;
 		}else if(col==8){
 			col=1;
+			row++;
 			std::cout <<"\n";
 		} else {
 			col++;
