@@ -128,7 +128,7 @@ void sec::stock::fillFacts()
 				std::cout << it->c_str() << "\n";
 
 		}
-		if(col<9}{col++;};
+		if(col<9){col++;};
 		if(col==9){col=1;};
 	}
 	updateTA();
