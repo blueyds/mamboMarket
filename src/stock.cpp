@@ -92,7 +92,9 @@ void sec::stock::fillFacts()
 	for (it=cbegin();it != cend();)
 	{
 		std::cout << *it;
-		if(col==9){
+		if(col==1){
+			
+		}else if(col==9){
 			col=1;
 			std::cout <<"\n";
 		} else {
