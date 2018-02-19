@@ -89,7 +89,7 @@ void sec::stock::fillFacts()
 	//it++;
 	//it++;//date
 	std::cout << "entering for loop\n";
-	for (it;it != cend();it++)
+	for (;it != cend();)
 	{
 		switch(col)
 		{
@@ -130,6 +130,7 @@ void sec::stock::fillFacts()
 		}
 		if(col<9){col++;};
 		if(col==9){col=1;};
+		it++;
 	}
 	updateTA();
 }
