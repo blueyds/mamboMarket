@@ -85,7 +85,9 @@ void sec::stock::fillFacts()
 	it++;//4
 	it++;//5
 	it++;//6
-	it++;//volume
+	it++;
+	it++;
+	it++;
 	it++;//date
 	std::cout << "entering for loop\n";
 	for (it;it != cend();it++)
@@ -118,7 +120,13 @@ void sec::stock::fillFacts()
 			case 5://close
 				closing_prices.push_back(std::stod(*it));
 				col++;
-			case 6://volume
+			case 6://adjusted close
+				col++;
+			case 7: //volume
+				col++;
+			case 8://dividend
+				col++;
+			case 9://split coeficient
 				col=1;
 		}
 	}
