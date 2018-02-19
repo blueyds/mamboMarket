@@ -80,7 +80,12 @@ void sec::stock::fillFacts()
 	std::vector<std::string>::const_iterator it;
 	std::cout << "inside fillFacts Stock\n";
 	it=cbegin();
-	it++;
+	it++;//2
+	it++;//3
+	it++;//4
+	it++;//5
+	it++;//6
+	it++;//date
 	std::cout << "entering for loop\n";
 	for (it;it != cend();it++)
 	{
@@ -96,11 +101,11 @@ void sec::stock::fillFacts()
 				std::cout<<it->substr(0,4)<<"\t";
 				std::cout<<it->substr(5,2)<<"\t";
 				std::cout<<it->substr(8,2)<<"\n";
-				year=std::stoi(it->substr(0,4));
-				month=std::stoi(it->substr(5,2));
-				day=std::stoi(it->substr(8,2));
-				date d(day,month,year);
-				dates.push_back(d);
+				//year=std::stoi(it->substr(0,4));
+				//month=std::stoi(it->substr(5,2));
+				//day=std::stoi(it->substr(8,2));
+				//date d(day,month,year);
+				//dates.push_back(d);
 				col++;
 			}
 			case 2://open
