@@ -84,7 +84,7 @@ void sec::stock::fillFacts()
 		std::string s=*it;
 		std::cout << s;
 		if(row>10){break;}
-		if(col==1){//date
+		if(col==2){//date
 			std::cout<<"D";
 			if(row>1){
 				int day;
