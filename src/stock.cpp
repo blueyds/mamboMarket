@@ -88,12 +88,12 @@ void sec::stock::fillFacts()
 				int day;
 				int month;
 				int year;
-				year=std::stoi(it->substr(0,4));
-				std::cout << year<<"\t";
-				month=std::stoi(it->substr(6,2));
-				std::cout << month<<"\t";
-				day=std::stoi(it->substr(9,2));
-				std::cout<< day << "\t";
+				//year=std::stoi(it->substr(0,4));
+				std::cout << it->substr(0,4) <<"\t";
+				//month=std::stoi(it->substr(6,2));
+				std::cout << it->substr(6,2) <<"\t";
+				//day=std::stoi(it->substr(9,2));
+				std::cout<< it->substr(9,2) << "\t";
 			}
 			col++;
 		}else if(col==6){//adjusted close
