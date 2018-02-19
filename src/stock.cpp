@@ -121,7 +121,7 @@ void sec::stock::fillFacts()
 				col++;
 			case 5://close
 				std::cout << it->c_str() << "\t";
-				closing_prices.push_back(std::stod(*it));
+				//closing_prices.push_back(std::stod(*it));
 				col++;
 			case 6://adjusted close
 				std::cout << it->c_str() << "\t";
