@@ -93,7 +93,11 @@ void sec::stock::fillFacts()
 	{
 		std::cout << *it;
 		if(col==1){
-			
+			std::cout<<"D\t";
+			col++;
+		}else if(col==6){
+			std::cout<<"C\t";
+			col++;
 		}else if(col==9){
 			col=1;
 			std::cout <<"\n";
