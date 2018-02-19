@@ -126,6 +126,8 @@ void sec::stock::fillFacts()
 			case 8://dividend
 				col++;
 			case 9://split coeficient
+				col++;
+			case 10:
 				col=1;
 		}
 	}
