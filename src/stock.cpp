@@ -80,14 +80,14 @@ void sec::stock::fillFacts()
 	std::vector<std::string>::const_iterator it;
 	std::cout << "inside fillFacts Stock\n";
 	it=cbegin();
-	it++;//2
-	it++;//3
-	it++;//4
-	it++;//5
-	it++;//6
-	it++;
-	it++;
-	it++;//date
+	//it++;//2
+	//it++;//3
+	//it++;//4
+	//it++;//5
+	//it++;//6
+	//it++;
+	//it++;
+	//it++;//date
 	std::cout << "entering for loop\n";
 	for (it;it != cend();it++)
 	{
@@ -98,11 +98,11 @@ void sec::stock::fillFacts()
 				int year;
 				int month;
 				int day;
-				std::cout<< "inside first case col\n";
-				std::cout << it->c_str() << "\n";
-				std::cout<<it->substr(0,4)<<"\t";
-				std::cout<<it->substr(5,2)<<"\t";
-				std::cout<<it->substr(8,2)<<"\n";
+				//std::cout<< "inside first case col\n";
+				std::cout << it->c_str() << "\t";
+				//std::cout<<it->substr(0,4)<<"\t";
+				//std::cout<<it->substr(5,2)<<"\t";
+				//std::cout<<it->substr(8,2)<<"\n";
 				//year=std::stoi(it->substr(0,4));
 				//month=std::stoi(it->substr(5,2));
 				//day=std::stoi(it->substr(8,2));
@@ -111,24 +111,31 @@ void sec::stock::fillFacts()
 				col++;
 			}
 			case 2://open
+				std::cout << it->c_str() << "\t";
 				col++;
 			case 3://high
+				std::cout << it->c_str() << "\t";
 				col++;
 			case 4://low
+				std::cout << it->c_str() << "\t";
 				col++;
 			case 5://close
+				std::cout << it->c_str() << "\t";
 				closing_prices.push_back(std::stod(*it));
 				col++;
 			case 6://adjusted close
+				std::cout << it->c_str() << "\t";
 				col++;
 			case 7: //volume
+				std::cout << it->c_str() << "\t";
 				col++;
 			case 8://dividend
+				std::cout << it->c_str() << "\t";
 				col++;
 			case 9://split coeficient
+				std::cout << it->c_str() << "\n";
 				col++;
-			case 10:
-				col=1;
+
 		}
 	}
 	updateTA();
