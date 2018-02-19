@@ -81,19 +81,21 @@ void sec::stock::fillFacts()
 	std::vector<std::string>::const_iterator it;
 	for (it=cbegin();it != cend();it++)
 	{
-		//std::cout << *it;
+		std::string s=*it;
+		std::cout << s;
+		if(row>10){break;}
 		if(col==1){//date
-			//std::cout<<"D\t";
+			std::cout<<"D";
 			if(row>1){
 				int day;
 				int month;
 				int year;
 				//year=std::stoi(it->substr(0,4));
-				std::cout << it->substr(0,4) <<"\t";
+				std::cout << s.substr(0,4) <<"\t";
 				//month=std::stoi(it->substr(6,2));
-				std::cout << it->substr(6,2) <<"\t";
+				std::cout << s.substr(6,2) <<"\t";
 				//day=std::stoi(it->substr(9,2));
-				std::cout<< it->substr(9,2) << "\t";
+				std::cout<< s.substr(9,2) << "\t";
 			}
 			col++;
 		}else if(col==6){//adjusted close
