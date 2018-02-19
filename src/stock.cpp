@@ -78,18 +78,7 @@ void sec::stock::fillFacts()
 {
 	int col=1;
 	std::vector<std::string>::const_iterator it;
-	std::cout << "inside fillFacts Stock\n";
-	//it=cbegin();
-	//it++;//2
-	//it++;//3
-	//it++;//4
-	//it++;//5
-	//it++;//6
-	//it++;
-	//it++;
-	//it++;//date
-	std::cout << "entering for loop\n";
-	for (it=cbegin();it != cend();)
+	for (it=cbegin();it != cend();it++)
 	{
 		std::cout << *it;
 		if(col==1){
@@ -98,14 +87,13 @@ void sec::stock::fillFacts()
 		}else if(col==6){
 			std::cout<<"C\t";
 			col++;
-		}else if(col==9){
+		}else if(col==8){
 			col=1;
 			std::cout <<"\n";
 		} else {
 			col++;
 			std::cout << "\t";
 		}
-		it++;
 	}
 	updateTA();
 }
