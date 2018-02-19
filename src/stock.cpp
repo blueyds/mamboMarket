@@ -85,6 +85,7 @@ void sec::stock::fillFacts()
 	it++;//4
 	it++;//5
 	it++;//6
+	it++;//volume
 	it++;//date
 	std::cout << "entering for loop\n";
 	for (it;it != cend();it++)
