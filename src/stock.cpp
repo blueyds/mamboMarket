@@ -91,12 +91,13 @@ void sec::stock::fillFacts()
 	std::cout << "entering for loop\n";
 	for (it=cbegin();it != cend();)
 	{
-		std::cout 
+		std::cout << *it;
 		if(col==9){
 			col=1;
-		}
-		else {
-			col++;	
+			std::cout <<"\n";
+		} else {
+			col++;
+			std::cout << "\t";
 		}
 		it++;
 	}
