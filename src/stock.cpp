@@ -108,35 +108,28 @@ void sec::stock::fillFacts()
 				//day=std::stoi(it->substr(8,2));
 				//date d(day,month,year);
 				//dates.push_back(d);
-				col++;
 			}
 			case 2://open
 				std::cout << it->c_str() << "\t";
-				col++;
 			case 3://high
 				std::cout << it->c_str() << "\t";
-				col++;
 			case 4://low
 				std::cout << it->c_str() << "\t";
-				col++;
 			case 5://close
 				std::cout << it->c_str() << "\t";
 				//closing_prices.push_back(std::stod(*it));
-				col++;
 			case 6://adjusted close
 				std::cout << it->c_str() << "\t";
-				col++;
 			case 7: //volume
 				std::cout << it->c_str() << "\t";
-				col++;
 			case 8://dividend
 				std::cout << it->c_str() << "\t";
-				col++;
 			case 9://split coeficient
 				std::cout << it->c_str() << "\n";
-				col++;
 
 		}
+		if(col<9}{col++;};
+		if(col==9){col=1;};
 	}
 	updateTA();
 }
