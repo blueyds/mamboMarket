@@ -79,7 +79,7 @@ void sec::stock::fillFacts()
 	int col=1;
 	std::vector<std::string>::const_iterator it;
 	std::cout << "inside fillFacts Stock\n";
-	it=cbegin();
+	//it=cbegin();
 	//it++;//2
 	//it++;//3
 	//it++;//4
@@ -89,47 +89,15 @@ void sec::stock::fillFacts()
 	//it++;
 	//it++;//date
 	std::cout << "entering for loop\n";
-	for (;it != cend();)
+	for (it=cbegin();it != cend();)
 	{
-		switch(col)
-		{
-			case 1://date
-			{
-				int year;
-				int month;
-				int day;
-				//std::cout<< "inside first case col\n";
-				std::cout << it->c_str() << "\t";
-				//std::cout<<it->substr(0,4)<<"\t";
-				//std::cout<<it->substr(5,2)<<"\t";
-				//std::cout<<it->substr(8,2)<<"\n";
-				//year=std::stoi(it->substr(0,4));
-				//month=std::stoi(it->substr(5,2));
-				//day=std::stoi(it->substr(8,2));
-				//date d(day,month,year);
-				//dates.push_back(d);
-			}
-			case 2://open
-				std::cout << it->c_str() << "\t";
-			case 3://high
-				std::cout << it->c_str() << "\t";
-			case 4://low
-				std::cout << it->c_str() << "\t";
-			case 5://close
-				std::cout << it->c_str() << "\t";
-				//closing_prices.push_back(std::stod(*it));
-			case 6://adjusted close
-				std::cout << it->c_str() << "\t";
-			case 7: //volume
-				std::cout << it->c_str() << "\t";
-			case 8://dividend
-				std::cout << it->c_str() << "\t";
-			case 9://split coeficient
-				std::cout << it->c_str() << "\n";
-
+		std::cout 
+		if(col==9){
+			col=1;
 		}
-		if(col<9){col++;};
-		if(col==9){col=1;};
+		else {
+			col++;	
+		}
 		it++;
 	}
 	updateTA();
