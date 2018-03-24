@@ -83,7 +83,7 @@ void sec::stock::fillFacts()
 	{
 		std::string s;
 		//need to copy the string using function
-		s=it*;
+		s = *it;
 		std::cout << s;
 		if(row>10){break;}
 		if(col==1){//date
