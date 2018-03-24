@@ -107,7 +107,7 @@ void sec::stock::fillFacts()
 				
 			}
 			col++;
-		}else if(col==8){
+		}else if(col==9){
 			col=1;
 			row++;
 			std::cout <<"\n";
