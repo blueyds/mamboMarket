@@ -49,9 +49,7 @@ sec::stock::stock(std::string sname, char interval):
 	csv_report(sec::GenerateStockUrl(sname,interval)),
 	stock_name(sname)
 {
-	std::cout<<"preparing to enter load_csvfile\n";
 	load_csvfile();
-	std::cout<<"preparing to load fillfacts\n";
 	fillFacts();
 }
 
@@ -93,22 +91,25 @@ void sec::stock::fillFacts()
 				int month;
 				int year;
 				std::cout << s;
-				//year=std::stoi(it->substr(0,4));
+				year=std::stoi(it->substr(0,4));
 				std::cout << s.substr(0,4) <<"\t";
-				//month=std::stoi(it->substr(6,2));
+				month=std::stoi(it->substr(6,2));
 				std::cout << s.substr(6,2) <<"\t";
-				//day=std::stoi(it->substr(9,2));
+				day=std::stoi(it->substr(9,2));
 				std::cout<< s.substr(9,2) << "\t";
+				date d(day,month,year);
+				dates.push_back(d);
 			}
 			col++;
 		}else if(col==6){//adjusted close
 			std::cout<<"C\t";
 			if(row>1){
-				
+				double d;
+				d=std::stod(it->c_str());
 			}
 			col++;
 		}else if(col==9){
-			col=1;
+			col=1; //there are 9 columns in the basic csv
 			row++;
 			std::cout <<"\n";
 		} else {
@@ -137,5 +138,3 @@ void sec::stock::verify()
 		std::cout << SMAs10[i] << "\n";
 	}
 }
-
-
