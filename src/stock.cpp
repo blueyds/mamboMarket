@@ -79,30 +79,20 @@ void sec::stock::fillFacts()
 	std::vector<std::string>::const_iterator it;
 	for (it=cbegin();it != cend();it++)
 	{
-		std::string s;
-		//need to copy the string using function
-		s = *it;
-		std::cout << s;
-		if(row>10){break;}
+		//if(row>10){break;}
 		if(col==1){//date
-			std::cout<<"D";
 			if(row>1){
 				int day;
 				int month;
 				int year;
-				std::cout << s;
 				year=std::stoi(it->substr(0,4));
-				std::cout << s.substr(0,4) <<"\t";
 				month=std::stoi(it->substr(6,2));
-				std::cout << s.substr(6,2) <<"\t";
 				day=std::stoi(it->substr(9,2));
-				std::cout<< s.substr(9,2) << "\t";
 				date d(day,month,year);
 				dates.push_back(d);
 			}
 			col++;
 		}else if(col==6){//adjusted close
-			std::cout<<"C\t";
 			if(row>1){
 				double d;
 				d=std::stod(it->c_str());
@@ -111,10 +101,9 @@ void sec::stock::fillFacts()
 		}else if(col==9){
 			col=1; //there are 9 columns in the basic csv
 			row++;
-			std::cout <<"\n";
-		} else {
+		} 
+		else {
 			col++;
-			std::cout << "\t";
 		}
 	}
 	updateTA();
