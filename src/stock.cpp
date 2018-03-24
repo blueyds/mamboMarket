@@ -96,6 +96,7 @@ void sec::stock::fillFacts()
 			if(row>1){
 				double d;
 				d=std::stod(it->c_str());
+				closing_prices.push_back(d);
 			}
 			col++;
 		}else if(col==9){
