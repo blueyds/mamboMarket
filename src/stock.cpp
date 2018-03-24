@@ -86,17 +86,17 @@ void sec::stock::fillFacts()
 				int month;
 				int year;
 				year=std::stoi(it->substr(0,4));
-				month=std::stoi(it->substr(6,2));
-				day=std::stoi(it->substr(9,2));
+				month=std::stoi(it->substr(5,2));
+				day=std::stoi(it->substr(8,2));
 				date d(day,month,year);
-				dates.push_back(d);
+				dates.push_front(d);
 			}
 			col++;
 		}else if(col==6){//adjusted close
 			if(row>1){
 				double d;
 				d=std::stod(it->c_str());
-				closing_prices.push_back(d);
+				closing_prices.push_front(d);
 			}
 			col++;
 		}else if(col==9){
@@ -112,7 +112,6 @@ void sec::stock::fillFacts()
 
 void sec::stock::verify(date d1)
 {
-	std::cout << "DATE\t\tOPEN\tCLOSE\tHIGH\tLOW\tVOLUME\t\tADJ\tSMA10\n";
 	int index = getIndex(d1);
 	std::cout << dates[index] << "\t";
 	std::cout << closing_prices[index] << "\t"; 
@@ -121,7 +120,7 @@ void sec::stock::verify(date d1)
 
 void sec::stock::verify()
 {
-	for (int i = 0;i<10;i++)
+	for (int i = dates.size();i>dates.size()-15;i--)
 	{
 		std::cout << dates[i] << "\t";
 		std::cout << closing_prices[i] << "\t"; 
