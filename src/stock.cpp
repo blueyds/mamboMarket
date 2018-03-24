@@ -76,6 +76,9 @@ void sec::stock::fillFacts()
 {
 	int col=1;
 	int row=1;
+	std::vector<date> temp_dates;
+	std::vector<double> temp_closing;
+		
 	std::vector<std::string>::const_iterator it;
 	for (it=cbegin();it != cend();it++)
 	{
@@ -89,14 +92,14 @@ void sec::stock::fillFacts()
 				month=std::stoi(it->substr(5,2));
 				day=std::stoi(it->substr(8,2));
 				date d(day,month,year);
-				dates.push_front(d);
+				temp_dates.push_back(d);
 			}
 			col++;
 		}else if(col==6){//adjusted close
 			if(row>1){
 				double d;
 				d=std::stod(it->c_str());
-				closing_prices.push_front(d);
+				temp_closing.push_back(d);
 			}
 			col++;
 		}else if(col==9){
@@ -107,6 +110,9 @@ void sec::stock::fillFacts()
 			col++;
 		}
 	}
+	//TA and other functions expect date[0] to be the earliest but that web download is opposite.
+	dates.assign(temp_dates.rbegin(),temp_dates.rend());
+	closing_prices.assign(temp_closing.rbegin(),temp_closing.rend());
 	updateTA();
 }
 
