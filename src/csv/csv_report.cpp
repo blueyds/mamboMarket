@@ -28,5 +28,5 @@ void sec::csv_report::load_csvfile()
 			else {data_.push_back(data);}
 		}
 	}
-	disconnect();
+	if(isOpen()){disconnect();}
 }

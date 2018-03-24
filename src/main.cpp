@@ -27,6 +27,7 @@ void test()
 	MY_ASSERT(a.items_[0].CIK_ == "0000320193");
 	sec::ten_q s10(a.items_[0].url_);
 	sec::stock st("AAPL",'d');
+	st.verify();
 }
 
 
@@ -34,6 +35,7 @@ int main (int argc, char *argv[])
 {
 	if (argc != 2) // we want a more argument
 		std::cout << "Usage : "<< argv[0] << " <stock_symbol>\n";
+	else if (argc =1) {test();}
 	else
 	{
 	sec::info s(argv[1]);
@@ -47,6 +49,7 @@ int main (int argc, char *argv[])
 	MSG("form",a.getForm());
 	MSG("lang:",a.lang_);
 	sec::stock st(argv[1],'d');
+	st.verify();
 	
 	}
 }
