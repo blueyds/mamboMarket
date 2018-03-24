@@ -81,10 +81,12 @@ void sec::stock::fillFacts()
 	std::vector<std::string>::const_iterator it;
 	for (it=cbegin();it != cend();it++)
 	{
-		std::string s=*it;
+		std::string s;
+		//need to copy the string using function
+		s=it*;
 		std::cout << s;
 		if(row>10){break;}
-		if(col==2){//date
+		if(col==1){//date
 			std::cout<<"D";
 			if(row>1){
 				int day;
