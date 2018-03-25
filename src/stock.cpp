@@ -113,6 +113,26 @@ void sec::stock::fillFacts()
 	//TA and other functions expect date[0] to be the earliest but that web download is opposite.
 	dates.assign(temp_dates.rbegin(),temp_dates.rend());
 	closing_prices.assign(temp_closing.rbegin(),temp_closing.rend());
+	//TODO we have to iterate through the dates vector and remove dates and corresponding closing_prices that have invalid dates.
+	std::vector<date>::iterator dit;
+	std::vector<double>::iterator pit;
+	dit=dates.begin();
+	pit=closing_prices.begin();
+	int s;
+	s=dates.size();
+	for (int i=0;i<s;i++)
+	{
+		if(!dit->valid())
+		{
+			dates.erase(dit);
+			closing_prices.erase(pit);
+		}
+		else {
+			dit++;
+			pit++;
+		}
+	}
+	
 	updateTA();
 }
 
