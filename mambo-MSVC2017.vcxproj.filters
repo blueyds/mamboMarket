@@ -39,6 +39,12 @@
     <ClCompile Include="src\sec\10Q.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\date\date.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stlta\stlta.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\error.hpp">
@@ -66,6 +72,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\sec\10Q.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\options.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\date\date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

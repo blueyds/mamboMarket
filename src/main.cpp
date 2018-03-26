@@ -34,8 +34,7 @@ void test()
 int main (int argc, char *argv[])
 {
 	if (argc != 2) // we want a more argument
-		std::cout << "Usage : "<< argv[0] << " <stock_symbol>\n";
-	else if (argc =1) {test();}
+		test();
 	else
 	{
 	sec::info s(argv[1]);

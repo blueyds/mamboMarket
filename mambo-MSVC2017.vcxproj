@@ -124,17 +124,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\csv\csv_report.cpp" />
+    <ClCompile Include="src\date\date.cc" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\report.cpp" />
     <ClCompile Include="src\sec\10Q.cpp" />
     <ClCompile Include="src\sec\sec.cpp" />
     <ClCompile Include="src\sec\sec_archives.cpp" />
+    <ClCompile Include="src\stlta\stlta.cpp" />
     <ClCompile Include="src\stock.cpp" />
     <ClCompile Include="src\xml\xml_report.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\csv\csv_report.hpp" />
+    <ClInclude Include="src\date\date.h" />
     <ClInclude Include="src\error.hpp" />
+    <ClInclude Include="src\options.hpp" />
     <ClInclude Include="src\report.hpp" />
     <ClInclude Include="src\sec\10Q.hpp" />
     <ClInclude Include="src\sec\sec_report.hpp" />

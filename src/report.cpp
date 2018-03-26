@@ -20,13 +20,7 @@
 #include <random>
 #include "report.hpp"
 
-#ifdef _MSVS_VER //windows
-std::string rm_cmd("del");
-std::string cp_cmd("copy")
-#else //linux gmu
-std::string rm_cmd("del");
-std::string cp_cmd("cp");
-#endif
+
 
 void sec::report::setUrl(std::string url, bool isLocal)
 {
@@ -37,9 +31,10 @@ void sec::report::setUrl(std::string url, bool isLocal)
 
 sec::report::report(std::string url,bool isLocal)
 {
-	setUrl(url, isLocal);
 	bad_=false;
 	open_=false;
+	setUrl(url, isLocal);
+	randomize_fName();
 }
 sec::report::~report()
 {
@@ -58,7 +53,6 @@ void sec::report::randomize_fName()
 void sec::report::connect()
 {
 	disconnect();
-	randomize_fName();
     if(local_){setupCopyCmd();}
 	else {setupDownloadCmd();};
 	if(!std::system(command_.c_str())){bad_=true;open_=false;}

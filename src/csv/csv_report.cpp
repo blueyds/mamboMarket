@@ -28,6 +28,18 @@ void sec::csv_report::load_csvfile()
 					data_.push_back(data2);
 				}
 			}
+			else if (data.find('\n') != std::string::npos)
+			{
+				std::string data1;
+				std::string data2;
+				data1 = data.substr(0, data.find('\n') - 1);
+				data2 = data.substr(data.find('\n') + 1, data.length() - data.find('\n'));
+				data_.push_back(data1);
+				if (data2.length()>0)
+				{
+					data_.push_back(data2);
+				}
+			}
 			else {data_.push_back(data);}
 		}
 	}

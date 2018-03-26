@@ -23,6 +23,7 @@
 #include <sstream>
 #include <algorithm> //std::find and std::reverse
 #include "stock.hpp"
+#include "error.hpp"
 #include "date/date.h"
 #include "stlta/stlta.hpp"
 
@@ -55,6 +56,13 @@ sec::stock::stock(std::string sname, char interval):
 
 void sec::stock::updateTA()
 {
+	SMAs10.reserve(closing_prices.size());
+	EMAs13.reserve(closing_prices.size());
+	macds.reserve(closing_prices.size());
+	macd_signals.reserve(closing_prices.size());
+	macd_hists.reserve(closing_prices.size());
+	max_closing.reserve(closing_prices.size());
+	max_hist.reserve(closing_prices.size());
 	TA::SMA(10,closing_prices,SMAs10);
 	TA::EMA(13,closing_prices,EMAs13);
 	TA::MACD(12,26,9,closing_prices,macds,macd_signals,macd_hists);
@@ -146,7 +154,7 @@ void sec::stock::verify(date d1)
 
 void sec::stock::verify()
 {
-	for (int i = dates.size();i>dates.size()-15;i--)
+	for (int i = dates.size()-1;i>dates.size()-15;i--)
 	{
 		std::cout << dates[i] << "\t";
 		std::cout << closing_prices[i] << "\t"; 

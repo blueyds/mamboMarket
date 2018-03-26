@@ -37,18 +37,18 @@ private:
 	bool bad_;
 	std::string url_;
 	void randomize_fName();
-#ifdef _MSVC_VER//windows
+#ifdef _WIN64//windows
 	void setupDeleteCmd()
 	{
-		command_ = "del";
+		command_ = "del /Q " + fname_;
 	};
 	void setupCopyCmd()
 	{
-		command_ = "copy";
+		command_ = "copy" + url_ + " " + fname_;
 	};
 	void setupDownloadCmd()
 	{
-		command_ = "wget";
+		command_ = "powershell -command \"& { iwr \'" + url_ + "\' -OutFile " + fname_ + " }\"";
 	};
 #else//linux
 	void setupDeleteCmd()
@@ -66,7 +66,7 @@ private:
 	};
 #endif
 public:
-	report():open_(false),command_(""){;};
+	report():open_(false),command_(""){randomize_fName();};
 	report(std::string url, bool isLocal=false);
 	~report();
 	std::string getUrl(){return url_;};
