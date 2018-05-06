@@ -5,9 +5,12 @@
 #include "csv/csv_report.hpp"
 #include "sec/10Q.hpp"
 #include "stock.hpp"
+#include "date/date.h"
 
 void test()
 {
+	date d1("2017-01-20");
+	MSG(
 	sec::info s("AAPL");
 	MSG("CIK", s.getCIK());
 	MSG("SIC", s.getSIC());
