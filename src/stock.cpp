@@ -93,7 +93,7 @@ void sec::stock::fillFacts()
 		//if(row>10){break;}
 		if(col==1){//date
 			if(row>1){
-				date d(it*);
+				date d(*it);
 				temp_dates.push_back(d);
 			}
 			col++;
