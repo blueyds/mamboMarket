@@ -93,13 +93,7 @@ void sec::stock::fillFacts()
 		//if(row>10){break;}
 		if(col==1){//date
 			if(row>1){
-				int day;
-				int month;
-				int year;
-				year=std::stoi(it->substr(0,4));
-				month=std::stoi(it->substr(5,2));
-				day=std::stoi(it->substr(8,2));
-				date d(day,month,year);
+				date d(it*);
 				temp_dates.push_back(d);
 			}
 			col++;
