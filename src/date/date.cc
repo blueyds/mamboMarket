@@ -18,7 +18,7 @@ date::date(const std::string dt, Format fmt)
 	char sep;
 	if(dt.find("-")!=std::string::npos){sep='-';}
 	else if(dt.find("/")!=std::string::npos){sep='/';}
-	else (sep='';};
+	else {sep="";};
 	bool error = false;
 	do {
 	error=false;
