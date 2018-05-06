@@ -5,6 +5,7 @@
 #define _DATE_H_
 
 #include <iostream>
+#include <string>
 
 
 class date {
@@ -13,8 +14,13 @@ protected:
     int month_;
     int day_;
 public:
+	enum Format {
+		YYYYMMDD,
+		MMDDYYYY};
+    
     date();
     date(const int& d, const int& m, const int& y);
+    date(const std::string dt,Format fmt=YYYYMMDD);
 
     bool valid(void)  const;
 
@@ -25,6 +31,8 @@ public:
     void set_day   (const int& day   );
     void set_month (const int& month );
     void set_year  (const int& year  );
+    
+    std::string get_string();
 
     date operator ++();    // prefix  
     date operator ++(int); // postfix  

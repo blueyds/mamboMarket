@@ -9,6 +9,42 @@ date::date(const int& d, const int& m, const int& y)
    year_  = y;  // this assumes year is given fully, not Y2K corrections
 };
 
+date::date(const std::string dt, Format fmt)
+{
+	int year_length;
+	int year_pos;
+	int month_pos;
+	int date_pos;
+	char sep;
+	if(dt.find("-")!=std::string::npos){sep='-';}
+	else if(dt.find("/")!=std::string::npos){sep='/';}
+	else (sep='';};
+	bool error = false;
+	do {
+	error=false;
+	switch fmt {
+	case YYYYMMDD:
+		month_pos=dt.find(sep)+1;
+		if(month_pos==std::string::npos){month_pos=4;};
+		date_pos=dt.find(sep,month_pos);
+		if(date_pos==std::string::npos){date_pos=6;};
+		year_length=4;
+		year_pos=0;
+		try{
+		year_=std::stoi(dt.substr(year_pos,year_length));
+		month_=std::stoi(dt.substr(month_pos,2));
+		date_=std::stoi(dt.substr(date_pos,2);
+		}catch (const std::exception& e)
+			{error=true;
+			fmt=fmt+1;
+			std::cerr << "ERROR = "<<e.what()<<"\n";};
+		break;
+	case MMDDYYYY:
+		break;	
+	};
+	}while (error);
+};
+
 ///////////////////////////// inline definitions //////////
 
 date::date(){ year_ = 0; month_ = 0; day_ = 0;};
@@ -151,6 +187,14 @@ inline long long_date(const date& d)
 		{ return d.year() * 10000 + d.month() * 100 + d.day(); }; 
 	return -1;
 };
+
+std::string date::get_string()
+{
+	std::string st;
+	st << year_ <<"-"<<month_<<"-"<<day_;
+	return st;
+};
+
 std::ostream & operator << (std::ostream& os, const date& d)
 {
 	if (d.valid()) 
