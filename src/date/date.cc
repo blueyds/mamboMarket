@@ -14,36 +14,31 @@ date::date(const std::string dt, Format fmt)
 	int year_length;
 	int year_pos;
 	int month_pos;
-	int date_pos;
+	int day_pos;
 	char sep;
 	if(dt.find("-")!=std::string::npos){sep='-';}
 	else if(dt.find("/")!=std::string::npos){sep='/';}
 	else if(dt.find(".")!=std::string::npos){sep='.';}
 	else {sep='&';}; //this should not be a char in a date string
-	bool error = false;
-	do {
-	error=false;
+	
 	switch (fmt) {
 	case YYYYMMDD:
 		month_pos=dt.find(sep)+1;
 		if(month_pos==std::string::npos){month_pos=4;};
 		date_pos=dt.find(sep,month_pos);
-		if(date_pos==std::string::npos){date_pos=6;};
+		if(date_pos==std::string::npos){day_pos=6;};
 		year_length=4;
 		year_pos=0;
 		try{
 		year_=std::stoi(dt.substr(year_pos,year_length));
 		month_=std::stoi(dt.substr(month_pos,2));
-		date_=std::stoi(dt.substr(date_pos,2);
+		day_=std::stoi(dt.substr(day_pos,2));
 		}catch (const std::exception& e)
-			{error=true;
-			fmt=fmt+1;
-			std::cerr << "ERROR = "<<e.what()<<"\n";};
+			{std::cerr << "ERROR = "<<e.what()<<"\n";};
 		break;
 	case MMDDYYYY:
 		break;	
 	};
-	}while (error);
 };
 
 ///////////////////////////// inline definitions //////////
@@ -192,7 +187,7 @@ inline long long_date(const date& d)
 std::string date::get_string()
 {
 	std::string st;
-	st << year_ <<"-"<<month_<<"-"<<day_;
+	st << std::to_string(year_) <<"-"<< std::to_string(month_) <<"-"<< std::to_string(day_);
 	return st;
 };
 
