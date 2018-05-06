@@ -18,11 +18,12 @@ date::date(const std::string dt, Format fmt)
 	char sep;
 	if(dt.find("-")!=std::string::npos){sep='-';}
 	else if(dt.find("/")!=std::string::npos){sep='/';}
-	else {sep="";};
+	else if(dt.find(".")!=std::string::npos){sep='.';}
+	else {sep='&';}; //this should not be a char in a date string
 	bool error = false;
 	do {
 	error=false;
-	switch fmt {
+	switch (fmt) {
 	case YYYYMMDD:
 		month_pos=dt.find(sep)+1;
 		if(month_pos==std::string::npos){month_pos=4;};
