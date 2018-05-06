@@ -27,6 +27,8 @@ private:
     std::string sec_;
     std::string fasb_;
     std::string xbrli_;
+    std::string period_ctx_; //for amount that cover time periods.
+    std::string instance_ctx_;//for amount that represents point in time
     std::string type_;
     std::string FYfocus_;
     std::string Period_;
@@ -38,11 +40,12 @@ private:
     double currentRatio_;
     double quickRatio_;
     double cashRatio_;
-	bool isContextSegment(std::string context);
+	//bool isContextSegment(std::string context);
 public:
 	ten_q(std::string url);
     	
     std::string getValue(std::string name, std::string ns="");
+    double getValue(std::string name, std::string ns="");
     void fillFacts();
     double getCurrentRatio(){return currentRatio_;};
     double getQuickRatio(){return quickRatio_;};
