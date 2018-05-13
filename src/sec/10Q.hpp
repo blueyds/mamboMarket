@@ -44,8 +44,8 @@ private:
 public:
 	ten_q(std::string url);
     	
-    std::string getValue(std::string name, std::string ns="");
-    double getValue(std::string name, std::string ns="");
+    std::string getSValue(std::string name, std::string ns="");
+    double getDValue(std::string name, std::string ns="");
     void fillFacts();
     double getCurrentRatio(){return currentRatio_;};
     double getQuickRatio(){return quickRatio_;};

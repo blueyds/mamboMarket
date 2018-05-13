@@ -25,8 +25,8 @@ date::date(const std::string dt, Format fmt)
 	case YYYYMMDD:
 		month_pos=dt.find(sep)+1;
 		if(month_pos==std::string::npos){month_pos=4;};
-		date_pos=dt.find(sep,month_pos);
-		if(date_pos==std::string::npos){day_pos=6;};
+		day_pos=dt.find(sep,month_pos);
+		if(day_pos==std::string::npos){day_pos=6;};
 		year_length=4;
 		year_pos=0;
 		try{
@@ -187,7 +187,7 @@ inline long long_date(const date& d)
 std::string date::get_string()
 {
 	std::string st;
-	st << std::to_string(year_) <<"-"<< std::to_string(month_) <<"-"<< std::to_string(day_);
+	st = std::to_string(year_) + "-"+ std::to_string(month_) + "-" + std::to_string(day_);
 	return st;
 };
 

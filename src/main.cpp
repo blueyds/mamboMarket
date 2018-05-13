@@ -10,7 +10,7 @@
 void test()
 {
 	date d1("2017-01-20");
-	MSG(
+	
 	sec::info s("AAPL");
 	MSG("CIK", s.getCIK());
 	MSG("SIC", s.getSIC());
