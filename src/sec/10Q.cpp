@@ -2,7 +2,7 @@
 
 sec::ten_q::ten_q(std::string url):
 	xml_report(url),
-	xbrli_("http ://www.xbrl.org/2003/instance"),
+	xbrli_("http://www.xbrl.org/2003/instance"),
 	period_ctx_("")
 {
 	load_xmlfile();
