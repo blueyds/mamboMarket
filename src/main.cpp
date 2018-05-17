@@ -30,7 +30,7 @@ void test()
 	MY_ASSERT(a.items_[0].CIK_ == "0000320193");
 	MSG("10q Url:", a.items_[0].url_);
 	sec::ten_q s10(a.items_[0].url_);
-	MSG("
+	MSG("just finsished the 10q");
 	sec::stock st("AAPL",'d');
 	st.verify();
 }
