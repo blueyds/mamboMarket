@@ -23,7 +23,7 @@
 #include <sstream>
 #include <algorithm> //std::find and std::reverse
 #include "stock.hpp"
-#include "error.hpp"
+
 #include "date/date.h"
 #include "stlta/stlta.hpp"
 

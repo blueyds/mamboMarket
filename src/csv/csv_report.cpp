@@ -20,7 +20,7 @@ void sec::csv_report::load_csvfile()
 			{
 				std::string data1;
 				std::string data2;
-				data1=data.substr(0,data.find('\r')-1);
+				data1=data.substr(0,data.find('\r'));
 				data2=data.substr(data.find('\n') + 1, data.length()-data.find('\n'));
 				data_.push_back(data1);
 				if(data2.length()>0)
@@ -32,7 +32,7 @@ void sec::csv_report::load_csvfile()
 			{
 				std::string data1;
 				std::string data2;
-				data1 = data.substr(0, data.find('\n') - 1);
+				data1 = data.substr(0, data.find('\n'));
 				data2 = data.substr(data.find('\n') + 1, data.length() - data.find('\n'));
 				data_.push_back(data1);
 				if (data2.length()>0)
