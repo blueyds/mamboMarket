@@ -38,7 +38,7 @@ public:
     date operator++(int); // postfix  
     date operator--();    // prefix
     date operator--(int); // postfix
-	date& operator= (date& d);
+	//date operator= (date d);
 };
 
 bool operator== (const date&, const date&);   // comparison operators

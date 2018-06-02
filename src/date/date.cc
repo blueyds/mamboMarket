@@ -176,14 +176,14 @@ date date::operator--()
 	*this = previous_date(*this);
 	return *this;
 };
-
-date& date::operator=(date& d)
+/*
+date date::operator=(date d)
 {// assignment operator
 	day_ = d.day();
 	month_ = d.month();
 	year_ = d.year();
-	return *this;
-}
+	return this;
+}*/
 
 inline long long_date(const date& d) 
 {

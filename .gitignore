@@ -8,3 +8,4 @@
 /x64/Debug
 /mambo-MSVC2017.vcxproj.user
 /CppProperties.json
+*.temp
