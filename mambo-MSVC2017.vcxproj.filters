@@ -45,6 +45,9 @@
     <ClCompile Include="src\stlta\stlta.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\pugixml\pugixml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\error.hpp">
@@ -65,9 +68,6 @@
     <ClInclude Include="src\stlta\stlta.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\xml\rapidxml_ns.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\xml\xml_report.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -78,6 +78,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\date\date.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pugixml\pugiconfig.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pugixml\pugixml.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

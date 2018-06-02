@@ -49,6 +49,7 @@ public:
 	bool isParsed(){return parsed_;};
 	
 	void load_csvfile();
+	void unload_csvfile();
 	std::string getValue(int row, int col);
 	
 

@@ -73,7 +73,7 @@ bool date::valid() const {
     return true;
 };
 
-bool operator == (const date& d1,const date& d2)
+bool operator== (const date& d1,const date& d2)
 { // check for equality
 	if (!d1.valid()) { return false; }; 
 	if (!d2.valid()) { return false; }; 
@@ -81,12 +81,12 @@ bool operator == (const date& d1,const date& d2)
 	return false; 
 };
 
-bool operator !=(const date& d1, const date& d2)
+bool operator!=(const date& d1, const date& d2)
 { 
 	return !(d1==d2);
 };
 
-bool operator < (const date& d1, const date& d2)
+bool operator< (const date& d1, const date& d2)
 {
 	if (!d1.valid()) { return false; }; // not meaningful, return anything
 	if (!d2.valid()) { return false; }; // should really be an exception, but ? if (d1.year()<d2.year()) { return true;}
@@ -104,20 +104,20 @@ bool operator < (const date& d1, const date& d2)
 	return false; 
 };
 
-bool operator > (const date& d1, const date& d2) 
+bool operator> (const date& d1, const date& d2) 
 {
 	if (d1==d2) { return false;}; // this is strict inequality 
 	if (d1<d2) { return false; };
 	return true;
 };
 
-bool operator <=(const date& d1, const date& d2)
+bool operator<=(const date& d1, const date& d2)
 { 
 	if (d1==d2) { return true; }
 	return (d1<d2);
 };
 
-bool operator >=(const date& d1, const date& d2) 
+bool operator>=(const date& d1, const date& d2) 
 { 
 	if (d1==d2) { return true;};
 	return (d1>d2);
@@ -151,31 +151,39 @@ inline date previous_date(const date& d){ date ndat;
 	return ndat;
 };
 
-date date::operator ++(int)
+date date::operator++(int)
 { // postfix operator 
 	date d = *this;
 	*this = next_date(d);
 	return d;
 };
 
-date date::operator ++()
+date date::operator++()
 { // prefix operator 
 	*this = next_date(*this);
 	return *this;
 };
 
-date date::operator --(int)
+date date::operator--(int)
 { // postfix operator, return current value 
 	date d = *this;
 	*this = previous_date(*this);
 	return d;
 };
 
-date date::operator --()
+date date::operator--()
 { // prefix operator, return new value 
 	*this = previous_date(*this);
 	return *this;
 };
+
+date& date::operator=(date& d)
+{// assignment operator
+	day_ = d.day();
+	month_ = d.month();
+	year_ = d.year();
+	return *this;
+}
 
 inline long long_date(const date& d) 
 {

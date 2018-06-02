@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="/include/design2.xsl" ?>
+  <companyFilings>
+    <companyInfo>
+      <CIK>0001018724</CIK>
+      <CIKHREF>http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001018724&amp;owner=include&amp;count=40</CIKHREF>
+      <Location>WA</Location>
+      <SIC>5961</SIC>
+      <SICDescription>RETAIL-CATALOG &amp; MAIL-ORDER HOUSES</SICDescription>
+      <SICHREF>http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;SIC=5961&amp;owner=include&amp;count=40</SICHREF>
+      <businessAddress>
+        <city>SEATTLE</city>
+        <phoneNumber>2062661000</phoneNumber>
+        <state>WA</state>
+        <street>410 TERRY AVENUE NORTH</street>
+        <zipCode>98109</zipCode>
+      </businessAddress>
+      <fiscalYearEnd>1231</fiscalYearEnd>
+      <mailingAddress>
+        <city>SEATTLE</city>
+        <state>WA</state>
+        <street>410 TERRY AVENUE NORTH</street>
+        <zipCode>98109</zipCode>
+      </mailingAddress>
+      <name>AMAZON COM INC</name>
+      <stateOfIncorporation>DE</stateOfIncorporation>
+    </companyInfo>
+    <results>
+      <filing>
+        <dateFiled>2018-05-23</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000100/0001018724-18-000100-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-23</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000119312518172014/0001193125-18-172014-index.htm</filingHREF>
+        <formName>Additional definitive proxy soliciting materials and Rule 14(a)(12) material</formName>
+        <type>DEFA14A</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-22</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000098/0001018724-18-000098-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-18</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000137773918000023/0001377739-18-000023-index.htm</filingHREF>
+        <formName>Notice of exempt solicitation</formName>
+        <type>PX14A6G</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000096/0001018724-18-000096-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000095/0001018724-18-000095-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000094/0001018724-18-000094-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000093/0001018724-18-000093-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000092/0001018724-18-000092-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000091/0001018724-18-000091-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-17</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000090/0001018724-18-000090-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-14</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000119312518162552/0001193125-18-162552-index.htm</filingHREF>
+        <formName>Additional definitive proxy soliciting materials and Rule 14(a)(12) material</formName>
+        <type>DEFA14A</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-14</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000137773918000019/0001377739-18-000019-index.htm</filingHREF>
+        <formName>Notice of exempt solicitation</formName>
+        <type>PX14A6G</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000138713118001976/0001387131-18-001976-index.htm</filingHREF>
+        <formName>Notice of exempt solicitation</formName>
+        <type>PX14A6G</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-08</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000082/0001018724-18-000082-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-07</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/999999999518001162/9999999995-18-001162-index.htm</filingHREF>
+        <formName>Notice of Effectiveness</formName>
+        <type>EFFECT</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-07</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000119312518154502/0001193125-18-154502-index.htm</filingHREF>
+        <formName>Prospectus [Rule 424(b)(3)]</formName>
+        <type>424B3</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-04</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000080/0001018724-18-000080-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000078/0001018724-18-000078-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000077/0001018724-18-000077-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000137773918000013/0001377739-18-000013-index.htm</filingHREF>
+        <formName>Notice of exempt solicitation</formName>
+        <type>PX14A6G</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-27</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000119312518139368/0001193125-18-139368-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-27</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000119312518135968/0001193125-18-135968-index.htm</filingHREF>
+        <formName>Registration of securities, business combinations</formName>
+        <type>S-4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-27</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000074/0001018724-18-000074-index.htm</filingHREF>
+        <formName>Notice of disclosure filed pursuant to Section 219 of the Iran Threat Reduction and Syria Human Rights Act of 2012 (Exchange Act Section 13(r)).</formName>
+        <type>IRANNOTICE</type>
+      </filing>
+      <filing>
+        <XBRLREF>http://www.sec.gov/cgi-bin/viewer?action=view&amp;cik=1018724&amp;accession_number=0001018724-18-000072&amp;xbrl_type=v</XBRLREF>
+        <dateFiled>2018-04-27</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000072/0001018724-18-000072-index.htm</filingHREF>
+        <formName>Quarterly report [Sections 13 or 15(d)]</formName>
+        <type>10-Q</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-26</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000070/0001018724-18-000070-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-18</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000119312518121161/0001193125-18-121161-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-18</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000119312518121087/0001193125-18-121087-index.htm</filingHREF>
+        <formName>Additional definitive proxy soliciting materials and Rule 14(a)(12) material</formName>
+        <type>DEFA14A</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-18</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000119312518121077/0001193125-18-121077-index.htm</filingHREF>
+        <formName>Other definitive proxy statements</formName>
+        <type>DEF 14A</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000068/0001018724-18-000068-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000067/0001018724-18-000067-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000066/0001018724-18-000066-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000065/0001018724-18-000065-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000064/0001018724-18-000064-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-03</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000063/0001018724-18-000063-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-22</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000056/0001018724-18-000056-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000054/0001018724-18-000054-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000053/0001018724-18-000053-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000000000018007404/0000000000-18-007404-index.htm</filingHREF>
+        <formName>SEC-generated letter</formName>
+        <type>UPLOAD</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-08</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/1018724/000101872418000050/0001018724-18-000050-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+    </results>
+  </companyFilings>

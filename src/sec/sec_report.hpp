@@ -41,8 +41,8 @@ class info : public xml_report {
 private:
 /* inherited from xml_report
 	void load_xmlfile();
-	int getChildCount(parentTag, parentInces, childTag);
-	string getChildValue(parentTag, parentIndex, childTag, childIndex);
+	
+
 */
 /* inherited from report
 	Url getUrl();
@@ -57,14 +57,11 @@ private:
 	std::string year_end_;
 	std::string state_;
 	std::vector<report_item_t> reports_;
+	std::string getData(std::string name);
 public:
-	info(std::string stock_symbol): 
-		xml_report(GenerateSECUrl(stock_symbol)), 
-		symbol_(stock_symbol)
-			{
-				load_xmlfile();
-				fillFacts();
-			};	// Constructor
+	info(std::string stock_symbol);
+	const std::vector<report_item_t>::const_iterator report_begin() { return reports_.cbegin(); };
+	const std::vector<report_item_t>::const_iterator report_end() { return reports_.cend(); };
 	std::string getCIK(){return CIK_;};
 	std::string getSIC(){return SIC_;};
 	std::string getSIC_desc(){return SIC_desc_;};
@@ -73,6 +70,7 @@ public:
 	std::string getState(){return state_;};
 	std::string getSymbol(){return symbol_;};
 	void fillFacts();
+	void printUrls();
 }; // class sec
 
 // a single monthly archive report
@@ -83,6 +81,7 @@ private:
 	std::string month_;
 	std::string year;
 	std::string edgarns_;
+	std::string getData(std::string name);
 public:
 	std::vector<report_item_t> items_;
 	std::string lang_;
@@ -98,6 +97,7 @@ public:
 				fillFacts();
 			}; // 1= january 12=december
 	std::string getForm(){return form_;};
+	void changeForm(std::string form);
 	std::string getCIK(){return CIK_;};
 	void fillFacts();
 };//class archive

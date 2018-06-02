@@ -76,14 +76,14 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>C:\boost\boost_1_66_0;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\boost\boost_1_66_0;C:\Users\craig\Documents\Visual Studio 2017\Libraries\libxml2-2.7.8.win32\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX86</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>C:\boost\boost_1_66_0\lib64-msvc-14.1;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\boost\boost_1_66_0\lib64-msvc-14.1;C:\Users\craig\Documents\Visual Studio 2017\Libraries\libxml2-2.7.8.win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -92,7 +92,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\boost\boost_1_66_0;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\boost\boost_1_66_0;C:\Users\craig\Documents\Visual Studio 2017\Libraries\libxml2-2.7.8.win32\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
@@ -101,31 +101,32 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\boost\boost_1_66_0\lib64-msvc-14.1;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\boost\boost_1_66_0\lib64-msvc-14.1;C:\Users\craig\Documents\Visual Studio 2017\Libraries\libxml2-2.7.8.win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\boost\boost_1_66_0;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\boost\boost_1_66_0;C:\Users\craig\Documents\Visual Studio 2017\Libraries\libxml2-2.7.8.win32\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\boost\boost_1_66_0\lib64-msvc-14.1;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\boost\boost_1_66_0\lib64-msvc-14.1;C:\Users\craig\Documents\Visual Studio 2017\Libraries\libxml2-2.7.8.win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\boost\boost_1_66_0;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\boost\boost_1_66_0;C:\Users\craig\Documents\Visual Studio 2017\Libraries\libxml2-2.7.8.win32\include;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\boost\boost_1_66_0\lib64-msvc-14.1;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\boost\boost_1_66_0\lib64-msvc-14.1;C:\Users\craig\Documents\Visual Studio 2017\Libraries\libxml2-2.7.8.win32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\csv\csv_report.cpp" />
     <ClCompile Include="src\date\date.cc" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\pugixml\pugixml.cpp" />
     <ClCompile Include="src\report.cpp" />
     <ClCompile Include="src\sec\10Q.cpp" />
     <ClCompile Include="src\sec\sec.cpp" />
@@ -139,12 +140,13 @@
     <ClInclude Include="src\date\date.h" />
     <ClInclude Include="src\error.hpp" />
     <ClInclude Include="src\options.hpp" />
+    <ClInclude Include="src\pugixml\pugiconfig.hpp" />
+    <ClInclude Include="src\pugixml\pugixml.hpp" />
     <ClInclude Include="src\report.hpp" />
     <ClInclude Include="src\sec\10Q.hpp" />
     <ClInclude Include="src\sec\sec_report.hpp" />
     <ClInclude Include="src\stlta\stlta.hpp" />
     <ClInclude Include="src\stock.hpp" />
-    <ClInclude Include="src\xml\rapidxml_ns.hpp" />
     <ClInclude Include="src\xml\xml_report.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

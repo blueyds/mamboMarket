@@ -49,6 +49,7 @@ void sec::report::randomize_fName()
 	for (int i = 0; i < 20; ++i) {
 		fname_.push_back(alpha[index_dist(rng)]);
 	}
+	fname_ = fname_ + ".temp";
 }
 void sec::report::connect()
 {

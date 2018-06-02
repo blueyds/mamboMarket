@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="/include/design2.xsl" ?>
+  <companyFilings>
+    <companyInfo>
+      <CIK>0000789019</CIK>
+      <CIKHREF>http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000789019&amp;owner=include&amp;count=40</CIKHREF>
+      <Location>WA</Location>
+      <SIC>7372</SIC>
+      <SICDescription>SERVICES-PREPACKAGED SOFTWARE</SICDescription>
+      <SICHREF>http://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;SIC=7372&amp;owner=include&amp;count=40</SICHREF>
+      <businessAddress>
+        <city>REDMOND</city>
+        <phoneNumber>425-882-8080</phoneNumber>
+        <state>WA</state>
+        <street>ONE MICROSOFT WAY</street>
+        <zipCode>98052-6399</zipCode>
+      </businessAddress>
+      <fiscalYearEnd>0630</fiscalYearEnd>
+      <mailingAddress>
+        <city>REDMOND</city>
+        <state>WA</state>
+        <street>ONE MICROSOFT WAY</street>
+        <zipCode>98052-6399</zipCode>
+      </mailingAddress>
+      <name>MICROSOFT CORP</name>
+      <stateOfIncorporation>WA</stateOfIncorporation>
+    </companyInfo>
+    <results>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000055/0001626431-18-000055-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000054/0001626431-18-000054-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000053/0001626431-18-000053-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000052/0001626431-18-000052-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000051/0001626431-18-000051-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000050/0001626431-18-000050-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000049/0001626431-18-000049-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000048/0001626431-18-000048-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000047/0001626431-18-000047-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000046/0001626431-18-000046-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000043/0001626431-18-000043-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000042/0001626431-18-000042-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-05-30</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000119312518178668/0001193125-18-178668-index.htm</filingHREF>
+        <type>SD</type>
+      </filing>
+      <filing>
+        <XBRLREF>http://www.sec.gov/cgi-bin/viewer?action=view&amp;cik=789019&amp;accession_number=0001564590-18-009307&amp;xbrl_type=v</XBRLREF>
+        <dateFiled>2018-04-26</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000156459018009307/0001564590-18-009307-index.htm</filingHREF>
+        <formName>Quarterly report [Sections 13 or 15(d)]</formName>
+        <type>10-Q</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-04-26</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000119312518134732/0001193125-18-134732-index.htm</filingHREF>
+        <formName>Current report</formName>
+        <type>8-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-23</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000119312518093891/0001193125-18-093891-index.htm</filingHREF>
+        <formName>Annual report of employee stock purchase, savings and similar plans</formName>
+        <type>11-K</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-20</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000041/0001626431-18-000041-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-12</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000040/0001626431-18-000040-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000036/0001626431-18-000036-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000035/0001626431-18-000035-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000034/0001626431-18-000034-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000033/0001626431-18-000033-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000032/0001626431-18-000032-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000029/0001626431-18-000029-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000028/0001626431-18-000028-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000027/0001626431-18-000027-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000026/0001626431-18-000026-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000025/0001626431-18-000025-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000024/0001626431-18-000024-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000023/0001626431-18-000023-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000022/0001626431-18-000022-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-03-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000021/0001626431-18-000021-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-02-26</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000020/0001626431-18-000020-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-02-21</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000019/0001626431-18-000019-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-02-20</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000018/0001626431-18-000018-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-02-09</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000093247118004132/0000932471-18-004132-index.htm</filingHREF>
+        <formName>Statement of acquisition of beneficial ownership by individuals</formName>
+        <type>SC 13G/A</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-02-08</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000021545718005129/0000215457-18-005129-index.htm</filingHREF>
+        <formName>Statement of acquisition of beneficial ownership by individuals</formName>
+        <type>SC 13G/A</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-02-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000017/0001626431-18-000017-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-02-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000016/0001626431-18-000016-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+      <filing>
+        <dateFiled>2018-02-01</dateFiled>
+        <filingHREF>http://www.sec.gov/Archives/edgar/data/789019/000162643118000015/0001626431-18-000015-index.htm</filingHREF>
+        <formName>Statement of changes in beneficial ownership of securities</formName>
+        <type>4</type>
+      </filing>
+    </results>
+  </companyFilings>

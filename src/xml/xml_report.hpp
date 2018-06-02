@@ -25,18 +25,18 @@
 #include <string>
 #include <iterator>
 #include <vector>
+#include "pugixml/pugixml.hpp"
 //#include "config.h"
 #include "report.hpp"
-#include "xml/rapidxml_ns.hpp"
-
 
 namespace sec{
 
 class xml_report : public report
 {
 private:
-	rapidxml_ns::xml_document<char> doc_;
-	std::vector<char> xml_;
+	pugi::xml_document doc_;
+	pugi::xpath_node_set nodes_;
+	std::string xpath_cur_;
 	bool parsed_;
 public:
 /* inherited from report
@@ -50,27 +50,19 @@ public:
 	~xml_report(){;};
 	
 	bool isParsed(){return parsed_;};
-	
 	void load_xmlfile();
+	void unload_xmlfile();
 	//this will connect to the url and load file into ss_ then uses rapidxml to parse in doc_. all derived classes should call this in constructor.
-	
-	/* numbers will be used to find index of corresponding tag
-	tags are strings or char*.
-	first number will be used for first tag.
-	Tags should be in order parent first then child then child.
-	*/
-	/*int getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags);
-		
-	std::string getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags);
-	
-	std::string getAttribute(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::string attribute);
-	*/
-	int getChildCount(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""});
-		
-	std::string getChildValue(std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""});
-	//ns list should also include the attribute namespace oro ""
-	std::string getAttribute( std::string attribute,std::initializer_list<int> indices, std::initializer_list<std::string> tags, std::initializer_list<std::string> ns={"","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",""});
+	void findXpath(std::string xpath);
+	std::string getNodeStr(int index);
+	double getNodeDbl(int index);
+	const pugi::xml_node getRoot() { return doc_.root(); };
+	const pugi::xml_node getNode(int index);
+	pugi::xpath_node_set::const_iterator xml_begin() { return nodes_.begin(); };
+	pugi::xpath_node_set::const_iterator xml_end() { return nodes_.end(); };
+	int getNodeCount();
 };
+
 } // namespace sec
 #endif //!_REPORT_H
 

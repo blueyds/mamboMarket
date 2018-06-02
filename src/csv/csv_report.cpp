@@ -45,3 +45,8 @@ void sec::csv_report::load_csvfile()
 	}
 	if(isOpen()){disconnect();}
 }
+
+void sec::csv_report::unload_csvfile()
+{
+	disconnect();
+}

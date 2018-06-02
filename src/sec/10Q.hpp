@@ -17,6 +17,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include <string>
+#include <map>
+#include "date/date.h"
 #include "xml/xml_report.hpp"
 
 
@@ -24,12 +26,8 @@ namespace sec{
 
 class ten_q : public xml_report{
 private:
-    std::string sec_;
-    std::string fasb_;
-    std::string xbrli_;
-    std::string period_ctx_; //for amount that cover time periods.
-    std::string instance_ctx_;//for amount that represents point in time
-    std::string type_;
+	std::map < std::string, date> context_;
+	std::string type_;
     std::string FYfocus_;
     std::string Period_;
     double currentAssets_;
@@ -44,16 +42,14 @@ private:
 public:
 	ten_q(std::string url);
     	
-    std::string getSValue(std::string name, std::string ns="");
-    double getDValue(std::string name, std::string ns="");
+    std::string get10qString(std::string name, std::string ns="");
+    double get10qDouble(std::string name,std::string ns="");
     void fillFacts();
     double getCurrentRatio(){return currentRatio_;};
     double getQuickRatio(){return quickRatio_;};
     double getCashRatio(){return cashRatio_;};
     double getCurrentAssets(){return currentAssets_;};
     double getCurrentLiabilities(){return currentLiabilities_;};
-    std::string getSecNS(){return sec_;};
-    std::string getFasbNS(){return fasb_;};
 };
 
 

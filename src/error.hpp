@@ -19,6 +19,10 @@ inline void MSG(std::string msg,int i)
 {
 	std::clog << msg <<":\t"<<std::to_string(i)<<"\n";
 };
+inline void MSG(std::string msg, double d)
+{
+	std::clog << msg << ":\t" << std::to_string(d) << "\n";
+}
 inline void MY_ASSERT(int expression)
 {assert(expression);};
 /*

@@ -52,6 +52,7 @@ sec::stock::stock(std::string sname, char interval):
 {
 	load_csvfile();
 	fillFacts();
+	unload_csvfile();
 }
 
 void sec::stock::updateTA()
