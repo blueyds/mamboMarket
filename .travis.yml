@@ -19,5 +19,3 @@ before_install:
 script:
   - "./configure --prefix=/usr" 
   - make
-  - "make check"
-  - "cat ./test-suite.log"
